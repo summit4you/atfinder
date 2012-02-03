@@ -8,9 +8,11 @@ Ext.define('Af.profile.panel', {
 		width: '640',
 		layout:'vbox',
 		id:'profilepanel',
+		scroll: true,
 		items:[
 			{
 				xtype: 'navigationbar',
+				docked: 'top', 
 				title: 'Me',
 				ui: 'af',
 				layout: 'vbox',
@@ -98,8 +100,320 @@ Ext.define('Af.profile.panel', {
 				] 
 			},
 			{
+				xtype: 'panel',
+				cls: 'profile-panel-1',
+				html:'<div class="profile-panel-content">今天的天气很好啊~发现了一家很好的甜品店，真的很好吃啊...</div><div class="profile-panel-subject"><ul><li><a href="#">#美食</a></li><li><a>#衣服</a></li><li><a>#衣服</a></li></ul><div>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-panel-1',
+				html:'<div class="profile-panel-content">西式餐馆&nbsp;&nbsp;&nbsp;&nbsp;地址: 天河粤垦路188号<br/>距离：0.8km..</div><div class="profile-panel-subject"><ul><li><a>#美食</a></li></ul><div>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-panel-1',
+				html: '<div class="profile-panel-row-bottom"><div class="profile-panel-cell-left">关&nbsp;&nbsp;注&nbsp;&nbsp;<b>336</b></div><div class="profile-panel-cell-right">&nbsp;<img src="resources/themes/images/default/like.png" width="16" height="16"/>&nbsp;&nbsp;&nbsp;<b>1046</b></div></div><div class="profile-panel-row"><div class="profile-panel-cell-left">粉&nbsp;&nbsp;丝&nbsp;&nbsp;<b>457</b></div><div class="profile-panel-cell-right">留&nbsp;&nbsp;言&nbsp;&nbsp;<b>602</b></div></div>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-title',
+				html: '<b>商&nbsp;&nbsp;家</b>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-panel',
+				layout: 'vbox',
+				//html:'<div class="profile-class-panel-row">43543543</div><div class="profile-class-panel-row-bottom">435435435</div>',
+				items: [
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_gift_icon.png" width="21"/><span class="class-title">商品</span><span class="class-value">126</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_discount_icon.png" width="21"/><span class="class-title">优惠</span><span class="class-value">228</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row-bottom',
+						html: '<img src="resources/themes/images/default/me_activi_icon.png" width="21"/><span class="class-title">活动</span><span class="class-value">176</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					}
+				]
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-title',
+				html: '<b>个&nbsp;&nbsp;人</b>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-panel',
+				layout: 'vbox',
+				//html:'<div class="profile-class-panel-row">43543543</div><div class="profile-class-panel-row-bottom">435435435</div>',
+				items: [
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_share_icon.png" width="21"/><span class="class-title">分享</span><span class="class-value">126</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_pic_icon.png" width="21"/><span class="class-title">图片</span><span class="class-value">228</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_vote_icon.png" width="21"/><span class="class-title">投票</span><span class="class-value">176</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row-bottom',
+						html: '<img src="resources/themes/images/default/me_feel_icon.png" width="21"/><span class="class-title">心情</span><span class="class-value">360</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					}
+				]
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-title',
+				html: '<b>好&nbsp;&nbsp;友</b>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-panel',
+				layout: 'vbox',
+				//html:'<div class="profile-class-panel-row">43543543</div><div class="profile-class-panel-row-bottom">435435435</div>',
+				items: [
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_find_icon.png" width="21"/><span class="class-title">寻找好友</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row-bottom',
+						html: '<img src="resources/themes/images/default/me_invite_icon.png" width="21"/><span class="class-title">邀请好友</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					}
+				]
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-title',
+				html: '<b>客户端</b>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-panel',
+				layout: 'vbox',
+				//html:'<div class="profile-class-panel-row">43543543</div><div class="profile-class-panel-row-bottom">435435435</div>',
+				items: [
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_setting_icon.png" width="21"/><span class="class-title">系统设置</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_account_icon.png" width="21"/><span class="class-title">帐户管理</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_bind_icon.png" width="21"/><span class="class-title">绑定</span><span style="padding-left:25px"><img src="resources/themes/images/default/me_weibo_icon.png" width="24"/></span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_advice_icon.png" width="21"/><span class="class-title">意见反馈</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row-bottom',
+						html: '<img src="resources/themes/images/default/me_about_icon.png" width="21"/><span class="class-title">关于</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					}
+				]
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-title',
+				html: '<b>支持爱发现</b>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'profile-class-panel',
+				layout: 'vbox',
+				//html:'<div class="profile-class-panel-row">43543543</div><div class="profile-class-panel-row-bottom">435435435</div>',
+				items: [
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '去给爱发现打个分，评价一下',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
+						cls: 'profile-class-panel-row-bottom',
+						html: '精品应用推荐',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					}
+				]
+			},
+			{
+				xtype: 'button',
+				cls: 'cbutton',
+				baseCls: 'x-button-af',
+				height: '35px',
+				flex:1,
+				html: '<img src="resources/themes/images/default/me_off.png" height="18px"></img>'
+			},
+			{
 				xtype : 'navigationbar',
-            	docked: 'buttom', 	
+            	docked: 'bottom', 	
 				height: 45,
 				ui: 'af',
 				layout: 'vbox',
@@ -161,7 +475,7 @@ Ext.define('Af.profile.panel', {
 					{
 						xtype: 'button',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/s_me_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/s_me_icon.png" width="26"></img>'
 					},
 					{
 						xtype: 'spacer',

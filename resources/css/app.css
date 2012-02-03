@@ -1,3 +1,6 @@
+img{
+	vertical-align:middle; /* 文字和图片居中 */
+}
 
 @font-face{
 		font-family:'mnjlx';
@@ -24,8 +27,8 @@
 	background-color: #188FDD;
 	/* background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5a81af), color-stop(2%, #304864), color-stop(100%, #192533));
 	background-image: -webkit-linear-gradient(#5a81af,#304864 2%,#192533);
-	background-image: linear-gradient(#5a81af,#304864 2%,#192533); */
-	border-color: black;
+	background-image: linear-gradient(#5a81af,#304864 2%,#192533);
+	border-color: black;  */
 	padding: 0 0em;
 }
 
@@ -102,6 +105,14 @@
 	padding: 0em 0em;
 }
 
+.x-toolbar.x-docked-bottom {
+	border-top: none;
+}
+
+.x-toolbar.x-docked-top {
+	border-bottom: none;
+}
+
 .x-button-af{
 	background-color: none;
 	border-color: black;
@@ -116,7 +127,7 @@
 
 .x-toolbar .af-toolbar-bbutton {
 	margin-top:9px;
-	margin-buttom:2px;
+	margin-bottom:2px;
 }
 
 
@@ -167,6 +178,171 @@
 .profile-infopanel li img{
 	width: 13px;
 	height: 12px;
+}
+
+.profile-panel-1 {
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-right: 15px;
+	border:solid #CCCCCC 1px;
+	font-family:'微软雅黑';
+	font-size:12px !important;
+	color:#666666;
+}
+
+.profile-panel-1 .profile-panel-content{
+	padding-top: 13px;
+	padding-left: 13px;
+	padding-right: 18px;
+}
+
+.profile-panel-1 .profile-panel-subject{
+	margin-top: 10px;
+	padding-right: 18px;
+	color: #43B3E9;
+}
+
+.profile-panel-1 .profile-panel-subject ul li{
+	float: left;
+	padding-left: 13px;
+}
+
+.profile-panel-1 .profile-panel-subject ul li a{
+	color: #43B3E9;
+	text-decoration: none;
+}
+
+.profile-panel-1 .profile-panel-subject ul li a:hover{
+	color: #188FDD;
+}
+
+.profile-panel-1 .profile-panel-row-bottom{
+	border-bottom: solid #CCCCCC 1px;
+	display: box;
+	display:-webkit-box;
+	display:-moz-box;
+  	box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+}
+
+.profile-panel-1 .profile-panel-cell-left{
+	border-right: solid #CCCCCC 1px;
+	text-align:center;
+	padding-top:12px;
+	padding-bottom:12px;
+	-webkit-box-flex: 1;
+	box-flex: 1;	
+}
+
+.profile-panel-1 .profile-panel-cell-right{
+	text-align:center;
+	padding-top:12px;
+	padding-bottom:12px;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+}
+
+.profile-panel-1 .profile-panel-row{
+	display: box;
+	display:-webkit-box;
+	display:-moz-box;
+  	box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+}
+
+.profile-class-title{
+	margin-top: 15px;
+	margin-left: 15px;
+	font-family:'方正兰亭黑简体';
+	font-size:14px !important;
+	color:#333333;
+}
+
+.profile-class-panel{
+	margin-top: 4px;
+	margin-left: 15px;
+	margin-right: 15px;
+	border:solid #CCCCCC 1px;
+	font-family:'微软雅黑';
+	font-size:12px !important;
+	color:#666666;
+}
+
+.profile-class-panel .profile-class-panel-row{
+	border-bottom: solid #CCCCCC 1px;
+}
+
+.profile-class-panel .profile-class-panel-row .x-innerhtml{
+	padding-left: 15px;
+	padding-top:12px;
+	padding-bottom:10px;
+}
+
+.profile-class-panel .profile-class-panel-row .x-innerhtml span{
+	padding-left:15px;
+}
+
+.profile-class-panel .profile-class-panel-row .x-innerhtml .class-title{
+	font-family:'微软雅黑';
+	font-size:12px !important;
+	color:#666666;
+}
+
+.profile-class-panel .profile-class-panel-row .x-innerhtml .class-value{
+	font-family:'微软雅黑';
+	font-size:15px !important;
+	font-weight:bold; 
+	color: #43B3E9;
+}
+
+.profile-class-panel  .rbutton{
+	padding-right: 12px;
+}
+
+.profile-class-panel .profile-class-panel-row-bottom{
+	
+}
+
+.profile-class-panel .profile-class-panel-row-bottom .x-innerhtml{
+	padding-left: 15px;
+	padding-top:12px;
+	padding-bottom:10px;
+}
+
+.profile-class-panel .profile-class-panel-row-bottom .x-innerhtml span{
+	padding-left:15px;
+}
+
+.profile-class-panel .profile-class-panel-row-bottom .x-innerhtml .class-title{
+	font-family:'微软雅黑';
+	font-size:12px !important;
+	color:#666666;
+}
+
+.profile-class-panel .profile-class-panel-row-bottom .x-innerhtml .class-value{
+	font-family:'微软雅黑';
+	font-size:15px !important;
+	font-weight:bold; 
+	color: #43B3E9;
+}
+
+.cbutton{
+	background-color:#FF5580; 
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+	margin-bottom: 40px;
+}
+
+.cbutton .x-innerhtml{
+	text-align:center;
+	
+}
+
+.cbutton .x-innerhtml img{
+	margin-top:9px;
 }
 	
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {

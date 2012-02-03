@@ -3,6 +3,7 @@ Ext.define('Af.panel', {
 	extend: 'Ext.Panel',
 	requires: ['Af.login.panel', 'Af.profile.panel'],
 	config:{
+		fullscreen: true,
 		layout: 'card',
 		activeItem: 1,
 		cardSwitchAnimation: 'slide',
