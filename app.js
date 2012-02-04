@@ -20,7 +20,7 @@ Ext.application({
             fullscreen: true,
         });
 		Ext.Viewport.add(form);
-		form.setActiveItem(1, 'fade');
+		form.setActiveItem(2, 'fade');
 		
 
     }

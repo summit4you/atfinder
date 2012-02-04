@@ -1,11 +1,11 @@
 Ext.define('Af.panel', {
 	
 	extend: 'Ext.Panel',
-	requires: ['Af.login.panel', 'Af.profile.panel'],
+	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel'],
 	config:{
 		fullscreen: true,
 		layout: 'card',
-		activeItem: 1,
+		activeItem: 3,
 		cardSwitchAnimation: 'slide',
 		items:[
 			{ 
@@ -15,6 +15,22 @@ Ext.define('Af.panel', {
 			{
 				xtype: 'af-profile-panel',
 				id: 'profilepanel'
+			},
+			{
+				xtype: 'af-inviting-panel',
+				id: 'invitingpanel'
+			},
+			{
+				xtype: 'af-account-panel',
+				id: 'accountpanel'
+			},
+			{
+				xtype: 'af-detailusers-panel',
+				id: 'detailuserspanel'
+			},
+			{
+				xtype: 'af-detailarticle-panel',
+				id: 'detailarticlepanel'
 			}
 		]
 	},
