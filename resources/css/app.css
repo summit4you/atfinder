@@ -328,6 +328,10 @@ img{
 	color: #43B3E9;
 }
 
+.cbutton-pressed{
+	background-color:#F32175 !important; /*覆盖之前的样式*/
+}
+
 .cbutton{
 	background-color:#FF5580; 
 	margin-left: 15px;
@@ -335,6 +339,8 @@ img{
 	margin-top: 15px;
 	margin-bottom: 40px;
 }
+
+
 
 .cbutton .x-innerhtml{
 	text-align:center;
@@ -370,6 +376,10 @@ img{
 	font-family:'微软雅黑';
 	font-size:12px !important;
 	color: #999999;
+}
+
+.inviting-cbutton-pressed{
+	background-color:#F32175 !important; /*覆盖之前的样式*/
 }
 
 .inviting-cbutton{
@@ -409,6 +419,78 @@ img{
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
+
+.account-formpanel input{
+	font-family:'微软雅黑';
+	font-size:12px !important;
+	color: #666666;
+	height: 40px;
+}
+
+.account-formpanel{
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.account-number-panel {
+	margin-top: 35px;
+}
+
+.account-psw-panel{
+	margin-top: 15px;
+}
+
+
+.account-cbutton-pressed{
+	background-color:#F32175 !important; /*覆盖之前的样式*/
+}
+
+.account-cbutton{
+	background-color:#FF5580; 
+	margin-top: 20px;
+	text-align:center;
+}
+
+.account-cbutton .x-innerhtml{
+	height:30px;
+	line-height:30px;
+	font-family:'lthj';
+	font-size:15px !important;
+	color:white;
+}
+
+.account-button-panle{
+	margin-top: 5px;
+}
+
+.account-button-clicked{
+	background-color:#FF5580;
+	height:60px;
+	width:60px; 
+	margin-right:15px;
+	margin-top:15px;
+	float:left;
+}
+
+.account-button-clicked .x-innerhtml img{
+	height:60px;
+	width:60px;
+}
+
+.account-button{
+	background-color:#43B3E9;
+	height:60px;
+	width:60px; 
+	margin-right:15px;
+	margin-top:15px;
+	float:left;
+}
+
+.account-button .x-innerhtml img{
+	height:60px;
+	width:60px;
+}
+
 
 
 	

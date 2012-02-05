@@ -407,6 +407,7 @@ Ext.define('Af.profile.panel', {
 				xtype: 'button',
 				cls: 'cbutton',
 				baseCls: 'x-button-af',
+				pressedCls: 'cbutton-pressed',
 				height: '35px',
 				flex:1,
 				html: '<img src="resources/themes/images/default/me_off.png" height="18px"></img>'

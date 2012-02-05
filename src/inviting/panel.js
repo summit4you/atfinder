@@ -95,6 +95,7 @@ Ext.define('Af.inviting.panel', {
 						xtype: 'button',
 						cls: 'inviting-cbutton',
 						baseCls: 'x-button-af',
+						pressedCls: 'inviting-cbutton-pressed',
 						height: '30px',
 						html: '<b>邀&nbsp;&nbsp;请</b>',
 					},
