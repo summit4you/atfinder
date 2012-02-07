@@ -42,9 +42,6 @@ Ext.define('Af.login.panel', {
 				cls: 'login-logo-panel',
 				html:'<img src="resources/themes/images/default/logo_icon.png" height="45px"/>'
 			},
-			{
-				
-			}
 		
 		]
 	},

@@ -10,7 +10,7 @@ Ext.define('Af.feed.panel', {
 		id: 'feedpanel',
 		items: [{
 			xtype: 'navigationbar',
-			title: '动态',
+			title: '<b>动&nbsp;&nbsp;态</b>',
 			ui: 'af',
 			layout: 'vbox',
 			height: 30,
@@ -42,10 +42,10 @@ Ext.define('Af.feed.panel', {
 					cls: 'login-right-button',
                     items: [{
                             xtype: 'button',
-                            cls: 'af-toolbar-right-button',
                             baseCls: 'x-button-af',
                             height: 100,
-							html: '<img src="resources/themes/images/default/feed_r1_c32.png"></img>'
+                            docked: 'right',
+							html: '<img src="resources/themes/images/default/feed_r1_c32.png" width="29px"></img>'
                             }],
 					flex:0.14
 				},
