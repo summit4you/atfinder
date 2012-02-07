@@ -1,7 +1,7 @@
 Ext.define('Af.panel', {
 	
 	extend: 'Ext.Panel',
-	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel'],
+	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel'],
 	config:{
 		fullscreen: true,
 		layout: 'card',
@@ -31,6 +31,10 @@ Ext.define('Af.panel', {
 			{
 				xtype: 'af-detailarticle-panel',
 				id: 'detailarticlepanel'
+			},
+			{
+				xtype: 'af-feed-panel',
+				id: 'feedpanel'
 			}
 		]
 	},
