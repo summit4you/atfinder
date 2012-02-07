@@ -224,6 +224,20 @@ Ext.define('Af.profile.panel', {
 					},
 					{
 						xtype:'panel',
+						cls: 'profile-class-panel-row',
+						html: '<img src="resources/themes/images/default/me_see_icon.png" width="21"/><span class="class-title">发现</span><span class="class-value">89</span>',
+						items:[
+							{
+								xtype:'button',
+								cls: 'rbutton',
+								baseCls: 'x-button-af',
+								docked: 'right',
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+							}
+						]
+					},
+					{
+						xtype:'panel',
 						cls: 'profile-class-panel-row-bottom',
 						html: '<img src="resources/themes/images/default/me_feel_icon.png" width="21"/><span class="class-title">心情</span><span class="class-value">360</span>',
 						items:[
