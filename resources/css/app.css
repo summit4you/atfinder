@@ -925,6 +925,87 @@ img{
 	text-align:center;
 }
 
+.login-formpanel {
+	padding-left: 30px;
+	padding-right: 30px;
+	min-height:360px;
+}
+.login-formpanel input{
+	font-family:'微软雅黑';
+	font-size:12px !important;
+	color: #666666;
+	height: 40px;
+	line-height:14px;
+	padding-left:15px;
+}
+
+.login-formpanel .login-number-panel{
+	margin-top:25px;
+}
+
+.login-formpanel .login-psw-panel{
+	margin-top:15px;
+}
+
+.login-formpanel .login-verify-panel{
+	margin-top:15px;
+}
+
+.login-formpanel .login-verify-panel .login-vbutton{
+	background-color:#43B3E9; 
+	text-align:center;
+	margin-left:10px;
+	height:40px;
+}
+
+.login-vbutton .x-innerhtml{
+	height:40px;
+	line-height:40px;
+	font-family:'lthj';
+	font-size:15px !important;
+	color:white;
+}
+
+.login-vbutton-pressed{
+	background-color:#188FDD !important; /*覆盖之前的样式*/
+}
+
+.login-cbutton-pressed{
+	background-color:#F32175 !important; /*覆盖之前的样式*/
+}
+
+.login-cbutton{
+	background-color:#FF5580; 
+	margin-top: 25px;
+	text-align:center;
+	margin-bottom: 5px;
+}
+
+.login-cbutton .x-innerhtml{
+	height:30px;
+	line-height:30px;
+	font-family:'lthj';
+	font-size:15px !important;
+	color:white;
+}
+
+.login-rbutton-panel{
+	padding-right:0px ;
+}
+
+.login-rbutton{
+	margin-top: 27px;
+	margin-bottom: 43px;
+	margin-right:16px;
+	height:30px;
+	width:30px;
+	background-color:#999999 !important;
+}
+
+.login-rbutton-pressed img{
+	background-color:#666666 !important;
+}
+
 	
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {
 	
