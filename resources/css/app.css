@@ -1006,6 +1006,71 @@ img{
 	background-color:#666666 !important;
 }
 
+.tag-formpanel{
+	margin-left:30px;
+	margin-right:30px;
+}
+
+.tag-formpanel .tags-panel{
+	margin-top:28px;
+	margin-bottom:13px;
+}
+
+.tag-formpanel .tags-panel textarea{
+	height:135px;
+	min-height:135px;
+	font-family:'微软雅黑';
+	font-size:12px !important;
+	color: #999999;
+	padding-left:6px;
+	background-color:white;
+}
+
+.tag-cbutton-pressed{
+	background-color:#FF5580 !important; /*覆盖之前的样式*/
+	margin-top: 10px;
+	text-align:center;
+	margin-left:10px;
+	display:inline-block; /* 使得子元素会自动换行 */
+}
+
+.tag-cbutton-pressed .x-innerhtml{
+	height:30px;
+	line-height:30px;
+	font-family:'lthj';
+	font-size:15px !important;
+	color:white;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.tags-list{
+	height:400px;
+}
+
+.tags-list{
+	margin-left:-10px;
+}
+
+.tag-cbutton{
+	background-color:#43B3E9; 
+	margin-top: 10px;
+	text-align:center;
+	margin-left:10px;
+	display:inline-block; /* 使得子元素会自动换行 */
+}
+
+.tag-cbutton .x-innerhtml{
+	height:30px;
+	line-height:30px;
+	font-family:'lthj';
+	font-size:15px !important;
+	color:white;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+
 	
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {
 	

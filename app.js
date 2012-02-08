@@ -20,8 +20,13 @@ Ext.application({
             fullscreen: true,
         });
 		Ext.Viewport.add(form);
-		form.setActiveItem(0, 'fade');
-		
+		if (localStorage.getItem('visited')==null){
+			//第一次访问进入guid
+			form.setActiveItem(9, 'fade');
+			localStorage.setItem('visited', true)
+		}else{
+			form.setActiveItem(0, 'fade');
+		}
 
     }
 });
