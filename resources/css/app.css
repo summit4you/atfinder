@@ -1070,6 +1070,22 @@ img{
 	padding-right:10px;
 }
 
+.discover-forward-button {
+	position: absolute;
+	top: 80px;
+	right: 20px;
+}
+
+.discover-title {
+	padding-bottom: 20px;
+}
+.discover-buttons {
+	margin-left: 20px;
+	padding-bottom: 10px;
+}
+.discover-button {
+	padding-right: 10px;
+}
 
 	
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {

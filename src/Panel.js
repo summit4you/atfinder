@@ -1,7 +1,7 @@
 Ext.define('Af.panel', {
 	
 	extend: 'Ext.Panel',
-	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel', 'Af.tag.panel', 'Af.guid.panel'],
+	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel', 'Af.tag.panel', 'Af.guid.panel', 'Af.discover.panel'],
 
 	config:{
 		id: 'main-panel',
@@ -52,6 +52,10 @@ Ext.define('Af.panel', {
 				xtype: 'af-guid-panel',
 				id: 'guidpanel'
 
+			},
+			{
+				xtype: 'af-discover-panel',
+				id: 'discoverpanel'
 			}
 		]
 	},
