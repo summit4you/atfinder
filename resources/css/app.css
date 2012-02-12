@@ -1087,6 +1087,12 @@ img{
 	padding-right: 10px;
 }
 
+// feed part begin
+.feed-article-angle img{
+	margin-left: 40px;
+}
+// feed part end
+
 	
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {
 	

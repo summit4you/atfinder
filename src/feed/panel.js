@@ -1,5 +1,5 @@
 Ext.regModel('Article', {
-   fields: ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot']
+   fields: ['usrImg', 'username', 'share', 'class', 'address', 'review', 'like', 'time', 'hot']
 });
 
 var store = new Ext.data.JsonStore({
@@ -11,11 +11,9 @@ var store = new Ext.data.JsonStore({
    },
 
    data: [
-       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', title:'西式餐馆', address:'天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1'},
-       {usrImg: 'resources/themes/images/default/friends/2.png',   username: '日本鱼子饭', score:'120', title:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'159', isset:'1'},
-       {usrImg: 'resources/themes/images/default/friends/3.png',   username: 'AngleSimple', score:'217', title:'艺术蛋糕', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.5', hot:'346', isset:'0'},
-       {usrImg: 'resources/themes/images/default/friends/4.png',   username: '日本小丸子', score:'321', title:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'215', isset:'0'},
-       {usrImg: 'resources/themes/images/default/friends/5.png',   username: '王品台塑牛排', score:'90', title:'西式餐馆', address:'天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1'}
+       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '水木灵', share:'90', title:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', like:'0', time:'0.8', hot:'270', isset:'1'},
+       {usrImg: 'resources/themes/images/default/friends/2.png',   username: '水木灵', share:'120', title:'日式餐馆', address:'天河粤垦路188号', review:'2', like:'32', time:'0.9', hot:'159', isset:'1'},
+       {usrImg: 'resources/themes/images/default/friends/3.png',   username: '水木灵', share:'217', title:'艺术蛋糕', address:'天河粤垦路188号', review:'2', like:'32', time:'0.5', hot:'346', isset:'0'},
    ]
 });
 
@@ -91,17 +89,37 @@ Ext.define('Af.feed.panel', {
                     }
                 ]
 		}, 
+		// switch status bar
+		{
+			xtype: 'panel',
+			cls: 'feed-switch-status',
+			html: ''
+		},
 		// horizontal boxs
         {
             xtype: 'panel',
             cls: 'feed-content-card',
-            height: 800,
-            width: 640,
+            flex: 1,
             layout: 'card',
             items: [
-                    {
-                        html: '<h1>hello</h1><p><h1>hello</h1><p><h1>hello</h1><p><h1>hello</h1>'
-                    },
+    		// articles list
+	            	{
+	            		xtype: 'list',
+	            		cls: 'articles-list',
+	            		selectedCls: 'articles-list-selectd',
+	            		itemTpl: '<div class="feed-article-user" style="float:left;">'+
+	            		'<img src={usrImg} width="60px" style="float:left;"/>'+
+	            		'<span style="float:left;margin-top:65px; margin-left:-60px; ">{username}</span></div>'+
+	            		'<div class="feed-article-angle"><img style="margin-left:10px; margin-top: -8px;" src="resources/themes/images/default/article_angle.png"/></div>'+
+	            		' <div class="article" style="background:white; float: left; margin-left:25px; margin-top:-22px; min-width:320px;">'+
+	            		'<div class="hot" style="float: right; color:red;">{hot}°C</div>'+
+	            		'<div class="article-title" >{title}</div>'+
+	            		'<div class="article-content" style="width: 300px;">{address}'+
+	            		'</div><div class="article-time">{time}分钟前</div>'+
+	            		'<div class="article-actions" style="float: right;"></div><a href="#"><img src="resources/themes/images/default/feed_like.png" style=""/>{like}</a><a href="#"><img src="resources/themes/images/default/feed_comment.png" style=""/>{review}</a><a href="#"><img src="resources/themes/images/default/feed_share.png" style=""/>{share}</a></div>', 
+	            		store: store,
+	            		flex: 1,
+	            	},		
                     {
                         html: "First item"
                     },
@@ -111,15 +129,83 @@ Ext.define('Af.feed.panel', {
                 ]
         },
 		 
-		// articles list
-		/*{
-			xtype: 'list',
-			cls: 'articles-list',
-			selectedCls: 'articles-list-selectd',
-			itemTpl: '<div class="user" style="float:left;"><img src={usrImg} width="60px" style="float:left;"/><span style="float:left;margin-top:65px; margin-left:-60px; ">{username}</span></div> <div class="article"><div class="article-title">{title}</div><div class="hot">{article-hot}</div><div class="article-content">{address}</div><div class="article-time">{distance}</div><div class="article-actions"></div></div>',
-			store: store,
-			flex: 1,
-		}*/		
+		
+// bottom bar
+			{
+				xtype : 'navigationbar',
+            	docked: 'bottom', 	
+				height: 45,
+				ui: 'af',
+				layout: 'vbox',
+				items:[
+					{
+						xtype: 'spacer',
+						//width: 25,
+						//flex: 50/640,
+						flex: 0.09375
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/feed_icon.png" width="25"></img>'
+					},
+					{
+						xtype: 'spacer',
+						//width: 30,
+						//flex: 61/640,
+						flex: 0.0953125
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>'
+					},
+					{
+						xtype: 'spacer',
+						//width: 40,
+						//flex: 80/640,
+						flex: 0.09375
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/heart_icon.png" width="37"></img>'
+					},
+					{
+						xtype: 'spacer',
+						//width: 40,
+						//flex: 80/640,
+						flex: 0.125
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/activi_icon.png" width="25"></img>'
+					},
+					{
+						xtype: 'spacer',
+						//width: 30,
+						//flex: 60/640,
+						flex: 0.09375
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/me_icon.png" width="25"></img>'
+					},
+					{
+						xtype: 'spacer',
+						//width: 26,
+						//flex: 52/640,
+						flex: 0.08125
+                	},
+				]
+			},
 		]
 	},
 	initComponent: function() {
