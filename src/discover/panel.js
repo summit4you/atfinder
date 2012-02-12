@@ -118,15 +118,23 @@ Ext.define('Af.profile.panel', {
 				xtype: 'panel',
 				cls: 'discover-forward-button',
 				html: '<img src="resources/themes/images/default/discover/discover_r7_c80.png"></img>',
+				listeners: { // TODO: not works
+					el: {
+						click: function() {
+							console.log('clicked');
+						}
+					}
+				}
 			},
 // content
 			{
 				xtype:'panel',
 				// TODO: use height: '850' will be nothing out.
-				height: 650,
+				//height: 650,
+				flex: 1,
 				layout: 'card',
 				scroll: true,
-				activeItem: 1,
+				activeItem: 1, // TODO: not works
 				items:[
 						{
 							xtype: 'panel',
