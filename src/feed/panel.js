@@ -75,17 +75,51 @@ Ext.define('Af.feed.panel', {
 			]
 		},
 		// switch bar
+		{
+	        xtype: 'navigationbar',
+            ui: 'af',
+            height: 30,
+            items: [
+                    {
+                        html: '全部'
+                    },
+                    {
+                        html: '好友'
+                    },
+                    {
+                        html: '附近'
+                    }
+                ]
+		}, 
 		// horizontal boxs
+        {
+            xtype: 'panel',
+            cls: 'feed-content-card',
+            height: 800,
+            width: 640,
+            layout: 'card',
+            items: [
+                    {
+                        html: '<h1>hello</h1><p><h1>hello</h1><p><h1>hello</h1><p><h1>hello</h1>'
+                    },
+                    {
+                        html: "First item"
+                    },
+                    {
+                        html: "First item"
+                    },
+                ]
+        },
 		 
 		// articles list
-		{
+		/*{
 			xtype: 'list',
 			cls: 'articles-list',
 			selectedCls: 'articles-list-selectd',
 			itemTpl: '<div class="user" style="float:left;"><img src={usrImg} width="60px" style="float:left;"/><span style="float:left;margin-top:65px; margin-left:-60px; ">{username}</span></div> <div class="article"><div class="article-title">{title}</div><div class="hot">{article-hot}</div><div class="article-content">{address}</div><div class="article-time">{distance}</div><div class="article-actions"></div></div>',
 			store: store,
 			flex: 1,
-		}		
+		}*/		
 		]
 	},
 	initComponent: function() {

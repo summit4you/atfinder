@@ -113,12 +113,20 @@ Ext.define('Af.profile.panel', {
                 	},
 				]
 			},
+// forward button			
+			{
+				xtype: 'panel',
+				cls: 'discover-forward-button',
+				html: '<img src="resources/themes/images/default/discover/discover_r7_c80.png"></img>',
+			},
 // content
 			{
-				xtype:'carousel',
+				xtype:'panel',
 				// TODO: use height: '850' will be nothing out.
 				height: 650,
+				layout: 'card',
 				scroll: true,
+				activeItem: 1,
 				items:[
 						{
 							xtype: 'panel',
@@ -158,11 +166,6 @@ Ext.define('Af.profile.panel', {
 											html: '<img src="resources/themes/images/default/discover/discover_r22_c41.png"></img>'
 										},
 									]
-								},
-								{
-									xtype: 'panel',
-									cls: 'discover-forward-button',
-									html: '<img src="resources/themes/images/default/discover/discover_r7_c80.png"></img>'
 								},
 							]
 							
@@ -223,16 +226,11 @@ Ext.define('Af.profile.panel', {
 										},
 									]
 								},
-								{
-									xtype: 'panel',
-									cls: 'discover-forward-button',
-									html: '<img src="resources/themes/images/default/discover/discover_r29_c82.png"></img>'
-								},
+								
 							]
 							
 						}
 					],
-				activeItem: 0,
 			},
 		]
 	}
