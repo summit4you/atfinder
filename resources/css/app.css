@@ -43,6 +43,18 @@ img{
 	line-height:45px;
 	height:45px;
 }
+.x-toolbar-af3 {
+	background-color: #188FDD;
+	/* background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5a81af), color-stop(2%, #304864), color-stop(100%, #192533));
+	background-image: -webkit-linear-gradient(#5a81af,#304864 2%,#192533);
+	background-image: linear-gradient(#5a81af,#304864 2%,#192533);
+	border-color: black;  */
+	padding: 0 0em;
+	text-align:center;
+	line-height:45px;
+	height:45px;
+}
+
 
 
 .login-left-button{
@@ -134,7 +146,7 @@ img{
 
 .af-toolbar-button img{
 	width:50%; 
-	hieght:50%;
+	height:50%;
 }
 
 .x-toolbar .af-toolbar-bbutton {

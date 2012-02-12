@@ -75,7 +75,13 @@ Ext.define('Af.feed.panel', {
 		// switch bar
 		{
 	        xtype: 'navigationbar',
-            ui: 'af',
+            //ui: 'af',
+            layout: {
+            	type: 'vbox',
+            	pack: 'center',
+            	align: 'middle',
+            },
+            style: 'background: #333333;',
             height: 30,
             items: [
                     {
@@ -93,7 +99,9 @@ Ext.define('Af.feed.panel', {
 		{
 			xtype: 'panel',
 			cls: 'feed-switch-status',
-			html: ''
+			style: 'background-color:#188fdd;',
+			html: '<div style="background-color:red;width:30%;margin: 0 auto;">&nbsp;</div>',
+			flex: 0.005
 		},
 		// horizontal boxs
         {
