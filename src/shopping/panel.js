@@ -97,16 +97,19 @@ Ext.define('Af.shopping.panel', {
             layout: {
             	type: 'vbox',
             	pack: 'center',
-            	align: 'middle',
+            	align: 'stretch',
             },
-            height: 20,
+            defaults:{
+            	flex: 1,
+            	style: 'background: none; border:none;',
+            },
             style: 'background: #333333;',
             items: [
                     {
                         html: '商&nbsp;&nbsp;家'
                     },
                     {
-                        html: '推荐商品'
+                        html: '<font color="red">推荐商品'
                     },
                     {
                         html: '优惠券'
