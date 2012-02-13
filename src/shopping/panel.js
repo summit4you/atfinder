@@ -19,6 +19,20 @@ var store = new Ext.data.JsonStore({
    ]
 });
 
+function moveSlide(b, e){
+	var p1 = Ext.get('a_1');
+	Ext.Anim.run( p1, 'fade', {
+		out: false,
+		autoClear: true,
+		direction : 'left',
+		width:30,
+		after: function(el) {
+			
+		}
+	});
+	
+}
+
 Ext.define('Af.shopping.panel', {
 	
 	extend: 'Ext.Panel',
@@ -99,20 +113,31 @@ Ext.define('Af.shopping.panel', {
             	pack: 'center',
             	align: 'stretch',
             },
-            defaults:{
-            	flex: 1,
-            	style: 'background: none; border:none;',
-            },
-            style: 'background: #333333;',
+            height:22,
             items: [
                     {
-                        html: '商&nbsp;&nbsp;家'
+						xtype:'button',
+						cls: 'shopping-cbutton',
+						baseCls: 'x-button-af',
+                        html: '商&nbsp;&nbsp;家',
+						flex:1,
+						handler: moveSlide
                     },
                     {
-                        html: '<font color="red">推荐商品'
+						xtype:'button',
+						cls: 'shopping-cbutton-red',
+						baseCls: 'x-button-af',
+                        html: '推荐商品',
+						flex:1,
+						handler: moveSlide
                     },
                     {
-                        html: '优惠券'
+						xtype:'button',
+						cls: 'shopping-cbutton',
+						baseCls: 'x-button-af',
+                        html: '优惠券',
+						flex:1,
+						handler: moveSlide
                     }
                 ]
 		}, 
@@ -120,8 +145,28 @@ Ext.define('Af.shopping.panel', {
 		{
 			xtype: 'panel',
 			cls: 'feed-switch-status',
+			
+			 layout: 'hbox',
+			
 			style: 'background-color: #188fdd;',
-			html: '<div style="background-color:red;width:30%;margin: 0 auto;">&nbsp;</div>',
+			items:[
+				{
+					xtype:'spacer',
+					flex:1
+				},
+				{
+					id:'a_1',
+					xtype: 'panel',
+					flex: 1,
+					style: 'background-color: red;',
+				
+				},
+				{
+					xtype:'spacer',
+					flex:1
+				}
+			],
+			
 			flex: 0.005
 		},
 		// content
@@ -132,9 +177,15 @@ Ext.define('Af.shopping.panel', {
 			items: [
 			{
 				xtype: 'list',
-				cls: 'friends-list',
-				selectedCls:  'friends-list-selected',
-				itemTpl: '<img src={usrImg} width="75px" style="float:left;"/><div style="float:left;"><div class="row" style="height:16px;line-height:16px;"><span class="username">{username}</span><img src="resources/themes/images/default/friends_score.png" width="13px" style="margin-left:5px;"/><span class="score">{score}</span></div><div class="row" style="height:16px;line-height:16px;"><span class="class">{class}</span></div><div class="row"  style="height:16px;line-height:16px;"><span class="address">地址:{address}</span></div><div class="row" style="height:12px;line-height:12px;"><span class="review">评价<tpl if="review &gt; 0"><a href="#">({review})</a></tpl>   粉丝<tpl if="fans &gt; 0"><a href="#">({fans})</a></tpl>   距离：{distance}km</span></div></div><div class="hot-panel <tpl if="hot &lt; 270">hot-bkcolor-blue</tpl> <tpl else">hot-bkcolor-red</tpl>" style="">{hot}℃<img src="resources/themes/images/default/right_angle.png" width="8px" style="top: 10px;right: 20px;position: relative;float:right; "/></div>',
+				cls: 'shopping-list',
+				selectedCls:  'shopping-list-selected',
+				itemTpl: new Ext.XTemplate('<img src={usrImg} width="75px" style="float:left;"/>',
+				'<div style="float:left;"><div class="row" style="height:16px;line-height:16px;"><span class="username">{username}</span><img src="resources/themes/images/default/friends_score.png" width="13px" style="margin-left:5px;"/><span class="score">{score}</span></div><div class="row" style="height:16px;line-height:16px;"><span class="class">{class}</span></div><div class="row"  style="height:16px;line-height:16px;"><span class="address">地址:{address}</span></div><div class="row" style="height:12px;line-height:12px;"><span class="review">评价<tpl if="review &gt; 0"><a href="#">({review})</a></tpl>   粉丝<tpl if="fans &gt; 0"><a href="#">({fans})</a></tpl>   距离：{distance}km</span></div></div><div class="hot-panel">',
+				'<span class="',
+				' <tpl if="hot &lt; 270">hot-color-blue</tpl> <tpl if="hot &lt; 270">hot-color-red</tpl>',
+				' ">{hot}</span><div class="hot-white-font ',
+				'<tpl if="hot &lt; 270">hot-bkcolor-blue</tpl> <tpl else">hot-bkcolor-red</tpl>">℃',
+				'</div></div>'),
 				store: store,
 			}
 			]

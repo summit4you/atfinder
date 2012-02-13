@@ -25,7 +25,7 @@ Ext.application({
 			form.setActiveItem(9, 'fade');
 			localStorage.setItem('visited', true)
 		}else{
-			form.setActiveItem(0, 'fade');
+			form.setActiveItem(11, 'fade');
 		}
 
     }
