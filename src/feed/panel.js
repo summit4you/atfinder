@@ -1,5 +1,5 @@
 Ext.regModel('Article', {
-   fields: ['usrImg', 'username', 'share', 'class', 'address', 'review', 'like', 'time', 'hot']
+   fields: ['usrImg', 'username', 'share', 'class', 'address', 'review', 'like', 'time', 'hot', 'vip']
 });
 
 var store = new Ext.data.JsonStore({
@@ -11,9 +11,9 @@ var store = new Ext.data.JsonStore({
    },
 
    data: [
-       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '水木灵', share:'90', title:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', like:'0', time:'0.8', hot:'270', isset:'1'},
-       {usrImg: 'resources/themes/images/default/friends/2.png',   username: '水木灵', share:'120', title:'日式餐馆', address:'天河粤垦路188号', review:'2', like:'32', time:'0.9', hot:'159', isset:'1'},
-       {usrImg: 'resources/themes/images/default/friends/3.png',   username: '水木灵', share:'217', title:'艺术蛋糕', address:'天河粤垦路188号', review:'2', like:'32', time:'0.5', hot:'346', isset:'0'},
+       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '水木灵', share:'90', title:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', like:'0', time:'0.8', hot:'60', vip:'1'},
+       {usrImg: 'resources/themes/images/default/friends/2.png',   username: '水木灵', share:'120', title:'日式餐馆', address:'天河粤垦路188号', review:'2', like:'32', time:'0.9', hot:'159', vip:'1'},
+       {usrImg: 'resources/themes/images/default/friends/3.png',   username: '水木灵', share:'217', title:'艺术蛋糕', address:'天河粤垦路188号', review:'2', like:'32', time:'0.5', hot:'9', vip:'0'},
    ]
 });
 
@@ -79,19 +79,30 @@ Ext.define('Af.feed.panel', {
             layout: {
             	type: 'vbox',
             	pack: 'center',
-            	align: 'middle',
+            	align: 'stretch',
             },
-            style: 'background: #333333;',
-            height: 30,
+            height:22,
             items: [
                     {
-                        html: '全部'
+						xtype:'button',
+						cls: 'shopping-cbutton',
+						baseCls: 'x-button-af',
+                        html: '全&nbsp;&nbsp;部',
+						flex:1,
                     },
                     {
-                        html: '好友'
+						xtype:'button',
+						cls: 'shopping-cbutton-red',
+						baseCls: 'x-button-af',
+                        html: '好&nbsp;&nbsp;友',
+						flex:1,
                     },
                     {
-                        html: '附近'
+						xtype:'button',
+						cls: 'shopping-cbutton',
+						baseCls: 'x-button-af',
+                        html: '附&nbsp;&nbsp;近',
+						flex:1,
                     }
                 ]
 		}, 
@@ -99,8 +110,28 @@ Ext.define('Af.feed.panel', {
 		{
 			xtype: 'panel',
 			cls: 'feed-switch-status',
-			style: 'background-color:#188fdd;',
-			html: '<div style="background-color:red;width:30%;margin: 0 auto;">&nbsp;</div>',
+			
+			 layout: 'hbox',
+			
+			style: 'background-color: #188fdd;',
+			items:[
+				{
+					xtype:'spacer',
+					flex:1
+				},
+				{
+					id:'a_1',
+					xtype: 'panel',
+					flex: 1,
+					style: 'background-color: red;',
+				
+				},
+				{
+					xtype:'spacer',
+					flex:1
+				}
+			],
+			
 			flex: 0.005
 		},
 		// horizontal boxs
@@ -113,18 +144,25 @@ Ext.define('Af.feed.panel', {
     		// articles list
 	            	{
 	            		xtype: 'list',
-	            		cls: 'articles-list',
-	            		selectedCls: 'articles-list-selectd',
-	            		itemTpl: '<div class="feed-article-user" style="float:left;">'+
-	            		'<img src={usrImg} width="60px" style="float:left;"/>'+
-	            		'<span style="float:left;margin-top:65px; margin-left:-60px; ">{username}</span></div>'+
-	            		'<div class="feed-article-angle"><img style="margin-left:10px; margin-top: -8px;" src="resources/themes/images/default/article_angle.png"/></div>'+
-	            		' <div class="article" style="background:white; float: left; margin-left:25px; margin-top:-22px; min-width:320px;">'+
-	            		'<div class="hot" style="float: right; color:red;">{hot}°C</div>'+
-	            		'<div class="article-title" >{title}</div>'+
-	            		'<div class="article-content" style="width: 300px;">{address}'+
-	            		'</div><div class="article-time">{time}分钟前</div>'+
-	            		'<div class="article-actions" style="float: right;"></div><a href="#"><img src="resources/themes/images/default/feed_like.png" style=""/>{like}</a><a href="#"><img src="resources/themes/images/default/feed_comment.png" style=""/>{review}</a><a href="#"><img src="resources/themes/images/default/feed_share.png" style=""/>{share}</a></div>', 
+	            		cls: 'feed-list',
+	            		selectedCls: 'feed-list-selectd',
+	            		itemTpl: new Ext.XTemplate('<div class="feed-user" >',
+	            		'<img src={usrImg} width="60px" />',
+	            		'<img class="user-vip" <tpl if="vip==0">style="display:none;"</tpl> src="resources/themes/images/default/v.png"/>',
+	            		'<div class="username" >{username}</div></div>',
+	            		'<div class="feed-article-angle"><img style="margin-left:10px; margin-top: -8px;" src="resources/themes/images/default/article_angle.png"/></div>',
+	            		'<div class="row">',
+	            		'<div class="',
+	            		'<tpl if="hot &gt; 0">hot-color-gray</tpl> ',
+	            		'<tpl if="hot &gt; 10">hot-color-lightpink</tpl> ',
+	            		'<tpl if="hot &gt; 30">hot-color-pink</tpl> ',
+	            		'<tpl if="hot &gt; 100">hot-color-red</tpl> ',
+	            		'">{hot}℃</div>',
+	            		'<div class="title" >{title}</div>',
+	            		'<div class="content" >{address}',
+	            		'</div><div class="time">{time}分钟前</div>',
+	            		'<div class="actions" ><a href="#"><img src="resources/themes/images/default/feed_like.png" style=""/>{like}</a><a href="#"><img src="resources/themes/images/default/feed_comment.png" style=""/>{review}</a><a href="#"><img src="resources/themes/images/default/feed_share.png" style=""/>{share}</a></div>',
+	            		'</div>'), 
 	            		store: store,
 	            		flex: 1,
 	            	},		

@@ -11,7 +11,7 @@ var store = new Ext.data.JsonStore({
    },
 
    data: [
-       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1'},
+       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1'},
        {usrImg: 'resources/themes/images/default/friends/2.png',   username: '日本鱼子饭', score:'120', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'159', isset:'1'},
        {usrImg: 'resources/themes/images/default/friends/3.png',   username: 'AngleSimple', score:'217', class:'艺术蛋糕', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.5', hot:'346', isset:'0'},
        {usrImg: 'resources/themes/images/default/friends/4.png',   username: '日本小丸子', score:'321', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'215', isset:'0'},
@@ -144,7 +144,7 @@ Ext.define('Af.shopping.panel', {
 		// switch status bar
 		{
 			xtype: 'panel',
-			cls: 'feed-switch-status',
+			cls: 'shopping-switch-status',
 			
 			 layout: 'hbox',
 			
