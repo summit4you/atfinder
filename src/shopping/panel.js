@@ -182,7 +182,7 @@ Ext.define('Af.shopping.panel', {
 				itemTpl: new Ext.XTemplate('<img src={usrImg} width="75px" style="float:left;"/>',
 				'<div style="float:left;"><div class="row" style="height:16px;line-height:16px;"><span class="username">{username}</span><img src="resources/themes/images/default/friends_score.png" width="13px" style="margin-left:5px;"/><span class="score">{score}</span></div><div class="row" style="height:16px;line-height:16px;"><span class="class">{class}</span></div><div class="row"  style="height:16px;line-height:16px;"><span class="address">地址:{address}</span></div><div class="row" style="height:12px;line-height:12px;"><span class="review">评价<tpl if="review &gt; 0"><a href="#">({review})</a></tpl>   粉丝<tpl if="fans &gt; 0"><a href="#">({fans})</a></tpl>   距离：{distance}km</span></div></div><div class="hot-panel">',
 				'<span class="',
-				' <tpl if="hot &lt;= 270">hot-color-blue</tpl> <tpl if="hot &gt; 270">hot-color-red</tpl>',
+				' <tpl if="hot &lt; 270">hot-color-blue</tpl> <tpl if="hot &gt;= 270">hot-color-red</tpl>',
 				' ">{hot}</span><div class="hot-white-font ',
 				'<tpl if="hot &lt; 270">hot-bkcolor-blue</tpl> <tpl else">hot-bkcolor-red</tpl>">℃',
 				'</div></div>'),
