@@ -99,20 +99,51 @@
 * follower_num
 * distance
 
+<h2 id="tjsplb">推荐商品列表</h2>
+按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
+### 请求参数
+同“商家列表”
+### 返回字段
+* goods_id
+* name
+* img
+* like_num
+* hot
+* price
+* score
+* comment_num
+* share_num
+* distance
 
-1. 用户帖子列表:
-    a)好友帖子；
-    b)以用户部分特征为依据的内容输出，如地理位置；
-    c)用户无关的内容输出，按照时间排序。
-    分类:
-        全部（c），好友（a），附近（b）
-    返回内容：
-        
-    全部:
-        
-    Friends:
-        feeds sort by update time cascade with friends;
-    Nearby:
-        ... with location nearby
-    defaults:
-        10 records per requirement       
+<h2 id="yhqlb">优惠券列表</h2>
+按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
+### 请求参数
+同“商家列表”
+### 返回字段
+* coupon_id
+* name
+* img
+* like_num
+* cutoff 
+* validity
+* origin_price
+* price
+* comment_num
+* share_num
+* distance
+
+<h2 id="hdlb">活动列表</h2>
+按照地理距离进行排序，获取用户GPS信息
+### 请求参数
+* uid
+* lat
+* lng
+### 返回字段
+* activity_id
+* title
+* img
+* hoster
+* time
+* location
+* like_num
+* participate_num
