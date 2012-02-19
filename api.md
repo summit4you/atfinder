@@ -35,37 +35,36 @@
 #### <a id="dtlb">动态列表</a>
 动态列表，分全部、好友、附近
  
- * 全部动态：
-       * 请求参数：
-         * page 默认为0
-         * count 默认为10
-       * 返回字段：  
-	    * uid
-	    * user_img
-	    * user_name
-	    * type（商家、普通）  
-       --- 
-	    * title
-	    * hot
-	    * imgs（列表）
-	    * content
-	    * time
-	    * like_num
-	    * comment_num
-	    * share_num
- * 好友动态：
-       * 请求参数：
-         * page 默认为0
-         * count 默认为10
-         * uid
-       * 返回字段：(同全部动态) 
- * 附近动态：
-       * 请求参数：
-         * page 默认为0
-         * count 默认为10
-         * lat（经纬度）
-         * lng （经纬度）
-       * 返回字段：(同全部动态) 
+##### 全部动态：
+######请求参数：
+* page 默认为0
+* count 默认为10
+###### 返回字段：  
+* uid
+* user_img
+* user_name
+* type（商家、普通）  
+* title
+* hot
+* imgs（列表）
+* content
+* time
+* like_num
+* comment_num
+* share_num
+##### 好友动态：
+###### 请求参数：
+* page 默认为0
+* count 默认为10
+* uid
+###### 返回字段：(同全部动态) 
+##### 附近动态：
+###### 请求参数：
+* page 默认为0
+* count 默认为10
+* lat（经纬度）
+* lng （经纬度）
+###### 返回字段：(同全部动态) 
  
 
 1. 用户帖子列表:
