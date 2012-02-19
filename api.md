@@ -48,6 +48,7 @@
 * user_img
 * user_name
 * type（商家、普通）  
+* feed_id
 * title
 * hot
 * imgs（列表）
@@ -138,6 +139,7 @@
 * uid
 * lat
 * lng
+
 ### 返回字段
 * activity_id
 * title
@@ -147,3 +149,47 @@
 * location
 * like_num
 * participate_num
+
+<h2 id="dtxq">动态详情</h2>
+动态详细信息
+### 请求参数
+* uid
+* feed_id
+
+### 返回字段
+* uid
+* user_name
+* user_img
+* feed_id
+* time
+* title
+* imgs
+* content
+* hot
+* score
+* like_list[{uid,uimg}...]
+* share_list[{uid,uimg}...]
+* comment_list[{uid,uimg,uname,cid,ccontent}...] 
+
+<h2 id="spxq">商品详情</h2>
+商品详细信息
+### 请求参数
+* uid
+* goods_id
+
+### 返回字段
+* uid
+* user_name
+* user_img
+* goods_id
+* time
+* title
+* imgs
+* hot
+* distance
+* price
+* content
+* score
+* like_list[{uid,uimg}...]
+* share_list[{uid,uimg}...]
+* comment_list[{uid,uimg,uname,cid,ccontent}...] 
