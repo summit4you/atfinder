@@ -13,14 +13,14 @@
 *   [动态详情](#dtxq)
 *   [商品详情](#spxq)
 *   [优惠券详情](#yhqxq)
-*   [用户详情](#yhxq)
-*   [评论列表](#pllb)
 *   [活动详情](#hdxq)
+*   [用户详情](#yhxq)
+*   [留言列表](#lylb)
 *   [用户注册](#yhzc)
 *   [用户登陆](#yhdl)
 *   [用户注销](#yhzx)
-*   [商家推荐列表](#sjtjlb)
 *   [关注商家设置](#gzsjsz)
+*   [标签列表](#bqlb)
 *   [兴趣爱好设置](#xqahsz)
 *   [发布心情](#fbxq)
 *   [发布图片](#fbtp)
@@ -220,8 +220,9 @@
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
 ### 请求参数
-* uid
+* uid  (若uid==user_id，则视为查看自身详情)
 * user_id
+
 ### 返回字段
 * user_id
 * type (商家、普通用户)
@@ -245,4 +246,86 @@
 * goods_num
 * coupon_num
 * activity_num
+
+<h2 id="lylb">留言列表</h2>
+用户留言板
+### 请求参数
+* uid  (若uid==user_id，则视为查看自身详情)
+* user_id
+
+### 返回字段
+* uid
+* uimg
+* uname
+* cid
+* ccontent
+* ctime
+
+<h2 id="yhzc">用户注册</h2>
+用户操作
+### 请求参数
+* phone
+* pwd
+* valid_code
+
+### 返回字段
+* uid
+* status (成功与否)
+
+<h2 id="yhdl">用户登录</h2>
+用户操作
+### 请求参数
+* phone
+* pwd
+* openapi (新浪微博登陆)
+### 返回字段
+* uid
+* status (成功与否)
+
+<h2 id="yhdl">用户登录</h2>
+用户操作
+### 请求参数
+* phone
+* pwd
+* openapi (新浪微博登陆)
+### 返回字段
+* uid
+* status (成功与否)
+
+<h2 id="yhzx">用户注销</h2>
+用户操作
+### 请求参数
+* uid
+* openapi (新浪微博登陆)
+### 返回字段
+* uid
+* status (成功与否)
+
+<h2 id="sjtjsz">关注商家设置</h2>
+设置操作
+### 请求参数
+shop_ids [id,id,id...]
+uid
+
+### 返回字段
+* uid
+* status (成功与否)
+
+<h2 id="bqlb">标签列表</h2>
+设置操作
+### 请求参数
+uid
+
+### 返回字段
+* tag_id
+* tag_name 
+
+<h2 id="xqahsz">兴趣爱好设置</h2>
+设置操作
+### 请求参数
+uid
+tag_ids [id,id...]
+### 返回字段
+* uid
+* status
 
