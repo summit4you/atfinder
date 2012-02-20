@@ -294,8 +294,8 @@
 <h2 id="sjtjsz">关注商家设置</h2>
 设置操作
 ### 请求参数
-shop_ids [id,id,id...]
-uid
+* shop_ids [id,id,id...]
+* uid
 
 ### 返回字段
 * uid
