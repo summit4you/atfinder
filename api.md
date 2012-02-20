@@ -3,7 +3,7 @@
 版本：0.1  
 作者：[何世友](mailto:ernest.he2009@gmail.com)
 ***
-综述
+索引
 --
 *   [动态列表(全部，好友，附近)](#dtlb)
 *   [商家列表](#sjlb)
@@ -29,7 +29,6 @@
 *   [评论](#pl)
 *   [喜欢](#xh)
 *   [转发](#zf)
-*   [留言](#ly)
 *   [关注](#gz)
 *   [搜索](#ss)
 
@@ -278,16 +277,7 @@
 * phone
 * pwd
 * openapi (新浪微博登陆)
-### 返回字段
-* uid
-* status (成功与否)
 
-<h2 id="yhdl">用户登录</h2>
-用户操作
-### 请求参数
-* phone
-* pwd
-* openapi (新浪微博登陆)
 ### 返回字段
 * uid
 * status (成功与否)
@@ -329,3 +319,104 @@ tag_ids [id,id...]
 * uid
 * status
 
+<h2 id="fbxq">发布心情</h2>
+发布操作
+### 请求参数
+* uid
+* title
+* content
+* lat
+* lng
+* imgs[]
+* tag_ids [id,id...]
+
+### 返回字段
+* uid
+* feed_id
+* status
+
+<h2 id="fbsp">发布商品</h2>
+发布操作
+### 请求参数
+* uid
+* title
+* price
+* content
+* imgs[]
+* tag_ids [id,id...]
+
+### 返回字段
+* uid
+* goods_id
+* status
+
+<h2 id="fbyhq">发布优惠券</h2>
+发布操作
+### 请求参数
+* uid
+* title
+* price
+* origin_price
+* validity
+* content
+* imgs[]
+* tag_ids [id,id...]
+
+### 返回字段
+* uid
+* coupon_id
+* status
+
+<h2 id="pl">评论</h2>
+社交操作
+### 请求参数
+* uid
+* toid (user?goods?coupon?..)
+* type
+* content
+
+### 返回字段
+* uid
+* status
+
+<h2 id="xh">喜欢</h2>
+社交操作
+### 请求参数
+* uid
+* toid (user?goods?coupon?..)
+* type
+
+### 返回字段
+* uid
+* status
+
+<h2 id="zf">转发</h2>
+社交操作
+### 请求参数
+* uid
+* toid (feed?goods?coupon?..)
+* type
+
+### 返回字段
+* uid
+* status
+
+<h2 id="gz">关注</h2>
+社交操作
+### 请求参数
+* uid
+* toid (feed?goods?coupon?..)
+* type
+
+### 返回字段
+* uid
+* status
+
+<h2 id="ss">搜索</h2>
+操作
+### 请求参数
+* key_words
+(余下同列表请求参数)
+    
+### 返回字段
+(同列表返回字段)
