@@ -193,3 +193,56 @@
 * like_list[{uid,uimg}...]
 * share_list[{uid,uimg}...]
 * comment_list[{uid,uimg,uname,cid,ccontent}...] 
+
+<h2 id="yhqxq">优惠券详情</h2>
+优惠券详细信息
+### 请求参数
+* uid
+* coupon_id
+
+### 返回字段
+* uid
+* user_name
+* user_img
+* coupon_id
+* time
+* title
+* imgs
+* hot
+* description (validity + distance + origin-price + price)
+* cutoff
+* content
+* score
+* like_list[{uid,uimg}...]
+* share_list[{uid,uimg}...]
+* comment_list[{uid,uimg,uname,cid,ccontent}...] 
+
+<h2 id="yhxq">用户详情</h2>
+用户详细信息
+### 请求参数
+* uid
+* user_id
+### 返回字段
+* user_id
+* type (商家、普通用户)
+* user_img
+* user_name
+* user_level
+* user_score
+* user_hot
+* user_status (心情) [内容 + 标签]
+* lat
+* lng
+* phone
+* follow_num
+* follower_num
+* like_num
+* message_num
+* share_num
+* pic_num
+* vote_num
+* find_num (发现)
+* goods_num
+* coupon_num
+* activity_num
+
