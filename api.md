@@ -313,8 +313,8 @@ uid
 <h2 id="xqahsz">兴趣爱好设置</h2>
 设置操作
 ### 请求参数
-uid
-tag_ids [id,id...]
+* uid
+* tag_ids [id,id...]
 ### 返回字段
 * uid
 * status
