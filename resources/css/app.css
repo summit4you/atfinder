@@ -1081,18 +1081,25 @@ img{
 	padding-left:10px;
 	padding-right:10px;
 }
-
-
-
-.discover-forward-button {
+/* discover part begin*/
+.discover-forward-button{
 	position: absolute;
 	top: 80px;
-	right: 20px;
+	right: 10px;
+}
+
+.discover-forward-button img{
+	width: 30px;
 }
 
 .discover-title {
 	padding-bottom: 20px;
 }
+
+.discover-title img{
+	width: 70px;
+}
+
 .discover-buttons {
 	margin-left: 20px;
 	padding-bottom: 10px;
@@ -1101,6 +1108,11 @@ img{
 	padding-right: 10px;
 }
 
+.discover-button img{
+	width: 120px;
+}
+
+/* discover part end*/
 /* feed part begin */
 .feed-list .user-vip {
 	width: 15px;
@@ -1550,7 +1562,29 @@ img{
 	
 }
 /* coupon list end */
+/* issue mood begin*/
+.issuemood-formpanel{
+	margin-left:30px;
+	margin-right:30px;
+	height:335px;
+	min-height:335px;
+}
 
+.issuemood-formpanel .issuemood-panel{
+	margin-top:28px;
+	margin-bottom:13px;
+
+}
+
+.issuemood-formpanel textarea{
+	min-height:135px;
+	font-family:'lthj';
+	font-size:12px !important;
+	color: #999999;
+	padding-left:6px;
+	background-color:white;
+}
+/* issue mood end*/
 
 
 	

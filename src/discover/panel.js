@@ -13,6 +13,7 @@ Ext.define('Af.profile.panel', {
 			{
 				xtype: 'navigationbar',
 				ui: 'af',
+				height: 30,
 				title: '<b>发&nbsp;&nbsp;现</b>',
 				items: [
 					{

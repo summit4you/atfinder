@@ -1,7 +1,7 @@
 Ext.define('Af.panel', {
 	
 	extend: 'Ext.Panel',
-	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel', 'Af.tag.panel', 'Af.guid.panel', 'Af.discover.panel', 'Af.shopping.panel'],
+	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel', 'Af.tag.panel', 'Af.guid.panel', 'Af.discover.panel', 'Af.shopping.panel', 'Af.issuemood.panel'],
 
 	config:{
 		id: 'main-panel',
@@ -60,6 +60,10 @@ Ext.define('Af.panel', {
 			{
 				xtype: 'af-shopping-panel',
 				id: 'shoppingpanel'
+			},
+			{
+				xtype: 'af-issuemood-panel',
+				id: 'issuemoodpanel'
 			}
 		]
 	},
