@@ -1390,6 +1390,166 @@ img{
 	
 }
 
+/* shopping list end */
+/* coupon list begin */
+.coupon-cbutton {
+	font-family:'ltchj';
+	font-size:12px !important;
+	/* margin-top: 0px; */
+	color:#CCCCCC;
+	text-align:center;
+	line-height:14px;
+	font-weight:bold;
+	margin-top:4px;
+}
+
+.coupon-cbutton-red {
+	font-family:'ltchj';
+	font-size:12px !important;
+	/* margin-top: 0px; */
+	color:#F32175;
+	text-align:center;
+	line-height:14px;
+	font-weight:bold;
+	margin-top:4px;
+}
+
+.coupon-list .x-list-item {
+	border-top: none !important;
+	height:87px;
+	
+}
+
+.coupon-list .x-list-item .x-list-item-label{
+	padding: 0px 0px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+	background-color: white;
+	height:77px;
+	border: 1px dashed red;
+}
+
+/*.coupon-list .x-list-item .x-list-item-label .dash-color-red {
+	border: 1px dashed red;
+}
+
+.coupon-list .x-list-item .x-list-item-label .dash-color-blue {
+	border: 1px dashed blue;
+}*/
+.coupon-list .x-list-item .x-list-item-label .row{
+	margin-left:10px;
+}
+
+.coupon-list .x-list-item .x-list-item-label .row .username{
+	margin-top:8px;
+	font-family:'lthj';
+	font-size:14px !important;
+	color:#43B3E9;
+	line-height:16px;
+	height:16px;
+	font-weight:bold;
+}
+
+.coupon-list .x-list-item .x-list-item-label .row .score{
+	margin-top:10px;
+	font-family:'lthj';
+	font-size:10px !important;
+	color:#E91200;
+	line-height:12px;
+	font-weight:bold;
+	margin-left:1px;
+}
+
+.coupon-list .x-list-item .x-list-item-label .row .validity{
+	font-family:'lthj';
+	font-size:11px !important;
+	color:#999999;
+	line-height:13px;
+	margin-top:3px;
+	height:13px;
+	font-weight:bold;
+}
+
+.coupon-list .x-list-item .x-list-item-label .row .price{
+	font-family:'lthj';
+	font-size:11px !important;
+	color:#999999;
+	line-height:13px;
+	margin-top:2px;
+	font-weight:bold;
+}
+
+.coupon-list .x-list-item .x-list-item-label .row .review{
+	font-family:'lthj';
+	font-size:10px !important;
+	color:#999999;
+	font-weight:bold;
+	line-height:12px;
+	margin-top:2px;
+}
+
+.coupon-list .x-list-item .x-list-item-label .row a{
+	color: #999999;
+	text-decoration: none;
+}
+
+.coupon-list .x-list-item .x-list-item-label .row a:hover{
+	color: #188FDD;
+}
+
+
+
+.coupon-list .x-list-item:last-child{
+	border-bottom: none !important;
+}
+
+.coupon-list-selected{
+	background: none !important;
+}
+
+.coupon-list .cutoff-panel{
+	font-family:'ltchj';
+	font-size:20px !important;
+	margin-top: 0px;
+	float:right;
+	height:74px;
+}
+.coupon-list .cutoff-white-font{
+	color:white;
+	width: 60px;
+	height:75px;
+	text-align: center;
+	line-height: 74px;
+}
+
+.coupon-list .cutoff-panel .cutoff-unfolder {
+	bottom: 1px;
+	right: 11px;	
+	width: 15px;
+	position: absolute;
+}
+
+.coupon-list .cutoff-bkcolor-blue{
+	background-color:#43B3E9;
+}
+
+.coupon-list .cutoff-bkcolor-red{
+	background-color:#FF5580;
+	
+}
+
+.coupon-list .x-list-disclosure{
+	overflow: visible;
+	-webkit-mask: 0 0 url(../themes/images/default/circle_icon.png) no-repeat;
+	-webkit-mask-size: 30px;
+	background-color:white;
+	background-image: none !important; 
+	width: 40px;
+	height: 30px;
+	
+}
+/* coupon list end */
 
 
 
@@ -1397,4 +1557,3 @@ img{
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {
 	
 }
-

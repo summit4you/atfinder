@@ -1,5 +1,5 @@
 Ext.regModel('Buyer', {
-   fields: ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot']
+   fields: ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot', 'cutoff', 'origin_price', 'price', 'validity']
 });
 
 var store = new Ext.data.JsonStore({
@@ -11,11 +11,11 @@ var store = new Ext.data.JsonStore({
    },
 
    data: [
-       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1'},
-       {usrImg: 'resources/themes/images/default/friends/2.png',   username: '日本鱼子饭', score:'120', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'159', isset:'1'},
-       {usrImg: 'resources/themes/images/default/friends/3.png',   username: 'AngleSimple', score:'217', class:'艺术蛋糕', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.5', hot:'346', isset:'0'},
-       {usrImg: 'resources/themes/images/default/friends/4.png',   username: '日本小丸子', score:'321', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'215', isset:'0'},
-       {usrImg: 'resources/themes/images/default/friends/5.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1'}
+       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
+       {usrImg: 'resources/themes/images/default/friends/2.png',   username: '日本鱼子饭', score:'120', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'159', isset:'1',validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
+       {usrImg: 'resources/themes/images/default/friends/3.png',   username: 'AngleSimple', score:'217', class:'艺术蛋糕', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.5', hot:'346', isset:'0', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
+       {usrImg: 'resources/themes/images/default/friends/4.png',   username: '日本小丸子', score:'321', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'215', isset:'0', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
+       {usrImg: 'resources/themes/images/default/friends/5.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'}
    ]
 });
 
@@ -175,6 +175,7 @@ Ext.define('Af.shopping.panel', {
 			flex: 1,
 			layout: 'card',
 			items: [
+/*			// shop list
 			{
 				xtype: 'list',
 				cls: 'shopping-list',
@@ -185,6 +186,35 @@ Ext.define('Af.shopping.panel', {
 				' <tpl if="hot &lt; 270">hot-color-blue</tpl> <tpl if="hot &gt;= 270">hot-color-red</tpl>',
 				' ">{hot}</span><div class="hot-white-font ',
 				'<tpl if="hot &lt; 270">hot-bkcolor-blue</tpl> <tpl else">hot-bkcolor-red</tpl>">℃',
+				'</div></div>'),
+				store: store,
+			},
+			// goods list
+			{
+				xtype: 'list',
+				cls: 'shopping-list',
+				selectedCls:  'shopping-list-selected',
+				itemTpl: new Ext.XTemplate('<img src={usrImg} width="75px" style="float:left;"/>',
+				'<div style="float:left;"><div class="row" style="height:16px;line-height:16px;"><span class="username">{username}</span><img src="resources/themes/images/default/friends_score.png" width="13px" style="margin-left:5px;"/><span class="score">{score}</span></div><div class="row" style="height:16px;line-height:16px;"><span class="class">{class}</span></div><div class="row"  style="height:16px;line-height:16px;"><span class="address">地址:{address}</span></div><div class="row" style="height:12px;line-height:12px;"><span class="review">评价<tpl if="review &gt; 0"><a href="#">({review})</a></tpl>   粉丝<tpl if="fans &gt; 0"><a href="#">({fans})</a></tpl>   距离：{distance}km</span></div></div><div class="hot-panel">',
+				'<span class="',
+				' <tpl if="hot &lt; 270">hot-color-blue</tpl> <tpl if="hot &gt;= 270">hot-color-red</tpl>',
+				' ">{hot}</span><div class="hot-white-font ',
+				'<tpl if="hot &lt; 270">hot-bkcolor-blue</tpl> <tpl else">hot-bkcolor-red</tpl>">℃',
+				'</div></div>'),
+				store: store,
+			},
+*/			// coupon list
+			{
+				xtype: 'list',
+				cls: 'coupon-list',
+				selectedCls:  'coupon-list-selected',
+				itemTpl: new Ext.XTemplate(
+				'<img src={usrImg} width="75px" style="float:left;"/>',
+				'<div style="float:left;"><div class="row" style="height:16px;line-height:16px;"><span class="username">{username}</span><img src="resources/themes/images/default/friends_score.png" width="13px" style="margin-left:5px;"/><span class="score">{score}</span></div><div class="row" style="height:16px;line-height:16px;"><span class="validity">时效:{validity}</span></div><div class="row"  style="height:16px;line-height:16px;"><span class="price">原价：<s>￥{origin_price}</s>&nbsp;&nbsp;&nbsp;现价：￥{price}</span></div><div class="row" style="height:12px;line-height:12px;"><span class="review">评价<tpl if="review &gt; 0"><a href="#">({review})</a></tpl>   粉丝<tpl if="fans &gt; 0"><a href="#">({fans})</a></tpl>   距离：{distance}km</span></div></div><div class="cutoff-panel">',
+				'<div class="cutoff-white-font ',
+				'<tpl if="hot &lt; 270">cutoff-bkcolor-blue</tpl> <tpl else">cutoff-bkcolor-red</tpl>',
+				' ">{cutoff}折</div>',
+				'<img class="cutoff-unfolder" src="resources/themes/images/default/coupon_unfolder.png"/>',
 				'</div></div>'),
 				store: store,
 			}
