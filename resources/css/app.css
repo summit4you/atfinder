@@ -1586,6 +1586,43 @@ img{
 }
 /* issue mood end*/
 
+/* issue pic begin */
+.issuepic-formpanel {
+	margin-top:18px;
+	margin-left:30px;
+	margin-right:30px;
+	height:335px;
+	min-height:335px;
+}
+.form-label {
+	height:30px;
+	line-height:30px;
+	font-family:'lthj';
+	font-size:15px !important;
+	color:#43B3E9;
+}
+
+.form-button-pressed{
+	background-color:#F32175 !important; /*覆盖之前的样式*/
+}
+
+.form-button{
+	background-color:#FF5580; 
+	margin-left: 10px;
+	text-align:center;
+	margin-bottom: 5px;
+}
+
+.form-button .x-innerhtml{
+	height:30px;
+	line-height:30px;
+	font-family:'lthj';
+	font-size:15px !important;
+	color:white;
+}
+/* issue pic end */
+
+
 
 	
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {
