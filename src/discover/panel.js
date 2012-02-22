@@ -1,5 +1,5 @@
 
-Ext.define('Af.profile.panel', {
+Ext.define('Af.discover.panel', {
 	
 	extend: 'Ext.Panel',
 	xtype: 'af-discover-panel',

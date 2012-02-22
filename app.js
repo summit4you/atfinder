@@ -22,10 +22,10 @@ Ext.application({
 		Ext.Viewport.add(form);
 		if (localStorage.getItem('visited')==null){
 			//第一次访问进入guid
-			form.setActiveItem(9, 'fade');
+			form.setActiveItem(Ext.getCmp('guidpanel'), 'fade');
 			localStorage.setItem('visited', true)
 		}else{
-			form.setActiveItem(11, 'fade');
+			form.setActiveItem(Ext.getCmp('feedpanel'), 'fade');
 		}
 
     }

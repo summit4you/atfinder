@@ -89,6 +89,9 @@ Ext.define('Af.feed.panel', {
 						baseCls: 'x-button-af',
                         html: '全&nbsp;&nbsp;部',
 						flex:1,
+						handler: function(b, event){
+							Ext.getCmp('feedbar').setActiveItem(Ext.getCmp('feedbar1'));
+						}
                     },
                     {
 						xtype:'button',
@@ -96,6 +99,9 @@ Ext.define('Af.feed.panel', {
 						baseCls: 'x-button-af',
                         html: '好&nbsp;&nbsp;友',
 						flex:1,
+						handler: function(b, event){
+							Ext.getCmp('feedbar').setActiveItem(Ext.getCmp('feedbar2'));
+						}
                     },
                     {
 						xtype:'button',
@@ -103,32 +109,91 @@ Ext.define('Af.feed.panel', {
 						baseCls: 'x-button-af',
                         html: '附&nbsp;&nbsp;近',
 						flex:1,
+						handler: function(b, event){
+							Ext.getCmp('feedbar').setActiveItem(Ext.getCmp('feedbar3'));
+						}
                     }
                 ]
 		}, 
 		// switch status bar
 		{
-			xtype: 'panel',
+			xtype: 'panel',	
 			cls: 'feed-switch-status',
-			
-			 layout: 'hbox',
-			
-			style: 'background-color: #188fdd;',
+			layout: 'card',
+			id:'feedbar',
 			items:[
 				{
-					xtype:'spacer',
-					flex:1
-				},
-				{
-					id:'a_1',
 					xtype: 'panel',
-					flex: 1,
-					style: 'background-color: red;',
-				
+					cls: 'feed-switch-status',
+					id:'feedbar1',
+					layout: 'hbox',
+					style: 'background-color: #188fdd;',
+					items:[
+						{
+							id:'a_1',
+							xtype: 'panel',
+							flex: 1,
+							style: 'background-color: red;',
+						
+						},
+						{
+							xtype:'spacer',
+							flex:1
+						},
+						{
+							xtype:'spacer',
+							flex:1
+						}
+					],
 				},
 				{
-					xtype:'spacer',
-					flex:1
+					xtype: 'panel',
+					cls: 'feed-switch-status',	
+					layout: 'hbox',
+					id:'feedbar2',
+					style: 'background-color: #188fdd;',
+					items:[
+						{
+							xtype:'spacer',
+							flex:1
+						},
+						{
+							id:'a_1',
+							xtype: 'panel',
+							flex: 1,
+							style: 'background-color: red;',
+						
+						},
+						{
+							xtype:'spacer',
+							flex:1
+						}
+					],
+				},
+				{
+					xtype: 'panel',
+					cls: 'feed-switch-status',	
+					layout: 'hbox',
+					id:'feedbar3',
+					style: 'background-color: #188fdd;',
+					items:[
+						{
+							xtype:'spacer',
+							flex:1
+						},
+						
+						{
+							xtype:'spacer',
+							flex:1
+						},
+						{
+							id:'a_1',
+							xtype: 'panel',
+							flex: 1,
+							style: 'background-color: red;',
+						
+						}
+					],
 				}
 			],
 			
@@ -192,9 +257,8 @@ Ext.define('Af.feed.panel', {
                 	},
 					{
 						xtype: 'button',
-						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/feed_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/s_feed_icon.png" width="30"></img>'
 					},
 					{
 						xtype: 'spacer',
