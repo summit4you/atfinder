@@ -1,15 +1,21 @@
+Ext.define("Buyer", 
+	{
+		extend: "Ext.data.Model", 
+		
+		fields:  ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot']
+		
+	}
+);
 
-Ext.regModel('Buyer', {
-   fields: ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot']
-});
 
-var store = new Ext.data.JsonStore({
+
+var store = Ext.create('Ext.data.Store',{
    model: 'Buyer',
    //sorters: 'username',
 
-   getGroupString: function(record) {
+    grouper: {groupFn: function(record) {
        return record.get('username')[0];
-   },
+   }},
 
    data: [
        {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1'},

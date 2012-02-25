@@ -5,7 +5,6 @@ Ext.require([
 	'Ext.Loader'
 ]);
 
-
 Ext.application({
     name: 'Af',
 	icon: 'resources/icon.png',
@@ -13,6 +12,13 @@ Ext.application({
     phoneStartupScreen: 'resources/phone_startup.png',
     glossOnIcon: true,
     fullscreen: true,
+	requires: [
+	'Ext.data.Store',
+	'Ext.field.Number',
+	'Ext.form.Panel',
+	'Ext.field.Password',
+	'Ext.TitleBar'
+	],
 
     launch: function() {
 		 Ext.Loader.setConfig({enabled:true,paths:{Af:"src"}});
@@ -22,10 +28,11 @@ Ext.application({
 		Ext.Viewport.add(form);
 		if (localStorage.getItem('visited')==null){
 			//第一次访问进入guid
-			form.setActiveItem(Ext.getCmp('guidpanel'), 'fade');
+			//form.setActiveItem(Ext.getCmp('guidpanel'), 'fade');
 			localStorage.setItem('visited', true)
 		}else{
 			form.setActiveItem(Ext.getCmp('feedpanel'), 'fade');
+			//Ext.getCmp('activities-carousel').updateStore(activitiesstore);
 		}
 
     }

@@ -11,7 +11,8 @@ Ext.define('Af.login.panel', {
 		scroll: true,
 		items:[
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
+				height:30,
 				ui: 'af',
 				title: '登 陆',
 				items:[
@@ -22,13 +23,13 @@ Ext.define('Af.login.panel', {
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
-						width: 2,
+						width: 1,
 						
                 	},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
-						width: 2,
+						width: 1,
 						align : 'right',
 					},
 					{
@@ -55,7 +56,7 @@ Ext.define('Af.login.panel', {
 							xtype: 'numberfield',
 							name: 'phoneNumber',
 							placeHolder: '15012378921',
-							useClearIcon: true,
+							clearIcon: true,
 						}],
 						
 					},
@@ -67,7 +68,7 @@ Ext.define('Af.login.panel', {
 							xtype: 'passwordfield',
 							name: 'psw',
 							placeHolder: '密码',
-							useClearIcon: true,
+							clearIcon: true,
 						}],
 					},
 					{
@@ -79,7 +80,7 @@ Ext.define('Af.login.panel', {
 								xtype: 'passwordfield',
 								name: '',
 								placeHolder: '验证码',
-								useClearIcon: true,
+								clearIcon: true,
 								flex:1,
 							},
 							{
@@ -138,7 +139,7 @@ Ext.define('Af.login.panel', {
 		
 		]
 	},
-	initComponent: function(){
-		Af.login.panel.superclass.initComponent.call(this);
+	initialize: function(){
+		this.callParent();
 	}
 });

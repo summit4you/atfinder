@@ -1,19 +1,24 @@
-Ext.regModel('Article', {
-   fields: ['usrImg', 'username', 'share', 'class', 'address', 'review', 'like', 'time', 'hot', 'vip']
-});
+Ext.define("Article", 
+	{
+		extend: "Ext.data.Model", 
+		
+		fields: ['usrImg', 'username', 'share', 'class', 'address', 'review', 'like', 'time', 'hot', 'vip', 'title','content']
+		
+	}
+);
 
-var store = new Ext.data.JsonStore({
+var store = Ext.create("Ext.data.Store", {
    model: 'Article',
    //sorters: 'username',
-
-   getGroupString: function(record) {
+   grouper: {groupFn: function(record) {
        return record.get('username')[0];
-   },
+   }},
+  
 
    data: [
-       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '水木灵', share:'90', title:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', like:'0', time:'0.8', hot:'60', vip:'1'},
-       {usrImg: 'resources/themes/images/default/friends/2.png',   username: '水木灵', share:'120', title:'日式餐馆', address:'天河粤垦路188号', review:'2', like:'32', time:'0.9', hot:'159', vip:'1'},
-       {usrImg: 'resources/themes/images/default/friends/3.png',   username: '水木灵', share:'217', title:'艺术蛋糕', address:'天河粤垦路188号', review:'2', like:'32', time:'0.5', hot:'9', vip:'0'},
+       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '水木灵', share:'90', title:'西式餐馆', address:'天河粤垦路188号天河粤粤垦路188号', review:'0', like:'0', time:'25分钟前', hot:'60', vip:'1', content:'今天表哥来了我们玩，已经长成小帅哥啦~我就决定带宝宝和小表哥去公园玩一下碰碰车~偷拍了几张照片╮(￣▽￣")╭ ...'},
+       {usrImg: 'resources/themes/images/default/friends/2.png',   username: '水木灵', share:'120', title:'家有艺术家妈妈', address:'天河粤垦路188号', review:'2', like:'32', time:'25分钟前', hot:'159', vip:'1', content:''},
+       {usrImg: 'resources/themes/images/default/friends/3.png',   username: '水木灵', share:'217', title:'艺术蛋糕', address:'天河粤垦路188号', review:'2', like:'32', time:'25分钟前', hot:'9', vip:'0', content:''},
    ]
 });
 
@@ -30,50 +35,189 @@ Ext.define('Af.feed.panel', {
 		items: [
 		// top bar
 		{
-			xtype: 'navigationbar',
+			xtype: 'titlebar',
 			title: '<b>动&nbsp;&nbsp;态</b>',
 			ui: 'af',
-			layout: 'vbox',
 			height: 30,
 			items: [
-				{
-					xtype: 'panel',
-					flex:0.14
-				},
-				{
-					xtype: 'spacer',
-					cls: 'login-toolbar-spacer',
-					width: 1,
-					//flex:0.003
-					
-               	},
-				{
-					xtype: 'panel',
-					flex: 0.64
-				},
-				{
-					xtype: 'spacer',
-					cls: 'login-toolbar-spacer',
-					width: 1,
-					//align : 'right',
-					//flex:0.003,
-				},
-				{
-					xtype: 'panel',
-					cls: 'login-right-button',
-                    items: [{
-                            xtype: 'button',
-                            baseCls: 'x-button-af',
-                            height: 100,
-                            docked: 'right',
-							html: '<img src="resources/themes/images/default/feed_r1_c32.png" width="29px"></img>'
-                            }],
-					flex:0.14
-				},
+					{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
+					{
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						width: 45,
+							
+					},
+					{
+						xtype: 'spacer',
+						cls: 'login-toolbar-spacer',
+						width: 1,
+						
+                	},
+					{
+						xtype: 'spacer',
+						cls: 'login-toolbar-spacer',
+						width: 1,
+						align : 'right',
+					},
+					{
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						width: 45,
+						html: '<div style="text-align:right"><img src="resources/themes/images/default/feed_r1_c32.png" width="29px"></img></div>'
+					},
 			]
 		},
-		// switch bar
 		{
+			xtype:'tabpanel',
+			tabBar:{
+				docked: 'top', // will put the menu on the bottom of the screen
+				cls: 'feed-tabbar',
+				height:20,
+				layout:{
+					type:'hbox',	
+					align:'center'
+				},
+				defaults:{
+					flex:1,
+					activeCls: 'af-tab-active',
+					cls:'af-tab',
+				}
+			},
+			activeItem:1,
+			items:[
+				{
+					title: '全&nbsp;&nbsp;部',
+					iconCls: 'home',
+					items:[
+							{
+								xtype:'panel',
+								layout:'hbox',
+								style: 'background-color: #188fdd;',
+								height:2,
+								items:[
+									{
+									xtype: 'panel',
+									flex: 1,
+									style: 'background-color: red;',
+								
+									},
+									{
+										xtype:'spacer',
+										flex:1
+									},
+									{
+										xtype:'spacer',
+										flex:1
+									}
+								]		
+							}
+					]
+				},
+				{
+					title: '好&nbsp;&nbsp;友',
+					iconCls: 'user',
+					layout:'vbox',
+					items:[
+							{
+								xtype:'panel',
+								layout:'hbox',
+								style: 'background-color: #188fdd;',
+								height:2,
+								items:[
+									{
+									xtype: 'panel',
+									flex: 1,
+									
+								
+									},
+									{
+										xtype:'spacer',
+										flex:1,
+										style: 'background-color: red;',
+									},
+									{
+										xtype:'spacer',
+										flex:1
+									}
+								]
+							},
+							{
+								xtype: 'list',
+								cls: 'feed-list',
+								selectedCls: 'feed-list-selectd',
+								itemTpl: new Ext.XTemplate('<div><div class="feed-user" >',
+								'<img src={usrImg} width="60px" />',
+								'<img class="user-vip" <tpl if="vip==0">style="display:none;"</tpl> src="resources/themes/images/default/v.png"/>',
+								'<div class="username" >{username}</div></div>',
+								'<div class="feed-article-angle"></div>',
+								'<div class="feed-content">',
+								'<div class="feed-title">',
+									'<div class="',
+										'<tpl if="hot &gt; 0">hot-color-gray</tpl> ',
+										'<tpl if="hot &gt; 10">hot-color-lightpink</tpl> ',
+										'<tpl if="hot &gt; 30">hot-color-pink</tpl> ',
+										'<tpl if="hot &gt; 100">hot-color-red</tpl> ',
+										'">{hot}℃</div>',
+									'<tpl if="title"><div class="title">{title}</div></tpl>',
+								'</div>',
+								'<div class="feed-imgpanel">',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/1.png" width="100%"/></div>',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/2.png" width="100%"/></div>',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/2.png" width="100%"/></div>',
+								'</div>',
+								'<div class="feed-img-count">14张</div>',
+								'<div class="content">{content}</div>',
+								'<div class="other"><span class="time">{time}</span><span class="actions" ><a href="#"><img src="resources/themes/images/default/feed_like.png" style=""/>{like}</a><a href="#"><img src="resources/themes/images/default/feed_comment.png" style=""/>{review}</a><a href="#"><img src="resources/themes/images/default/feed_share.png" style=""/>{share}</a></span></div>',
+								'</div>',
+								'</div>'), 
+								store: store,
+								flex: 1,
+        					},
+					]
+				},
+				{
+					title: '附&nbsp;&nbsp;近',
+					iconCls: 'user',
+					items:[
+							{
+								xtype:'panel',
+								layout:'hbox',
+								style: 'background-color: #188fdd;',
+								height:2,
+								items:[
+									{
+									xtype: 'panel',
+									flex: 1,
+									
+								
+									},
+									{
+										xtype:'spacer',
+										flex:1
+									},
+									{
+										xtype:'spacer',
+										flex:1,
+										style: 'background-color: red;',
+									}
+								]
+							}
+					]
+				}
+			],
+			flex:1
+		},
+		// switch bar
+		/*{
 	        xtype: 'navigationbar',
             //ui: 'af',
             layout: {
@@ -238,16 +382,19 @@ Ext.define('Af.feed.panel', {
                         html: "First item"
                     },
                 ]
-        },
+        },*/
 		 
 		
 // bottom bar
 			{
-				xtype : 'navigationbar',
+				xtype : 'toolbar',
             	docked: 'bottom', 	
 				height: 45,
 				ui: 'af',
-				layout: 'vbox',
+				layout: {
+					type:'hbox',
+					align:'center'
+				},
 				items:[
 					{
 						xtype: 'spacer',

@@ -10,64 +10,50 @@ Ext.define('Af.detailarticle.panel', {
 		width: '640',
 		layout:'vbox',
 		id:'detailarticlepanel',
-		scroll: true,
+		scrollable: {
+        	direction: 'vertical'
+   		},
 		items:[
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
 				docked: 'top', 
 				title: '<b>详&nbsp;&nbsp;情</b>',
 				ui: 'af',
-				layout: 'vbox',
 				height: 30,
 				items: [
+					{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						items:[
-							{
-								xtype:'button',
-								
-								baseCls: 'x-button-af',
-								height:100,
-								docked:'left',
-								html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>'
-							}
-						],
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						width: 45,
+						html: '<div style="text-align:left"><img src="resources/themes/images/default/return_icon.png" height="25px"></img></div>',	
 					},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//flex:0.003
 						
                 	},
 					{
-						xtype: 'panel',
-						
-						flex: 0.64
-					},
-					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//align : 'right',
-						//flex:0.003,
+						align : 'right',
 					},
 					{
-						xtype: 'panel',
-						cls: 'login-right-button',
-						//align :'right',
-						items:[
-							{
-								xtype:'button',
-								baseCls: 'x-button-af',
-								height: 100,
-								docked:'right',
-								html: '<img src="resources/themes/images/default/enter_icon.png" width="29px"></img>'
-							}
-						],
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						width: 45,
+						html: '<div style="text-align:right"><img src="resources/themes/images/default/enter_icon.png" width="29px"></img></div>'
 					},
 				]
 			},
@@ -195,11 +181,14 @@ Ext.define('Af.detailarticle.panel', {
 			},
 			{
 				//73 60 48 60 49 60 48 60 50 60 72
-				xtype : 'navigationbar',
+				xtype : 'toolbar',
             	docked: 'bottom', 	
 				height: 40,
 				ui: 'af2',
-				layout: 'vbox',
+				layout: {
+					type:'hbox',
+					align:'center'
+				},
 				items:[
 					{
 						xtype: 'spacer',
@@ -245,7 +234,7 @@ Ext.define('Af.detailarticle.panel', {
 						cls: 'article-review-textareafield',
 						name: 'myreview',
 						placeHolder: '输入你的评价',
-						useClearIcon: false,
+						clearIcon: false,
 						width: '86%'
 					},
 					{
@@ -260,7 +249,7 @@ Ext.define('Af.detailarticle.panel', {
 			
 		]
 	},
-	initComponent: function(){
-		Af.detailarticle.panel.superclass.initComponent.call(this);
+	initialize: function(){
+		this.callParent();
 	}
 });

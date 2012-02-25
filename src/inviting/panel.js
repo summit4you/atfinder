@@ -11,51 +11,44 @@ Ext.define('Af.inviting.panel', {
 		// scroll: true,
 		items:[
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
 				docked: 'top', 
 				title: '<b>邀请好友</b>',
 				ui: 'af',
-				layout: 'vbox',
+				
 				height: 30,
 				items: [
+					{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						items:[
-							{
-								xtype:'button',
-								cls: 'af-toolbar-button',
-								baseCls: 'x-button-af',
-								height:100,
-								html: '<img src="resources/themes/images/default/return_icon.png"></img>'
-							}
-						],
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						width: 45,
 					},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//flex:0.003
 						
                 	},
 					{
-						xtype: 'panel',
-						
-						flex: 0.64
-					},
-					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//align : 'right',
-						//flex:0.003,
+						align : 'right',
 					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						//align :'right',
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						width: 45,
 					},
 				]
 			},	
@@ -71,7 +64,7 @@ Ext.define('Af.inviting.panel', {
 							xtype: 'textfield',
 							name: 'name',
 							placeHolder: '张筱雨',
-							useClearIcon: true,
+							clearIcon: true,
 						}],
 						
 					},
@@ -83,7 +76,7 @@ Ext.define('Af.inviting.panel', {
 							xtype: 'numberfield',
 							name: 'phonenumber',
 							placeHolder: '15012378921',
-							useClearIcon: true,
+							clearIcon: true,
 						}],
 					},
 					{
@@ -114,7 +107,7 @@ Ext.define('Af.inviting.panel', {
 			}
 		]
 	},
-	initComponent: function(){
-		Af.inviting.panel.superclass.initComponent.call(this);
+	initialize: function(){
+		this.callParent();
 	}
 });

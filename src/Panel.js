@@ -1,7 +1,7 @@
 Ext.define('Af.panel', {
 	
 	extend: 'Ext.Panel',
-	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel', 'Af.tag.panel', 'Af.guid.panel', 'Af.discover.panel', 'Af.shopping.panel', 'Af.issuemood.panel', 'Af.issuepic.panel'],
+	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', /*'Af.friends.panel', 'Af.tag.panel', 'Af.guid.panel', 'Af.discover.panel', 'Af.shopping.panel', 'Af.issuemood.panel', 'Af.issuepic.panel', 'Af.activities.panel'*/],
 
 	config:{
 		id: 'main-panel',
@@ -35,13 +35,13 @@ Ext.define('Af.panel', {
 				id: 'detailarticlepanel'
 			},
 			{
-				xtype: 'af-friends-panel',
-				id: 'friendspanel',
-			},
-			{
 				xtype: 'af-feed-panel',
 				id: 'feedpanel'
 
+			},
+			/*{
+				xtype: 'af-friends-panel',
+				id: 'friendspanel',
 			},
 			{
 				xtype: 'af-tag-panel',
@@ -68,13 +68,15 @@ Ext.define('Af.panel', {
 			{
 				xtype: 'af-issuepic-panel',
 				id: 'issuepicpanel'
-			}
+			},
+			{
+				xtype: 'af-activities-panel',
+				id: 'activitiespanel'
+			}*/
 		]
 	},
-	initComponent: function(){
-		
-		Af.panel.superclass.initComponent.call(this);
-		// this.mon(Ext.getCmp('loginpanel'), 'login', this.showHomePanel, this);
+	initialize: function(){
+		this.callParent();
 	}
 		
 });

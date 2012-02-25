@@ -8,54 +8,50 @@ Ext.define('Af.profile.panel', {
 		width: '640',
 		layout:'vbox',
 		id:'profilepanel',
-		scroll: true,
+		scrollable: {
+        	direction: 'vertical'
+   		},
 		items:[
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
 				docked: 'top', 
 				title: 'Me',
-				ui: 'af',
-				layout: 'vbox',
+				ui: 'af',	
 				height: 30,
+				
 				items: [
+					{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						items:[
-							{
-								xtype:'button',
-								cls: 'af-toolbar-button',
-								baseCls: 'x-button-af',
-								height:100,
-								html: '<img src="resources/themes/images/default/setting_icon.png"></img>'
-							}
-						],
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						width: 45,
+						html: '<div style="text-align:left"><img src="resources/themes/images/default/setting_icon.png" height="25px"></img></div>',	
 					},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//flex:0.003
 						
                 	},
 					{
-						xtype: 'panel',
-						
-						flex: 0.64
-					},
-					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//align : 'right',
-						//flex:0.003,
+						align : 'right',
 					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						//align :'right',
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						width: 45,
 					},
 				]
 			},
@@ -424,26 +420,31 @@ Ext.define('Af.profile.panel', {
 				pressedCls: 'cbutton-pressed',
 				height: '35px',
 				flex:1,
-				html: '<img src="resources/themes/images/default/me_off.png" height="18px"></img>'
+				html: '<div style="height:35px;line-height:35px;"><img src="resources/themes/images/default/me_off.png" height="18px"></img></div>'
 			},
 			{
-				xtype : 'navigationbar',
+				xtype : 'toolbar',
             	docked: 'bottom', 	
 				height: 45,
 				ui: 'af',
-				layout: 'vbox',
+				layout: {
+					type:'hbox',
+					align:'center',
+				},
 				items:[
+				
 					{
 						xtype: 'spacer',
 						//width: 25,
 						//flex: 50/640,
 						flex: 0.09375
                 	},
+					
 					{
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/feed_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/feed_icon.png" width="25"></img>',
 					},
 					{
 						xtype: 'spacer',
@@ -455,7 +456,8 @@ Ext.define('Af.profile.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>',
+						
 					},
 					{
 						xtype: 'spacer',
@@ -467,7 +469,8 @@ Ext.define('Af.profile.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/heart_icon.png" width="29"></img>'
+						html: '<img src="resources/themes/images/default/heart_icon.png" width="29"></img>',
+						
 					},
 					{
 						xtype: 'spacer',
@@ -479,7 +482,8 @@ Ext.define('Af.profile.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/activi_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/activi_icon.png" width="25"></img>',
+						
 					},
 					{
 						xtype: 'spacer',
@@ -490,7 +494,7 @@ Ext.define('Af.profile.panel', {
 					{
 						xtype: 'button',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/s_me_icon.png" width="26"></img>'
+						html: '<img src="resources/themes/images/default/s_me_icon.png" width="26"></img>',
 					},
 					{
 						xtype: 'spacer',
@@ -502,7 +506,7 @@ Ext.define('Af.profile.panel', {
 			}
 		]
 	},
-	initComponent: function(){
-		Af.profile.panel.superclass.initComponent.call(this);
+	initialize: function(){
+		this.callParent();
 	}
 });

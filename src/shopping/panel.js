@@ -1,15 +1,20 @@
-Ext.regModel('Buyer', {
-   fields: ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot', 'cutoff', 'origin_price', 'price', 'validity']
-});
 
-var store = new Ext.data.JsonStore({
-   model: 'Buyer',
+
+Ext.define("Shopping", 
+	{
+		extend: "Ext.data.Model", 
+		fields:  ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot', 'cutoff', 'origin_price', 'price', 'validity']
+	}
+);
+
+var store = Ext.create('Ext.data.Store',{
+   model: 'Shopping',
    //sorters: 'username',
 
-   getGroupString: function(record) {
+    grouper: {groupFn: function(record) {
        return record.get('username')[0];
-   },
-
+   }},
+   
    data: [
        {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
        {usrImg: 'resources/themes/images/default/friends/2.png',   username: '日本鱼子饭', score:'120', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'159', isset:'1',validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
