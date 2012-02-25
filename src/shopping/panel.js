@@ -48,70 +48,210 @@ Ext.define('Af.shopping.panel', {
 		width: '640',
 		layout:'vbox',
 		id:'shoppingpanel',
-		scroll: true,
+		scrollable: {
+					direction: 'vertical'
+		},
 		items:[
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
 				docked: 'top', 
 				title: '<b>逛&nbsp;&nbsp;街</b>',
 				ui: 'af',
-				layout: 'vbox',
 				height: 30,
 				items: [
+					{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						items:[
-							{
-								xtype:'button',
-								
-								baseCls: 'x-button-af',
-								height:100,
-								docked:'left',
-								html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>'
-							}
-						],
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>',
+						width: 45,
+							
 					},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//flex:0.003
 						
                 	},
 					{
-						xtype: 'panel',
-						
-						flex: 0.64
-					},
-					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//align : 'right',
-						//flex:0.003,
+						align : 'right',
 					},
 					{
-						xtype: 'panel',
-						cls: 'login-right-button',
-						//align :'right',
-						items:[
-							{
-								xtype:'button',
-								baseCls: 'x-button-af',
-								height: 100,
-								docked:'right',
-								html: '<img src="resources/themes/images/default/shopping_sort_r10_c12.png" width="25px"></img>'
-							}
-						],
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						html: '<img src="resources/themes/images/default/shopping_sort_r10_c12.png" width="25px"></img>',
+						width: 45,
 					},
+					
 				]
 			},	
+			{
+				xtype:'tabpanel',
+				tabBar:{
+					docked: 'top', // will put the menu on the bottom of the screen
+					cls: 'feed-tabbar',
+					height:20,
+					layout:{
+						type:'hbox',	
+						align:'center'
+					},
+					defaults:{
+						flex:1,
+						activeCls: 'af-tab-active',
+						cls:'af-tab',
+					}
+				},
+				activeItem:1,
+				flex:1,
+				items:[
+					{
+						title: '商&nbsp;&nbsp;家',
+						layout:'vbox',
+						items:[
+							{
+								xtype:'panel',
+								layout:'hbox',
+								style: 'background-color: #188fdd;',
+								height:2,
+								items:[
+									{
+										xtype: 'panel',
+										flex: 1,
+										style: 'background-color: red;',
+									
+									},
+									{
+										xtype:'spacer',
+										flex:1
+									},
+									{
+										xtype:'spacer',
+										flex:1,
+										
+									}
+								]
+							},
+							{
+								xtype: 'list',
+								cls: 'shopping-list',
+								selectedCls:  'shopping-list-selected',
+								itemTpl: new Ext.XTemplate('<img src={usrImg} width="75px" style="float:left;"/>',
+								'<div style="float:left;"><div class="row" style="height:16px;line-height:16px;"><span class="username">{username}</span><img src="resources/themes/images/default/friends_score.png" width="13px" style="margin-left:5px;"/><span class="score">{score}</span></div><div class="row" style="height:16px;line-height:16px;"><span class="class">{class}</span></div><div class="row"  style="height:16px;line-height:16px;"><span class="address">地址:{address}</span></div><div class="row" style="height:12px;line-height:12px;"><span class="review">评价<tpl if="review &gt; 0"><a href="#">({review})</a></tpl>   粉丝<tpl if="fans &gt; 0"><a href="#">({fans})</a></tpl>   距离：{distance}km</span></div></div><div class="hot-panel">',
+								'<span class="',
+								' <tpl if="hot &lt; 270">hot-color-blue</tpl> <tpl if="hot &gt;= 270">hot-color-red</tpl>',
+								' ">{hot}</span><div class="hot-white-font ',
+								'<tpl if="hot &lt; 270">hot-bkcolor-blue</tpl> <tpl else">hot-bkcolor-red</tpl>">℃',
+								'</div></div>'),
+								store: store,
+								flex:1,
+							},
+						]
+					},
+					{
+						title: '推荐商品',
+						layout:'vbox',
+						items:[
+							{
+								xtype:'panel',
+								layout:'hbox',
+								style: 'background-color: #188fdd;',
+								height:2,
+								items:[
+									{
+										xtype: 'panel',
+										flex: 1,
+										
+									
+									},
+									{
+										xtype:'spacer',
+										flex:1,
+										style: 'background-color: red;',
+									},
+									{
+										xtype:'spacer',
+										flex:1,
+										
+									}
+								]
+							},
+							{
+								xtype: 'list',
+								cls: 'shopping-list',
+								selectedCls:  'shopping-list-selected',
+								itemTpl: new Ext.XTemplate('<img src={usrImg} width="75px" style="float:left;"/>',
+								'<div style="float:left;"><div class="row" style="height:16px;line-height:16px;"><span class="username">{username}</span><img src="resources/themes/images/default/friends_score.png" width="13px" style="margin-left:5px;"/><span class="score">{score}</span></div><div class="row" style="height:16px;line-height:16px;"><span class="class">{class}</span></div><div class="row"  style="height:16px;line-height:16px;"><span class="address">地址:{address}</span></div><div class="row" style="height:12px;line-height:12px;"><span class="review">评价<tpl if="review &gt; 0"><a href="#">({review})</a></tpl>   转发<tpl if="fans &gt; 0"><a href="#">({fans})</a></tpl>   距离：{distance}km</span></div></div><div class="hot-panel">',
+								'<span class="',
+								' <tpl if="hot &lt; 270">hot-color-blue</tpl> <tpl if="hot &gt;= 270">hot-color-red</tpl>',
+								' ">{hot}</span><div class="hot-white-font ',
+								'<tpl if="hot &lt; 270">hot-bkcolor-blue</tpl> <tpl else">hot-bkcolor-red</tpl>">℃',
+								'</div></div>'),
+								store: store,
+								flex:1
+							},
+						]
+					},
+					{
+						title: '优惠券',
+						layout: 'vbox',
+						items:[
+							{
+								xtype:'panel',
+								layout:'hbox',
+								style: 'background-color: #188fdd;',
+								height:2,
+								items:[
+									{
+									xtype: 'panel',
+									flex: 1,
+									
+								
+									},
+									{
+										xtype:'spacer',
+										flex:1
+									},
+									{
+										xtype:'spacer',
+										flex:1,
+										style: 'background-color: red;',
+									}
+								]
+							},
+							{
+								xtype: 'list',
+								cls: 'coupon-list',
+								selectedCls:  'coupon-list-selected',
+								itemTpl: new Ext.XTemplate(
+								'<img src={usrImg} width="75px" style="float:left;"/>',
+								'<div style="float:left;"><div class="row" style="height:16px;line-height:16px;"><span class="username">{username}</span><img src="resources/themes/images/default/friends_score.png" width="13px" style="margin-left:5px;"/><span class="score">{score}</span></div><div class="row" style="height:16px;line-height:16px;"><span class="validity">时效:{validity}</span></div><div class="row"  style="height:16px;line-height:16px;"><span class="price">原价：<s>￥{origin_price}</s>&nbsp;&nbsp;&nbsp;现价：￥{price}</span></div><div class="row" style="height:12px;line-height:12px;"><span class="review">评价<tpl if="review &gt; 0"><a href="#">({review})</a></tpl>   粉丝<tpl if="fans &gt; 0"><a href="#">({fans})</a></tpl>   距离：{distance}km</span></div></div><div class="cutoff-panel">',
+								'<div class="cutoff-white-font ',
+								'<tpl if="hot &lt; 270">cutoff-bkcolor-blue</tpl> <tpl else">cutoff-bkcolor-red</tpl>',
+								' ">{cutoff}折</div>',
+								'<img class="cutoff-unfolder" src="resources/themes/images/default/coupon_unfolder.png"/>',
+								'</div></div>'),
+								store: store,
+								flex:1,
+							}
+					]
+					}
+				]
+			},
 			// switch bar
-		{
-	        xtype: 'navigationbar',
+		/*{
+	        xtype: 'toolbar',
             //ui: 'af',
             layout: {
             	type: 'vbox',
@@ -209,7 +349,7 @@ Ext.define('Af.shopping.panel', {
 				store: store,
 			},
 */			// coupon list
-			{
+			/*{
 				xtype: 'list',
 				cls: 'coupon-list',
 				selectedCls:  'coupon-list-selected',
@@ -224,14 +364,17 @@ Ext.define('Af.shopping.panel', {
 				store: store,
 			}
 			]
-		},
+		},*/
 			//bottom bar
 			{
-				xtype : 'navigationbar',
+				xtype : 'toolbar',
             	docked: 'bottom', 	
 				height: 40,
 				ui: 'af3',
-				layout: 'vbox',
+				layout: {
+					type:'hbox',
+					align:'center'
+				},
 				items:[
 					{
 						xtype: 'spacer',
@@ -281,7 +424,7 @@ Ext.define('Af.shopping.panel', {
 			}
 		]
 	},
-	initComponent: function(){
-		Af.shopping.panel.superclass.initComponent.call(this);
+	initialize: function(){
+		this.callParent();
 	}
 });

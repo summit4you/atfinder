@@ -17,10 +17,17 @@ img{
 		src: url('../font/ltchj.ttf');
 }
 
+@font-face{
+		font-family:'segoeui';
+		src: url('../font/segoeui.ttf');
+}
+
 .x-title{
 	color: #FFFFFF;
 	font-family:'lthj';
 	font-size:15px;
+	line-height:normal !important;
+	text-align:center;
 }
 
 .x-toolbar-af {
@@ -835,6 +842,7 @@ img{
 	margin-right:10px;
 	background-color: white;
 	height:75px;
+	border-top: none !important;
 }
 
 
@@ -906,7 +914,7 @@ img{
 	
 }
 
-.friends-list .x-list-item:last-child{
+.friends-list .x-list-item:last-child .x-list-item-label{
 	border-bottom: none !important;
 }
 
@@ -1042,6 +1050,10 @@ img{
 	margin-bottom:13px;
 }
 
+.x-field-input{
+	background-color:white;
+}
+
 .tag-formpanel .tags-panel textarea{
 	height:135px;
 	min-height:135px;
@@ -1060,7 +1072,7 @@ img{
 	display:inline-block; /* 使得子元素会自动换行 */
 }
 
-.tag-cbutton-pressed .x-innerhtml{
+.tag-cbutton-pressed .x-button-label{
 	height:30px;
 	line-height:30px;
 	font-family:'lthj';
@@ -1086,7 +1098,7 @@ img{
 	display:inline-block; /* 使得子元素会自动换行 */
 }
 
-.tag-cbutton .x-innerhtml{
+.tag-cbutton .x-button-label{
 	height:30px;
 	line-height:30px;
 	font-family:'lthj';
@@ -1496,13 +1508,13 @@ img{
 	color: #188FDD;
 }
 
-.shopping-list .x-list-item {
+.shopping-list .x-list-item-label {
 	border-top: none !important;
 	height:75px;
 	
 }
 
-.shopping-list .x-list-item:last-child{
+.shopping-list .x-list-item:last-child .x-list-item-label{
 	border-bottom: none !important;
 }
 
@@ -1767,7 +1779,7 @@ img{
 	margin-bottom: 5px;
 }
 
-.form-button .x-innerhtml{
+.form-button .x-button-label{
 	height:30px;
 	line-height:30px;
 	font-family:'lthj';
@@ -1776,8 +1788,53 @@ img{
 }
 /* issue pic end */
 
+/* activities pic end */
+.activities-carousel{
+	background-color:#333333;
+}
 
 
+.active{
+	margin-left:25px;
+}
+
+
+.active .title{
+	color: white !important;
+}
+
+.active .activities-info{
+	margin-top:6px;
+	line-height:18px;
+	font-family:'lthj';
+	font-size:12px !important;
+	color:#CCCCCC;
+	display:block;
+}
+
+
+
+.activities-info{
+	display: none;
+}
+
+.activities-infopanel{
+	margin-left:32px;
+	margin-right:32px;
+	-webkit-transform: translateX(-50px)  ;
+	-webkit-transform-style: preserve-3d;
+}
+
+.activities-infopanel .title{
+	font-family:'segoeui';
+	font-size:25px !important;
+	color: #999999;
+	margin-top:10px;
+}
+
+.activities-infopanel .activities-image{
+	margin-top:6px;
+}
 	
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {
 	

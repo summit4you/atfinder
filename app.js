@@ -17,7 +17,10 @@ Ext.application({
 	'Ext.field.Number',
 	'Ext.form.Panel',
 	'Ext.field.Password',
-	'Ext.TitleBar'
+	'Ext.TitleBar',
+	'Ext.tab.Panel',
+	'Ext.dataview.List',
+	'Ext.carousel.Carousel'
 	],
 
     launch: function() {
@@ -31,8 +34,8 @@ Ext.application({
 			//form.setActiveItem(Ext.getCmp('guidpanel'), 'fade');
 			localStorage.setItem('visited', true)
 		}else{
-			form.setActiveItem(Ext.getCmp('feedpanel'), 'fade');
-			//Ext.getCmp('activities-carousel').updateStore(activitiesstore);
+			form.setActiveItem(Ext.getCmp('activitiespanel'), 'fade');
+			Ext.getCmp('activities-carousel').updateStore(activitiesstore);
 		}
 
     }

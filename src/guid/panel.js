@@ -31,7 +31,7 @@ Ext.define('Af.guid.panel', {
 			},
 		],
 	},
-	initComponent: function(){
+	initialize: function(){
 		this.on({cardswitch: function(container, newCard, oldCard, index){
 						alert('ew');
 						if (this.getActiveIndex()==6){
@@ -40,6 +40,7 @@ Ext.define('Af.guid.panel', {
 						}else
 							this.next();
 					}});
-		Af.guid.panel.superclass.initComponent.call(this);
+		this.callParent();
 	}
+	
 });

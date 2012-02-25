@@ -30,7 +30,7 @@ activitiesstore = Ext.create('Ext.data.Store',{
 					height: '960',
 					width: '640',
 				});
-				info.update(r);
+				info.setHtml(r);
                 items.push(info);
             });
             var carousel = Ext.getCmp('activities-carousel');
@@ -61,49 +61,58 @@ Ext.define('Af.activities.panel', {
 			xtype: 'titlebar',
 			title: '<b>活&nbsp;&nbsp;动</b>',
 			ui: 'af',
-			layout: 'vbox',
 			height: 30,
 			items: [
-				{
-					xtype: 'panel',
-					flex:0.14
-				},
-				{
-					xtype: 'spacer',
-					cls: 'login-toolbar-spacer',
-					width: 1,
-					//flex:0.003
-					
-               	},
-				{
-					xtype: 'panel',
-					flex: 0.64
-				},
-				{
-					xtype: 'spacer',
-					cls: 'login-toolbar-spacer',
-					width: 1,
-					//align : 'right',
-					//flex:0.003,
-				},
-				{
-					xtype: 'panel',
-					cls: 'login-right-button',
-                    items: [{
-                            xtype: 'button',
-                            baseCls: 'x-button-af',
-                            height: 100,
-                            docked: 'right',
-							html: '<img src="resources/themes/images/default/feed_r1_c32.png" width="29px"></img>'
-                            }],
-					flex:0.14
-				},
+			    { // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
+					{
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						width: 45,
+							
+					},
+					{
+						xtype: 'spacer',
+						cls: 'login-toolbar-spacer',
+						width: 1,
+						
+                	},
+					{
+						xtype: 'spacer',
+						cls: 'login-toolbar-spacer',
+						width: 1,
+						align : 'right',
+					},
+					{
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						html: '<img src="resources/themes/images/default/feed_r1_c32.png" width="25px"></img>',
+						width: 45,
+					},
+			
 			]
 		},
 		{
 			xtype: 'carousel',
 			cls: 'activities-carousel',
 			id: 'activities-carousel',
+			indicator:false,
+			listeners:{
+				activeitemchange: function(o, v, ov){
+					if(ov){
+						ov.removeCls('active');
+					}
+					v.addCls('active');
+				}
+			},
 			updateStore : function (store) {
 				
 		        var items = [];
@@ -117,13 +126,55 @@ Ext.define('Af.activities.panel', {
 				
 			   this.setItems(items);
 			   this.setActiveItem(0);
+			    
 		    },
 			flex:1,
 		},
+		
 		]
 	},
 	
 	initialize: function() {
+		var controlpanel = Ext.create("Ext.Panel", {
+			layout: 'vbox',
+			right:62,
+			top:136,
+			items:[
+				{
+					xtype:'button', 
+					baseCls: 'x-button-af',
+					html:'<div style="text-align:right"><img src="resources/themes/images/default/activities_like.png" width="30px"></img></div>',
+					handler:function(){
+						alert("i like it");
+					}
+				},
+				{
+					xtype:'spacer',
+					height:20
+				},
+				{
+					xtype:'button', 
+					baseCls: 'x-button-af',
+					html:'<div style="text-align:right"><img src="resources/themes/images/default/activities_add.png" width="30px"></img></div>',
+					handler:function(){
+						alert("i like it");
+					}
+				},
+				{
+					xtype:'spacer',
+					height:20
+				},
+				{
+					xtype:'button', 
+					baseCls: 'x-button-af',
+					html:'<div style="text-align:right"><img src="resources/themes/images/default/activities_good.png" width="30px"></img></div>',
+					handler:function(){
+						alert("i like it");
+					}
+				}
+			],
+			renderTo: Ext.getCmp('activities-carousel').el
+		});
 		this.callParent();
 		
 	},

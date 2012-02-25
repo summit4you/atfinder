@@ -8,43 +8,63 @@ Ext.define('Af.discover.panel', {
 		width: '640',
 		layout: 'vbox',
 		id: 'discoverpanel',
+		scrollable: {
+					direction: 'vertical'
+		},
 		items: [
 // top bar
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
 				ui: 'af',
+				docked: 'top', 
 				height: 30,
 				title: '<b>发&nbsp;&nbsp;现</b>',
 				items: [
+					{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						width: 45,
+							
 					},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
-						width: 2
-					},
+						width: 1,
+						
+                	},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
-						width: 2,
+						width: 1,
+						align : 'right',
+					},
+					{
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
 						align: 'right',
-					},
-					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						align: 'right'
+						width: 45,
 					}
 				]
 			},
 // bottom bar
 			{
-				xtype : 'navigationbar',
+				xtype : 'toolbar',
             	docked: 'bottom', 	
 				height: 45,
 				ui: 'af',
-				layout: 'vbox',
+				layout: {
+					type:'hbox',
+					align:'center'
+				},
 				items:[
 					{
 						xtype: 'spacer',
@@ -118,24 +138,38 @@ Ext.define('Af.discover.panel', {
 			{
 				xtype: 'panel',
 				cls: 'discover-forward-button',
+				id: 'discover-forward-button',
 				html: '<img src="resources/themes/images/default/discover/discover_r7_c80.png"></img>',
 				listeners: { // TODO: not works
-					el: {
-						click: function() {
-							console.log('clicked');
-						}
-					}
-				}
+					click:{
+						fn: function() {
+							alert('3');
+							Ext.getCmp('discover-carousel').setActiveItem(1-Ext.getCmp('discover-carousel').getActiveIndex());
+						},
+						element: 'element' //  sencha touch 2 RC change please see http://www.sencha.com/forum/showthread.php?176239-HOWTO-Adding-Event-Listeners-to-Component-Elements element: 'element'
+					},
+				},
+				
 			},
 // content
 			{
-				xtype:'panel',
+				xtype:'carousel',
 				// TODO: use height: '850' will be nothing out.
 				//height: 650,
 				flex: 1,
-				layout: 'card',
-				scroll: true,
-				activeItem: 1, // TODO: not works
+				indicator:false,
+				id:'discover-carousel',
+				
+				listeners:{
+					activeitemchange: function(o, v, ov){
+						if (o.getActiveIndex()==0){
+							Ext.getCmp('discover-forward-button').setHtml('<img src="resources/themes/images/default/discover/discover_r7_c80.png"></img>');
+						}else{
+							Ext.getCmp('discover-forward-button').setHtml('<img src="resources/themes/images/default/discover/discover_r29_c82.png"></img>');
+						}
+					}
+				},
+				activeItem: 0, // TODO: not works
 				items:[
 						{
 							xtype: 'panel',

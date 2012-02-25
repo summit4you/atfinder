@@ -2,7 +2,7 @@ Ext.define("Buyer",
 	{
 		extend: "Ext.data.Model", 
 		
-		fields:  ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot']
+		fields:  ['usrImg', 'username', 'score', 'class', 'address', 'review', 'fans', 'distance', 'hot', 'isset']
 		
 	}
 );
@@ -13,9 +13,9 @@ var store = Ext.create('Ext.data.Store',{
    model: 'Buyer',
    //sorters: 'username',
 
-    grouper: {groupFn: function(record) {
+    /*grouper: {groupFn: function(record) {
        return record.get('username')[0];
-   }},
+   }},*/
 
    data: [
        {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1'},
@@ -36,48 +36,50 @@ Ext.define('Af.friends.panel', {
 		width: '640',
 		layout:'vbox',
 		id:'friendspanel',
-		scroll: true,
+		scrollable: {
+        	direction: 'vertical'
+   		},
 		items:[
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
 				docked: 'top', 
 				title: '<b>商家推荐</b>',
 				ui: 'af',
-				layout: 'vbox',
 				height: 30,
 				items: [
+					{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-					
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						width: 45,
+							
 					},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//flex:0.003
 						
                 	},
 					{
-						xtype: 'panel',
-						
-						flex: 0.64
-					},
-					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//align : 'right',
-						//flex:0.003,
+						align : 'right',
 					},
 					{
-						xtype: 'panel',
-						cls: 'login-right-button',
-						//align :'right',
-				
-						flex:0.14
-					},
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						width: 45,
+					}
 				]
 			},	
 			{
@@ -95,11 +97,14 @@ Ext.define('Af.friends.panel', {
 			},
 			{
 				//73 60 48 60 49 60 48 60 50 60 72
-				xtype : 'navigationbar',
+				xtype : 'toolbar',
             	docked: 'bottom', 	
 				height: 40,
 				ui: 'af2',
-				layout: 'vbox',
+				layout: {
+					type:'hbox',
+					align:'center'
+				},
 				items:[
 					{
 						xtype: 'spacer',
@@ -136,7 +141,7 @@ Ext.define('Af.friends.panel', {
 			}
 		]
 	},
-	initComponent: function(){
-		Af.friends.panel.superclass.initComponent.call(this);
+	initialize: function(){
+		this.callParent();
 	}
 });

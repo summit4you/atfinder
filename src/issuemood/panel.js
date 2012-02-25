@@ -6,66 +6,55 @@ Ext.define('Af.issuemood.panel', {
 		width: '640',
 		layout: 'vbox',
 		id: 'issuemoodpanel',
-		scroll: true,
+		scrollable: {
+					direction: 'vertical'
+		},
 		cls: 'af-issuemood-panel',
 		items: [
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
 				docked: 'top', 
 				title: '<b>发布心情</b>',
 				ui: 'af',
-				layout: 'vbox',
 				height: 30,
 				items: [
+				{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						items:[
-							{
-								xtype:'button',
-								
-								baseCls: 'x-button-af',
-								height:100,
-								docked:'left',
-								html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>'
-							}
-						],
-						flex:0.14
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>',
+						width: 45,
+							
 					},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//flex:0.003
 						
                 	},
 					{
-						xtype: 'panel',
-						
-						flex: 0.64
-					},
-					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
 						width: 1,
-						//align : 'right',
-						//flex:0.003,
+						align : 'right',
 					},
 					{
-						xtype: 'panel',
-						cls: 'login-right-button',
-						//align :'right',
-						items:[
-							{
-								xtype:'button',
-								baseCls: 'x-button-af',
-								height: 100,
-								docked:'right',
-								html: '<img src="resources/themes/images/default/enter_icon.png" width="29px"></img>'
-							}
-						],
-						flex:0.14
-					},
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						html: '<img src="resources/themes/images/default/enter_icon.png" width="25px"></img>',
+						width: 45,
+					}
+					
+				
 				]
 			},
 			// form
@@ -98,7 +87,7 @@ Ext.define('Af.issuemood.panel', {
 			
 		]
 	},
-	initComponent: function(){
-		Af.issuemood.panel.superclass.initComponent.call(this);
+	initialize: function(){
+		this.callParent();
 	}
 });

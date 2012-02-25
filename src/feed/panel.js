@@ -96,7 +96,6 @@ Ext.define('Af.feed.panel', {
 			items:[
 				{
 					title: '全&nbsp;&nbsp;部',
-					iconCls: 'home',
 					items:[
 							{
 								xtype:'panel',
@@ -124,7 +123,6 @@ Ext.define('Af.feed.panel', {
 				},
 				{
 					title: '好&nbsp;&nbsp;友',
-					iconCls: 'user',
 					layout:'vbox',
 					items:[
 							{
@@ -186,7 +184,6 @@ Ext.define('Af.feed.panel', {
 				},
 				{
 					title: '附&nbsp;&nbsp;近',
-					iconCls: 'user',
 					items:[
 							{
 								xtype:'panel',
@@ -465,8 +462,7 @@ Ext.define('Af.feed.panel', {
 			},
 		]
 	},
-	initComponent: function() {
-		
-			   Af.feed.panel.superclass.initComponent.apply(this);
-	},
+	initialize: function(){
+		this.callParent();
+	}
 });

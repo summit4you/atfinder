@@ -18,34 +18,50 @@ Ext.define('Af.tag.panel', {
 		width: '320',
 		layout:'vbox',
 		id:'tagpanel',
-		scroll: true,
+		scrollable: {
+        	direction: 'vertical'
+   		},
 		items:[
 			{
-				xtype: 'navigationbar',
+				xtype: 'titlebar',
 				ui: 'af',
+				docked: 'top', 
 				title: '兴趣爱好',
+				height: 30,
 				items:[
+					{ // I think this a bug....but it's important for layout T-T
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'left',
+						width: 45,
+							
 					},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
-						width: 2,
+						width: 1,
 						
                 	},
 					{
 						xtype: 'spacer',
 						cls: 'login-toolbar-spacer',
-						width: 2,
+						width: 1,
 						align : 'right',
 					},
 					{
-						xtype: 'panel',
-						cls: 'login-left-button',
-						align :'right',
-					},
+						xtype:'button',
+						cls: 'af-toolbar-button',
+						baseCls: 'x-button-af',
+						align: 'right',
+						width: 45,
+					}
 				]
 			},
 			{
@@ -61,7 +77,7 @@ Ext.define('Af.tag.panel', {
 							id: 'tags',
 							name: 'tags',
 							placeHolder: '请选择您感兴趣的标签...',
-							useClearIcon: true,
+							clearIcon: true,
 							flex:1
 						}],
 						
@@ -151,11 +167,14 @@ Ext.define('Af.tag.panel', {
 			},
 			{
 				//73 60 48 60 49 60 48 60 50 60 72
-				xtype : 'navigationbar',
+				xtype : 'toolbar',
             	docked: 'bottom', 	
 				height: 40,
 				ui: 'af2',
-				layout: 'vbox',
+				layout: {
+					type:'hbox',
+					align:'center'
+				},
 				items:[
 					{
 						xtype: 'spacer',
@@ -193,7 +212,7 @@ Ext.define('Af.tag.panel', {
 		
 		]
 	},
-	initComponent: function(){
-		Af.tag.panel.superclass.initComponent.call(this);
+	initialize: function(){
+		this.callParent();
 	}
 });
