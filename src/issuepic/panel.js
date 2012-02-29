@@ -63,7 +63,7 @@ Ext.define('Af.issuepic.panel',{
 			// photo fetch part
 			{
 				xtype: 'formpanel',
-				cls: 'issuepic-formpanel',
+				cls: 'formpanel',
 				items: [{
 						xtype: 'panel',
 						cls: 'photo-src',
@@ -94,12 +94,12 @@ Ext.define('Af.issuepic.panel',{
 						]
 				},{
 						xtype: 'panel',
-						cls: 'tags-panel',
+						cls: 'form-textarea',
 						items: [
 						{
 							xtype: 'textareafield',
-							id: 'tags',
-							name: 'tags',
+							id: 'des',
+							name: 'des',
 							placeHolder: '图片描述..',
 							clearIcon: true,
 							flex:1

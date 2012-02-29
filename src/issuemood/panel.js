@@ -60,11 +60,11 @@ Ext.define('Af.issuemood.panel', {
 			// form
 			{
 				xtype: 'formpanel',
-				cls: 'issuemood-formpanel',
+				cls: 'formpanel',
 				items: [
 					{
 						xtype: 'panel',
-						cls: 'issuemood-panel',
+						cls: 'form-textarea',
 						items: [
 						{
 							xtype: 'textareafield',
