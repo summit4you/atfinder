@@ -100,6 +100,9 @@ Ext.define('Af.login.panel', {
 						baseCls: 'x-button-af',
 						height: '30px',
 						html: '<b>登&nbsp;&nbsp;录</b>',
+						handler:function(){
+							changePanel('feedpanel');
+						}
 					},
 					{
 						xtype: 'button',

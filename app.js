@@ -1,5 +1,12 @@
 Ext.ns("Af");
 
+var daddy;
+var lastPanel = null;
+
+function changePanel(id){
+	lastPanel = daddy.getActiveItem();
+	daddy.setActiveItem(Ext.getCmp(id), 'fade');
+}
 
 Ext.require([
 	'Ext.Loader'
@@ -25,16 +32,16 @@ Ext.application({
 
     launch: function() {
 		 Ext.Loader.setConfig({enabled:true,paths:{Af:"src"}});
-         form =  Ext.create("Af.panel", {
+         daddy =  Ext.create("Af.panel", {
             fullscreen: true,
         });
-		Ext.Viewport.add(form);
+		Ext.Viewport.add(daddy);
 		if (localStorage.getItem('visited')==null){
 			//第一次访问进入guid
 			//form.setActiveItem(Ext.getCmp('guidpanel'), 'fade');
 			localStorage.setItem('visited', true)
 		}else{
-			form.setActiveItem(Ext.getCmp('strangerpanel'), 'fade');
+			daddy.setActiveItem(Ext.getCmp('loginpanel'), 'fade');
 			Ext.getCmp('activities-carousel').updateStore(activitiesstore);
 		}
 

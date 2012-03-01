@@ -108,7 +108,7 @@ Ext.define('Af.profile.panel', {
 			{
 				xtype: 'panel',
 				cls: 'profile-panel-1',
-				html: '<div class="profile-panel-row-bottom"><div class="profile-panel-cell-left">关&nbsp;&nbsp;注&nbsp;&nbsp;<b>336</b></div><div class="profile-panel-cell-right">&nbsp;<img src="resources/themes/images/default/like.png" width="16" height="16"/>&nbsp;&nbsp;&nbsp;<b>1046</b></div></div><div class="profile-panel-row"><div class="profile-panel-cell-left">粉&nbsp;&nbsp;丝&nbsp;&nbsp;<b>457</b></div><div class="profile-panel-cell-right">留&nbsp;&nbsp;言&nbsp;&nbsp;<b>602</b></div></div>'
+				html: '<div class="profile-panel-row-bottom"><div class="profile-panel-cell-left">关&nbsp;&nbsp;注&nbsp;&nbsp;<b>336</b></div><div class="profile-panel-cell-right">&nbsp;<img src="resources/themes/images/default/like.png" width="16" height="16"/>&nbsp;&nbsp;&nbsp;<b>1046</b></div></div><div class="profile-panel-row"><div class="profile-panel-cell-left">粉&nbsp;&nbsp;丝&nbsp;&nbsp;<b>457</b></div><div class="profile-panel-cell-right"><a href="javascirpt:;" onclick="changePanel(\'messagepanel\');" style="text-decoration:none;color:#666;">消&nbsp;&nbsp;息&nbsp;&nbsp;</a><b>602</b></div></div>'
 			},
 			{
 				xtype: 'panel',
@@ -124,7 +124,7 @@ Ext.define('Af.profile.panel', {
 					{
 						xtype:'panel',
 						cls: 'profile-class-panel-row',
-						html: '<img src="resources/themes/images/default/me_gift_icon.png" width="21"/><span class="class-title">商品</span><span class="class-value">126</span>',
+						html: '<img src="resources/themes/images/default/me_gift_icon.png" width="21"/><span class="class-title"><a href="javascirpt:;" onclick="changePanel(\'goodspanel\');" style="text-decoration:none;color:#666;">商品</a></span><span class="class-value">126</span>',
 						items:[
 							{
 								xtype:'button',
@@ -138,7 +138,7 @@ Ext.define('Af.profile.panel', {
 					{
 						xtype:'panel',
 						cls: 'profile-class-panel-row',
-						html: '<img src="resources/themes/images/default/me_discount_icon.png" width="21"/><span class="class-title">优惠</span><span class="class-value">228</span>',
+						html: '<img src="resources/themes/images/default/me_discount_icon.png" width="21"/><span class="class-title"><a href="javascirpt:;" onclick="changePanel(\'goodspanel\');" style="text-decoration:none;color:#666;">优惠</a></span><span class="class-value">228</span>',
 						items:[
 							{
 								xtype:'button',
@@ -152,7 +152,7 @@ Ext.define('Af.profile.panel', {
 					{
 						xtype:'panel',
 						cls: 'profile-class-panel-row-bottom',
-						html: '<img src="resources/themes/images/default/me_activi_icon.png" width="21"/><span class="class-title">活动</span><span class="class-value">176</span>',
+						html: '<img src="resources/themes/images/default/me_activi_icon.png" width="21"/><span class="class-title"><a href="javascirpt:;" onclick="changePanel(\'goodspanel\');" style="text-decoration:none;color:#666;">活动</a></span><span class="class-value">176</span>',
 						items:[
 							{
 								xtype:'button',
@@ -445,6 +445,9 @@ Ext.define('Af.profile.panel', {
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
 						html: '<img src="resources/themes/images/default/feed_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('feedpanel');
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -457,6 +460,9 @@ Ext.define('Af.profile.panel', {
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
 						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('shoppingpanel');
+						}
 						
 					},
 					{
@@ -470,6 +476,9 @@ Ext.define('Af.profile.panel', {
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
 						html: '<img src="resources/themes/images/default/heart_icon.png" width="29"></img>',
+						handler:function(){
+							changePanel('discoverpanel');
+						}
 						
 					},
 					{
@@ -483,6 +492,9 @@ Ext.define('Af.profile.panel', {
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
 						html: '<img src="resources/themes/images/default/activi_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('activitiespanel');
+						}
 						
 					},
 					{

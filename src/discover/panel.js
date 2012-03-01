@@ -76,7 +76,10 @@ Ext.define('Af.discover.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/feed_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/feed_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('feedpanel');
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -88,7 +91,10 @@ Ext.define('Af.discover.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('shoppingpanel');
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -112,7 +118,10 @@ Ext.define('Af.discover.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/activi_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/activi_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('activitiespanel');
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -124,7 +133,10 @@ Ext.define('Af.discover.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/me_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/me_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('profilepanel');
+						}
 					},
 					{
 						xtype: 'spacer',

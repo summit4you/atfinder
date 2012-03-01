@@ -72,6 +72,10 @@ Ext.define('Af.shopping.panel', {
 						align: 'left',
 						html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>',
 						width: 45,
+						handler:function(){
+							changePanel(lastPanel.id); // because the ref pass , I must use the id instead of object
+							
+						}
 							
 					},
 					{

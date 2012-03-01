@@ -2387,6 +2387,10 @@ img{
 .stranger-review-panel .x-field-input{
 	border: 1px solid #CCCCCC;
 }
+
+.vote-field2  .x-field-input, .x-field .x-input-el{
+	width: 95%;
+}
 	
 @media screen and (min-device-width: 320px) and (max-device-width: 480px)  {
 	

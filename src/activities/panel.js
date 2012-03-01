@@ -75,6 +75,11 @@ Ext.define('Af.activities.panel', {
 						baseCls: 'x-button-af',
 						align: 'left',
 						width: 45,
+						html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>',
+						handler:function(){
+							changePanel(lastPanel.id); // because the ref pass , I must use the id instead of object
+							
+						}
 							
 					},
 					{
@@ -96,6 +101,9 @@ Ext.define('Af.activities.panel', {
 						align: 'right',
 						html: '<img src="resources/themes/images/default/feed_r1_c32.png" width="25px"></img>',
 						width: 45,
+						handler:function(){
+							changePanel('issueactpanel'); 
+						}
 					},
 			
 			]

@@ -96,6 +96,7 @@ Ext.define('Af.feed.panel', {
 			items:[
 				{
 					title: '全&nbsp;&nbsp;部',
+					layout: 'vbox',
 					items:[
 							{
 								xtype:'panel',
@@ -118,7 +119,39 @@ Ext.define('Af.feed.panel', {
 										flex:1
 									}
 								]		
-							}
+							},
+							{
+								xtype: 'list',
+								cls: 'feed-list',
+								selectedCls: 'feed-list-selectd',
+								itemTpl: new Ext.XTemplate('<div><div class="feed-user" >',
+								'<img src={usrImg} width="60px" />',
+								'<img class="user-vip" <tpl if="vip==0">style="display:none;"</tpl> src="resources/themes/images/default/v.png"/>',
+								'<div class="username" >{username}</div></div>',
+								'<div class="feed-article-angle"></div>',
+								'<div class="feed-content">',
+								'<div class="feed-title">',
+									'<div class="',
+										'<tpl if="hot &gt; 0">hot-color-gray</tpl> ',
+										'<tpl if="hot &gt; 10">hot-color-lightpink</tpl> ',
+										'<tpl if="hot &gt; 30">hot-color-pink</tpl> ',
+										'<tpl if="hot &gt; 100">hot-color-red</tpl> ',
+										'">{hot}℃</div>',
+									'<tpl if="title"><div class="title">{title}</div></tpl>',
+								'</div>',
+								'<div class="feed-imgpanel">',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/1.png" width="100%"/></div>',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/2.png" width="100%"/></div>',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/2.png" width="100%"/></div>',
+								'</div>',
+								'<div class="feed-img-count">14张</div>',
+								'<div class="content">{content}</div>',
+								'<div class="other"><span class="time">{time}</span><span class="actions" ><a href="#"><img src="resources/themes/images/default/feed_like.png" height="13px" style=""/>{like}</a><a href="#"><img src="resources/themes/images/default/feed_comment.png" style="" height="13px"/>{review}</a><a href="#"><img src="resources/themes/images/default/feed_share.png" style="" height="13px"/>{share}</a></span></div>',
+								'</div>',
+								'</div>'), 
+								store: store,
+								flex: 1,
+        					},
 					]
 				},
 				{
@@ -184,6 +217,7 @@ Ext.define('Af.feed.panel', {
 				},
 				{
 					title: '附&nbsp;&nbsp;近',
+					layout: 'vbox',
 					items:[
 							{
 								xtype:'panel',
@@ -207,7 +241,39 @@ Ext.define('Af.feed.panel', {
 										style: 'background-color: red;',
 									}
 								]
-							}
+							},
+							{
+								xtype: 'list',
+								cls: 'feed-list',
+								selectedCls: 'feed-list-selectd',
+								itemTpl: new Ext.XTemplate('<div><div class="feed-user" >',
+								'<img src={usrImg} width="60px" />',
+								'<img class="user-vip" <tpl if="vip==0">style="display:none;"</tpl> src="resources/themes/images/default/v.png"/>',
+								'<div class="username" >{username}</div></div>',
+								'<div class="feed-article-angle"></div>',
+								'<div class="feed-content">',
+								'<div class="feed-title">',
+									'<div class="',
+										'<tpl if="hot &gt; 0">hot-color-gray</tpl> ',
+										'<tpl if="hot &gt; 10">hot-color-lightpink</tpl> ',
+										'<tpl if="hot &gt; 30">hot-color-pink</tpl> ',
+										'<tpl if="hot &gt; 100">hot-color-red</tpl> ',
+										'">{hot}℃</div>',
+									'<tpl if="title"><div class="title">{title}</div></tpl>',
+								'</div>',
+								'<div class="feed-imgpanel">',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/1.png" width="100%"/></div>',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/2.png" width="100%"/></div>',
+									'<div class="feed-img"><img src="resources/themes/images/default/feed/2.png" width="100%"/></div>',
+								'</div>',
+								'<div class="feed-img-count">14张</div>',
+								'<div class="content">{content}</div>',
+								'<div class="other"><span class="time">{time}</span><span class="actions" ><a href="#"><img src="resources/themes/images/default/feed_like.png" height="13px" style=""/>{like}</a><a href="#"><img src="resources/themes/images/default/feed_comment.png" style="" height="13px"/>{review}</a><a href="#"><img src="resources/themes/images/default/feed_share.png" style="" height="13px"/>{share}</a></span></div>',
+								'</div>',
+								'</div>'), 
+								store: store,
+								flex: 1,
+        					},
 					]
 				}
 			],
@@ -414,7 +480,10 @@ Ext.define('Af.feed.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('shoppingpanel');
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -426,7 +495,10 @@ Ext.define('Af.feed.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/heart_icon.png" width="37"></img>'
+						html: '<img src="resources/themes/images/default/heart_icon.png" width="37"></img>',
+						handler:function(){
+							changePanel('discoverpanel');
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -438,7 +510,10 @@ Ext.define('Af.feed.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/activi_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/activi_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('activitiespanel');
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -450,7 +525,10 @@ Ext.define('Af.feed.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-bbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/me_icon.png" width="25"></img>'
+						html: '<img src="resources/themes/images/default/me_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('profilepanel');
+						}
 					},
 					{
 						xtype: 'spacer',

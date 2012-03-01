@@ -87,7 +87,11 @@ Ext.define('Af.message.panel', {
 						baseCls: 'x-button-af',
 						align: 'left',
 						width: 45,
-						html: '<div style="text-align:left"><img src="resources/themes/images/default/return_icon.png" width="29px"></img></div>'
+						html: '<div style="text-align:left"><img src="resources/themes/images/default/return_icon.png" width="29px"></img></div>',
+						handler:function(){
+							changePanel(lastPanel.id); // because the ref pass , I must use the id instead of object
+							
+						}
 							
 					},
 					{
