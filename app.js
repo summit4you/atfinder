@@ -34,7 +34,7 @@ Ext.application({
 			//form.setActiveItem(Ext.getCmp('guidpanel'), 'fade');
 			localStorage.setItem('visited', true)
 		}else{
-			form.setActiveItem(Ext.getCmp('activitiespanel'), 'fade');
+			form.setActiveItem(Ext.getCmp('strangerpanel'), 'fade');
 			Ext.getCmp('activities-carousel').updateStore(activitiesstore);
 		}
 

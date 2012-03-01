@@ -174,7 +174,7 @@ Ext.define('Af.feed.panel', {
 								'</div>',
 								'<div class="feed-img-count">14张</div>',
 								'<div class="content">{content}</div>',
-								'<div class="other"><span class="time">{time}</span><span class="actions" ><a href="#"><img src="resources/themes/images/default/feed_like.png" style=""/>{like}</a><a href="#"><img src="resources/themes/images/default/feed_comment.png" style=""/>{review}</a><a href="#"><img src="resources/themes/images/default/feed_share.png" style=""/>{share}</a></span></div>',
+								'<div class="other"><span class="time">{time}</span><span class="actions" ><a href="#"><img src="resources/themes/images/default/feed_like.png" height="13px" style=""/>{like}</a><a href="#"><img src="resources/themes/images/default/feed_comment.png" style="" height="13px"/>{review}</a><a href="#"><img src="resources/themes/images/default/feed_share.png" style="" height="13px"/>{share}</a></span></div>',
 								'</div>',
 								'</div>'), 
 								store: store,

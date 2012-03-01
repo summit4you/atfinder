@@ -173,7 +173,7 @@ Ext.define('Af.activities.panel', {
 					}
 				}
 			],
-			renderTo: Ext.getCmp('activities-carousel').el
+			renderTo: Ext.getCmp('activities-carousel').element
 		});
 		this.callParent();
 		

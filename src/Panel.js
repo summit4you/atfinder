@@ -1,7 +1,7 @@
 Ext.define('Af.panel', {
 	
 	extend: 'Ext.Panel',
-	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel','Af.tag.panel',  'Af.guid.panel', 'Af.discover.panel', 'Af.shopping.panel','Af.issuemood.panel',  'Af.issuepic.panel', 'Af.activities.panel','Af.activities.infopanel'],
+	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel','Af.tag.panel',  'Af.guid.panel', 'Af.discover.panel', 'Af.shopping.panel','Af.issuemood.panel',  'Af.issuepic.panel', 'Af.activities.panel','Af.activities.infopanel', 'Af.vote.panel','Af.tipoff.panel','Af.feel.panel', 'Af.detailgoods.panel', 'Af.message.panel', 'Af.msgeval.panel', 'Af.msgprivate.panel', 'Af.goods.panel', 'Af.share.panel', 'Af.stranger.panel'],
 
 	config:{
 		id: 'main-panel',
@@ -72,6 +72,46 @@ Ext.define('Af.panel', {
 			{
 				xtype: 'af-activities-panel',
 				id: 'activitiespanel'
+			},
+			{
+				xtype: 'af-vote-panel',
+				id: 'votepanel'
+			},
+			{
+				xtype: 'af-tipoff-panel',
+				id: 'tipoffpanel'
+			},
+			{
+				xtype: 'af-feel-panel',
+				id: 'feelpanel'
+			},
+			{
+				xtype: 'af-detailgoods-panel',
+				id: 'detailgoodspanel'
+			},
+			{
+				xtype: 'af-message-panel',
+				id: 'messagepanel'
+			},
+			{
+				xtype: 'af-msgeval-panel',
+				id: 'msgevalpanel'
+			},
+			{
+				xtype: 'af-msgprivate-panel',
+				id: 'msgprivatepanel'
+			},
+			{
+				xtype: 'af-goods-panel',
+				id: 'goodspanel'
+			},
+			{
+				xtype: 'af-share-panel',
+				id: 'sharepanel'
+			},
+			{
+				xtype: 'af-stranger-panel',
+				id:'strangerpanel'
 			}
 		]
 	},
