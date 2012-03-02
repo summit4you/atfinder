@@ -420,7 +420,10 @@ Ext.define('Af.profile.panel', {
 				pressedCls: 'cbutton-pressed',
 				height: '35px',
 				flex:1,
-				html: '<div style="height:35px;line-height:35px;"><img src="resources/themes/images/default/me_off.png" height="18px"></img></div>'
+				html: '<div style="height:35px;line-height:35px;"><img src="resources/themes/images/default/me_off.png" height="18px"></img></div>',
+				handler: function() {
+					changePanel('loginpanel');
+				}
 			},
 			{
 				xtype : 'toolbar',

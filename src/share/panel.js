@@ -54,7 +54,7 @@ Ext.define('Af.share.panel', {
 						cls: 'af-toolbar-button',
 						baseCls: 'x-button-af',
 						align: 'left',
-						html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>',
+						html: '<div style="text-align:left"><img src="resources/themes/images/default/return_icon.png" width="29px"></img></div>',
 						width: 45,
 							
 					},

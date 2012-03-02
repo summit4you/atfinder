@@ -70,7 +70,7 @@ Ext.define('Af.shopping.panel', {
 						cls: 'af-toolbar-button',
 						baseCls: 'x-button-af',
 						align: 'left',
-						html: '<img src="resources/themes/images/default/return_icon.png" width="29px"></img>',
+						html: '<div style="text-align:left"><img src="resources/themes/images/default/return_icon.png" width="29px"></img></div>',
 						width: 45,
 						handler:function(){
 							changePanel(lastPanel.id); // because the ref pass , I must use the id instead of object
@@ -95,7 +95,7 @@ Ext.define('Af.shopping.panel', {
 						cls: 'af-toolbar-button',
 						baseCls: 'x-button-af',
 						align: 'right',
-						html: '<img src="resources/themes/images/default/shopping_sort_r10_c12.png" width="25px"></img>',
+						html: '<div style="text-align:right"><img src="resources/themes/images/default/shopping_sort_r10_c12.png" width="25px"></img></div>',
 						width: 45,
 					},
 					
@@ -160,6 +160,11 @@ Ext.define('Af.shopping.panel', {
 								'</div></div>'),
 								store: store,
 								flex:1,
+								onItemDisclosure : {
+									handler: function(btn, index) {
+									changePanel('detailuserspanel');
+								}
+								}
 							},
 						]
 					},
