@@ -103,6 +103,7 @@ Ext.define('Af.shopping.panel', {
 			},	
 			{
 				xtype:'tabpanel',
+				id: 'shoppingpanel-content',
 				tabBar:{
 					docked: 'top', // will put the menu on the bottom of the screen
 					cls: 'feed-tabbar',

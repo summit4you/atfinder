@@ -42,7 +42,10 @@ Ext.define('Af.vote.panel', {
 						align: 'left',
 						width: 45,
 						html: '<div style="text-align:left"><img src="resources/themes/images/default/return_icon.png" height="25px"></img></div>',	
+						handler:function(){
+							changePanel(lastPanel.id); // because the ref pass , I must use the id instead of object
 							
+						}	
 					},
 					{
 						xtype: 'spacer',

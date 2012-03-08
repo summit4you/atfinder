@@ -8,9 +8,9 @@ Ext.define('Af.discover.panel', {
 		width: '640',
 		layout: 'vbox',
 		id: 'discoverpanel',
-		scrollable: {
-					direction: 'vertical'
-		},
+		//scrollable: {
+		//			direction: 'vertical'
+		//},
 		items: [
 // top bar
 			{
@@ -146,23 +146,7 @@ Ext.define('Af.discover.panel', {
                 	},
 				]
 			},
-// forward button			
-			{
-				xtype: 'panel',
-				cls: 'discover-forward-button',
-				id: 'discover-forward-button',
-				html: '<img src="resources/themes/images/default/discover/discover_r7_c80.png"></img>',
-				listeners: { // TODO: not works
-					click:{
-						fn: function() {
-							alert('3');
-							Ext.getCmp('discover-carousel').setActiveItem(1-Ext.getCmp('discover-carousel').getActiveIndex());
-						},
-						element: 'element' //  sencha touch 2 RC change please see http://www.sencha.com/forum/showthread.php?176239-HOWTO-Adding-Event-Listeners-to-Component-Elements element: 'element'
-					},
-				},
-				
-			},
+
 // content
 			{
 				xtype:'carousel',
@@ -199,14 +183,22 @@ Ext.define('Af.discover.panel', {
 									layout: 'hbox',
 									items: [
 										{
-											xtype: 'panel',
+											xtype: 'button',
 											cls: 'discover-button',
-											html: '<img src="resources/themes/images/default/discover/discover_r7_c41.png"></img>'
+											baseCls: 'x-button-af',
+											html: '<img src="resources/themes/images/default/discover/discover_r7_c41.png"></img>',
+											handler: function() {
+												changePanel('shoppingpanel')
+											}
 										},
 										{
-											xtype: 'panel',
+											xtype: 'button',
 											cls: 'discover-button',
-											html: '<img src="resources/themes/images/default/discover/discover_r7_c61.png"></img>'
+											baseCls: 'x-button-af',
+											html: '<img src="resources/themes/images/default/discover/discover_r7_c61.png"></img>',
+											handler: function() {
+												changePanel('shoppingpanel', 2)
+											}
 										}
 									]
 								},
@@ -216,9 +208,13 @@ Ext.define('Af.discover.panel', {
 									layout: 'hbox',
 									items: [
 										{
-											xtype: 'panel',
+											xtype: 'button',
 											cls: 'discover-button',
-											html: '<img src="resources/themes/images/default/discover/discover_r22_c41.png"></img>'
+											baseCls: 'x-button-af',
+											html: '<img src="resources/themes/images/default/discover/discover_r22_c41.png"></img>',
+											handler: function() {
+												changePanel('activitiespanel')
+											}
 										},
 									]
 								},
@@ -241,14 +237,22 @@ Ext.define('Af.discover.panel', {
 									layout: 'hbox',
 									items: [
 										{
-											xtype: 'panel',
+											xtype: 'button',
 											cls: 'discover-button',
-											html: '<img src="resources/themes/images/default/discover/discover_r31_c41.png"></img>'
+											baseCls: 'x-button-af',
+											html: '<img src="resources/themes/images/default/discover/discover_r31_c41.png"></img>',
+											handler: function() {
+												changePanel('feelpanel')
+											}
 										},
 										{
-											xtype: 'panel',
+											xtype: 'button',
 											cls: 'discover-button',
-											html: '<img src="resources/themes/images/default/discover/discover_r31_c61.png"></img>'
+											baseCls: 'x-button-af',
+											html: '<img src="resources/themes/images/default/discover/discover_r31_c61.png"></img>',
+											handler: function() {
+												changePanel('issuepicpanel')
+											}
 										}
 									]
 								},
@@ -258,14 +262,22 @@ Ext.define('Af.discover.panel', {
 									layout: 'hbox',
 									items: [
 										{
-											xtype: 'panel',
+											xtype: 'button',
 											cls: 'discover-button',
-											html: '<img src="resources/themes/images/default/discover/discover_r39_c41.png"></img>'
+											baseCls: 'x-button-af',
+											html: '<img src="resources/themes/images/default/discover/discover_r39_c41.png"></img>',
+											handler: function() {
+												changePanel('votepanel')
+											}
 										},
 										{
-											xtype: 'panel',
+											xtype: 'button',
 											cls: 'discover-button',
-											html: '<img src="resources/themes/images/default/discover/discover_r39_c61.png"></img>'
+											baseCls: 'x-button-af',
+											html: '<img src="resources/themes/images/default/discover/discover_r39_c61.png"></img>',
+											handler: function() {
+												changePanel('tipoffpanel')
+											}
 										}
 									]
 								},
@@ -275,9 +287,13 @@ Ext.define('Af.discover.panel', {
 									layout: 'hbox',
 									items: [
 										{
-											xtype: 'panel',
+											xtype: 'button',
 											cls: 'discover-button',
-											html: '<img src="resources/themes/images/default/discover/discover_r57_c41.png"></img>'
+											baseCls: 'x-button-af',
+											html: '<img src="resources/themes/images/default/discover/discover_r57_c41.png"></img>',
+											handler: function() {
+												changePanel('activitiespanel')
+											}
 										},
 									]
 								},
@@ -286,6 +302,27 @@ Ext.define('Af.discover.panel', {
 							
 						}
 					],
+			},
+			// forward button			
+			{
+				xtype: 'button',
+				cls: 'discover-forward-button',
+				baseCls: 'x-button-af',
+				id: 'discover-forward-button',
+				html: '<img src="resources/themes/images/default/discover/discover_r7_c80.png"></img>',
+				handler:function(){
+							var o = Ext.getCmp('discover-carousel');
+							// o.fireEvent('activeitemchange', o);
+							if (o.getActiveIndex() == 0) {
+								this.setHtml('<img src="resources/themes/images/default/discover/discover_r7_c80.png"></img>');
+								o.setActiveItem(1, 'slide');
+							} else {
+								this.setHtml('<img src="resources/themes/images/default/discover/discover_r29_c82.png"></img>');
+								o.setActiveItem(0, 'slide');
+							}
+							
+						}
+				
 			},
 		]
 	}
