@@ -213,7 +213,7 @@ Ext.define('Af.discover.panel', {
 											baseCls: 'x-button-af',
 											html: '<img src="resources/themes/images/default/discover/discover_r22_c41.png"></img>',
 											handler: function() {
-												changePanel('activitiespanel')
+												changePanel('issueactpanel')
 											}
 										},
 									]
@@ -292,7 +292,7 @@ Ext.define('Af.discover.panel', {
 											baseCls: 'x-button-af',
 											html: '<img src="resources/themes/images/default/discover/discover_r57_c41.png"></img>',
 											handler: function() {
-												changePanel('activitiespanel')
+												changePanel('feelpanel')
 											}
 										},
 									]
