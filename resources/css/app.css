@@ -1592,16 +1592,20 @@ img{
 	
 }
 
+
 .shopping-list .x-list-disclosure{
 	overflow: visible;
-	-webkit-mask: 0 0 url(../themes/images/default/circle_icon.png) no-repeat;
-	-webkit-mask-size: 30px;
+	-webkit-mask: 0 0 url(../themes/images/default/goods_right_angle.png) no-repeat;
+	-webkit-mask-size: 6px;
 	background-color:white;
 	background-image: none !important; 
-	width: 40px;
-	height: 30px;
+	width: 6px;
+	height: 11px;
+	margin-right:8px;
+	margin-bottom:18px;
 	
 }
+
 
 /* shopping list end */
 /* coupon list begin */
@@ -1737,7 +1741,7 @@ img{
 }
 
 .coupon-list .cutoff-panel .cutoff-unfolder {
-	bottom: 1px;
+	bottom: 11px;
 	right: 11px;	
 	width: 15px;
 	position: absolute;
@@ -1752,6 +1756,7 @@ img{
 	
 }
 
+/*
 .coupon-list .x-list-disclosure{
 	overflow: visible;
 	-webkit-mask: 0 0 url(../themes/images/default/circle_icon.png) no-repeat;
@@ -1761,7 +1766,8 @@ img{
 	width: 40px;
 	height: 30px;
 	
-}
+}*/
+
 /* coupon list end */
 /* issue mood begin*/
 .issuemood-formpanel{

@@ -16,7 +16,7 @@ var store = Ext.create('Ext.data.Store',{
    }},
    
    data: [
-       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
+       {usrImg: 'resources/themes/images/default/friends/1.png',   username: '王品台塑牛排', score:'90', class:'西式餐馆', address:'天河粤垦路188号天河粤垦路188号天河粤垦路188号', review:'0', fans:'0', distance:'0.8', hot:'270', isset:'1', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
        {usrImg: 'resources/themes/images/default/friends/2.png',   username: '日本鱼子饭', score:'120', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'159', isset:'1',validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
        {usrImg: 'resources/themes/images/default/friends/3.png',   username: 'AngleSimple', score:'217', class:'艺术蛋糕', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.5', hot:'346', isset:'0', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
        {usrImg: 'resources/themes/images/default/friends/4.png',   username: '日本小丸子', score:'321', class:'日式餐馆', address:'天河粤垦路188号', review:'2', fans:'32', distance:'0.9', hot:'215', isset:'0', validity:'2012年3月1日前', origin_price:'135', price:'235', cutoff:'90'},
@@ -162,9 +162,15 @@ Ext.define('Af.shopping.panel', {
 								store: store,
 								flex:1,
 								onItemDisclosure : {
-									handler: function(btn, index) {
-									changePanel('detailuserspanel');
-								}
+										handler: function(record, btn, index) {
+										changePanel('detailuserspanel');
+									}
+								
+								},
+								listeners: {
+									itemtap: function(o, index, target, e){
+										changePanel('detailuserspanel');
+									}
 								}
 							},
 						]
@@ -209,7 +215,12 @@ Ext.define('Af.shopping.panel', {
 								'<tpl if="hot &lt; 270">hot-bkcolor-blue</tpl> <tpl else">hot-bkcolor-red</tpl>">℃',
 								'</div></div>'),
 								store: store,
-								flex:1
+								flex:1,
+								listeners: {
+									itemtap: function(o, index, target, e){
+										changePanel('detailarticlepanel');
+									}
+								}
 							},
 						]
 					},
@@ -254,6 +265,11 @@ Ext.define('Af.shopping.panel', {
 								'</div></div>'),
 								store: store,
 								flex:1,
+								listeners: {
+									itemtap: function(o, index, target, e){
+										changePanel('detailgoodspanel');
+									}
+								}
 							}
 					]
 					}
@@ -396,7 +412,10 @@ Ext.define('Af.shopping.panel', {
 						xtype: 'button',
 						cls: 'af-toolbar-cbutton',
 						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/shopping_foot.png" width="120px"><span style="color:#dcc;margin-left:-115px;">附近0.8km</span>'
+						html: '<img src="resources/themes/images/default/shopping_foot.png" width="120px"><span style="color:#dcc;margin-left:-115px;">附近0.8km</span>',
+						handler: function(){
+							alert(12);
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -418,10 +437,30 @@ Ext.define('Af.shopping.panel', {
 						flex: 0.075
                 	},
 					{
-						xtype: 'button',
-						cls: 'af-toolbar-cbutton',
-						baseCls: 'x-button-af',
-						html: '<img src="resources/themes/images/default/shopping_foot.png" width="120px"></img>'
+						xtype: 'selectfield',
+						name: 'rank',
+						options: [
+							        {text: '附近800m',  value: 'first'},
+							        {text: '附近1km', value: 'second'},
+							        {text: '附近2km',  value: 'third'}
+							    ],
+						border: '0 0 0 0',
+						width: 120,
+						//cls: 'af-toolbar-cbutton',
+						//baseCls: 'x-button-af',
+						//html: '<img src="resources/themes/images/default/shopping_foot.png" width="120px"></img>',
+						/*
+						handler: function() {
+													var popup = Ext.create('Ext.field.Select', {
+														options: [
+															{text: 'First Option',  value: 'first'},
+															{text: 'Second Option', value: 'second'},
+															{text: 'Third Option',  value: 'third'}
+														]
+													});
+													popup.show();
+												}*/
+						
 					},
 					
 					{

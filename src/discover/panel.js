@@ -188,7 +188,7 @@ Ext.define('Af.discover.panel', {
 											baseCls: 'x-button-af',
 											html: '<img src="resources/themes/images/default/discover/discover_r7_c41.png"></img>',
 											handler: function() {
-												changePanel('shoppingpanel')
+												changePanel('issuegoodspanel')
 											}
 										},
 										{
@@ -197,7 +197,7 @@ Ext.define('Af.discover.panel', {
 											baseCls: 'x-button-af',
 											html: '<img src="resources/themes/images/default/discover/discover_r7_c61.png"></img>',
 											handler: function() {
-												changePanel('shoppingpanel', 2)
+												changePanel('issuecouponpanel')
 											}
 										}
 									]

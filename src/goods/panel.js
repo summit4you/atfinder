@@ -88,6 +88,7 @@ Ext.define('Af.goods.panel', {
 			},	
 			{
 				xtype:'tabpanel',
+				id: 'goodspanel-content', // use for tab changing from outside
 				tabBar:{
 					docked: 'top', // will put the menu on the bottom of the screen
 					cls: 'feed-tabbar',

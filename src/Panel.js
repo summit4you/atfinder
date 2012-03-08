@@ -1,7 +1,7 @@
 Ext.define('Af.panel', {
 	
 	extend: 'Ext.Panel',
-	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel','Af.tag.panel',  'Af.guid.panel', 'Af.discover.panel', 'Af.shopping.panel',  'Af.issuepic.panel', 'Af.activities.panel','Af.activities.infopanel', 'Af.vote.panel','Af.tipoff.panel','Af.feel.panel', 'Af.detailgoods.panel', 'Af.message.panel', 'Af.msgeval.panel', 'Af.msgprivate.panel', 'Af.goods.panel', 'Af.share.panel',  'Af.issueact.panel'],
+	requires: ['Af.login.panel', 'Af.profile.panel', 'Af.inviting.panel', 'Af.account.panel','Af.detailusers.panel','Af.detailarticle.panel', 'Af.feed.panel', 'Af.friends.panel','Af.tag.panel',  'Af.guid.panel', 'Af.discover.panel', 'Af.shopping.panel',  'Af.issuepic.panel', 'Af.activities.panel','Af.activities.infopanel', 'Af.vote.panel','Af.tipoff.panel','Af.feel.panel', 'Af.detailgoods.panel', 'Af.message.panel', 'Af.msgeval.panel', 'Af.msgprivate.panel', 'Af.goods.panel', 'Af.share.panel',  'Af.issueact.panel','Af.issuegoods.panel','Af.issuecoupon.panel',],
 
 	config:{
 		id: 'main-panel',
@@ -108,6 +108,14 @@ Ext.define('Af.panel', {
 			{
 				xtype: 'af-issueact-panel',
 				id:'issueactpanel'
+			},
+			{
+				xtype: 'af-issuegoods-panel',
+				id:'issuegoodspanel'
+			},
+			{
+				xtype: 'af-issuecoupon-panel',
+				id:'issuecouponpanel'
 			}
 		]
 	},

@@ -34,6 +34,9 @@ Ext.define('Af.detailgoods.panel', {
 						align: 'left',
 						width: 45,
 						html: '<div style="text-align:left"><img src="resources/themes/images/default/return_icon.png" height="25px"></img></div>',	
+						handler: function() {
+							changePanel(lastPanel.id)
+						}
 					},
 					{
 						xtype: 'spacer',
@@ -94,6 +97,60 @@ Ext.define('Af.detailgoods.panel', {
 				xtype:'panel',
 				cls: 'article-img',
 				html:'<img src="resources/themes/images/default/activities/1.png"  width="100%"/>'
+			},
+			{
+				xtype: 'panel',
+				cls: 'article-button-panel',
+				items:[
+					{
+						xtype: 'panel',
+						cls: 'article-button-row',
+						layout: 'hbox',
+						items:[
+							{
+								xtype: 'button',
+								cls: 'article-button',
+								pressedCls: 'article-button-clicked',
+								baseCls: 'x-button-af',
+								html:'<img src="resources/themes/images/default/like_button.png" height="15px"/>&nbsp;&nbsp;参加(4)'
+							},
+							{
+								xtype: 'panel',
+								cls: 'article-button-row-content',
+								html:'<img src="resources/themes/images/default/article_usr_img0.png" height="25px"/><img src="resources/themes/images/default/article_usr_img1.png" height="25px"/><img src="resources/themes/images/default/article_usr_img2.png" height="25px"/><img src="resources/themes/images/default/article_usr_img3.png" height="25px"/><img src="resources/themes/images/default/article_usr_img_null.png" height="26px"/>'
+							}
+						]
+					},
+					{
+						xtype: 'panel',
+						cls: 'article-button-row-bottom',
+						layout: 'hbox',
+						items:[
+							{
+								xtype: 'button',
+								cls: 'article-button',
+								pressedCls: 'article-button-clicked',
+								baseCls: 'x-button-af',
+								html:'<img src="resources/themes/images/default/reship_button.png" height="15px"  style="vertical-align:text-bottom"/>&nbsp;&nbsp;推荐(2)'
+							},
+							{
+								xtype: 'panel',
+								cls: 'article-button-row-content',
+								html:'<img src="resources/themes/images/default/article_usr_img1.png" height="25px"/><img src="resources/themes/images/default/article_usr_img3.png" height="25px"/><img src="resources/themes/images/default/article_usr_img_null.png" height="26px"/><img src="resources/themes/images/default/article_usr_img_null.png" height="26px"/><img src="resources/themes/images/default/article_usr_img_null.png" height="26px"/>'
+							}
+						]
+					},
+				]
+			},
+			{
+				xtype: 'panel',
+				cls: 'article-review-panel',
+				html: '评价(1)'
+			},
+			{
+				xtype: 'panel',
+				cls:'article-review-content-panel',
+				html: '<img src="resources/themes/images/default/article_review_usr_img.png" width="42px"/><div class="review-info"><div class="username">陶圆圆</div><div class="review">这个可以参加的啊~~</div></div>'
 			},
 		
 			{

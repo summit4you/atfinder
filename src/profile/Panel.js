@@ -159,7 +159,11 @@ Ext.define('Af.profile.panel', {
 								cls: 'rbutton',
 								baseCls: 'x-button-af',
 								docked: 'right',
-								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+								style: 'align: center',
+								html: '<img src="resources/themes/images/default/rarrow.png" style="text-align: center;" width="8"></img>',
+								handler: function(){
+									changePanel('goodspanel', 2);
+								}
 							}
 						]
 					}
