@@ -56,6 +56,9 @@ Ext.define('Af.share.panel', {
 						align: 'left',
 						html: '<div style="text-align:left"><img src="resources/themes/images/default/return_icon.png" width="29px"></img></div>',
 						width: 45,
+						handler: function() {
+							changePanel(lastPanel.id)
+						}
 							
 					},
 					{

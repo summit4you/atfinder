@@ -151,6 +151,11 @@ Ext.define('Af.feed.panel', {
 								'</div>'), 
 								store: store,
 								flex: 1,
+								listeners: {
+									itemtap: function(o, index, target, e){
+										changePanel('detailgoodspanel');
+									}
+								}
         					},
 					]
 				},
@@ -212,6 +217,11 @@ Ext.define('Af.feed.panel', {
 								'</div>'), 
 								store: store,
 								flex: 1,
+								listeners: {
+									itemtap: function(o, index, target, e){
+										changePanel('detailarticlepanel');
+									}
+								}
         					},
 					]
 				},
@@ -273,6 +283,11 @@ Ext.define('Af.feed.panel', {
 								'</div>'), 
 								store: store,
 								flex: 1,
+								listeners: {
+									itemtap: function(o, index, target, e){
+										changePanel('detailgoodspanel');
+									}
+								}
         					},
 					]
 				}

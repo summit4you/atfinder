@@ -131,28 +131,34 @@ Ext.define('Af.profile.panel', {
 								cls: 'rbutton',
 								baseCls: 'x-button-af',
 								docked: 'right',
-								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>',
+								handler: function(){
+									changePanel('goodspanel');
+								}
 							}
 						]
 					},
 					{
 						xtype:'panel',
 						cls: 'profile-class-panel-row',
-						html: '<img src="resources/themes/images/default/me_discount_icon.png" width="21"/><span class="class-title"><a href="javascirpt:;" onclick="changePanel(\'goodspanel\');" style="text-decoration:none;color:#666;">优惠</a></span><span class="class-value">228</span>',
+						html: '<img src="resources/themes/images/default/me_discount_icon.png" width="21"/><span class="class-title"><a href="javascirpt:;" onclick="changePanel(\'goodspanel\', 1);" style="text-decoration:none;color:#666;">优惠</a></span><span class="class-value">228</span>',
 						items:[
 							{
 								xtype:'button',
 								cls: 'rbutton',
 								baseCls: 'x-button-af',
 								docked: 'right',
-								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>',
+								handler: function(){
+									changePanel('goodspanel', 1);
+								}
 							}
 						]
 					},
 					{
 						xtype:'panel',
 						cls: 'profile-class-panel-row-bottom',
-						html: '<img src="resources/themes/images/default/me_activi_icon.png" width="21"/><span class="class-title"><a href="javascirpt:;" onclick="changePanel(\'goodspanel\');" style="text-decoration:none;color:#666;">活动</a></span><span class="class-value">176</span>',
+						html: '<img src="resources/themes/images/default/me_activi_icon.png" width="21"/><span class="class-title"><a href="javascirpt:;" onclick="changePanel(\'goodspanel\', 2);" style="text-decoration:none;color:#666;">活动</a></span><span class="class-value">176</span>',
 						items:[
 							{
 								xtype:'button',
@@ -183,14 +189,17 @@ Ext.define('Af.profile.panel', {
 					{
 						xtype:'panel',
 						cls: 'profile-class-panel-row',
-						html: '<img src="resources/themes/images/default/me_share_icon.png" width="21"/><span class="class-title">分享</span><span class="class-value">126</span>',
+						html: '<img src="resources/themes/images/default/me_share_icon.png" width="21"/><span class="class-title"><a href="javascirpt:;" onclick="changePanel(\'sharepanel\');" style="text-decoration:none;color:#666;">分享</a></span><span class="class-value">126</span>',
 						items:[
 							{
 								xtype:'button',
 								cls: 'rbutton',
 								baseCls: 'x-button-af',
 								docked: 'right',
-								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>'
+								html: '<img src="resources/themes/images/default/rarrow.png" width="8"></img>',
+								handler: function() {
+									changePanel('sharepanel')
+								}
 							}
 						]
 					},

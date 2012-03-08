@@ -3,9 +3,12 @@ Ext.ns("Af");
 var daddy;
 var lastPanel = null;
 
-function changePanel(id){
+function changePanel(id, index){
 	lastPanel = daddy.getActiveItem();
 	daddy.setActiveItem(Ext.getCmp(id), 'fade');
+	if (index != null) {
+		Ext.getCmp(id + '-content').setActiveItem(index);
+	}
 }
 
 Ext.require([
