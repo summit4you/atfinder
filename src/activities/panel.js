@@ -138,7 +138,96 @@ Ext.define('Af.activities.panel', {
 		    },
 			flex:1,
 		},
-		
+		// bottom bar
+			{
+				xtype : 'toolbar',
+            	docked: 'bottom', 	
+				height: 45,
+				ui: 'af',
+				layout: {
+					type:'hbox',
+					align:'center'
+				},
+				items:[
+					{
+						xtype: 'spacer',
+						//width: 25,
+						//flex: 50/640,
+						flex: 0.09375
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/feed_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('feedpanel');
+						}
+					},
+					{
+						xtype: 'spacer',
+						//width: 30,
+						//flex: 61/640,
+						flex: 0.0953125
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/shopping_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('shoppingpanel');
+						}
+					},
+					{
+						xtype: 'spacer',
+						//width: 40,
+						//flex: 80/640,
+						flex: 0.09375
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/heart_icon.png" width="37"></img>',
+						handler:function(){
+							changePanel('discoverpanel');
+						}
+					},
+					{
+						xtype: 'spacer',
+						//width: 40,
+						//flex: 80/640,
+						flex: 0.125
+                	},
+					{
+						xtype: 'button',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/s_activi_icon.png" width="30"></img>',
+					},
+					{
+						xtype: 'spacer',
+						//width: 30,
+						//flex: 60/640,
+						flex: 0.09375
+                	},
+					{
+						xtype: 'button',
+						cls: 'af-toolbar-bbutton',
+						baseCls: 'x-button-af',
+						html: '<img src="resources/themes/images/default/me_icon.png" width="25"></img>',
+						handler:function(){
+							changePanel('profilepanel');
+						}
+					},
+					{
+						xtype: 'spacer',
+						//width: 26,
+						//flex: 52/640,
+						flex: 0.08125
+                	},	
+                	]
+                }
 		]
 	},
 	
