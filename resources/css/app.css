@@ -68,6 +68,39 @@ img{
 	height:45px;
 }
 
+.x-toolbar-af3 .x-field-select .x-input-el {
+	-webkit-text-fill-color: #000;
+	
+}
+
+.x-toolbar-af3 .x-field-input{
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	background: url('../themes/images/default/shopping_foot.png') no-repeat;
+	background-size: contain;
+}
+
+
+.x-select-af, .x-panel.x-floating, .x-msgbox.x-floating, .x-form.x-floating  {
+	padding: 1px;
+	-webkit-border-radius: 0.3em;
+	border-radius: 0.3em;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0.2em 0.6em;
+	background-color: #188FDD;
+	background: url('../themes/images/default/shopping_foot_popup.png') no-repeat;
+	
+}
+
+.x-select-af, .x-select-overlay {
+	min-width: 185px;
+	min-height: 334px;
+}
+
+.x-select-af, .x-anchor {
+	-webkit-mask: none;
+	width: 0;
+}
 
 
 .login-left-button{
