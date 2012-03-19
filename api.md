@@ -6,21 +6,24 @@
 索引
 --
 *   [动态列表(全部，好友，附近)](#dtlb)
+*   [动态详情](#dtxq
+*   [商品详情](#spxq
+*   [优惠券详情](#yhxq)
+*   [活动详情](#hdxq)
+*   [投票详情](#hdxq)
+*   [标签列表](#bqlb)
 *   [商家列表](#sjlb)
 *   [推荐商品列表](#tjsplb)
 *   [优惠券列表](#yhqlb)
+*   [推荐商家列表](#tjsjlb)
 *   [活动列表](#hdlb)
-*   [动态详情](#dtxq)
-*   [商品详情](#spxq)
-*   [优惠券详情](#yhqxq)
-*   [活动详情](#hdxq)
 *   [用户详情](#yhxq)
+
 *   [留言列表](#lylb)
 *   [用户注册](#yhzc)
 *   [用户登陆](#yhdl)
 *   [用户注销](#yhzx)
 *   [关注商家设置](#gzsjsz)
-*   [标签列表](#bqlb)
 *   [兴趣爱好设置](#xqahsz)
 *   [发布心情](#fbxq)
 *   [发布图片](#fbtp)
@@ -32,34 +35,42 @@
 *   [关注](#gz)
 *   [搜索](#ss)
 
++ wap addition
+ - [首页推荐](#sytj)
+ - [商圈](#sq)
 详情
 --
 <h2 id="dtlb">动态列表</h2>
 动态列表，分全部、好友、附近
  
 ### 全部动态
+
 ####请求参数
-* page 默认为0
+* page 默认为1
 * count 默认为10
 
 #### 返回字段  
-* uid
-* user_img
-* user_name
-* type（商家、普通）  
-* feed_id
-* title
-* hot
-* imgs（列表）
-* content
-* time
-* like_num
-* comment_num
-* share_num
-
+* code (0 for success, 1 for error, msg for error message)
+* avatar_err_path (use this url as avatar if error while loading avatar)
+* feeds
+    * uid
+    * avatar
+    * username
+    * type（商家、普通）  
+    * feed_id
+    * title
+    * hot
+    * imgs（列表）
+    * content
+    * time
+    * like_num
+    * comment_num
+    * share_num
+#### 返回json范例
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "feeds": [{"idtype": "eventid", "image_2_link": "", "uid": 540, "image_3_link": "", "feedid": 1747, "tag": "a:3:{i:63;s:6:\"\u670d\u88c5\";i:194;s:6:\"\u5305\u5305\";i:66;s:6:\"\u5176\u5b83\";}", "fuid": 195, "message": "\u3002", "id": 142, "subject": "\u6728\u67", "image_1": "attachment/201203/16/195_1331882871nlun.jpg", "image_3": "", "image_2": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332170021, "cityid": 0, "hot": 10, "fid": 25, "lng": "0E-10", "friend": 0, "username": "13544504859", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13802437851", "avatar": "http://atfaxian.com/center/data/avatar/000/00/05/40_avatar_big.jpg", "target_ids": "", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},], "code": 0}
 ### 好友动态
 #### 请求参数
-* page 默认为0
+* page 默认为1
 * count 默认为10
 * uid
 
@@ -67,10 +78,10 @@
 (同全部动态) 
 ### 附近动态
 #### 请求参数
-* page 默认为0
+* page 默认为1
 * count 默认为10
-* lat（经纬度）
-* lng （经纬度）
+* lat（纬度）
+* lng （经度）
 
 #### 返回字段
 (同全部动态) 
@@ -249,8 +260,9 @@
 <h2 id="lylb">留言列表</h2>
 用户留言板
 ### 请求参数
-* uid  (若uid==user_id，则视为查看自身详情)
-* user_id
+* uid  (若uid==touid，则视为查看自身详情)
+* touid (对象id，默认为空，如果不传，则视为查看自身信息) 
+* classid [0 = comment, 1 = private message, 2 = leave a note]
 
 ### 返回字段
 * uid
