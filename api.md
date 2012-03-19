@@ -1,6 +1,6 @@
 爱发现数据接口需求
 =========
-root url: http://203.88.192.235:83/
+root url: http://203.88.192.235:83/  
 版本：0.1  
 作者：[何世友](mailto:ernest.he2009@gmail.com)
 ***
@@ -48,7 +48,8 @@ root url: http://203.88.192.235:83/
 ### 全部动态
 
 ####请求参数
-/feed?page=1&count=10
+/feed?page=1&count=10 
+
 * page 默认为1
 * count 默认为10
 
@@ -74,7 +75,8 @@ root url: http://203.88.192.235:83/
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "feeds": [{"idtype": "eventid", "image_2_link": "", "uid": 540, "image_3_link": "", "feedid": 1747, "tag": "a:3:{i:63;s:6:\"\u670d\u88c5\";i:194;s:6:\"\u5305\u5305\";i:66;s:6:\"\u5176\u5b83\";}", "fuid": 195, "message": "\u3002", "id": 142, "subject": "\u6728\u67", "image_1": "attachment/201203/16/195_1331882871nlun.jpg", "image_3": "", "image_2": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332170021, "cityid": 0, "hot": 10, "fid": 25, "lng": "0E-10", "friend": 0, "username": "13544504859", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13802437851", "avatar": "http://atfaxian.com/center/data/avatar/000/00/05/40_avatar_big.jpg", "target_ids": "", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},], "code": 0}
 ### 好友动态
 #### 请求参数
-/feed?uid=34&page=1&count=10
+/feed?uid=34&page=1&count=10 
+
 * page 默认为1
 * count 默认为10
 * uid
@@ -84,6 +86,7 @@ root url: http://203.88.192.235:83/
 ### 附近动态
 #### 请求参数
 /feed?lat=101.999&lng=-122.43&page=1&count=10
+
 * page 默认为1
 * count 默认为10
 * lat（纬度）
