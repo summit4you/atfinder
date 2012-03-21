@@ -57,19 +57,26 @@ root url: http://203.88.192.235:83/
 * code (0 for success, 1 for error, msg for error message)
 * avatar_err_path (use this url as avatar if error while loading avatar)
 * feeds
-    * uid
-    * avatar
-    * username
-    * type（商家、普通）  
-    * feed_id
-    * title
+    * idtype (eventid, blogid, goodsid, couponsid, pid, discloseid, photoid) 
+    * image_[1,2,3,4]_link (1 - 4 images in each feed)
+    * image_[1,2,3,4] (1 - 4 images in each feed)
+    * feedid
+    * id (original content id)
+    * uid (user who post this id)
+    * username (user's name)
+    * fid (original content share from id)
+    * fuid (share from user)
+    * fusername (share from user's name)
+    * subject (subject of feed)
+    * message (feed content)
+    * title (ignore this now)
+    * dateline
     * hot
-    * imgs（列表）
-    * content
-    * time
-    * like_num
-    * comment_num
-    * share_num
+    * lng
+    * lat
+    * replynum
+    * reblognum (share num)
+    * avatar (user avatar)
 
 #### 返回json范例
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "feeds": [{"idtype": "eventid", "image_2_link": "", "uid": 540, "image_3_link": "", "feedid": 1747, "tag": "a:3:{i:63;s:6:\"\u670d\u88c5\";i:194;s:6:\"\u5305\u5305\";i:66;s:6:\"\u5176\u5b83\";}", "fuid": 195, "message": "\u3002", "id": 142, "subject": "\u6728\u67", "image_1": "attachment/201203/16/195_1331882871nlun.jpg", "image_3": "", "image_2": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332170021, "cityid": 0, "hot": 10, "fid": 25, "lng": "0E-10", "friend": 0, "username": "13544504859", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13802437851", "avatar": "http://atfaxian.com/center/data/avatar/000/00/05/40_avatar_big.jpg", "target_ids": "", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},], "code": 0}
@@ -169,72 +176,37 @@ root url: http://203.88.192.235:83/
 * like_num
 * participate_num
 
-<h2 id="dtxq">动态详情</h2>
+<h2 id="dtxq">动态/商品/优惠券/商家/活动详情</h2>
 动态详细信息
 ### 请求参数
+/details?uid=3&id=30&idtype=blogid
+
 * uid
-* feed_id
+* id (original content id)
+* idtype (eventid, blogid, goodsid, couponsid, pid, discloseid, photoid) 
 
 ### 返回字段
-* uid
-* user_name
-* user_img
-* feed_id
+* blogid (can be eventid, goodsid, etc)
 * time
-* title
-* imgs
-* content
+* uid
+* username
+* fuid
+* fid
+* subject
+* message
+* lng
+* lat
 * hot
-* score
+* viewnum
+* replynum
+* reblognum
+* dateline
 * like_list[{uid,uimg}...]
 * share_list[{uid,uimg}...]
 * comment_list[{uid,uimg,uname,cid,ccontent}...] 
 
-<h2 id="spxq">商品详情</h2>
-商品详细信息
-### 请求参数
-* uid
-* goods_id
-
-### 返回字段
-* uid
-* user_name
-* user_img
-* goods_id
-* time
-* title
-* imgs
-* hot
-* distance
-* price
-* content
-* score
-* like_list[{uid,uimg}...]
-* share_list[{uid,uimg}...]
-* comment_list[{uid,uimg,uname,cid,ccontent}...] 
-
-<h2 id="yhqxq">优惠券详情</h2>
-优惠券详细信息
-### 请求参数
-* uid
-* coupon_id
-
-### 返回字段
-* uid
-* user_name
-* user_img
-* coupon_id
-* time
-* title
-* imgs
-* hot
-* description (validity + distance + origin-price + price)
-* cutoff
-* content
-* score
-* like_list[{uid,uimg}...]
-* share_list[{uid,uimg}...]
-* comment_list[{uid,uimg,uname,cid,ccontent}...] 
+### 返回json范例
+{"code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "ddfdsfsdf", ", "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "fusername": "", "postip": "59.42.108.14", "target_ids": "", "blogid": 30}}
 
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
