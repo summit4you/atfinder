@@ -1,6 +1,7 @@
 爱发现数据接口需求
 =========
 root url: http://203.88.192.235:83/ 
+
 版本：0.1  
 作者：[何世友](mailto:ernest.he2009@gmail.com)
 ***
@@ -59,7 +60,7 @@ root url: http://203.88.192.235:83/
 * feeds
     * idtype (eventid, blogid, goodsid, couponsid, pid, discloseid, photoid) 
     * image_[1,2,3,4]_link (1 - 4 images in each feed)
-    * image_[1,2,3,4] (1 - 4 images in each feed)
+    * image_[1,2,3,4]..(1 - 4 images in each feed)
     * feedid
     * id (original content id)
     * uid (user who post this id)
@@ -81,8 +82,10 @@ root url: http://203.88.192.235:83/
     TODO: lovenum
     TODO: name
     TODO: level color definition
+
 #### 返回json范例
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "feeds": [{"idtype": "eventid", "image_2_link": "", "uid": 540, "image_3_link": "", "feedid": 1747, "tag": "a:3:{i:63;s:6:\"\u670d\u88c5\";i:194;s:6:\"\u5305\u5305\";i:66;s:6:\"\u5176\u5b83\";}", "fuid": 195, "message": "\u3002", "id": 142, "subject": "\u6728\u67", "image_1": "attachment/201203/16/195_1331882871nlun.jpg", "image_3": "", "image_2": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332170021, "cityid": 0, "hot": 10, "fid": 25, "lng": "0E-10", "friend": 0, "username": "13544504859", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13802437851", "avatar": "http://atfaxian.com/center/data/avatar/000/00/05/40_avatar_big.jpg", "target_ids": "", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},], "code": 0}
+
 ### 好友动态
 #### 请求参数
 /feed?uid=34&page=1&count=10 
@@ -107,6 +110,7 @@ root url: http://203.88.192.235:83/
  
 <h2 id="sjlb">商家列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
+
 ### 请求参数
 * lat
 * lng
@@ -130,6 +134,7 @@ root url: http://203.88.192.235:83/
 
 <h2 id="tjsplb">推荐商品列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
+
 ### 请求参数
 /goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10
 * lat
@@ -200,6 +205,7 @@ root url: http://203.88.192.235:83/
     TODO: need score field
     TODO: reblog information
     TODO: friend 0 for public, 1 for friend visible, 2 for private
+
 ### 返回字段
 * blogid (can be eventid, goodsid, etc)
 * time
