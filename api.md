@@ -112,6 +112,8 @@ root url: http://203.88.192.235:83/
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
 ### 请求参数
+/businesslist?distance=100&lat=23&lng=113&page=1&count=10
+
 * lat
 * lng
 * distance (0,0.1,0.3,0.5,0.8,1,2,3: 全部，0.1~3km), 若无法获取位置服务，则直接传distance为0即可；此时distance字段不会传回客户端，请客户端做处理
@@ -131,6 +133,9 @@ root url: http://203.88.192.235:83/
 * comment_num
 * follower_num
 * distance
+
+####返回json范例
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "business": [{"addfriend": 0, "businessfield": "", "myinvitenum": 0, "eventnum": 8, "goodsnum": 23, "dateline": 1326676802, "theme": "", "msnrobot": "", "residecity": "\u5e7f\u5dde", "addsize": 0, "regip": "127.0.0.1", "lastlogin": 1332685947, "spacenote": "\u4ec0\u4e48\uff1f", "qq": "", "resideprovince": "", "name": "\u7231\u53d1\u73b0", "marry": 0, "groupid": 1, "birthmonth": 3, "newpm": 0, "mtaginvitenum": 0, "tagname": "\u6444\u5f71", "msncstatus": 0, "domain": "", "albumnum": 1, "idcard": "", "sex": 0, "lovenum": 36, "lng": "113.2868950000", "attachsize": 58560401, "disclosenum": 3, "mood": 0, "feedfriendnum": 752, "tagid": 6, "authstr": "", "lastpost": 1332674478, "email": "", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "business": "", "sendmail": "", "address": "", "updatetime": 1332674478, "couponsnum": 8, "experience": 1886, "doingnum": 5, "credit": 1687, "nocss": 0, "threadnum": 1, "menunum": 0, "note": "\u4ec0\u4e48\uff1f", "pokenum": 0, "videopic": "", "lastsend": 0, "newemail": "", "photonum": 28, "privacy": "", "eventinvitenum": 0, "pollnum": 18, "msn": "", "magicstar": 0, "friend": "13,14", "username": "aifaxian", "blognum": 19, "videostatus": 0, "lastsearch": 0, "flag": 1, "distance": 32705.061187827701, "referrals": 0, "addfriendnum": 0, "uid": 1, "ip": 183001223, "residemall": "\u5730\u738b\u5e7f\u573a", "birthyear": 2012, "viewnum": 681, "tag": "", "birthprovince": "\u5e7f\u4e1c", "sharenum": 0, "magicexpire": 0, "cityid": 0, "birthcity": "\u5e7f\u5dde", "timeoffset": "", "css": "", "notenum": 3, "friendnum": 500, "birthday": 19, "blood": "", "feedfriend": "13,14", "lat": "23.1289940000", "mobile": "", "emailcheck": 0, "mtagid": 0, "namestatus": 1}]}
 
 <h2 id="tjsplb">推荐商品列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
