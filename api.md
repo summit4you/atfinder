@@ -1,6 +1,6 @@
 爱发现数据接口需求
 =========
-root url: http://203.88.192.235:83/  
+root url: http://203.88.192.235:83/ 
 版本：0.1  
 作者：[何世友](mailto:ernest.he2009@gmail.com)
 ***
@@ -78,6 +78,9 @@ root url: http://203.88.192.235:83/
     * reblognum (share num)
     * avatar (user avatar)
 
+    TODO: lovenum
+    TODO: name
+    TODO: level color definition
 #### 返回json范例
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "feeds": [{"idtype": "eventid", "image_2_link": "", "uid": 540, "image_3_link": "", "feedid": 1747, "tag": "a:3:{i:63;s:6:\"\u670d\u88c5\";i:194;s:6:\"\u5305\u5305\";i:66;s:6:\"\u5176\u5b83\";}", "fuid": 195, "message": "\u3002", "id": 142, "subject": "\u6728\u67", "image_1": "attachment/201203/16/195_1331882871nlun.jpg", "image_3": "", "image_2": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332170021, "cityid": 0, "hot": 10, "fid": 25, "lng": "0E-10", "friend": 0, "username": "13544504859", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13802437851", "avatar": "http://atfaxian.com/center/data/avatar/000/00/05/40_avatar_big.jpg", "target_ids": "", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},], "code": 0}
 ### 好友动态
@@ -107,9 +110,8 @@ root url: http://203.88.192.235:83/
 ### 请求参数
 * lat
 * lng
-* distance_type (0,0.1,0.3,0.5,0.8,1,2,3: 全部，0.1~3km)
-* category (0,1,2,3,4,5,6,7: 其他，服装，美食，摄影，精品，休闲娱乐，电子电器，日用百货，美容美体)
-* type (0,1,2,3,4,5,6... : 全部，饮品，甜品，小吃，火锅，东南亚餐，意大利餐，日式料理等（以美食为例）)
+* distance (0,0.1,0.3,0.5,0.8,1,2,3: 全部，0.1~3km), 若无法获取位置服务，则直接传distance为0即可；此时distance字段不会传回客户端，请客户端做处理
+* tagid (0：全部；一级分类底下的二级分类，有二级则直接传二级)
 * uid
 * page
 * count
@@ -129,9 +131,17 @@ root url: http://203.88.192.235:83/
 <h2 id="tjsplb">推荐商品列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 ### 请求参数
-同“商家列表”
+/goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10
+* lat
+* lng
+* distance (0,0.1,0.3,0.5,0.8,1,2,3: 全部，0.1~3km), 若无法获取位置服务，则直接传distance为0即可；此时distance字段不会传回客户端，请客户端做处理
+* tagid (0：全部；一级分类底下的二级分类，有二级则直接传二级)
+* uid
+* page
+* count
+
 ### 返回字段
-* goods_id
+* distance (单位：m)
 * name
 * img
 * like_num
@@ -142,29 +152,27 @@ root url: http://203.88.192.235:83/
 * share_num
 * distance
 
+#### 返回json范例
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "goods": [{"idtype": "goodsid", "image_2_link": "", "p_tagid": 0, "image_3_link": "", "feedid": 2605, "tag": "a:2:{i:301;s:6:\"\u76d8\u5939\";i:302;s:9:\"\u51b0\u7bb1\u8d34\";}", "fuid": 831, "loveuser": "1", "message": "\u5355\u4ef7\uff1a22\u5143<br>", "id": 305, "uid": 1, "image_1": "attachment/201203/10/19_1331359149QL94.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332674478, "isend": 1, "cityid": 3, "hot": 7, "fid": 30, "subject": "\u5fae\u6ce2\u7089\u4e13\u7528\u76d8\u5939\\\u53a8\u623f\u7b80\u4fbf\u9694\u70ed\u624b\u5957 &amp;\u51b0\u7bb1\u8d34 3\u53ea", "friend": 0, "username": "aifaxian", "starttime": 0, "distance": 32705.061187827701, "price": "22.00", "oprice": "0.00", "obprice": "0.00", "replynum": 2, "lat": "23.1289940000", "lng": "113.2868950000", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13560937654", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "tagname": "\u76d8\u5939", "appid": 1, "deadline": 0, "bprice": "0.00", "tagid": 301, "image_1_link": ""}]}
+
 <h2 id="yhqlb">优惠券列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 ### 请求参数
-同“商家列表”
+/couponlist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10   
+同商品列表
 ### 返回字段
-* coupon_id
-* name
-* img
-* like_num
-* cutoff 
-* validity
-* origin_price
-* price
-* comment_num
-* share_num
-* distance
+同商品列表
+
+#### 返回json范例
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "coupons": [{"idtype": "couponsid", "image_2_link": "", "p_tagid": 0, "image_3_link": "", "feedid": 2591, "tag": "a:1:{i:16;s:6:\"\u7f8e\u98df\";}", "fuid": 0, "loveuser": "", "message": "", "id": 34, "uid": 664, "image_1": "http://www.atfaxian.com/attachment/201203/24/664_1332576661ULmO.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332576713, "isend": 1, "cityid": 3, "hot": 0, "fid": 34, "subject": "\u4e1c\u839e\u5e02\u7231\u9152\u8f69\u9152\u4e1a\u6709\u9650\u516c\u53f8", "friend": 0, "username": "13925571208", "starttime": 0, "distance": 32705.061187827701, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "23.1289940000", "lng": "113.2868950000", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "", "avatar": "http://atfaxian.com/center/data/avatar/000/00/06/64_avatar_big.jpg", "tagname": "\u7f8e\u98df", "appid": 1, "deadline": 0, "bprice": "0.00", "tagid": 16, "image_1_link": ""}], "goods": [{"idtype": "goodsid", "image_2_link": "", "p_tagid": 0, "image_3_link": "", "feedid": 2605, "tag": "a:2:{i:301;s:6:\"\u76d8\u5939\";i:302;s:9:\"\u51b0\u7bb1\u8d34\";}", "fuid": 831, "loveuser": "1", "message": "\u5355\u4ef7\uff1a22\u5143<br>", "id": 305, "uid": 1, "image_1": "attachment/201203/10/19_1331359149QL94.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332674478, "isend": 1, "cityid": 3, "hot": 7, "fid": 30, "subject": "\u5fae\u6ce2\u7089\u4e13\u7528\u76d8\u5939\\\u53a8\u623f\u7b80\u4fbf\u9694\u70ed\u624b\u5957 &amp;\u51b0\u7bb1\u8d34 3\u53ea", "friend": 0, "username": "aifaxian", "starttime": 0, "distance": 32705.061187827701, "price": "22.00", "oprice": "0.00", "obprice": "0.00", "replynum": 2, "lat": "23.1289940000", "lng": "113.2868950000", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13560937654", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "tagname": "\u76d8\u5939", "appid": 1, "deadline": 0, "bprice": "0.00", "tagid": 301, "image_1_link": ""}]}
 
 <h2 id="hdlb">活动列表</h2>
-按照地理距离进行排序，获取用户GPS信息
 ### 请求参数
+/eventlist?page=1&count=10
+
 * uid
-* lat
-* lng
+* page
+* count
 
 ### 返回字段
 * activity_id
@@ -176,6 +184,9 @@ root url: http://203.88.192.235:83/
 * like_num
 * participate_num
 
+#### 返回json范例
+{"code": 0, "event": [{"idtype": "eventid", "image_2_link": "", "uid": 417, "image_3_link": "", "feedid": 1418, "tag": "a:3:{i:64;s:6:\"\u5a31\u4e50\";i:99;s:6:\"\u7535\u5f71\";i:193;s:6:\"\u4f53\u9a8c\";}", "fuid": 209, "message": "", "id": 102, "subject": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "image_1": "attachment/201203/16/209_13318884491gt5.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332127337, "cityid": 0, "hot": 23, "fid": 34, "friend": 0, "username": "13759984621", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "247", "endtime": 0, "icon": "", "reblognum": 3, "image_4_link": "", "fusername": "13570570234", "lng": "0E-10", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""}]}
+
 <h2 id="dtxq">动态/商品/优惠券/商家/活动详情</h2>
 动态详细信息
 ### 请求参数
@@ -185,6 +196,10 @@ root url: http://203.88.192.235:83/
 * id (original content id)
 * idtype (eventid, blogid, goodsid, couponsid, pid, discloseid, photoid) 
 
+    TODO: photoid, need to query pictures from pic table
+    TODO: need score field
+    TODO: reblog information
+    TODO: friend 0 for public, 1 for friend visible, 2 for private
 ### 返回字段
 * blogid (can be eventid, goodsid, etc)
 * time
