@@ -8,11 +8,6 @@ root url: http://203.88.192.235:83/
 索引
 --
 *   [动态列表(全部，好友，附近)](#dtlb)
-*   [动态详情](#dtxq)
-*   [商品详情](#spxq)
-*   [优惠券详情](#yhxq)
-*   [活动详情](#hdxq)
-*   [投票详情](#hdxq)
 *   [标签列表](#bqlb)
 *   [商家列表](#sjlb)
 *   [推荐商品列表](#tjsplb)
@@ -20,6 +15,7 @@ root url: http://203.88.192.235:83/
 *   [推荐商家列表](#tjsjlb)
 *   [推荐标签](#tjbq)
 *   [活动列表](#hdlb)
+*   [动态/商品/优惠券/活动详情] (#xq)
 *   [用户详情](#yhxq)
 
 *   [留言列表](#lylb)
@@ -124,19 +120,24 @@ root url: http://203.88.192.235:83/
 * count
 
 ### 返回字段
-* shop_id
-* name
-* img
-* like_num
-* hot
-* description
-* location
-* comment_num
-* follower_num
-* distance
+* avatar_err_path
+* code
+* business
+    - avatar
+    - uid
+    - username,name,namestatus ( username for login, name for nickname, namestatus: 0 for no nickname, 1 for have;)
+    - groupid ( 3 for business)
+    - lng, lat
+    - distance (unit: m)
+    - address
+    - business ( name of shop)
+    - businessfield (description for business)
+    - viewnum
+    - referrals (??seems like number of user liked by)
+    - feedfriendnum ( followers number)
 
 ####返回json范例
-{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "business": [{"addfriend": 0, "businessfield": "", "myinvitenum": 0, "eventnum": 8, "goodsnum": 23, "dateline": 1326676802, "theme": "", "msnrobot": "", "residecity": "\u5e7f\u5dde", "addsize": 0, "regip": "127.0.0.1", "lastlogin": 1332685947, "spacenote": "\u4ec0\u4e48\uff1f", "qq": "", "resideprovince": "", "name": "\u7231\u53d1\u73b0", "marry": 0, "groupid": 1, "birthmonth": 3, "newpm": 0, "mtaginvitenum": 0, "tagname": "\u6444\u5f71", "msncstatus": 0, "domain": "", "albumnum": 1, "idcard": "", "sex": 0, "lovenum": 36, "lng": "113.2868950000", "attachsize": 58560401, "disclosenum": 3, "mood": 0, "feedfriendnum": 752, "tagid": 6, "authstr": "", "lastpost": 1332674478, "email": "", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "business": "", "sendmail": "", "address": "", "updatetime": 1332674478, "couponsnum": 8, "experience": 1886, "doingnum": 5, "credit": 1687, "nocss": 0, "threadnum": 1, "menunum": 0, "note": "\u4ec0\u4e48\uff1f", "pokenum": 0, "videopic": "", "lastsend": 0, "newemail": "", "photonum": 28, "privacy": "", "eventinvitenum": 0, "pollnum": 18, "msn": "", "magicstar": 0, "friend": "13,14", "username": "aifaxian", "blognum": 19, "videostatus": 0, "lastsearch": 0, "flag": 1, "distance": 32705.061187827701, "referrals": 0, "addfriendnum": 0, "uid": 1, "ip": 183001223, "residemall": "\u5730\u738b\u5e7f\u573a", "birthyear": 2012, "viewnum": 681, "tag": "", "birthprovince": "\u5e7f\u4e1c", "sharenum": 0, "magicexpire": 0, "cityid": 0, "birthcity": "\u5e7f\u5dde", "timeoffset": "", "css": "", "notenum": 3, "friendnum": 500, "birthday": 19, "blood": "", "feedfriend": "13,14", "lat": "23.1289940000", "mobile": "", "emailcheck": 0, "mtagid": 0, "namestatus": 1}]}
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "business": [{"username": "15013296747", "distance": 32705.0611878277, "referrals": 0, "uid": 13, "business": "", "businessfield": "", "groupid": 3, "viewnum": 178, "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/13_avatar_big.jpg", "address": "", "lat": "23.1289940000", "lng": "113.2868950000", "namestatus": 1, "name": "\u554a\u5b9d"}]}
 
 <h2 id="tjsplb">推荐商品列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
@@ -223,7 +224,7 @@ root url: http://203.88.192.235:83/
 #### 返回json范例
 {"code": 0, "event": [{"idtype": "eventid", "image_2_link": "", "uid": 417, "image_3_link": "", "feedid": 1418, "tag": "a:3:{i:64;s:6:\"\u5a31\u4e50\";i:99;s:6:\"\u7535\u5f71\";i:193;s:6:\"\u4f53\u9a8c\";}", "fuid": 209, "message": "", "id": 102, "subject": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "image_1": "attachment/201203/16/209_13318884491gt5.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332127337, "cityid": 0, "hot": 23, "fid": 34, "friend": 0, "username": "13759984621", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "247", "endtime": 0, "icon": "", "reblognum": 3, "image_4_link": "", "fusername": "13570570234", "lng": "0E-10", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""}]}
 
-<h2 id="dtxq">动态/商品/优惠券/商家/活动详情</h2>
+<h2 id="xq">动态/商品/优惠券/活动详情</h2>
 动态详细信息
 ### 请求参数
 /details?uid=3&id=30&idtype=blogid
@@ -263,32 +264,56 @@ root url: http://203.88.192.235:83/
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
 ### 请求参数
-* uid  (若uid==user_id，则视为查看自身详情)
-* user_id
+* uid  (uid  为要查看用户id)
+* user_id (若uid==user_id，则视为查看自身详情)
 
 ### 返回字段
-* user_id
-* type (商家、普通用户)
-* user_img
-* user_name
-* user_level
-* user_score
-* user_hot
-* user_status (心情) [内容 + 标签]
-* lat
-* lng
-* phone
-* follow_num
-* follower_num
-* like_num
-* message_num
-* share_num
-* pic_num
-* vote_num
-* find_num (发现)
-* goods_num
-* coupon_num
-* activity_num
+* avatar_err_path
+* code
+* details
+    - avatar
+    - uid
+    - username,name,namestatus ( username for login, name for nickname, namestatus: 0 for no nickname, 1 for have;)
+    - groupid ( 3 for business)
+    - lng, lat
+    - distance (unit: m)
+    - address
+    - business ( name of shop)
+    - businessfield (description for business)
+    - domain ( domain for user space)
+    - social_part:
+        + friendnum
+        + viewnum
+        + notenum (number of notice)
+        + eventinvitenum (event invite num)
+        + mtaginvitenum ( group invited num)
+        + myinvitenum ( invite num)
+        + pokenum ( number of say hi)
+        + doingnum ( number of mood)
+        + blognum ( number of share)
+        + photonum (number of photo)
+        + goodsnum
+        + couponsnum
+        + threadnum ( number of thread)
+        + pullnum
+        + disclosenum
+        + eventnum
+        + sharenum ( what the hell?)
+    - newpm (0 for no new private message; 1 for have) 
+    - newemail (new email)
+    - email
+    - mobile ( phone number)
+    - qq
+    - msn
+    - note, spacenote ( the latest personal note and the latest space status)
+    - tag (taglist)
+    - referrals (seems like number of user liked by)
+    - lovenum ( number of articles loved by user)
+    - feedfriendnum ( followers number)
+
+### 返回字段
+{"code": 0, "details": {"addfriend": 0, "businessfield": "", "myinvitenum": 0, "eventnum": 2, "goodsnum": 0, "dateline": 1330507023, "theme": "", "msnrobot": "", "residecity": "\u5e7f\u5dde", "addsize": 0, "regip": "113.111.122.40", "lastlogin": 1332755232, "spacenote": "", "qq": "", "resideprovince": "", "name": "Lafere", "marry": 2, "groupid": 6, "birthmonth": 3, "newpm": 0, "mtaginvitenum": 0, "msncstatus": 0, "domain": "", "albumnum": 3, "idcard": "", "sex": 2, "lovenum": 0, "lng": "113.2868950000", "attachsize": 756165, "disclosenum": 0, "mood": 0, "feedfriendnum": 2, "tagid": 0, "authstr": "", "lastpost": 1332752295, "email": "13751894491@atfaxian.com", "avatar": 0, "business": "", "sendmail": "", "address": "", "updatetime": 1332752295, "couponsnum": 0, "experience": 156, "doingnum": 0, "credit": 2286, "nocss": 0, "threadnum": 0, "menunum": 0, "note": "", "pokenum": 0, "videopic": "", "lastsend": 0, "newemail": "", "photonum": 0, "privacy": "", "eventinvitenum": 0, "pollnum": 0, "msn": "", "magicstar": 0, "friend": "", "username": "13751894491", "blognum": 5, "videostatus": 0, "lastsearch": 0, "flag": 0, "referrals": 0, "addfriendnum": 0, "uid": 10, "ip": 113111057, "residemall": "\u5730\u738b\u5e7f\u573a", "birthyear": 2012, "viewnum": 33, "tag": ["\u6444\u5f71", "\u7f8e\u98df", "\u7cbe\u54c1", "\u7535\u5b50", "\u5176\u5b83"], "birthprovince": "", "sharenum": 0, "magicexpire": 0, "cityid": 0, "hot": 33, "birthcity": "", "timeoffset": "", "css": "", "notenum": 0, "friendnum": 0, "birthday": 23, "blood": "", "feedfriend": "734,12", "lat": "23.1289940000", "mobile": "", "emailcheck": 0, "namestatus": 1}}
+
 
 <h2 id="lylb">留言列表</h2>
 用户留言板
