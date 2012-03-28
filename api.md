@@ -18,6 +18,7 @@ root url: http://203.88.192.235:83/
 *   [推荐商品列表](#tjsplb)
 *   [优惠券列表](#yhqlb)
 *   [推荐商家列表](#tjsjlb)
+*   [推荐标签](#tjbq)
 *   [活动列表](#hdlb)
 *   [用户详情](#yhxq)
 
@@ -142,6 +143,7 @@ root url: http://203.88.192.235:83/
 
 ### 请求参数
 /goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10
+
 * lat
 * lng
 * distance (0,0.1,0.3,0.5,0.8,1,2,3: 全部，0.1~3km), 若无法获取位置服务，则直接传distance为0即可；此时distance字段不会传回客户端，请客户端做处理
@@ -175,6 +177,30 @@ root url: http://203.88.192.235:83/
 
 #### 返回json范例
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "coupons": [{"idtype": "couponsid", "image_2_link": "", "p_tagid": 0, "image_3_link": "", "feedid": 2591, "tag": "a:1:{i:16;s:6:\"\u7f8e\u98df\";}", "fuid": 0, "loveuser": "", "message": "", "id": 34, "uid": 664, "image_1": "http://www.atfaxian.com/attachment/201203/24/664_1332576661ULmO.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332576713, "isend": 1, "cityid": 3, "hot": 0, "fid": 34, "subject": "\u4e1c\u839e\u5e02\u7231\u9152\u8f69\u9152\u4e1a\u6709\u9650\u516c\u53f8", "friend": 0, "username": "13925571208", "starttime": 0, "distance": 32705.061187827701, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "23.1289940000", "lng": "113.2868950000", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "", "avatar": "http://atfaxian.com/center/data/avatar/000/00/06/64_avatar_big.jpg", "tagname": "\u7f8e\u98df", "appid": 1, "deadline": 0, "bprice": "0.00", "tagid": 16, "image_1_link": ""}], "goods": [{"idtype": "goodsid", "image_2_link": "", "p_tagid": 0, "image_3_link": "", "feedid": 2605, "tag": "a:2:{i:301;s:6:\"\u76d8\u5939\";i:302;s:9:\"\u51b0\u7bb1\u8d34\";}", "fuid": 831, "loveuser": "1", "message": "\u5355\u4ef7\uff1a22\u5143<br>", "id": 305, "uid": 1, "image_1": "attachment/201203/10/19_1331359149QL94.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332674478, "isend": 1, "cityid": 3, "hot": 7, "fid": 30, "subject": "\u5fae\u6ce2\u7089\u4e13\u7528\u76d8\u5939\\\u53a8\u623f\u7b80\u4fbf\u9694\u70ed\u624b\u5957 &amp;\u51b0\u7bb1\u8d34 3\u53ea", "friend": 0, "username": "aifaxian", "starttime": 0, "distance": 32705.061187827701, "price": "22.00", "oprice": "0.00", "obprice": "0.00", "replynum": 2, "lat": "23.1289940000", "lng": "113.2868950000", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13560937654", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "tagname": "\u76d8\u5939", "appid": 1, "deadline": 0, "bprice": "0.00", "tagid": 301, "image_1_link": ""}]}
+
+<h2 id="tjsjlb">推荐商家列表</h2>
+###  请求参数
+/recbusinesslist?lat=23&lng=113&uid=10
+
+* uid
+* lat
+* lng
+
+###  返回字段
+参见商家列表   
+####返回json范例
+
+
+<h2 id="tjbq">推荐标签</h2>
+###  请求参数
+/rectags
+
+###  返回字段
+* tagid
+* tagname
+
+####返回json范例
+{"code": 0, "recommandation": [{"tagid": 16, "tagname": "\u7f8e\u98df"},]}
 
 <h2 id="hdlb">活动列表</h2>
 ### 请求参数
