@@ -412,11 +412,12 @@ root url: http://203.88.192.235:83/
 * Fail:
     * code: 1
     * msg 
+
 #### json example
 {"msg": "wrong password or wrong username", "code": 1}
 
 <h2 id="yhzx">用户注销</h2>
- * 请自行了断！ *
+ *请自行了断！*
 
 <h2 id="sjtjsz">关注商家设置</h2>
 设置操作
