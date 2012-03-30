@@ -19,8 +19,9 @@ root url: http://203.88.192.235:83/
 *   [用户详情](#yhxq)
 *   [私信列表](#sxlb)
 *   [评论列表](#pllb)
-*   <not this time>[留言列表](#lylb)
+*   (not this time)[留言列表](#lylb)
 *   [通知系统](#tzxt)
+
 *   [用户注册](#yhzc)
 *   [用户登陆](#yhdl)
 *   [用户注销](#yhzx)
@@ -396,22 +397,26 @@ root url: http://203.88.192.235:83/
 <h2 id="yhdl">用户登录</h2>
 用户操作
 ### 请求参数
-* phone
+/login?name=aifaxian&pwd=12345
+
+* name
 * pwd
-* openapi (新浪微博登陆)
+* TODO:
+    * openapi (新浪微博登陆)
 
 ### 返回字段
-* uid
-* status (成功与否)
+* Success:
+    * code: 0
+    * user:
+        * uid
+* Fail:
+    * code: 1
+    * msg 
+#### json example
+{"msg": "wrong password or wrong username", "code": 1}
 
 <h2 id="yhzx">用户注销</h2>
-用户操作
-### 请求参数
-* uid
-* openapi (新浪微博登陆)
-### 返回字段
-* uid
-* status (成功与否)
+ * 请自行了断！ *
 
 <h2 id="sjtjsz">关注商家设置</h2>
 设置操作
@@ -423,20 +428,13 @@ root url: http://203.88.192.235:83/
 * uid
 * status (成功与否)
 
-<h2 id="bqlb">标签列表</h2>
-设置操作
-### 请求参数
-* uid
-
-### 返回字段
-* tag_id
-* tag_name 
 
 <h2 id="xqahsz">兴趣爱好设置</h2>
 设置操作
 ### 请求参数
+/tagsettings?uid=12&tag=6&tag=... [tag  可多个]
 * uid
-* tag_ids [id,id...]
+* tag [id,id...]
 
 ### 返回字段
 * uid
