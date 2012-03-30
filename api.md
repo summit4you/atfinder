@@ -350,6 +350,7 @@ root url: http://203.88.192.235:83/
     - idtype (原文章类型，blogid；photoid等)
 
 ### 返回字段
+
 * avatar_err_path
 * code
 * authorid, author, avatar (user who post the comment's id and username, avatar)
