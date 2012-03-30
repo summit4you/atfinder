@@ -321,7 +321,7 @@ root url: http://203.88.192.235:83/
 <h2 id="sxlb">私信列表</h2>
 用户查看自身私信通信列表, 包含inbox/outbox，具体怎么排列要看客户端怎么处理，这个再讨论，目前我分为两个列表按照时间先后顺序排列，以供使用；每次请求数量还未定，现在全部返回有点凶残哦。
 ### 请求参数
-/pmlist?uid=1
+/pmlist?uid=1   
 * uid  
 
 ###  返回字段
@@ -340,19 +340,24 @@ root url: http://203.88.192.235:83/
 ####  json example
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "outbox": [{"fromappid": 1, "dateline": 1331287450, "related": 0, "folder": "inbox", "msgfrom": "aifaxian", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "msgtoid": 12, "new": 1, "message": "\u4f60\u597d\u554a", "pmid": 1, "delstatus": 0, "msgfromid": 1, "subject": "\u4f60\u597d\u554a"},], "code": 0, "inbox": [{"fromappid": 0, "dateline": 1331287450, "related": 0, "folder": "inbox", "msgfrom": "aifaxian", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/12_avatar_big.jpg", "msgtoid": 1, "new": 0, "message": "\u4f60\u597d\u554a", "pmid": 2, "delstatus": 0, "msgfromid": 12, "subject": "\u4f60\u597d\u554a"}]}
 
-<h2 id="lylb">留言列表</h2>
-用户留言板
+<h2 id="pllb">评论列表</h2>
+ 两种请求，一个是对当前文章（分享/商品等）的评论；另一个是这个用户所发表的评论汇总。
 ### 请求参数
-* uid  (若uid==user_id，则视为查看自身详情)
-* user_id (对象id，默认为空，如果不传，则视为查看自身信息) 
+* /commentlist?uid=1&page=1&count=10
+    - uid (当前用户id)
+* /commentlist?id=23&idtype=blogid&page=1&count=10
+    - id ( 源文章id)
+    - idtype (原文章类型，blogid；photoid等)
 
 ### 返回字段
-* uid
-* uimg
-* uname
-* cid
-* ccontent
-* ctime
+* avatar_err_path
+* code
+* authorid, author, avatar (user who post the comment's id and username, avatar)
+* message
+* dateline
+
+####  json example
+{"code": 0, "comments": [{"author": "13945667832", "authorid": 9, "dateline": 1330508508, "message": "\u597d\u6837\u7684\u554a\u3002", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/09_avatar_big.jpg"}]}
 
 <h2 id="yhzc">用户注册</h2>
 用户操作
