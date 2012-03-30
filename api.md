@@ -17,8 +17,10 @@ root url: http://203.88.192.235:83/
 *   [活动列表](#hdlb)
 *   [动态/商品/优惠券/活动详情] (#xq)
 *   [用户详情](#yhxq)
-
+*   [私信列表](#sxlb)
+*   [评论列表](#pllb)
 *   [留言列表](#lylb)
+
 *   [用户注册](#yhzc)
 *   [用户登陆](#yhdl)
 *   [用户注销](#yhzx)
@@ -264,6 +266,7 @@ root url: http://203.88.192.235:83/
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
 ### 请求参数
+/userdetails?uid=10
 * uid  (uid  为要查看用户id)
 * user_id (若uid==user_id，则视为查看自身详情)
 
@@ -311,16 +314,37 @@ root url: http://203.88.192.235:83/
     - lovenum ( number of articles loved by user)
     - feedfriendnum ( followers number)
 
-### 返回字段
+####  返回json范例
 {"code": 0, "details": {"addfriend": 0, "businessfield": "", "myinvitenum": 0, "eventnum": 2, "goodsnum": 0, "dateline": 1330507023, "theme": "", "msnrobot": "", "residecity": "\u5e7f\u5dde", "addsize": 0, "regip": "113.111.122.40", "lastlogin": 1332755232, "spacenote": "", "qq": "", "resideprovince": "", "name": "Lafere", "marry": 2, "groupid": 6, "birthmonth": 3, "newpm": 0, "mtaginvitenum": 0, "msncstatus": 0, "domain": "", "albumnum": 3, "idcard": "", "sex": 2, "lovenum": 0, "lng": "113.2868950000", "attachsize": 756165, "disclosenum": 0, "mood": 0, "feedfriendnum": 2, "tagid": 0, "authstr": "", "lastpost": 1332752295, "email": "13751894491@atfaxian.com", "avatar": 0, "business": "", "sendmail": "", "address": "", "updatetime": 1332752295, "couponsnum": 0, "experience": 156, "doingnum": 0, "credit": 2286, "nocss": 0, "threadnum": 0, "menunum": 0, "note": "", "pokenum": 0, "videopic": "", "lastsend": 0, "newemail": "", "photonum": 0, "privacy": "", "eventinvitenum": 0, "pollnum": 0, "msn": "", "magicstar": 0, "friend": "", "username": "13751894491", "blognum": 5, "videostatus": 0, "lastsearch": 0, "flag": 0, "referrals": 0, "addfriendnum": 0, "uid": 10, "ip": 113111057, "residemall": "\u5730\u738b\u5e7f\u573a", "birthyear": 2012, "viewnum": 33, "tag": ["\u6444\u5f71", "\u7f8e\u98df", "\u7cbe\u54c1", "\u7535\u5b50", "\u5176\u5b83"], "birthprovince": "", "sharenum": 0, "magicexpire": 0, "cityid": 0, "hot": 33, "birthcity": "", "timeoffset": "", "css": "", "notenum": 0, "friendnum": 0, "birthday": 23, "blood": "", "feedfriend": "734,12", "lat": "23.1289940000", "mobile": "", "emailcheck": 0, "namestatus": 1}}
 
+
+<h2 id="sxlb">私信列表</h2>
+用户查看自身私信通信列表, 包含inbox/outbox，具体怎么排列要看客户端怎么处理，这个再讨论，目前我分为两个列表按照时间先后顺序排列，以供使用；每次请求数量还未定，现在全部返回有点凶残哦。
+### 请求参数
+/pmlist?uid=1
+* uid  
+
+###  返回字段
+* avatar_err_path
+* code
+* inbox; outbox
+    + dateline
+    + new (1: unread; 0: read;)
+    + msgfromid, msgfrom (userid and username that send the message)
+    + msgtoid (userid that get the message)
+    + folder (maybe ignore now)
+    + subject, message ( you know, I guess)
+    + user part: (we make it like conversation, so I will offer the user avatar for the one sends message)
+        - avatar
+
+####  json example
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "outbox": [{"fromappid": 1, "dateline": 1331287450, "related": 0, "folder": "inbox", "msgfrom": "aifaxian", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "msgtoid": 12, "new": 1, "message": "\u4f60\u597d\u554a", "pmid": 1, "delstatus": 0, "msgfromid": 1, "subject": "\u4f60\u597d\u554a"},], "code": 0, "inbox": [{"fromappid": 0, "dateline": 1331287450, "related": 0, "folder": "inbox", "msgfrom": "aifaxian", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/12_avatar_big.jpg", "msgtoid": 1, "new": 0, "message": "\u4f60\u597d\u554a", "pmid": 2, "delstatus": 0, "msgfromid": 12, "subject": "\u4f60\u597d\u554a"}]}
 
 <h2 id="lylb">留言列表</h2>
 用户留言板
 ### 请求参数
-* uid  (若uid==touid，则视为查看自身详情)
-* touid (对象id，默认为空，如果不传，则视为查看自身信息) 
-* classid [0 = comment, 1 = private message, 2 = leave a note]
+* uid  (若uid==user_id，则视为查看自身详情)
+* user_id (对象id，默认为空，如果不传，则视为查看自身信息) 
 
 ### 返回字段
 * uid
