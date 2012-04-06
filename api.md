@@ -157,16 +157,30 @@ root url: http://203.88.192.235:83/
 * count
 
 ### 返回字段
-* distance (单位：m)
-* name
-* img
-* like_num
-* hot
-* price
-* score
-* comment_num
-* share_num
-* distance
+* code
+* avatar_err_path
+* goods:
+    - idtype
+    - p_tagid, tagid (parent tag id, tag id)
+    - tag (will be parsed later)
+    - tagname
+    - image_[1,2,3,4]_link
+    - image_[1,2,3,4]
+    - feedid
+    - id
+    - loveruser
+    - hot
+    - reblognum
+    - replynum
+    - fuid
+    - fusername
+    - uid
+    - avatar
+    - username
+    - subject
+    - message
+    - lat, lng
+    - dateline
 
 #### 返回json范例
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "goods": [{"idtype": "goodsid", "image_2_link": "", "p_tagid": 0, "image_3_link": "", "feedid": 2605, "tag": "a:2:{i:301;s:6:\"\u76d8\u5939\";i:302;s:9:\"\u51b0\u7bb1\u8d34\";}", "fuid": 831, "loveuser": "1", "message": "\u5355\u4ef7\uff1a22\u5143<br>", "id": 305, "uid": 1, "image_1": "attachment/201203/10/19_1331359149QL94.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332674478, "isend": 1, "cityid": 3, "hot": 7, "fid": 30, "subject": "\u5fae\u6ce2\u7089\u4e13\u7528\u76d8\u5939\\\u53a8\u623f\u7b80\u4fbf\u9694\u70ed\u624b\u5957 &amp;\u51b0\u7bb1\u8d34 3\u53ea", "friend": 0, "username": "aifaxian", "starttime": 0, "distance": 32705.061187827701, "price": "22.00", "oprice": "0.00", "obprice": "0.00", "replynum": 2, "lat": "23.1289940000", "lng": "113.2868950000", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13560937654", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "tagname": "\u76d8\u5939", "appid": 1, "deadline": 0, "bprice": "0.00", "tagid": 301, "image_1_link": ""}]}
