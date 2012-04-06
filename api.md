@@ -140,10 +140,9 @@ root url: http://203.88.192.235:83/
 
 #### json example
 * /tags?p_tagid=6   
-> {"code": 0, "tags": [{"blognum": 2, "uid": 32, "tagid": 107, "usernum": 0, "tagname": "\u6444\u5f71\u914d\u4ef6", "toporder": 0, "close": 0, "dateline": 1331608089, "p_tagid": 6}, ]
-* /tags
-
-> {"code": 0, "tags": {"64": [{"blognum": 32, "uid": 1, "tagid": 99, "usernum": 5, "tagname": "\u7535\u5f71", "toporder": 0, "close": 0, "dateline": 1331390221, "p_tagid": 64},],},}
+{"code": 0, "tags": [{"blognum": 2, "uid": 32, "tagid": 107, "usernum": 0, "tagname": "\u6444\u5f71\u914d\u4ef6", "toporder": 0, "close": 0, "dateline": 1331608089, "p_tagid": 6}, ]
+* /tags   
+{"code": 0, "tags": {"64": [{"blognum": 32, "uid": 1, "tagid": 99, "usernum": 5, "tagname": "\u7535\u5f71", "toporder": 0, "close": 0, "dateline": 1331390221, "p_tagid": 64},],},}
 
 <h2 id="sjlb">商家列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
