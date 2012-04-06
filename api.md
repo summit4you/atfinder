@@ -108,6 +108,42 @@ root url: http://203.88.192.235:83/
 #### 返回字段
 (同全部动态) 
  
+<h2 id="bqlb">标签列表</h2>
+在逛街之前，请先获取标签列表，为了以后的请求提供标签参数，目前提供两种方式的请求，一种是提供一级标签的id，返回此标签下面的子标签列表；另一种是lazy方式，直接返回全部标签，其中组织方式为两个数组：[bq1:[bq2,bq3],bq4:[]]
+其中，一级标签为固定的：
+
+* 摄影 6
+* 美食 16
+* 精品 21
+* 百货 65
+* 美容 25
+* 电子 34
+* 服装 63
+* 娱乐 64
+* 其他 66
+
+### 请求参数
+* /tags
+* /tags?p_tagid=6
+    - p_tagid (一级标签id)
+
+### 返回字段
+* code
+* tags
+    - 所有标签时：一级标签 + 二级标签列表，列表内字段参见下面；
+    - 子标签时：
+        + blognum (此标签下面的文章数)
+        + tagid
+        + tagname
+        + uid (贡献此标签用户id)
+        + usernum (订阅此标签人数)
+
+#### json example
+* /tags?p_tagid=6
+> {"code": 0, "tags": [{"blognum": 2, "uid": 32, "tagid": 107, "usernum": 0, "tagname": "\u6444\u5f71\u914d\u4ef6", "toporder": 0, "close": 0, "dateline": 1331608089, "p_tagid": 6}, ]
+* /tags
+> {"code": 0, "tags": {"64": [{"blognum": 32, "uid": 1, "tagid": 99, "usernum": 5, "tagname": "\u7535\u5f71", "toporder": 0, "close": 0, "dateline": 1331390221, "p_tagid": 64},],},}
+
 <h2 id="sjlb">商家列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
@@ -282,6 +318,7 @@ root url: http://203.88.192.235:83/
 用户详细信息
 ### 请求参数
 /userdetails?uid=10
+
 * uid  (uid  为要查看用户id)
 * user_id (若uid==user_id，则视为查看自身详情)
 
