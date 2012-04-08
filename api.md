@@ -283,17 +283,19 @@ root url: http://203.88.192.235:83/
 * count
 
 ### 返回字段
-* activity_id
-* title
-* img
-* hoster
-* time
-* location
-* like_num
-* participate_num
-
+* code
+* event:
+    - eventid
+    - title (标题)
+    - cover （封面）
+    - location (地点)
+    - starttime, endtime （开始结束时间）
+    - membernum （参与人数）
+    - love （收藏人数）
+    - isloved （是否已收藏）
+    - TODO：是否已参加，是否已推荐
 #### 返回json范例
-{"code": 0, "event": [{"idtype": "eventid", "image_2_link": "", "love": 1, "uid": 417, "image_3_link": "", "feedid": 1418, "tag": "a:3:{i:64;s:6:\"\u5a31\u4e50\";i:99;s:6:\"\u7535\u5f71\";i:193;s:6:\"\u4f53\u9a8c\";}", "fuid": 209, "message": "\u3002", "id": 102, "subject": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "image_1": "attachment/201203/16/209_13318884491gt5.jpg", "image_3": "", "image_2": "", "checked": 0, "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332127337, "cityid": 0, "hot": 23, "click_1": 0, "location": "", "fid": 34, "lng": "0E-10", "groupid": 5, "friend": 0, "username": "13759984621", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "247", "endtime": 0, "icon": "", "reblognum": 3, "name": "\u51ab\u55dc\u9cd5", "image_4_link": "", "fusername": "13570570234", "target_ids": "", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},]}
+{"code": 0, "event": [{"eventid": 34, "endtime": 1334671200, "love": 1, "title": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "cover": "attachment/201203/16/209_13318884491gt5.jpg", "location": "\u5e7f\u5dde\u5730\u738b\u5e7f\u573a", "starttime": 1331949600, "membernum": 1, "loveuser": "247", "isloved": false}]}
 
 <h2 id="xq">动态/商品/优惠券/活动详情</h2>
 动态详细信息
