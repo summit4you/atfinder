@@ -49,8 +49,9 @@ root url: http://203.88.192.235:83/
 ### 全部动态
 
 ####请求参数
-/feed?page=1&count=10 
+/feed?page=1&count=10&uid=13
 
+* uid
 * page 默认为1
 * count 默认为10
 
@@ -64,7 +65,9 @@ root url: http://203.88.192.235:83/
     * feedid
     * id (original content id)
     * uid (user who post this id)
+    * groupid (3 for vip)
     * username (user's name)
+    * name (user's nickname)
     * fid (original content share from id)
     * fuid (share from user)
     * fusername (share from user's name)
@@ -77,14 +80,14 @@ root url: http://203.88.192.235:83/
     * lat
     * replynum
     * reblognum (share num)
+    * love (number of loved)
+    * isloved (true of false for if user loved the feed)
     * avatar (user avatar)
 
-    TODO: lovenum
-    TODO: name
     TODO: level color definition
 
 #### 返回json范例
-{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "feeds": [{"idtype": "eventid", "image_2_link": "", "uid": 540, "image_3_link": "", "feedid": 1747, "tag": "a:3:{i:63;s:6:\"\u670d\u88c5\";i:194;s:6:\"\u5305\u5305\";i:66;s:6:\"\u5176\u5b83\";}", "fuid": 195, "message": "\u3002", "id": 142, "subject": "\u6728\u67", "image_1": "attachment/201203/16/195_1331882871nlun.jpg", "image_3": "", "image_2": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332170021, "cityid": 0, "hot": 10, "fid": 25, "lng": "0E-10", "friend": 0, "username": "13544504859", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "", "endtime": 0, "icon": "", "reblognum": 0, "image_4_link": "", "fusername": "13802437851", "avatar": "http://atfaxian.com/center/data/avatar/000/00/05/40_avatar_big.jpg", "target_ids": "", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},], "code": 0}
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "feeds": [{"idtype": "blogid", "image_2_link": "", "love": 0, "uid": 13, "image_3_link": "", "feedid": 3942, "tag": "a:2:{i:64;s:6:\"\u5a31\u4e50\";i:65;s:6:\"\u767e\u8d27\";}", "fuid": 376, "message": "\u7b2c", "isloved": false, "id": 588, "subject": "\u7b2c", "image_1": "http://atfaxian.com/attachment/201204/1/376_1333247843cF0K.jpg", "image_3": "", "image_2": "", "checked": 0, "image_4": "", "title": "\u53d1\u8868\u4e86", "dateline": 1333892242, "cityid": 3, "hot": 2, "click_1": 0, "location": "", "fid": 495, "groupid": 3, "friend": 0, "username": "15013296747", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "target_ids": "", "lat": "23.1289940000", "loveuser": "1", "endtime": 0, "icon": "", "reblognum": 0, "name": "\u554a\u5b9d", "image_4_link": "", "fusername": "13682239450", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/13_avatar_big.jpg", "lng": "113.2868950000", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},], "code": 0}
 
 ### 好友动态
 #### 请求参数
@@ -98,8 +101,9 @@ root url: http://203.88.192.235:83/
 (同全部动态) 
 ### 附近动态
 #### 请求参数
-/feed?lat=101.999&lng=-122.43&page=1&count=10
+/feed?lat=101.999&lng=-122.43&page=1&count=10&uid=13
 
+* uid
 * page 默认为1
 * count 默认为10
 * lat（纬度）
@@ -212,6 +216,7 @@ root url: http://203.88.192.235:83/
     - fusername
     - uid
     - avatar
+    - groupid (3 for vip)
     - username
     - subject
     - message
@@ -275,7 +280,7 @@ root url: http://203.88.192.235:83/
 * participate_num
 
 #### 返回json范例
-{"code": 0, "event": [{"idtype": "eventid", "image_2_link": "", "uid": 417, "image_3_link": "", "feedid": 1418, "tag": "a:3:{i:64;s:6:\"\u5a31\u4e50\";i:99;s:6:\"\u7535\u5f71\";i:193;s:6:\"\u4f53\u9a8c\";}", "fuid": 209, "message": "", "id": 102, "subject": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "image_1": "attachment/201203/16/209_13318884491gt5.jpg", "image_3": "", "image_2": "", "target_ids": "", "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332127337, "cityid": 0, "hot": 23, "fid": 34, "friend": 0, "username": "13759984621", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "247", "endtime": 0, "icon": "", "reblognum": 3, "image_4_link": "", "fusername": "13570570234", "lng": "0E-10", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""}]}
+{"code": 0, "event": [{"idtype": "eventid", "image_2_link": "", "love": 1, "uid": 417, "image_3_link": "", "feedid": 1418, "tag": "a:3:{i:64;s:6:\"\u5a31\u4e50\";i:99;s:6:\"\u7535\u5f71\";i:193;s:6:\"\u4f53\u9a8c\";}", "fuid": 209, "message": "\u3002", "id": 102, "subject": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "image_1": "attachment/201203/16/209_13318884491gt5.jpg", "image_3": "", "image_2": "", "checked": 0, "image_4": "", "title": "\u53d1\u5e03\u4e86", "dateline": 1332127337, "cityid": 0, "hot": 23, "click_1": 0, "location": "", "fid": 34, "lng": "0E-10", "groupid": 5, "friend": 0, "username": "13759984621", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "lat": "0E-10", "loveuser": "247", "endtime": 0, "icon": "", "reblognum": 3, "name": "\u51ab\u55dc\u9cd5", "image_4_link": "", "fusername": "13570570234", "target_ids": "", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},]}
 
 <h2 id="xq">动态/商品/优惠券/活动详情</h2>
 动态详细信息
@@ -286,33 +291,37 @@ root url: http://203.88.192.235:83/
 * id (original content id)
 * idtype (eventid, blogid, goodsid, couponsid, pid, discloseid, photoid) 
 
-    TODO: photoid, need to query pictures from pic table
-    TODO: need score field
-    TODO: reblog information
     TODO: friend 0 for public, 1 for friend visible, 2 for private
 
 ### 返回字段
-* blogid (can be eventid, goodsid, etc)
-* time
-* uid
-* username
-* fuid
-* fid
-* subject
-* message
-* lng
-* lat
-* hot
-* viewnum
-* replynum
-* reblognum
-* dateline
+* code
+* avatar_err_path
+* details
+    - avatar
+    - uid
+    - groupid (groupid为3的标识vip)
+    - username
+    - name
+    - fuid
+    - fusername
+    - love (收藏数量)
+    - isloved (true or false for if the user loved the article)
+    - click_1 (评分字段)
+    - reblognum (转载次数)
+    - replynum (回复条数)
+    - id
+    - fid
+    - classid
+    - subject
+    - message
+    - dateline
+
 * like_list[{uid,uimg}...]
 * share_list[{uid,uimg}...]
 * comment_list[{uid,uimg,uname,cid,ccontent}...] 
 
 ### 返回json范例
-{"code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "ddfdsfsdf", ", "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "fusername": "", "postip": "59.42.108.14", "target_ids": "", "blogid": 30}}
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "", "isloved": false, "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "groupid": 6, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "name": "", "fusername": "", "postip": "59.42.108.14", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/14_avatar_big.jpg", "target_ids": "", "blogid": 30}}
 
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
