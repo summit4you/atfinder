@@ -50,6 +50,7 @@ root url: http://203.88.192.235:83/
 
 ####请求参数
 /feed?page=1&count=10&uid=13
++请注意，uid必传+
 
 * uid
 * page 默认为1
@@ -63,25 +64,25 @@ root url: http://203.88.192.235:83/
     * image_[1,2,3,4]_link (1 - 4 images in each feed)
     * image_[1,2,3,4]..(1 - 4 images in each feed)
     * feedid
-    * id (original content id)
+    * id (原文章id，查询此动态详情，请使用id + idtype)
     * uid (user who post this id)
-    * groupid (3 for vip)
-    * username (user's name)
-    * name (user's nickname)
-    * fid (original content share from id)
-    * fuid (share from user)
-    * fusername (share from user's name)
-    * subject (subject of feed)
+    * groupid (3 标识vip)
+    * username (用户名)
+    * name (用户昵称，当用户昵称为空时，使用username，并将其中间四位号码改为*号)
+    * fid (转载自原文章id)
+    * fuid (转载自作者uid)
+    * fusername (转载自作者用户名)
+    * subject (标题)
     * message (feed content)
-    * title (ignore this now)
+    * title (忽略此字段)
     * dateline
     * hot
     * lng
     * lat
-    * replynum
-    * reblognum (share num)
-    * love (number of loved)
-    * isloved (true of false for if user loved the feed)
+    * replynum （回复次数）
+    * reblognum (转载次数)
+    * love (喜欢、收藏次数)
+    * isloved (true of false 标识是否已喜欢、收藏)
     * avatar (user avatar)
 
     TODO: level color definition
@@ -305,7 +306,7 @@ root url: http://203.88.192.235:83/
     - fuid
     - fusername
     - love (收藏数量)
-    - isloved (true or false for if the user loved the article)
+    - isloved (true or false 标识是否已喜欢（收藏）)
     - click_1 (评分字段)
     - reblognum (转载次数)
     - replynum (回复条数)
