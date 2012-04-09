@@ -87,7 +87,6 @@ root url: http://203.88.192.235:83/
     * avatar ( 用户头像)
     * color (4: #ff5580, 3: #ff88a3, 2: #ffb3c6, 1: #cccccc)
 
-    TODO: level color definition
 
 #### 返回json范例
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "feeds": [{"idtype": "blogid", "image_2_link": "", "love": 0, "uid": 13, "image_3_link": "", "feedid": 3942, "tag": "a:2:{i:64;s:6:\"\u5a31\u4e50\";i:65;s:6:\"\u767e\u8d27\";}", "fuid": 376, "message": "\u7b2c", "isloved": false, "id": 588, "subject": "\u7b2c", "image_1": "http://atfaxian.com/attachment/201204/1/376_1333247843cF0K.jpg", "image_3": "", "image_2": "", "checked": 0, "image_4": "", "title": "\u53d1\u8868\u4e86", "dateline": 1333892242, "cityid": 3, "hot": 2, "click_1": 0, "location": "", "fid": 495, "groupid": 3, "friend": 0, "username": "15013296747", "starttime": 0, "price": "0.00", "oprice": "0.00", "obprice": "0.00", "replynum": 0, "target_ids": "", "lat": "23.1289940000", "loveuser": "1", "endtime": 0, "icon": "", "reblognum": 0, "name": "\u554a\u5b9d", "image_4_link": "", "fusername": "13682239450", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/13_avatar_big.jpg", "lng": "113.2868950000", "appid": 1, "deadline": 0, "bprice": "0.00", "isend": 1, "image_1_link": ""},], "code": 0}
@@ -229,6 +228,7 @@ root url: http://203.88.192.235:83/
     - subject ( 商品名称)
     - message
     - price （价格）
+    - click_1 ( 评分)
     - lat, lng
     - distance ( 距离, 单位：米)
     - dateline
