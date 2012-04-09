@@ -58,33 +58,33 @@ root url: http://203.88.192.235:83/
 
 #### 返回字段  
 * code (0 for success, 1 for error, msg for error message)
-* avatar_err_path (use this url as avatar if error while loading avatar)
+* avatar_err_path (  用户头像请求出错时请使用此头像)
 * feeds
     * idtype (eventid, blogid, goodsid, couponsid, pid, discloseid, photoid) 
-    * image_[1,2,3,4]_link (1 - 4 images in each feed)
-    * image_[1,2,3,4]..(1 - 4 images in each feed)
+    * image_[1,2,3,4]_link ( 每个动态最多四张图片, 这是四张图片对应链接，即点击后跳转链接，客户端可忽略。)
+    * image_[1,2,3,4]..( 每个动态最多四张图片，四张图片的地址在此)
     * feedid
     * id (原文章id，查询此动态详情，请使用id + idtype)
     * uid (user who post this id)
-    * groupid (3 标识vip)
-    * username (用户名)
-    * name (用户昵称，当用户昵称为空时，使用username，并将其中间四位号码改为*号)
+    * groupid (3 标识加V)
+    * username (用户登录名)
+    * name (用户名，当用户名为空时，使用username，并将其中间四位号码改为*号)
     * fid (转载自原文章id)
     * fuid (转载自作者uid)
     * fusername (转载自作者用户名)
     * subject (标题)
-    * message (feed content)
+    * message ( 内容)
     * title (忽略此字段)
-    * dateline
-    * hot
+    * dateline ( 发表时间)
+    * hot ( 温度)
     * lng
     * lat
     * hot (热度)
     * replynum （回复次数）
     * reblognum (转载次数)
-    * love (喜欢、收藏次数)
-    * isloved (true of false 标识是否已喜欢、收藏)
-    * avatar (user avatar)
+    * love (喜欢、收藏次数, 红心数量)
+    * isloved (true of false 标识是否已喜欢、收藏/ 加红心)
+    * avatar ( 用户头像)
 
     TODO: level color definition
 
@@ -168,18 +168,20 @@ root url: http://203.88.192.235:83/
 * avatar_err_path
 * code
 * business
-    - avatar
+    - avatar ( 用户头像)
     - uid
     - username,name,namestatus ( username for login, name for nickname, namestatus: 0 for no nickname, 1 for have;)
     - lng, lat
-    - distance (unit: m)
+    - distance ( 距离，单位: m)
     - address
-    - business ( name of shop)
+    - business ( 商家名，当前请使用name做商家名)
     - businessfield (description for business)
     - viewnum
-    - hot (热度)
+    - hot ( 温度)
+    -  商家不存在红心数，请移除之前设计
     - feedfriendnum (粉丝数量)
     - 暂时没有评价字段
+    - 暂时没有转发字段
 
 ####返回json范例
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "business": [{"username": "15013296747", "distance": 32705.061187827701, "referrals": 0, "uid": 13, "business": "", "friendnum": 1, "businessfield": "", "viewnum": 215, "groupid": 3, "feedfriendnum": 13, "hot": 228, "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/13_avatar_big.jpg", "address": "", "lat": "23.1289940000", "lng": "113.2868950000", "namestatus": 1, "name": "\u554a\u5b9d"}]}
@@ -211,22 +213,23 @@ root url: http://203.88.192.235:83/
     - image_[1,2,3,4]
     - feedid
     - id
-    - love （喜欢、收藏次数）
+    - love （喜欢、收藏次数, 红心数量）
     - loveruser
     - isloved （是否已经喜欢、收藏）
-    - hot
-    - reblognum
-    - replynum
+    - hot ( 温度)
+    - reblognum ( 转发数量)
+    - replynum ( 评价数量)
     - fuid
     - fusername
     - uid
-    - avatar
+    - avatar ( 用户头像, 商品头像请使用image)
     - groupid (3 for vip)
     - username
-    - subject
+    - subject ( 商品名称)
     - message
     - price （价格）
     - lat, lng
+    - distance ( 距离, 单位：米)
     - dateline
 
 #### 返回json范例
@@ -286,6 +289,7 @@ root url: http://203.88.192.235:83/
 * code
 * event:
     - eventid
+    - name ( 发起人)
     - title (标题)
     - cover （封面）
     - location (地点)
@@ -350,10 +354,11 @@ root url: http://203.88.192.235:83/
 * avatar_err_path
 * code
 * details
-    - avatar
+    - avatar ( 用户头像)
     - uid
-    - username,name,namestatus ( username for login, name for nickname, namestatus: 0 for no nickname, 1 for have;)
-    - groupid ( 3 for business)
+    - username,name,namestatus ( username for  登录名, name for  用户名, namestatus: 0 for no nickname, 1 for have;)
+    - groupid ( 3 for 加V)
+    - hot ( 温度)
     - lng, lat
     - distance (unit: m)
     - address
@@ -361,38 +366,40 @@ root url: http://203.88.192.235:83/
     - businessfield (description for business)
     - domain ( domain for user space)
     - social_part:
-        + friendnum
-        + viewnum
-        + notenum (number of notice)
-        + eventinvitenum (event invite num)
+        + friendnum ( 关注数)
+        + viewnum ( 空间访问数)
+        + notenum ( 通知数量)
+        + eventinvitenum ( 活动邀请数量)
         + mtaginvitenum ( group invited num)
         + myinvitenum ( invite num)
         + pokenum ( number of say hi)
-        + doingnum ( number of mood)
-        + blognum ( number of share)
-        + photonum (number of photo)
-        + goodsnum
-        + couponsnum
+        + doingnum ( 个人心情数量)
+        + blognum ( 个人分享数量)
+        + photonum ( 个人图片数量)
+        + goodsnum ( 商家商品数量)
+        + couponsnum ( 商家商品数量)
         + threadnum ( number of thread)
-        + pullnum
-        + disclosenum
-        + eventnum
-        + sharenum ( what the hell?)
+        + pullnum ( 个人投票数量)
+        + disclosenum ( 个人爆料数量)
+        + eventnum ( 商家活动数量)
+        + sharenum ( 请忽略)
     - newpm (0 for no new private message; 1 for have) 
     - newemail (new email)
     - email
     - mobile ( phone number)
     - qq
     - msn
-    - note, spacenote ( the latest personal note and the latest space status)
-    - tag (taglist)
-    - referrals (seems like number of user liked by)
-    - lovenum ( number of articles loved by user)
-    - feedfriendnum ( followers number)
+    - note, spacenote ( 最新个人心情)
+    - tag ( 标签数组)
+    - referrals ( 请忽略)
+    - credit ( 积分)
+    - experience (经验值)
+    - lovenum (红心数，表示该用户收藏帖子数量)
+    - feedfriendnum ( 粉丝数量)
+    - level (等级)
 
 ####  返回json范例
-{"code": 0, "details": {"addfriend": 0, "businessfield": "", "myinvitenum": 0, "eventnum": 2, "goodsnum": 0, "dateline": 1330507023, "theme": "", "msnrobot": "", "residecity": "\u5e7f\u5dde", "addsize": 0, "regip": "113.111.122.40", "lastlogin": 1332755232, "spacenote": "", "qq": "", "resideprovince": "", "name": "Lafere", "marry": 2, "groupid": 6, "birthmonth": 3, "newpm": 0, "mtaginvitenum": 0, "msncstatus": 0, "domain": "", "albumnum": 3, "idcard": "", "sex": 2, "lovenum": 0, "lng": "113.2868950000", "attachsize": 756165, "disclosenum": 0, "mood": 0, "feedfriendnum": 2, "tagid": 0, "authstr": "", "lastpost": 1332752295, "email": "13751894491@atfaxian.com", "avatar": 0, "business": "", "sendmail": "", "address": "", "updatetime": 1332752295, "couponsnum": 0, "experience": 156, "doingnum": 0, "credit": 2286, "nocss": 0, "threadnum": 0, "menunum": 0, "note": "", "pokenum": 0, "videopic": "", "lastsend": 0, "newemail": "", "photonum": 0, "privacy": "", "eventinvitenum": 0, "pollnum": 0, "msn": "", "magicstar": 0, "friend": "", "username": "13751894491", "blognum": 5, "videostatus": 0, "lastsearch": 0, "flag": 0, "referrals": 0, "addfriendnum": 0, "uid": 10, "ip": 113111057, "residemall": "\u5730\u738b\u5e7f\u573a", "birthyear": 2012, "viewnum": 33, "tag": ["\u6444\u5f71", "\u7f8e\u98df", "\u7cbe\u54c1", "\u7535\u5b50", "\u5176\u5b83"], "birthprovince": "", "sharenum": 0, "magicexpire": 0, "cityid": 0, "hot": 33, "birthcity": "", "timeoffset": "", "css": "", "notenum": 0, "friendnum": 0, "birthday": 23, "blood": "", "feedfriend": "734,12", "lat": "23.1289940000", "mobile": "", "emailcheck": 0, "namestatus": 1}}
-
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"addfriend": 0, "mobile_p": 0, "businessfield": "", "myinvitenum": 0, "eventnum": 9, "goodsnum": 23, "dateline": 1326676802, "theme": "", "msnrobot": "", "residecity": "\u5e7f\u5dde", "addsize": 0, "regip": "127.0.0.1", "lastlogin": 1333957329, "spacenote": "\u4e0d\u5e72\u4e86", "qq": "", "resideprovince": "", "name": "\u7231\u53d1\u73b0", "level": 5, "marry": 0, "groupid": 1, "birthmonth": 3, "newpm": 0, "mtaginvitenum": 0, "msncstatus": 0, "domain": "", "albumnum": 1, "idcard": "", "sex": 0, "lovenum": 38, "lng": "113.2868950000", "attachsize": 59484512, "disclosenum": 3, "mood": 0, "feedfriendnum": 839, "tagid": 0, "authstr": "", "lastpost": 1333690328, "email": "", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "business": "", "sendmail": "", "address": "", "updatetime": 1333690328, "couponsnum": 8, "experience": 2241, "doingnum": 6, "credit": 2043, "nocss": 0, "threadnum": 1, "menunum": 0, "note": "\u4e0d\u5e72\u4e86", "pokenum": 0, "videopic": "", "lastsend": 0, "newemail": "", "photonum": 28, "privacy":", "eventinvitenum": 0, "pollnum": 18, "msn": "", "magicstar": 0, "friend":44", "username": "aifaxian", "blognum": 24, "videostatus": 0, "lastsearch": 0, "flag": 1, "referrals": 0, "addfriendnum": 0, "uid": 1, "ip": 113111058, "residemall": "\u5730\u738b\u5e7f\u573a", "birthyear": 2012, "viewnum": 1049, "tag": ["\u6444\u5f71", "\u7f8e\u98df", "\u7cbe\u54c1", "\u767e\u8d27", "\u7f8e\u5bb9", "\u7535\u5b50", "\u670d\u88c5", "\u5a31\u4e50", "\u5176\u5b83"], "birthprovince": "\u5e7f\u4e1c", "sharenum": 0, "magicexpire": 0, "cityid": 0, "hot": 1888, "birthcity": "\u5e7f\u5dde", "timeoffset": "", "css": "", "notenum": 0, "friendnum": 500, "birthday": 19, "blood": "", "feedfriend":",15", "lat": "23.1289940000", "mobile": "", "emailcheck": 0, "namestatus": 1}}
 
 <h2 id="sxlb">私信列表</h2>
 用户查看自身私信通信列表, 包含inbox/outbox，具体怎么排列要看客户端怎么处理，这个再讨论，目前我分为两个列表按照时间先后顺序排列，以供使用；每次请求数量还未定，现在全部返回有点凶残哦。
