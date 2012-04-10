@@ -298,7 +298,9 @@ root url: http://203.88.192.235:83/
     - membernum （参与人数）
     - love （收藏人数）
     - isloved （是否已收藏）
-    - TODO：是否已参加，是否已推荐
+    - ismember ( 是否已参加)
+    - isrec (是否已推荐)
+
 #### 返回json范例
 {"code": 0, "event": [{"eventid": 34, "endtime": 1334671200, "love": 1, "title": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "cover": "attachment/201203/16/209_13318884491gt5.jpg", "location": "\u5e7f\u5dde\u5730\u738b\u5e7f\u573a", "starttime": 1331949600, "membernum": 1, "loveuser": "247", "isloved": false}]}
 
