@@ -86,6 +86,7 @@ root url: http://203.88.192.235:83/
     * isloved (true of false 标识是否已喜欢、收藏/ 加红心)
     * avatar ( 用户头像)
     * color (4: #ff5580, 3: #ff88a3, 2: #ffb3c6, 1: #cccccc)
+    * photonum (当idtype=photoid时,为图片数量)
 
 
 #### 返回json范例
