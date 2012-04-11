@@ -341,13 +341,21 @@ root url: http://203.88.192.235:83/
     - subject
     - message
     - dateline
-
-* like_list[{uid,uimg}...]
-* share_list[{uid,uimg}...]
-* comment_list[{uid,uimg,uname,cid,ccontent}...] 
+* lovers
+    - uid
+    - avatar
+* shares
+    - uid
+    - avatar
+* comments
+    - uid
+    - name
+    - avatar
+    - message
+    - dateline
 
 ### 返回json范例
-{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "", "isloved": false, "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "groupid": 6, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "name": "", "fusername": "", "postip": "59.42.108.14", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/14_avatar_big.jpg", "target_ids": "", "blogid": 30}}
+{"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "", "isloved": false, "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "groupid": 6, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "name": "", "fusername": "", "postip": "59.42.108.14", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/14_avatar_big.jpg", "target_ids": "", "blogid": 30},"lovers": [{"uid": 250, "avatar": "http://atfaxian.com/center/data/avatar/000/00/02/50_avatar_big.jpg"}],"shares": [{"uid": 195, "avatar": "http://atfaxian.com/center/data/avatar/000/00/01/95_avatar_big.jpg"},],"comments": [{"name": "13826044425", "dateline": 1332085426, "message": "\u633a\u597d\u770b\u7684\u554a", "avatar": "http://atfaxian.com/center/data/avatar/000/00/03/91_avatar_big.jpg", "uid": 391},]}
 
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
