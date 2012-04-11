@@ -49,10 +49,11 @@ root url: http://203.88.192.235:83/
 ### 全部动态
 
 ####请求参数
-/feed?page=1&count=10&uid=13   
+/feed?page=1&count=10&uid=13&classid=0      
 +请注意，uid必传+
 
 * uid
+* classid=0
 * page 默认为1
 * count 默认为10
 
@@ -94,19 +95,21 @@ root url: http://203.88.192.235:83/
 
 ### 好友动态
 #### 请求参数
-/feed?uid=34&page=1&count=10 
+/feed?uid=34&page=1&count=10&classid=1 
 
 * page 默认为1
 * count 默认为10
+* classid=1
 * uid
 
 #### 返回字段
 (同全部动态) 
 ### 附近动态
 #### 请求参数
-/feed?lat=101.999&lng=-122.43&page=1&count=10&uid=13
+/feed?lat=101.999&lng=-122.43&page=1&count=10&uid=13&classid=2
 
 * uid
+* classid=2
 * page 默认为1
 * count 默认为10
 * lat（纬度）
