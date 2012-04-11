@@ -23,6 +23,8 @@ root url: http://203.88.192.235:83/
 *   [通知系统](#tzxt)
 *   [我的收藏列表](#wdsclb)
 *   [我的心情、爆料、分享、照片、投票、商品、优惠券、活动等](#wdfeed)
+*   [我的关注列表](#wdgzlb)
+*   [我的粉丝列表](#wdfslb)
 
 *   [用户注册](#yhzc)
 *   [用户登陆](#yhdl)
@@ -487,7 +489,7 @@ root url: http://203.88.192.235:83/
 /mylikes/1?uid=10&page=1&count=10
 
 * 数字 (查看对象uid)
-* uid (我的uid)
+* uid (客户端的uid)
 * page
 * count
 
@@ -500,13 +502,39 @@ root url: http://203.88.192.235:83/
 /myfeed/1?uid=10&idtype=blogid&page=1&count=10
 
 * 数字 (查看对象uid)
-* uid (我的uid)
+* uid (客户端的uid)
 * idtype (列表类型，如爆料，分享等)
 * page
 * count
 
 ### 返回字段
 见[动态列表](#dtlb)
+
+<h2 id='wdgzlb'>我的关注列表</h2>
+你懂得
+### 请求参数
+/myfollowings/1?uid=10&page=1&count=10
+
+* 数字 (查看对象uid)
+* uid (客户端的uid)
+* page
+* count
+
+### 返回字段
+见[商家列表](#sjlb)
+
+<h2 id='wdfslb'>我的粉丝列表</h2>
+你懂得
+### 请求参数
+/myfollowers/1?uid=10&page=1&count=10
+
+* 数字 (查看对象uid)
+* uid (客户端的uid)
+* page
+* count
+
+### 返回字段
+见[商家列表](#sjlb)
 
 <h2 id="yhzc">用户注册</h2>
 用户操作
