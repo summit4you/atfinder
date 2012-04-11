@@ -21,6 +21,8 @@ root url: http://203.88.192.235:83/
 *   [评论列表](#pllb)
 *   (not this time)[留言列表](#lylb)
 *   [通知系统](#tzxt)
+*   [我的收藏列表](#wdsclb)
+*   [我的心情、爆料、分享、照片、投票、商品、优惠券、活动等](#wdfeed)
 
 *   [用户注册](#yhzc)
 *   [用户登陆](#yhdl)
@@ -349,8 +351,8 @@ root url: http://203.88.192.235:83/
     - avatar
 * comments
     - uid
-    - name
-    - avatar
+    - name 
+    - avatar 
     - message
     - dateline
 
@@ -360,10 +362,10 @@ root url: http://203.88.192.235:83/
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
 ### 请求参数
-/userdetails?uid=10
+/userdetails/10?uid=1
 
-* uid  (uid  为要查看用户id)
-* user_id (若uid==user_id，则视为查看自身详情)
+* /数字  (为要查看用户id)
+* uid (若uid==数字，则视为查看自身详情)
 
 ### 返回字段
 * avatar_err_path
@@ -479,6 +481,32 @@ root url: http://203.88.192.235:83/
 #### json 范例
 {"count": 12, "notice": [{"uid": 12, "author": "aifaxian", "dateline": 1331653884, "note": "\u5c06\u4f60\u8bbe\u4e3a\u4e86\u7fa4\u7ec4 \<\a href=\"space.php?do=mtag&tagid=3\" target=\"_blank\">\u5730\u738b\u5e7f\u573a<\/a> \u7684\u7fa4\u4e3b", "authorid": 1, "new": 1, "type": "mtag", "id": 41}]
 
+<h2 id='wdsclb'>我的收藏列表</h2>
+即红心列表
+### 请求参数
+/mylikes/1?uid=10&page=1&count=10
+
+* 数字 (查看对象uid)
+* uid (我的uid)
+* page
+* count
+
+### 返回字段
+见[动态列表](#dtlb)
+
+<h2 id='wdfeed'>我的心情、爆料、分享、照片、投票、商品、优惠券、活动等</h2>
+你懂的
+### 请求参数
+/myfeed/1?uid=10&idtype=blogid&page=1&count=10
+
+* 数字 (查看对象uid)
+* uid (我的uid)
+* idtype (列表类型，如爆料，分享等)
+* page
+* count
+
+### 返回字段
+见[动态列表](#dtlb)
 
 <h2 id="yhzc">用户注册</h2>
 用户操作
