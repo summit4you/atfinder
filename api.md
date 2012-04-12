@@ -26,6 +26,9 @@ root url: http://203.88.192.235:83/
     *   [我的心情、爆料、分享、照片、投票、商品、优惠券、活动等](#wdfeed)
     *   [我的关注列表](#wdgzlb)
     *   [我的粉丝列表](#wdfslb)
++ wap专用接口
+    - [首页推荐](#sytj)
+    - [商圈](#sq)
 * 上行接口
     *   [用户注册](#yhzc)
     *   [用户登陆](#yhdl)
@@ -41,10 +44,6 @@ root url: http://203.88.192.235:83/
     *   [转发](#zf)
     *   [关注](#gz)
     *   [搜索](#ss)
-
-+ wap addition
- - [首页推荐](#sytj)
- - [商圈](#sq)
 
 详情
 --
@@ -545,8 +544,88 @@ root url: http://203.88.192.235:83/
 
 ### 返回字段
 见[商家列表](#sjlb)
-
 ***
+
+<h2 id='sytj'>首页推荐</h2>
+综合页面
+### 请求参数
+
+### 返回字段
+
+<h2 id='sqlb'>商圈列表</h2>
+在请求商圈页面之前请请求此接口以获取商圈列表
+### 请求参数
+/mall
+### 返回字段
+* code
+* malls
+    - tagid (商圈id)
+    - tagname (商圈名称)
+
+#### json example
+{"code": 0, "malls": [{"tagid": 5, "tagname": "\u5bb6\u4e50\u798f\u5e7f\u573a"},]
+
+<h2 id='sq'>商圈页面</h2>
+商圈综合页面,包括商圈信息，商圈内商家列表，商圈内商品列表，商圈内活动及优惠券列表，以及各列表的分页请求
+### 请求参数
+1 /mall/5
+    - 数字 （商圈id）
+2 /mall/5?type=tips?page=1&count=4
+    - type (tips: 活动及优惠券)
+    - page
+    - count
+3 /mall/5?type=tags?tagid=6&page=1&count=4
+    - type (tags: 各一级分类下的各种动态)
+    - tagid (一级分类id, 请参考标签接口说明)
+4 /mall/5?type=shops?page=1&count=4
+    - type (shops: 商家列表)
+
+### 返回字段
+1 全部信息:
+    + details (商圈信息):
+        - tagid
+        - tagname (商圈名称)
+        - pic (商圈图片)
+        - announcement (公告)
+        - threadnum
+        - membernum (注册商家)
+        - recommend 
+        - postnum (动态数量)
+    + 2
+    + tags (各类动态列表):
+        - 标签id
+          + 3
+    + 4
+2 tips 活动及优惠券信息
+    + tips (活动及优惠券):
+        - events (活动):
+            + id
+            + idtype
+            + subject (标题)
+            + image_1 (图片)
+        - coupons (优惠):
+            + id
+            + idtype
+            + subject (标题)
+            + image_1 (图片)
+3 tags (动态列表)
+    + uid
+    + username
+    + name
+    + id
+    + idtype
+    + image_1
+    + subject
+        
+4 shops (商家列表)
+    - uid
+    - name
+    - username
+
+#### json example
+{"shops": [{"username": "aifaxian", "uid": 1, "name": "\u7231\u53d1\u73b0"}], "code": 0, "tips": {"events": [{"image_1": "attachment/201203/15/1_1331818806zIpv.jpg", "idtype": "eventid", "id": 10, "subject": "\u5730\u738b\u5e7f\u573a\u201c\u7231\u53d1\u73b0\u201d\u4e3b\u9898\u8d2d\u7269\u6d3b\u52a8"},], "coupons": []},"tags": [{"6": [{"username": "aifaxian", "idtype": "photoid", "uid": 1, "image_1": "attachment/201203/16/205_1331880482ztlS.jpg", "name": "\u7231\u53d1\u73b0", "id": 76, "subject": ""},}]}], "details": {"threadperm": 0, "announcement": "", "closeapply": 0, "viewperm": 0, "fieldid": 4, "tagid": 5, "pic": "", "postperm": 0, "joinperm": 0, "moderator": "", "postnum": 0, "tagname": "\u5bb6\u4e50\u798f\u5e7f\u573a", "recommend": 0, "close": 0, "threadnum": 0, "membernum": 1}}
+    
+---
 
 <h2 id="yhzc">用户注册</h2>
 用户操作
