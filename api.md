@@ -568,16 +568,19 @@ root url: http://203.88.192.235:83/
 <h2 id='sq'>商圈页面</h2>
 商圈综合页面,包括商圈信息，商圈内商家列表，商圈内商品列表，商圈内活动及优惠券列表，以及各列表的分页请求
 ### 请求参数
-1 /mall/5
+1 /mall/5   
     - 数字 （商圈id）
-2 /mall/5?type=tips?page=1&count=4
+
+2 /mall/5?type=tips?page=1&count=4   
     - type (tips: 活动及优惠券)
     - page
     - count
-3 /mall/5?type=tags?tagid=6&page=1&count=4
+
+3 /mall/5?type=tags?tagid=6&page=1&count=4   
     - type (tags: 各一级分类下的各种动态)
     - tagid (一级分类id, 请参考标签接口说明)
-4 /mall/5?type=shops?page=1&count=4
+
+4 /mall/5?type=shops?page=1&count=4   
     - type (shops: 商家列表)
 
 ### 返回字段
