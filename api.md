@@ -505,6 +505,14 @@ root url: http://203.88.192.235:83/
 * 数字 (查看对象uid)
 * uid (客户端的uid)
 * idtype (列表类型，如爆料，分享等)
+    - doid 心情，
+    - blogid 分享，
+    - photoid 照片，
+    - pid，投票，
+    - discloseid 爆料，
+    - goodsid 商品，
+    - couponsid 优惠，
+    - eventid 活动
 * page
 * count
 
