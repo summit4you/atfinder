@@ -327,6 +327,7 @@ root url: http://203.88.192.235:83/
 ### 返回字段
 * code
 * avatar_err_path
+* idtype ( 方便客户端进行后续接口请求，如评论列表，需要同时传id／idtype)
 * details
     - avatar
     - uid
