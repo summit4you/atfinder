@@ -631,7 +631,7 @@ root url: http://203.88.192.235:83/
 ---
 
 <h2 id="yhzc">用户注册</h2>
-URL格式： <站点URL>/fx/capi/do.php?ac=register&username=XXXXXXXXX&password=XXXXX&seccode=XXXXX&registersubmit=true
+URL格式： <站点URL>/capi/do.php?ac=register&username=XXXXXXXXX&password=XXXXX&seccode=XXXXX&registersubmit=true
 ### 请求参数
 * ac:register
 * registersubmit：true
