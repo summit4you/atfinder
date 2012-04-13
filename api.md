@@ -631,15 +631,21 @@ root url: http://203.88.192.235:83/
 ---
 
 <h2 id="yhzc">用户注册</h2>
-用户操作
+URL格式： <站点URL>/fx/capi/do.php?ac=register&username=XXXXXXXXX&password=XXXXX&seccode=XXXXX&registersubmit=true
 ### 请求参数
-* phone
-* pwd
-* valid_code
+* ac:register
+* registersubmit：true
+* username: 电话号码
+* password：密码
+* seccode：验证码
 
+### 注册成功返回JSON(样例）
+{"code":0,"data":{"uid":15},"msg":"\u6ce8\u518c\u6210\u529f\u4e86\uff0c\u8fdb\u5165\u8bbe\u7f6e\u5f15\u5bfc","action":"registered"}
 ### 返回字段
-* uid
-* status (成功与否)
+* code: 0，成功；1，失败
+* data: 包括的返回数据，这里仅返回注册成功的ID
+* msg：提示信息，与站点的提示信息一致
+* action：代表操作的类型
 
 <h2 id="yhdl">用户登录</h2>
 用户操作
