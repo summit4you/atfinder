@@ -641,7 +641,7 @@ URL格式： <站点URL>/capi/do.php?ac=register&username=XXXXXXXXX&password=XXX
 * seccode：验证码
 
 ### 注册成功返回JSON(样例）
-{"code":1,"data":{"uid":17,"credit":10,"experience":null,"cityid":"6"},"msg":"\u6ce8\u518c\u6210\u529f\u4e86\uff0c\u8fdb\u5165\u8bbe\u7f6e\u5f15\u5bfc","action":"registered"}
+{"code":0,"data":{"uid":17,"credit":10,"experience":null,"cityid":"6"},"msg":"\u6ce8\u518c\u6210\u529f\u4e86\uff0c\u8fdb\u5165\u8bbe\u7f6e\u5f15\u5bfc","action":"registered"}
 ### 返回字段
 * code: 0，成功；1，失败
 * data: 包括的返回数据，uid:开通用户的id，credit:增加的积分， experience：增加的经验, cityid: 有道接口判断的城市位置，返回对应城市列表的id
@@ -655,7 +655,7 @@ URL格式： <站点URL>/capi/do.php?ac=register&op=getseccode&mobile=XXXXXXXXX
 * op:getseccode
 * mobile: XXXXXXXXX
 ### 获取返回JSON(样例）
-{"code":1,"data":{"seccode":"EKJJ","authcode":"53bcPlA1c25b259WT86L4JuEGW8RSkAvVbXLfVp6d6kL"},"msg":"succeed","action":"succeed"}
+{"code":0,"data":{"seccode":"EKJJ","authcode":"53bcPlA1c25b259WT86L4JuEGW8RSkAvVbXLfVp6d6kL"},"msg":"succeed","action":"succeed"}
 * code: 0，成功；1，失败
 * data: 包括的返回数据，seccode-验证码， authcode-UCHOME加密串
 * msg：提示信息，与站点的提示信息一致
@@ -792,14 +792,19 @@ URL格式： <站点URL>/capi/do.php?ac=register&op=getseccode&mobile=XXXXXXXXX
 
 <h2 id="gz">关注</h2>
 社交操作
+URL格式： <站点URL>/capi/do.php?ac=ajax&op=addfriend&uid=15
 ### 请求参数
-* uid
-* toid (feed?goods?coupon?..)
-* type
+* ac:ajax
+* op:addfriend
+* uid: 要加的好友id
+### 获取返回JSON(样例）
+{"code":0,"data":[],"msg":"进行的操作完成了","action":"do_success"}
+{"code":1,"data":[],"msg":"do_failed","action":"do_failed"}
+* code: 0，成功；1，失败
+* data: 包括的返回数据，这里无
+* msg：提示信息，与站点的提示信息一致
+* action：代表操作的类型 do_success代表成功， do_failed代表失败
 
-### 返回字段
-* uid
-* status
 
 <h2 id="ss">搜索</h2>
 操作
