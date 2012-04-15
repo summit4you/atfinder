@@ -31,6 +31,7 @@ root url: http://203.88.192.235:83/
     - [商圈](#sq)
 * 上行接口
     *   [用户注册](#yhzc)
+	*   [获取验证码](#yzm)
     *   [用户登陆](#yhdl)
     *   [用户注销](#yhzx)
     *   [关注商家设置](#gzsjsz)
@@ -644,6 +645,19 @@ URL格式： <站点URL>/capi/do.php?ac=register&username=XXXXXXXXX&password=XXX
 ### 返回字段
 * code: 0，成功；1，失败
 * data: 包括的返回数据，这里仅返回注册成功的ID
+* msg：提示信息，与站点的提示信息一致
+* action：代表操作的类型
+
+<h2 id="yzm">获取验证码</h2>
+URL格式： <站点URL>/capi/do.php?ac=register&op=getseccode&mobile=XXXXXXXXX
+### 请求参数
+* ac:register
+* op:getseccode
+* mobile: XXXXXXXXX
+### 获取返回JSON(样例）
+{"code":1,"data":{"seccode":"EKJJ","authcode":"53bcPlA1c25b259WT86L4JuEGW8RSkAvVbXLfVp6d6kL"},"msg":"succeed","action":"succeed"}
+* code: 0，成功；1，失败
+* data: 包括的返回数据，seccode-验证码， authcode-UCHOME加密串
 * msg：提示信息，与站点的提示信息一致
 * action：代表操作的类型
 
