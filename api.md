@@ -641,10 +641,10 @@ URL格式： <站点URL>/capi/do.php?ac=register&username=XXXXXXXXX&password=XXX
 * seccode：验证码
 
 ### 注册成功返回JSON(样例）
-{"code":1,"data":{"uid":16,"credit":10,"experience":null},"msg":"\u6ce8\u518c\u6210\u529f\u4e86\uff0c\u8fdb\u5165\u8bbe\u7f6e\u5f15\u5bfc","action":"registered"}
+{"code":1,"data":{"uid":17,"credit":10,"experience":null,"cityid":"6"},"msg":"\u6ce8\u518c\u6210\u529f\u4e86\uff0c\u8fdb\u5165\u8bbe\u7f6e\u5f15\u5bfc","action":"registered"}
 ### 返回字段
 * code: 0，成功；1，失败
-* data: 包括的返回数据，uid:开通用户的id，credit:增加的积分， experience：增加的经验
+* data: 包括的返回数据，uid:开通用户的id，credit:增加的积分， experience：增加的经验, cityid: 有道接口判断的城市位置，返回对应城市列表的id
 * msg：提示信息，与站点的提示信息一致
 * action：代表操作的类型
 
