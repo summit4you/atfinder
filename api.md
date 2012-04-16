@@ -698,15 +698,21 @@ URL格式： <站点URL>/capi/do.php?ac=register&op=getseccode&mobile=XXXXXXXXX
 
 
 <h2 id="xqahsz">兴趣爱好设置</h2>
-设置操作
+URL格式： <站点URL>/capi/space.php?do=guid&hobbitssubmit=true&uid=15&tags=摄影 美食 精品 百货 美容 电子
 ### 请求参数
-/tagsettings?uid=12&tag=6&tag=... [tag  可多个]
-* uid
-* tag [id,id...]
+* do:guid
+* hobbitssubmit：true
+* uid: 用户id
+* tags：用户设置的标签，空格隔开，后台Update操作，可以多次提交
 
+### 设置成功返回JSON(样例）
+{"code":0,"data":[],"msg":"\u8bbe\u7f6e\u6210\u529f","action":"\u8bbe\u7f6e\u6210\u529f"}
 ### 返回字段
-* uid
-* status
+* code: 0，成功；1，失败
+* data: 包括的返回数据，这里暂时为空
+* msg：提示信息，与站点的提示信息一致，“设置成功”
+* action：代表操作的类型， “设置成功”
+
 
 <h2 id="fbxq">发布心情</h2>
 发布操作
