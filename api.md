@@ -345,6 +345,8 @@ root url: http://203.88.192.235:83/
     - classid
     - subject
     - message
+    - imgs
+        + 'http://atfaxian.com/attachment/xxxx.jpg.middle.jpg'
     - dateline
 * lovers
     - uid
