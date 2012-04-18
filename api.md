@@ -16,7 +16,7 @@ root url: http://203.88.192.235:83/
     *   [推荐商家列表](#tjsjlb)
     *   [推荐标签](#tjbq)
     *   [活动列表](#hdlb)
-    *   [动态/商品/优惠券/活动详情] (#xq)
+    *   [分享／照片／投票／爆料/商品/优惠券/活动详情] (#xq)
     *   [用户详情](#yhxq)
     *   [私信列表](#sxlb)
     *   [评论列表](#pllb)
@@ -313,7 +313,7 @@ root url: http://203.88.192.235:83/
 #### 返回json范例
 {"code": 0, "event": [{"eventid": 34, "endtime": 1334671200, "love": 1, "title": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "cover": "attachment/201203/16/209_13318884491gt5.jpg", "location": "\u5e7f\u5dde\u5730\u738b\u5e7f\u573a", "starttime": 1331949600, "membernum": 1, "loveuser": "247", "isloved": false}]}
 
-<h2 id="xq">动态/商品/优惠券/活动详情</h2>
+<h2 id="xq">分享／照片／投票／爆料/商品/优惠券/活动详情</h2>
 动态详细信息
 ### 请求参数
 /details?uid=3&id=30&idtype=blogid
@@ -349,6 +349,10 @@ root url: http://203.88.192.235:83/
     - imgs
         + 'http://atfaxian.com/attachment/xxxx.jpg.middle.jpg'
     - dateline
+    - IF pid: option
+        + id
+        + votenum
+        + option
 * lovers
     - uid
     - avatar
@@ -364,6 +368,8 @@ root url: http://203.88.192.235:83/
 
 ### 返回json范例
 {"idtype": "blogid", "avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "", "isloved": false, "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "groupid": 6, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "name": "", "fusername": "", "postip": "59.42.108.14", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/14_avatar_big.jpg", "target_ids": "", "blogid": 30},"lovers": [{"uid": 250, "avatar": "http://atfaxian.com/center/data/avatar/000/00/02/50_avatar_big.jpg"}],"shares": [{"uid": 195, "avatar": "http://atfaxian.com/center/data/avatar/000/00/01/95_avatar_big.jpg"},],"comments": [{"name": "13826044425", "dateline": 1332085426, "message": "\u633a\u597d\u770b\u7684\u554a", "avatar": "http://atfaxian.com/center/data/avatar/000/00/03/91_avatar_big.jpg", "uid": 391},]}
+IF pid:   
+"option": [{"votenum": 0, "id": 10, "option": "\u4e0a\u4e5d\u8def"},
 
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
