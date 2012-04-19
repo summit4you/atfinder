@@ -36,6 +36,7 @@ root url: http://203.88.192.235:83/
     *   [用户注销](#yhzx)
     *   [关注商家设置](#gzsjsz)
     *   [兴趣爱好设置](#xqahsz)
+	*	[上传头像](#sctx)
     *   [发布心情](#fbxq)
     *   [发布图片](#fbtp)
     *   [发布商品](#fbsp)
@@ -685,6 +686,38 @@ URL格式： <站点URL>/capi/do.php?ac=register&op=getseccode&mobile=XXXXXXXXX
 
 <h2 id="yhzx">用户注销</h2>
  *请自行了断！*
+
+
+<h2 id="sctx">上传头像</h2>
+URL格式： <站点URL>/capi/cp.php?ac=avatar
+注意：当前仅支持POST!!!
+
+### POST范例
+<!DOCTYPE HTML><html><head><meta charset="utf-8"><title>上传头像</title></head><body>
+<form action="cp.php?ac=avatar" method="post" enctype="multipart/form-data">
+	<input type="file" name="Filedata"/>
+	<input type="submit"  name="submit"  value="提交"/>
+	<input type="hidden" name="ac" value="avatar" />
+	<input type="hidden" name="uid" value="XXX" />
+    <input type="hidden" name="avatarsubmit" value="true" />
+</form>
+</body>
+</html>
+### 请求参数
+* Filedata:上传的图片
+* uid: 用户id
+* ac:avatar
+* avatarsubmit: true
+### 获取返回JSON(样例）
+{"code":0,"data":{"url":"http:\/\/localhost\/fx\/center\/data\/tmp\/upload1.jpg","msg":"\u8bf7\u4e0a\u4f20\u5934\u50cf","reward":null,"dateline":"1334838700"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+* code: 0，成功；1，失败
+* data: 
+	- url:成功返回真正url，否则为错误码。-1：用户ID为空；-2：图片尺寸过小; -3:图片数据为空; -4:上传失败;
+	- msg:对应的提示消息
+* reward：积分，null代表修改图片，否则为第一次上传，数值代表增加的积分值
+* dateline：上传时间
+* action: 操作结果，统一为do_success
+* msg: 操作的提示语，统一为"操作完成了"
 
 <h2 id="sjtjsz">关注商家设置</h2>
 URL格式： <站点URL>/capi/space.php?do=guid&shopsubmit=true&me=2&uid[]=1&uid[]=2&uid[]=10
