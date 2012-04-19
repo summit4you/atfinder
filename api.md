@@ -163,7 +163,7 @@ root url: http://203.88.192.235:83/
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
 ### 请求参数
-/businesslist?distance=100&lat=23&lng=113&page=1&count=10
+/businesslist?distance=100&lat=23&lng=113&page=1&count=10&cityid=3
 
 * lat
 * lng
@@ -172,6 +172,7 @@ root url: http://203.88.192.235:83/
 * uid (必传)
 * page
 * count
+* cityid
 
 ### 返回字段
 * avatar_err_path
@@ -199,7 +200,7 @@ root url: http://203.88.192.235:83/
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
 ### 请求参数
-/goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=13
+/goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=13&cityid=3
 
 * uid （务必传uid）
 * lat
@@ -209,6 +210,7 @@ root url: http://203.88.192.235:83/
 * uid
 * page
 * count
+* cityid
 
 ### 返回字段
 * code
@@ -248,7 +250,7 @@ root url: http://203.88.192.235:83/
 <h2 id="yhqlb">优惠券列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 ### 请求参数
-/couponlist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=13      
+/couponlist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=1&cityid=3     
 同商品列表
 ### 返回字段
 同商品列表,多出字段：   
@@ -346,6 +348,9 @@ root url: http://203.88.192.235:83/
     - classid
     - subject
     - message
+    - hot
+    - hotuser
+    - color
     - imgs
         + 'http://atfaxian.com/attachment/xxxx.jpg.middle.jpg'
     - dateline
@@ -365,11 +370,18 @@ root url: http://203.88.192.235:83/
     - avatar 
     - message
     - dateline
+* IF eventid OR couponsid: **members**
+    - uid
+    - username
+    - avatar
+    - ...
 
 ### 返回json范例
 {"idtype": "blogid", "avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "", "isloved": false, "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "groupid": 6, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "name": "", "fusername": "", "postip": "59.42.108.14", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/14_avatar_big.jpg", "target_ids": "", "blogid": 30},"lovers": [{"uid": 250, "avatar": "http://atfaxian.com/center/data/avatar/000/00/02/50_avatar_big.jpg"}],"shares": [{"uid": 195, "avatar": "http://atfaxian.com/center/data/avatar/000/00/01/95_avatar_big.jpg"},],"comments": [{"name": "13826044425", "dateline": 1332085426, "message": "\u633a\u597d\u770b\u7684\u554a", "avatar": "http://atfaxian.com/center/data/avatar/000/00/03/91_avatar_big.jpg", "uid": 391},]}   
 **IF pid:**      
 "option": [{"votenum": 0, "id": 10, "option": "\u4e0a\u4e5d\u8def"},]
+**IF eventid OR couponsid:**
+"members": [{"eventid": 258, "username": "13751894491", "uid": 10, "exchange": 1, "dateline": 1334735708, "fellow": 0, "status": 2, "avatar": "http://center.atfaxian.com/data/avatar/000/00/00/10_avatar_big.jpg", "template": "\u987b\u586b\u5199\u62a5\u540d\u8005\u59d3\u540d\u3001\u624b\u673a\u53f7\u7801\r\nindy 13751894491"},] 
 
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
