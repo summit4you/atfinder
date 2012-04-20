@@ -46,6 +46,10 @@ root url: http://203.88.192.235:83/
 	*   [发布分享（提交）](#fbfx2)
 	*   [发布分享（编辑）](#fbfx3)
 	*   [发布分享（删除）](#fbfx4)
+	*   [发布爆料（上传图片）](#fbbl1)
+	*   [发布爆料（提交）](#fbbl2)
+	*   [发布爆料（编辑）](#fbbl3)
+	*   [发布爆料（删除）](#fbbl4)
     *   [发布商品](#fbsp)
     *   [发布优惠券](#fbyhq)
     *   [评论](#pl)
@@ -846,12 +850,13 @@ URL格式： <站点URL>/capi/cp.php?ac=photo&photoid=100&message=小明你好&t
 修改其实和提交一样，只是多传了一个photoid
 
 <h2 id="fbtp4">发布图片（删除）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=photo&op=delete&photoid=33&deletesubmit=true
+URL格式： <站点URL>/capi/cp.php?ac=photo&op=delete&photoid=33&deletesubmit=true&uid=XXX
 ### 请求参数
 * ac:photo
 * photoid：需要删除的图片photoid
 * deletesubmit：true
 * op: delete
+* uid: 图片所属用户id
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"credit":10,"experience":10},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -903,7 +908,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 <h2 id="fbfx2">发布分享（提交）</h2>
 URL格式： <站点URL>/capi/cp.php?ac=blog&subject=测试分享&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&blogsubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
 ### 请求参数
-* ac:photo
+* ac:blog
 * blogsubmit：true
 * uid: 用户id
 * username: 用户名
@@ -926,7 +931,7 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&subject=测试分享&message=小明
 <h2 id="fbfx3">发布分享（编辑）</h2>
 URL格式： <站点URL>/capi/cp.php?ac=blog&blogid=26subject=测试分享&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&blogsubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
 ### 请求参数
-* ac:photo
+* ac:blog
 * blogsubmit：true
 * uid: 用户id
 * username: 用户名
@@ -949,12 +954,13 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&blogid=26subject=测试分享&messa
 修改其实和提交一样，只是多传了一个blogid
 
 <h2 id="fbfx4">发布分享（删除）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=blog&op=delete&blogid=26&deletesubmit=true
+URL格式： <站点URL>/capi/cp.php?ac=blog&op=delete&blogid=26&deletesubmit=true&uid=XXX
 ### 请求参数
-* ac:photo
+* ac:blog
 * blogid：需要删除的分享id
 * deletesubmit：true
 * op: delete
+* uid: 分享所属用户id
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"credit":10,"experience":10},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -967,6 +973,111 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&op=delete&blogid=26&deletesubmit=tr
 ### 设置失败返回JSON(样例）
 {"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
 
+<h2 id="fbbl1">发布爆料（上传图片）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=upload
+注意：当前仅支持POST!!!
+
+### POST范例
+<html><head><meta charset="utf-8"><title>上传分享图片</title></head><body>
+<form action="cp.php?ac=upload" method="post" enctype="multipart/form-data">
+<input type="file" name="Filedata"/>
+<input type="hidden" name="op" value="uploadpic" />
+<input type="hidden" name="uid" value="1" />
+<input type="hidden" name="topicid"  value="0" />
+<input type="hidden" name="ac"  value="upload" />
+<input type="submit"  name="submit"  value="提交"/>
+</form></body></html>
+
+### 请求参数
+* Filedata:上传的图片
+* uid: 用户id
+* username: 用户名
+* op: uploadpic 注意与发布图片（上传图片）区分
+* topicid: XXXX(注释好像默认0,请确认）
+* ac: upload
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"pic":588,"picpath":"attachment\/201204\/20\/1_1334927560RO0m.jpg"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: pic 返回图片所在数据库的id号 picpath:为图片在服务器的URL
+* msg：提示信息，与站点的提示信息一致，“操作完成了”
+* action：代表操作的类型， “操作完成了”
+### 注意
+由于（function_image.php)makethumb中调用imagecreatefromjpeg，这个受内存限制，太大的图会导致页面提交出错，且无法
+捕获错误信息，客户端对无响应做处理
+是的，如果你留意了。。。它居然和发布分享是一样的！
+
+<h2 id="fbbl2">发布爆料（提交）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=disclose&subject=我要爆料&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&disclosesubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX&lat=23.1405830000&lng=113.3455640000
+### 请求参数
+* ac:disclose
+* disclosesubmit：true
+* uid: 用户id
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed
+* picid: 第一阶段产生的图像id
+* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* subject: 分享的标题
+* tags：图片的标签
+* lat:经度
+* lng:位置
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"subject":"\u6211\u8981\u7206\u6599\u3001","classid":null,"friend":0,"cityid":null,"lat":"23.1405830000","lng":"113.3455640000","password":null,"noreply":0,"picflag":0,"pic":"attachment\/201204\/20\/1_1334925429OD0V.jpg","topicid":0,"checked":0,"uid":"XX","username":"XXX","dateline":"1334929734","discloseid":5},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 提交成功后爆料的相关信息
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="fbfx3">发布爆料（编辑）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=disclose&discloseid=5&subject=我要爆料2&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&disclosesubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX&lat=23.1405830000&lng=113.3455640000
+### 请求参数
+* ac:disclose
+* disclosesubmit：true
+* uid: 用户id
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed
+* picid: 第一阶段产生的图像id
+* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* subject: 分享的标题
+* tags：图片的标签
+* lat:经度
+* lng:位置
+* discloseid: 爆料id
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"subject":"\u6211\u8981\u7206\u65992\u3001","classid":null,"friend":0,"cityid":null,"lat":"23.1405830000","lng":"113.3455640000","password":null,"noreply":0,"picflag":0,"pic":"attachment\/201204\/20\/1_1334925429OD0V.jpg","uid":"0","username":"XXX","discloseid":"5"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 提交成功后爆料的相关信息
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+###注意
+修改其实和提交一样，只是多传了一个discloseid
+
+<h2 id="fbbl4">发布爆料（删除）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=disclose&op=delete&discloseid=5&deletesubmit=true&uid=XXX
+### 请求参数
+* ac:disclose
+* discloseid：需要删除的分享id
+* deletesubmit：true
+* op: delete
+* uid: 爆料所属用户id
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":10,"experience":10},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+### 设置失败返回JSON(样例）
+{"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
 
 
 <h2 id="fbxq">发布心情</h2>
