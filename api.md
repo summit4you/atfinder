@@ -55,7 +55,10 @@ root url: http://203.88.192.235:83/
 	*   [发布爆料（编辑）](#fbbl3)
 	*   [发布爆料（删除）](#fbbl4)
 	*   [发布投票](#fbtp)
-    *   [发布商品](#fbsp)
+    *   [发布商品（上传图片）](#fbsp1)
+	*   [发布商品（提交）](#fbsp2)
+	*   [发布商品（编辑）](#fbsp3)
+	*   [发布商品（删除）](#fbsp4)
     *   [发布优惠券](#fbyhq)
     *   [评论](#pl)
     *   [喜欢](#xh)
@@ -1241,20 +1244,116 @@ URL格式： <站点URL>/capi/cp.php?ac=poll&subject=你觉得明天会下雨吗
 * feed_id
 * status
 
-<h2 id="fbsp">发布商品</h2>
-发布操作
-### 请求参数
-* uid
-* title
-* price
-* content
-* imgs[]
-* tag_ids [id,id...]
+<h2 id="fbsp1">发布商品（上传图片）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=upload
+注意：当前仅支持POST!!!
 
+### POST范例
+```
+<html><head><meta charset="utf-8"><title>上传分享图片</title></head><body>
+<form action="cp.php?ac=upload" method="post" enctype="multipart/form-data">
+<input type="file" name="Filedata"/>
+<input type="hidden" name="op" value="uploadpic" />
+<input type="hidden" name="uid" value="1" />
+<input type="hidden" name="topicid"  value="0" />
+<input type="hidden" name="ac"  value="upload" />
+<input type="submit"  name="submit"  value="提交"/>
+</form></body></html>
+```
+### 请求参数
+* Filedata:上传的图片
+* uid: 用户id
+* username: 用户名
+* op: uploadpic 注意与发布图片（上传图片）区分
+* topicid: XXXX(注释好像默认0,请确认）
+* ac: upload
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"pic":588,"picpath":"attachment\/201204\/20\/1_1334927560RO0m.jpg"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
-* uid
-* goods_id
-* status
+* code: 0，成功；1，失败
+* data: pic 返回图片所在数据库的id号 picpath:为图片在服务器的URL
+* msg：提示信息，与站点的提示信息一致，“操作完成了”
+* action：代表操作的类型， “操作完成了”
+### 注意
+由于（function_image.php)makethumb中调用imagecreatefromjpeg，这个受内存限制，太大的图会导致页面提交出错，且无法
+捕获错误信息，客户端对无响应做处理
+是的，如果你留意了。。。它居然和发布分享是一样的！
+
+<h2 id="fbsp2">发布商品（提交）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=goods&subject=好商品&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&goodssubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
+### 请求参数
+* ac:goods
+* goodssubmit：true
+* uid: 用户id
+* puid: 发送短信，消息的用户id列表
+* phone_send：手机短信
+* pm_send: 站内短信
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed，默认1
+* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* subject: 标题
+* price：价格
+* tags：图片的标签
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="fbsp3">发布商品（编辑）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=goods&goodsid=17&subject=好商品&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&goodssubmit=true&makefeed=1&topicid=0&uid=XX&username=XXX
+### 请求参数
+* ac:goods
+* goodssubmit：true
+* uid: 用户id
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed，默认1
+* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* subject: 标题
+* price：价格
+* tags：图片的标签
+* goodsid:17
+###注意
+修改其实和提交一样，只是多传了一个goodsid
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="fbsp4">发布商品（删除）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=goods&goodsid=17&op=delete&deletesubmit=true&uid=XXX
+### 请求参数
+* ac:goods
+* goodsid：需要删除的分享id
+* deletesubmit：true
+* op: delete
+* uid: 商品所属用户id
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+### 设置失败返回JSON(样例）
+{"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
+
 
 <h2 id="fbyhq">发布优惠券</h2>
 发布操作
