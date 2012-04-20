@@ -38,7 +38,10 @@ root url: http://203.88.192.235:83/
     *   [兴趣爱好设置](#xqahsz)
 	*	[上传头像](#sctx)
     *   [发布心情](#fbxq)
-    *   [发布图片](#fbtp)
+    *   [发布图片（上传图片）](#fbtp1)
+	*   [发布图片（提交）](#fbtp2)
+	*   [发布图片（编辑）](#fbtp3)
+	*   [发布图片（删除）](#fbtp4)
     *   [发布商品](#fbsp)
     *   [发布优惠券](#fbyhq)
     *   [评论](#pl)
@@ -754,7 +757,7 @@ URL格式： <站点URL>/capi/space.php?do=guid&hobbitssubmit=true&uid=15&tags=�
 * action：代表操作的类型， “设置成功”
 
 
-<h2 id="fbtp">发布图片（上传图片）</h2>
+<h2 id="fbtp1">发布图片（上传图片）</h2>
 URL格式： <站点URL>/capi/cp.php?ac=upload
 注意：当前仅支持POST!!!
 
@@ -764,6 +767,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 <input type="file" name="Filedata">
 <input type="hidden" name="op" value="uploadphoto">
 <input type="hidden" name="uid" value="XXXX">
+<input type="hidden" name="username" value="XXXX">
 <input type="hidden" name="photosubmit" value="true">
 <input type="hidden" name="topicid" value="XXXX(注释好像默认0,请确认）">
 <input type="hidden" name="ac" value="upload">
@@ -774,6 +778,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 ### 请求参数
 * Filedata:上传的图片
 * uid: 用户id
+* username: 用户名
 * photosubmit:true (好像是多余的，请求确认）
 * op: uploadphoto
 * topicid: XXXX(注释好像默认0,请确认）
@@ -789,6 +794,71 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 ### 注意
 由于（function_image.php)makethumb中调用imagecreatefromjpeg，这个受内存限制，太大的图会导致页面提交出错，且无法
 捕获错误信息，客户端对无响应做处理
+
+
+<h2 id="fbtp2">发布图片（提交）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=photo&message=小明你好&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&photosubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
+### 请求参数
+* ac:photo
+* photosubmit：true
+* uid: 用户id
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed
+* picid: 第一阶段产生的图像id
+* message: 图片描述
+* tags：图片的标签
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":["photoid":100],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回上传的图片photoid
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="fbtp3">发布图片（编辑）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=photo&photoid=100&message=小明你好&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&photosubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
+### 请求参数
+* ac:photo
+* photoid：需要修改的图片photoid
+* photosubmit：true
+* uid: 用户id
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed
+* picid: 第一阶段产生的图像id
+* message: 图片描述
+* tags：图片的标签
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":["photoid":100],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回上传的图片photoid
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+###注意
+修改其实和提交一样，只是多传了一个photoid
+
+<h2 id="fbtp4">发布图片（删除）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=photo&op=delete&photoid=33&deletesubmit=true
+### 请求参数
+* ac:photo
+* photoid：需要删除的图片photoid
+* deletesubmit：true
+* op: delete
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":10,"experience":10},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+### 设置失败返回JSON(样例）
+{"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
 
 <h2 id="fbxq">发布心情</h2>
 发布操作
