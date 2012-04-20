@@ -50,6 +50,7 @@ root url: http://203.88.192.235:83/
 	*   [发布爆料（提交）](#fbbl2)
 	*   [发布爆料（编辑）](#fbbl3)
 	*   [发布爆料（删除）](#fbbl4)
+	*   [发布投票](#fbtp)
     *   [发布商品](#fbsp)
     *   [发布优惠券](#fbyhq)
     *   [评论](#pl)
@@ -1044,7 +1045,7 @@ URL格式： <站点URL>/capi/cp.php?ac=disclose&discloseid=5&subject=我要爆�
 * picid: 第一阶段产生的图像id
 * message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
 * subject: 分享的标题
-* tags：图片的标签
+* tags：爆料的标签
 * lat:经度
 * lng:位置
 * discloseid: 爆料id
@@ -1079,6 +1080,33 @@ URL格式： <站点URL>/capi/cp.php?ac=disclose&op=delete&discloseid=5&deletesu
 ### 设置失败返回JSON(样例）
 {"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
 
+<h2 id="fbtp">发布投票</h2>
+URL格式： <站点URL>/capi/cp.php?ac=poll&subject=你觉得明天会下雨吗&option[]=会&option[]=不会&option[]=难说&option[]=谁知道呢&maxchoice=1&pollsubmit=true&makefeed=1&topicid=0&tags=测试 艺术&credit=0&percredit=0&expiration=2012-04-22&friend=0&uid=XXX&username=XXX
+### 请求参数
+* ac:poll
+* pollsubmit：true
+* subject：投票主题
+* option[]：投票项，最多不超过20个
+* maxchoice: 1单选 2可选2个 3可选3个 ... 8可选8个
+* makefeed：1
+* topicid：0
+* tags：爆料的标签
+* credit：悬赏积分
+* percredit：平摊悬赏积分
+* expiration：截止时间
+* friend: 隐私,0全站公开 1仅好友可见 2仅自己可见（当然不会有给自己的投票）
+* uid: 用户id
+* username: 用户名
+
+### 发布成功返回JSON(样例）
+{"code":0,"data":{"credit":2,"experience":2},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
 
 <h2 id="fbxq">发布心情</h2>
 发布操作
