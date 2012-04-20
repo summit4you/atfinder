@@ -16,7 +16,7 @@ root url: http://203.88.192.235:83/
     *   [推荐商家列表](#tjsjlb)
     *   [推荐标签](#tjbq)
     *   [活动列表](#hdlb)
-    *   [动态/商品/优惠券/活动详情] (#xq)
+    *   [分享／照片／投票／爆料/商品/优惠券/活动详情] (#xq)
     *   [用户详情](#yhxq)
     *   [私信列表](#sxlb)
     *   [评论列表](#pllb)
@@ -24,11 +24,15 @@ root url: http://203.88.192.235:83/
     *   [通知系统](#tzxt)
     *   [我的收藏列表](#wdsclb)
     *   [我的心情、爆料、分享、照片、投票、商品、优惠券、活动等](#wdfeed)
+    *   [我参与的活动／优惠券列表](#wcy)
     *   [我的关注列表](#wdgzlb)
     *   [我的粉丝列表](#wdfslb)
+    *   [城市列表](#cslb)
 + wap专用接口
-    - [首页推荐](#sytj)
-    - [商圈](#sq)
+    - [推荐列表](#tjlb)
+    - [推荐用户](#tjyh)
+    - [商圈列表](#sqlb)
+    - [商圈页面](#sqym)
 * 上行接口
     *   [用户注册](#yhzc)
 	*   [获取验证码](#yzm)
@@ -91,6 +95,7 @@ root url: http://203.88.192.235:83/
     * fid (转载自原文章id)
     * fuid (转载自作者uid)
     * fusername (转载自作者用户名)
+    * fname (转载自作者昵称)
     * subject (标题)
     * message ( 内容)
     * title (忽略此字段)
@@ -176,7 +181,7 @@ root url: http://203.88.192.235:83/
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
 ### 请求参数
-/businesslist?distance=100&lat=23&lng=113&page=1&count=10
+/businesslist?distance=100&lat=23&lng=113&page=1&count=10&cityid=3
 
 * lat
 * lng
@@ -185,6 +190,7 @@ root url: http://203.88.192.235:83/
 * uid (必传)
 * page
 * count
+* cityid
 
 ### 返回字段
 * avatar_err_path
@@ -212,7 +218,7 @@ root url: http://203.88.192.235:83/
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
 ### 请求参数
-/goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=13
+/goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=13&cityid=3
 
 * uid （务必传uid）
 * lat
@@ -222,6 +228,7 @@ root url: http://203.88.192.235:83/
 * uid
 * page
 * count
+* cityid
 
 ### 返回字段
 * code
@@ -261,7 +268,7 @@ root url: http://203.88.192.235:83/
 <h2 id="yhqlb">优惠券列表</h2>
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 ### 请求参数
-/couponlist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=13      
+/couponlist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=1&cityid=3     
 同商品列表
 ### 返回字段
 同商品列表,多出字段：   
@@ -326,7 +333,7 @@ root url: http://203.88.192.235:83/
 #### 返回json范例
 {"code": 0, "event": [{"eventid": 34, "endtime": 1334671200, "love": 1, "title": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "cover": "attachment/201203/16/209_13318884491gt5.jpg", "location": "\u5e7f\u5dde\u5730\u738b\u5e7f\u573a", "starttime": 1331949600, "membernum": 1, "loveuser": "247", "isloved": false}]}
 
-<h2 id="xq">动态/商品/优惠券/活动详情</h2>
+<h2 id="xq">分享／照片／投票／爆料/商品/优惠券/活动详情</h2>
 动态详细信息
 ### 请求参数
 /details?uid=3&id=30&idtype=blogid
@@ -349,6 +356,7 @@ root url: http://203.88.192.235:83/
     - name
     - fuid
     - fusername
+    - fname
     - love (收藏数量)
     - isloved (true or false 标识是否已喜欢（收藏）)
     - click_1 (评分字段)
@@ -359,7 +367,16 @@ root url: http://203.88.192.235:83/
     - classid
     - subject
     - message
+    - hot
+    - hotuser
+    - color
+    - imgs
+        + 'http://atfaxian.com/attachment/xxxx.jpg.middle.jpg'
     - dateline
+    - IF pid: option
+        + id
+        + votenum
+        + option
 * lovers
     - uid
     - avatar
@@ -372,9 +389,18 @@ root url: http://203.88.192.235:83/
     - avatar 
     - message
     - dateline
+* IF eventid OR couponsid: **members**
+    - uid
+    - username
+    - avatar
+    - ...
 
 ### 返回json范例
-{"idtype": "blogid", "avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "", "isloved": false, "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "groupid": 6, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "name": "", "fusername": "", "postip": "59.42.108.14", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/14_avatar_big.jpg", "target_ids": "", "blogid": 30},"lovers": [{"uid": 250, "avatar": "http://atfaxian.com/center/data/avatar/000/00/02/50_avatar_big.jpg"}],"shares": [{"uid": 195, "avatar": "http://atfaxian.com/center/data/avatar/000/00/01/95_avatar_big.jpg"},],"comments": [{"name": "13826044425", "dateline": 1332085426, "message": "\u633a\u597d\u770b\u7684\u554a", "avatar": "http://atfaxian.com/center/data/avatar/000/00/03/91_avatar_big.jpg", "uid": 391},]}
+{"idtype": "blogid", "avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "", "isloved": false, "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "groupid": 6, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "name": "", "fusername": "", "postip": "59.42.108.14", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/14_avatar_big.jpg", "target_ids": "", "blogid": 30},"lovers": [{"uid": 250, "avatar": "http://atfaxian.com/center/data/avatar/000/00/02/50_avatar_big.jpg"}],"shares": [{"uid": 195, "avatar": "http://atfaxian.com/center/data/avatar/000/00/01/95_avatar_big.jpg"},],"comments": [{"name": "13826044425", "dateline": 1332085426, "message": "\u633a\u597d\u770b\u7684\u554a", "avatar": "http://atfaxian.com/center/data/avatar/000/00/03/91_avatar_big.jpg", "uid": 391},]}   
+**IF pid:**      
+"option": [{"votenum": 0, "id": 10, "option": "\u4e0a\u4e5d\u8def"},]
+**IF eventid OR couponsid:**
+"members": [{"eventid": 258, "username": "13751894491", "uid": 10, "exchange": 1, "dateline": 1334735708, "fellow": 0, "status": 2, "avatar": "http://center.atfaxian.com/data/avatar/000/00/00/10_avatar_big.jpg", "template": "\u987b\u586b\u5199\u62a5\u540d\u8005\u59d3\u540d\u3001\u624b\u673a\u53f7\u7801\r\nindy 13751894491"},] 
 
 <h2 id="yhxq">用户详情</h2>
 用户详细信息
@@ -431,6 +457,8 @@ root url: http://203.88.192.235:83/
     - lovenum (红心数，表示该用户收藏帖子数量)
     - feedfriendnum ( 粉丝数量)
     - level (等级)
+    - toeventnum (参与活动数量)
+    - tocouponsnum (参与优惠券数量)
 
 ####  返回json范例
 {"avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"addfriend": 0, "mobile_p": 0, "businessfield": "", "myinvitenum": 0, "eventnum": 9, "goodsnum": 23, "dateline": 1326676802, "theme": "", "msnrobot": "", "residecity": "\u5e7f\u5dde", "addsize": 0, "regip": "127.0.0.1", "lastlogin": 1333957329, "spacenote": "\u4e0d\u5e72\u4e86", "qq": "", "resideprovince": "", "name": "\u7231\u53d1\u73b0", "level": 5, "marry": 0, "groupid": 1, "birthmonth": 3, "newpm": 0, "mtaginvitenum": 0, "msncstatus": 0, "domain": "", "albumnum": 1, "idcard": "", "sex": 0, "lovenum": 38, "lng": "113.2868950000", "attachsize": 59484512, "disclosenum": 3, "mood": 0, "feedfriendnum": 839, "tagid": 0, "authstr": "", "lastpost": 1333690328, "email": "", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/01_avatar_big.jpg", "business": "", "sendmail": "", "address": "", "updatetime": 1333690328, "couponsnum": 8, "experience": 2241, "doingnum": 6, "credit": 2043, "nocss": 0, "threadnum": 1, "menunum": 0, "note": "\u4e0d\u5e72\u4e86", "pokenum": 0, "videopic": "", "lastsend": 0, "newemail": "", "photonum": 28, "privacy":", "eventinvitenum": 0, "pollnum": 18, "msn": "", "magicstar": 0, "friend":44", "username": "aifaxian", "blognum": 24, "videostatus": 0, "lastsearch": 0, "flag": 1, "referrals": 0, "addfriendnum": 0, "uid": 1, "ip": 113111058, "residemall": "\u5730\u738b\u5e7f\u573a", "birthyear": 2012, "viewnum": 1049, "tag": {"64": "\u5a31\u4e50", "65": "\u767e\u8d27", "34": "\u7535\u5b50", "6": "\u6444\u5f71", "66": "\u5176\u5b83", "16": "\u7f8e\u98df", "21": "\u7cbe\u54c1", "25": "\u7f8e\u5bb9", "63": "\u670d\u88c5"}, "birthprovince": "\u5e7f\u4e1c", "sharenum": 0, "magicexpire": 0, "cityid": 0, "hot": 1888, "birthcity": "\u5e7f\u5dde", "timeoffset": "", "css": "", "notenum": 0, "friendnum": 500, "birthday": 19, "blood": "", "feedfriend":",15", "lat": "23.1289940000", "mobile": "", "emailcheck": 0, "namestatus": 1}}
@@ -533,6 +561,50 @@ root url: http://203.88.192.235:83/
 ### 返回字段
 见[动态列表](#dtlb)
 
+<h2 id="wdcy">我参与的活动／优惠券列表</h2>
+### 请求参数
+/mytips/1?idtype=eventid&uid=1&page=1&count=10
+
+* 数字 （查看对象uid）
+* uid (客户端的uid)
+* page
+* count
+
+### 返回字段
+* idtype == eventid:
+    - code
+    - event
+        + eventid
+        + username
+        + uid
+        + exchange
+        + fellow
+        + status
+        + dateline
+        + template
+* idtype == couponsid:
+    - code
+    - coupons
+        + couponsid
+        + uid
+        + username
+        + name
+        + istrue
+        + residence
+        + idcard
+        + isexchange
+        + sex
+        + member
+        + phone
+        + ischecked
+        + income
+
+#### json example
+* event   
+{"code": 0, "event": [{"eventid": 258, "username": "13535597218", "uid": 11, "exchange": 0, "dateline": 1334734454, "fellow": 0, "status": 2, "template": "\u5c0f\u6b23,13535597218"}, ]}
+* coupons   
+{"code": 0, "coupons": [{"username": "13535597218", "couponsid": 157, "uid": 11, "istrue": 0, "residence": "", "dateline": 1334734205, "idcard": 0, "isexchange": 0, "sex": 0, "member": 1, "phone": "13535597218", "ischecked": 0, "income": "0.00", "name": "meixin"},]}
+
 <h2 id='wdgzlb'>我的关注列表</h2>
 你懂得
 ### 请求参数
@@ -558,13 +630,53 @@ root url: http://203.88.192.235:83/
 
 ### 返回字段
 见[商家列表](#sjlb)
+
+<h2 id='cslb'>城市列表</h2>
+### 请求参数
+/citylist
+### 返回字段
+* code
+* citys
+    + cityid
+    + title
+    + note
+
+#### json example
+{"citys": [{"cityid": 5, "note": "\u63ed\u9633\u5546\u5708\u805a\u96c6\u5730", "title": "\u63ed\u9633"}, ]}
 ***
 
-<h2 id='sytj'>首页推荐</h2>
-综合页面
+<h2 id='tjlb'>推荐列表</h2>
+顶部推荐列表    
+使用时请根据idtype来进行标题选择。
 ### 请求参数
+/recs?page=1&count=8
 
 ### 返回字段
+* code
+* rec
+    + id
+    + idtype
+    + subject
+    + image_1
+
+#### json example
+{"rec": [{"image_1": "attachment/201204/13/2225243_1334291353ww5V.jpg", "idtype": "eventid", "hot": 0, "id": 200, "subject": "\u96f7\u6d1b\u65af\u5929\u4f7f \u5168\u573a\u624b\u888b5\u6298\uff0c\u771f\u76ae\u94b1\u530549\u5143"},], "code": 0}
+
+<h2 id='tjyh'>推荐用户</h2>
+获取底部推荐用户列表
+### 请求参数
+/users/hot?page=1&count=10
+
+### 返回字段
+* code
+* users
+    + uid
+    + username
+    + name
+    + hot
+
+#### json example
+{code: 0,users: [{username: "aifaxian",hot: 1468,uid: 1,name: "爱发现"},]}
 
 <h2 id='sqlb'>商圈列表</h2>
 在请求商圈页面之前请请求此接口以获取商圈列表
