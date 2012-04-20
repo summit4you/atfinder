@@ -661,6 +661,7 @@ root url: http://203.88.192.235:83/
     + username
     + name
     + hot
+
 #### json example
 {code: 0,users: [{username: "aifaxian",hot: 1468,uid: 1,name: "爱发现"},]}
 
