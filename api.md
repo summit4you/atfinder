@@ -754,6 +754,41 @@ URL格式： <站点URL>/capi/space.php?do=guid&hobbitssubmit=true&uid=15&tags=�
 * action：代表操作的类型， “设置成功”
 
 
+<h2 id="fbtp">发布图片（上传图片）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=upload
+注意：当前仅支持POST!!!
+
+### POST范例
+<html><head><meta charset="utf-8"><title>上传图片</title></head><body>
+<form action="cp.php?ac=upload" method="post" enctype="multipart/form-data">
+<input type="file" name="Filedata">
+<input type="hidden" name="op" value="uploadphoto">
+<input type="hidden" name="uid" value="XXXX">
+<input type="hidden" name="photosubmit" value="true">
+<input type="hidden" name="topicid" value="XXXX(注释好像默认0,请确认）">
+<input type="hidden" name="ac" value="upload">
+<input type="submit" name="submit" value="提交">
+</form></body>
+</html>
+
+### 请求参数
+* Filedata:上传的图片
+* uid: 用户id
+* photosubmit:true (好像是多余的，请求确认）
+* op: uploadphoto
+* topicid: XXXX(注释好像默认0,请确认）
+* ac: upload
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"pic":575},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: pic 返回图片所在数据库的id号
+* msg：提示信息，与站点的提示信息一致，“操作完成了”
+* action：代表操作的类型， “操作完成了”
+### 注意
+由于（function_image.php)makethumb中调用imagecreatefromjpeg，这个受内存限制，太大的图会导致页面提交出错，且无法
+捕获错误信息，客户端对无响应做处理
 
 <h2 id="fbxq">发布心情</h2>
 发布操作
