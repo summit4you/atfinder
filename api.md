@@ -24,8 +24,10 @@ root url: http://203.88.192.235:83/
     *   [通知系统](#tzxt)
     *   [我的收藏列表](#wdsclb)
     *   [我的心情、爆料、分享、照片、投票、商品、优惠券、活动等](#wdfeed)
+    *   [我参与的活动／优惠券列表](#wcy)
     *   [我的关注列表](#wdgzlb)
     *   [我的粉丝列表](#wdfslb)
+    *   [城市列表](#cslb)
 + wap专用接口
     - [首页推荐](#sytj)
     - [商圈](#sq)
@@ -78,6 +80,7 @@ root url: http://203.88.192.235:83/
     * fid (转载自原文章id)
     * fuid (转载自作者uid)
     * fusername (转载自作者用户名)
+    * fname (转载自作者昵称)
     * subject (标题)
     * message ( 内容)
     * title (忽略此字段)
@@ -338,6 +341,7 @@ root url: http://203.88.192.235:83/
     - name
     - fuid
     - fusername
+    - fname
     - love (收藏数量)
     - isloved (true or false 标识是否已喜欢（收藏）)
     - click_1 (评分字段)
@@ -540,6 +544,50 @@ root url: http://203.88.192.235:83/
 ### 返回字段
 见[动态列表](#dtlb)
 
+<h2 id="wdcy">我参与的活动／优惠券列表</h2>
+### 请求参数
+/mytips/1?idtype=eventid&uid=1&page=1&count=10
+
+* 数字 （查看对象uid）
+* uid (客户端的uid)
+* page
+* count
+
+### 返回字段
+* idtype == eventid:
+    - code
+    - event
+        + eventid
+        + username
+        + uid
+        + exchange
+        + fellow
+        + status
+        + dateline
+        + template
+* idtype == couponsid:
+    - code
+    - coupons
+        + couponsid
+        + uid
+        + username
+        + name
+        + istrue
+        + residence
+        + idcard
+        + isexchange
+        + sex
+        + member
+        + phone
+        + ischecked
+        + income
+
+#### json example
+* event   
+{"code": 0, "event": [{"eventid": 258, "username": "13535597218", "uid": 11, "exchange": 0, "dateline": 1334734454, "fellow": 0, "status": 2, "template": "\u5c0f\u6b23,13535597218"}, ]}
+* coupons   
+{"code": 0, "coupons": [{"username": "13535597218", "couponsid": 157, "uid": 11, "istrue": 0, "residence": "", "dateline": 1334734205, "idcard": 0, "isexchange": 0, "sex": 0, "member": 1, "phone": "13535597218", "ischecked": 0, "income": "0.00", "name": "meixin"},]}
+
 <h2 id='wdgzlb'>我的关注列表</h2>
 你懂得
 ### 请求参数
@@ -565,6 +613,19 @@ root url: http://203.88.192.235:83/
 
 ### 返回字段
 见[商家列表](#sjlb)
+
+<h2 id='cslb'>城市列表</h2>
+### 请求参数
+/citylist
+### 返回字段
+* code
+* citys
+    + cityid
+    + title
+    + note
+
+#### json example
+{"citys": [{"cityid": 5, "note": "\u63ed\u9633\u5546\u5708\u805a\u96c6\u5730", "title": "\u63ed\u9633"}, ]}
 ***
 
 <h2 id='sytj'>首页推荐</h2>
