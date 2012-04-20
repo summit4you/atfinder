@@ -29,8 +29,10 @@ root url: http://203.88.192.235:83/
     *   [我的粉丝列表](#wdfslb)
     *   [城市列表](#cslb)
 + wap专用接口
-    - [首页推荐](#sytj)
-    - [商圈](#sq)
+    - [推荐列表](#tjlb)
+    - [推荐用户](#tjyh)
+    - [商圈列表](#sqlb)
+    - [商圈页面](#sqym)
 * 上行接口
     *   [用户注册](#yhzc)
 	*   [获取验证码](#yzm)
@@ -630,11 +632,37 @@ root url: http://203.88.192.235:83/
 {"citys": [{"cityid": 5, "note": "\u63ed\u9633\u5546\u5708\u805a\u96c6\u5730", "title": "\u63ed\u9633"}, ]}
 ***
 
-<h2 id='sytj'>首页推荐</h2>
-综合页面
+<h2 id='tjlb'>推荐列表</h2>
+顶部推荐列表    
+使用时请根据idtype来进行标题选择。
 ### 请求参数
+/recs?page=1&count=8
 
 ### 返回字段
+* code
+* rec
+    + id
+    + idtype
+    + subject
+    + image_1
+
+#### json example
+{"rec": [{"image_1": "attachment/201204/13/2225243_1334291353ww5V.jpg", "idtype": "eventid", "hot": 0, "id": 200, "subject": "\u96f7\u6d1b\u65af\u5929\u4f7f \u5168\u573a\u624b\u888b5\u6298\uff0c\u771f\u76ae\u94b1\u530549\u5143"},], "code": 0}
+
+<h2 id='tjyh'>推荐用户</h2>
+获取底部推荐用户列表
+### 请求参数
+/users/hot?page=1&count=10
+
+### 返回字段
+* code
+* users
+    + uid
+    + username
+    + name
+    + hot
+#### json example
+{code: 0,users: [{username: "aifaxian",hot: 1468,uid: 1,name: "爱发现"},]}
 
 <h2 id='sqlb'>商圈列表</h2>
 在请求商圈页面之前请请求此接口以获取商圈列表
