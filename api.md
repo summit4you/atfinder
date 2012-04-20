@@ -817,6 +817,7 @@ URL格式： <站点URL>/capi/cp.php?ac=avatar
 注意：当前仅支持POST!!!
 
 ### POST范例
+```
 <!DOCTYPE HTML><html><head><meta charset="utf-8"><title>上传头像</title></head><body>
 <form action="cp.php?ac=avatar" method="post" enctype="multipart/form-data">
 	<input type="file" name="Filedata"/>
@@ -827,6 +828,7 @@ URL格式： <站点URL>/capi/cp.php?ac=avatar
 </form>
 </body>
 </html>
+```
 ### 请求参数
 * Filedata:上传的图片
 * uid: 用户id
@@ -883,6 +885,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 注意：当前仅支持POST!!!
 
 ### POST范例
+```
 <html><head><meta charset="utf-8"><title>上传图片</title></head><body>
 <form action="cp.php?ac=upload" method="post" enctype="multipart/form-data">
 <input type="file" name="Filedata">
@@ -895,7 +898,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 <input type="submit" name="submit" value="提交">
 </form></body>
 </html>
-
+```
 ### 请求参数
 * Filedata:上传的图片
 * uid: 用户id
@@ -988,6 +991,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 注意：当前仅支持POST!!!
 
 ### POST范例
+```
 <html><head><meta charset="utf-8"><title>上传分享图片</title></head><body>
 <form action="cp.php?ac=upload" method="post" enctype="multipart/form-data">
 <input type="file" name="Filedata"/>
@@ -997,7 +1001,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 <input type="hidden" name="ac"  value="upload" />
 <input type="submit"  name="submit"  value="提交"/>
 </form></body></html>
-
+```
 ### 请求参数
 * Filedata:上传的图片
 * uid: 用户id
@@ -1091,6 +1095,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 注意：当前仅支持POST!!!
 
 ### POST范例
+```
 <html><head><meta charset="utf-8"><title>上传分享图片</title></head><body>
 <form action="cp.php?ac=upload" method="post" enctype="multipart/form-data">
 <input type="file" name="Filedata"/>
@@ -1100,7 +1105,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 <input type="hidden" name="ac"  value="upload" />
 <input type="submit"  name="submit"  value="提交"/>
 </form></body></html>
-
+```
 ### 请求参数
 * Filedata:上传的图片
 * uid: 用户id
