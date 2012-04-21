@@ -75,6 +75,8 @@ root url: http://203.88.192.235:83/
 	*	[转发（投票）](#zf6)
 	*	[转发（图片）](#zf7)
 	*	[活动参与](#hdcy)
+	*	[活动推荐](#hdcj)
+	*   [下载优惠券](#xzyhq)
     *   [评论](#pl)
     *   [喜欢](#xh)
     *   [转发](#zf)
@@ -1844,6 +1846,24 @@ URL格式：<站点URL>/capi/cp.php?ac=event&eventid=1&op=join&uid=xxx&username=
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
 
+<h2 id="hdcj">活动推荐</h2>
+URL格式：<站点URL>/capi/do.php?ac=ajax&id=1&op=addevent&uid=XXX
+## 请求参数
+* ac:ajax
+* id:活动id
+* op:addevent
+* uid:推荐的用户id
+
+### 设置成功返回JSON(样例)
+{"code":0,"data":{"recommendnum":31,"eventid":"1"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回的数据
+	- recommendnum: 当前推荐数
+	- eventid: 活动id
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
 <h2 id="gz">关注</h2>
 社交操作
 URL格式： <站点URL>/capi/do.php?ac=ajax&op=addfriend&uid=15
@@ -1859,6 +1879,30 @@ URL格式： <站点URL>/capi/do.php?ac=ajax&op=addfriend&uid=15
 * msg：提示信息，与站点的提示信息一致
 * action：代表操作的类型 do_success代表成功， do_failed代表失败
 
+<h2 id="xzyhq">下载优惠券</h2>
+URL格式： <站点URL>/capi/cp.php?ac=coupons&idcard=xxxxxxxxxxxxxxxxxxx&couponsid=160&op=download&phone=XXXXXXXXX&name=XXX&income=1000&member=1&sex=1&residence=广州&downloadsubmit=true&uid=XXX&username=XXX
+请求参数
+* ac:coupons
+* couponsid:优惠券id
+* op:download
+* sex:性别，1男0女
+* residence:居住地
+* income: 收入
+* member：家庭人数，取值范围1-8
+* name: 姓名
+* phone：电话
+* downloadsubmit：true
+* uid: 用户id
+* username: 用户名
+* idcard:身份证号
+
+### 获取返回JSON(样例）
+{"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回的数据,暂无返回数据
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
 
 <h2 id="ss">搜索</h2>
 操作
