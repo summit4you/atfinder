@@ -59,7 +59,10 @@ root url: http://203.88.192.235:83/
 	*   [发布商品（提交）](#fbsp2)
 	*   [发布商品（编辑）](#fbsp3)
 	*   [发布商品（删除）](#fbsp4)
-    *   [发布优惠券](#fbyhq)
+    *   [发布优惠券（上传图片）](#fbyhq1)
+	*   [发布优惠券（提交）](#fbyhq2)
+	*   [发布优惠券（编辑）](#fbyhq3)
+	*   [发布优惠券（删除）](#fbyhq4)
     *   [评论](#pl)
     *   [喜欢](#xh)
     *   [转发](#zf)
@@ -1281,7 +1284,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 是的，如果你留意了。。。它居然和发布分享是一样的！
 
 <h2 id="fbsp2">发布商品（提交）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=goods&subject=好商品&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&goodssubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=goods&subject=好商品&price=15&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&goodssubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
 ### 请求参数
 * ac:goods
 * goodssubmit：true
@@ -1308,7 +1311,7 @@ URL格式： <站点URL>/capi/cp.php?ac=goods&subject=好商品&message=小明�
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="fbsp3">发布商品（编辑）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=goods&goodsid=17&subject=好商品&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&goodssubmit=true&makefeed=1&topicid=0&uid=XX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=goods&goodsid=17&price=15&subject=好商品&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&goodssubmit=true&makefeed=1&topicid=0&uid=XX&username=XXX
 ### 请求参数
 * ac:goods
 * goodssubmit：true
@@ -1355,22 +1358,150 @@ URL格式： <站点URL>/capi/cp.php?ac=goods&goodsid=17&op=delete&deletesubmit=
 {"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
 
 
-<h2 id="fbyhq">发布优惠券</h2>
-发布操作
-### 请求参数
-* uid
-* title
-* price
-* origin_price
-* validity
-* content
-* imgs[]
-* tag_ids [id,id...]
+<h2 id="fbyhq1">发布优惠券（上传图片）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=upload
+注意：当前仅支持POST!!!
 
+### POST范例
+```
+<html><head><meta charset="utf-8"><title>上传优惠券图片</title></head><body>
+<form action="cp.php?ac=upload" method="post" enctype="multipart/form-data">
+<input type="file" name="Filedata"/>
+<input type="hidden" name="op" value="uploadpic" />
+<input type="hidden" name="uid" value="1" />
+<input type="hidden" name="topicid"  value="0" />
+<input type="hidden" name="ac"  value="upload" />
+<input type="submit"  name="submit"  value="提交"/>
+</form></body></html>
+```
+### 请求参数
+* Filedata:上传的图片
+* uid: 用户id
+* username: 用户名
+* op: uploadpic 注意与发布图片（上传图片）区分
+* topicid: XXXX(注释好像默认0,请确认）
+* ac: upload
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"pic":588,"picpath":"attachment\/201204\/20\/1_1334927560RO0m.jpg"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
-* uid
-* coupon_id
-* status
+* code: 0，成功；1，失败
+* data: pic 返回图片所在数据库的id号 picpath:为图片在服务器的URL
+* msg：提示信息，与站点的提示信息一致，“操作完成了”
+* action：代表操作的类型， “操作完成了”
+### 注意
+由于（function_image.php)makethumb中调用imagecreatefromjpeg，这个受内存限制，太大的图会导致页面提交出错，且无法
+捕获错误信息，客户端对无响应做处理
+是的，如果你留意了。。。它居然和发布分享是一样的！
+
+<h2 id="fbyhq2">发布优惠券（提交）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=coupons&subject=华润超市打扣&oprice=124&bprice=34&obprice=2.7&starttime=2012-04-21 10:25&endtime=2012-04-22 10:25&rule_1=1&rule_2=1&rule_3=0&rule_4=0&rule_5=0&rule_6=0&rule_7=0&rule_8=0&rule_9=0&rule_10=10&rule_11=9&message=坑die牛奶大降价呀<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&couponssubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
+### 请求参数
+* ac:coupons
+* couponssubmit：true
+* uid: 用户id
+* puid: 发送短信，消息的用户id列表
+* phone_send：手机短信
+* pm_send: 站内短信
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed，默认1
+* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* subject: 标题
+* oprice：原价
+* bprice: 优惠价
+* obprice：折扣，(原价-优惠价)/优惠价,应该是自动生成的
+* starttime：开始时间
+* endtime: 结束时间
+* rule_1：规则 姓名，取值范围{0,1}
+* rule_2：规则 电话，取值范围{0,1}
+* rule_3：规则 身份证号码，取值范围{0,1}
+* rule_4：规则 性别，取值范围{0,1}
+* rule_5：规则 现居住地，取值范围{0,1}
+* rule_6：规则 收入情况，取值范围{0,1}
+* rule_7：规则 家庭人数，取值范围{0,1}
+* rule_8：规则 手机归属下载条件， 当前取值范围（0：全部可下载）
+* rule_9：规则 人数限制，取值范围>=0，0代表无人数限制
+* rule_10：规则 获得金币数
+* rule_11：规则 扣除金币数
+* tags：标签
+
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":5,"experience":5},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="fbyhq3">发布优惠券（编辑）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=coupons&couponsid=6&subject=华润超市打扣&oprice=124&bprice=34&obprice=2.7&starttime=2012-04-21 10:25&endtime=2012-04-22 10:25&rule_1=1&rule_2=1&rule_3=0&rule_4=0&rule_5=0&rule_6=0&rule_7=0&rule_8=0&rule_9=0&rule_10=10&rule_11=9&message=坑die牛奶大降价呀<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&couponssubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
+### 请求参数
+* ac:coupons
+* couponssubmit：true
+* uid: 用户id
+* puid: 发送短信，消息的用户id列表
+* phone_send：手机短信
+* pm_send: 站内短信
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed，默认1
+* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* subject: 标题
+* oprice：原价
+* bprice: 优惠价
+* obprice：折扣，(原价-优惠价)/优惠价,应该是自动生成的
+* starttime：开始时间
+* endtime: 结束时间
+* rule_1：规则 姓名，取值范围{0,1}
+* rule_2：规则 电话，取值范围{0,1}
+* rule_3：规则 身份证号码，取值范围{0,1}
+* rule_4：规则 性别，取值范围{0,1}
+* rule_5：规则 现居住地，取值范围{0,1}
+* rule_6：规则 收入情况，取值范围{0,1}
+* rule_7：规则 家庭人数，取值范围{0,1}
+* rule_8：规则 手机归属下载条件， 当前取值范围（0：全部可下载）
+* rule_9：规则 人数限制，取值范围>=0，0代表无人数限制
+* rule_10：规则 获得金币数
+* rule_11：规则 扣除金币数
+* tags：标签
+* couponsid：优惠id
+###注意
+修改其实和提交一样，只是多传了一个couponsid
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="fbyhq4">发布优惠券（删除）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=coupons&couponsid=6&op=delete&deletesubmit=true&uid=XXX
+### 请求参数
+* ac:coupons
+* couponsid：需要删除的优惠id
+* deletesubmit：true
+* op: delete
+* uid: 商品所属用户id
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":10,"experience":10},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+### 设置失败返回JSON(样例）
+{"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
+
 
 <h2 id="pl">评论</h2>
 社交操作
