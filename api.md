@@ -1075,7 +1075,7 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&blogid=26subject=测试分享&messa
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed
 * picid: 第一阶段产生的图像id
-* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 分享的标题
 * tags：图片的标签
 * blogid: 分享的id号
