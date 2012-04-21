@@ -1904,6 +1904,26 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&idcard=xxxxxxxxxxxxxxxxxxx&coupo
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
 
+<h2 id="yzyhq">验证优惠券</h2>
+URL格式： <站点URL>/capi/cp.php?ac=coupons&op=checkdownload&couponsid=160&uid=41&ischecked=1&istrue=1&isexchange=0&oldisexchange=0&checksubmit=true
+请求参数
+* ac:coupons
+* op:checkdownload
+* couponsid:优惠券id
+* uid:被验证的用户id
+* ischecked: 通过审核：1通过0不通过
+* istrue: 确认有效: 1有效0无效
+* isexchange: 确认兑付 1兑付0不兑付
+* oldisexchange：是否减少优惠券 好像默认为0（请求确认）
+* checksubmit：true
+### 获取返回JSON(样例）
+{"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回的数据,暂无返回数据
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
 <h2 id="ss">搜索</h2>
 操作
 ### 请求参数
