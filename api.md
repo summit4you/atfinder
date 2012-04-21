@@ -1642,7 +1642,7 @@ URL格式： <站点URL>/capi/cp.php?ac=event&eventid=13&op=delete&deletesubmit=
 {"code":1,"data":[],"msg":"\u6d3b\u52a8\u4e0d\u5b58\u5728\u6216\u5df2\u88ab\u5220\u9664","action":"event_does_not_exist"}
 
 <h2 id="pl">评论</h2>
-URL格式： <站点URL>/capi/do.php?ac=ajax&op=addcomment&id=1&idtype=blogid&message=我喜欢这个分享
+URL格式： <站点URL>/capi/do.php?ac=ajax&op=addcomment&id=1&idtype=blogid&message=我喜欢这个分享&uid=XXX&username=XXXX
 ### 请求参数
 * ac:ajax
 * op:addcomment
@@ -1656,6 +1656,8 @@ URL格式： <站点URL>/capi/do.php?ac=ajax&op=addcomment&id=1&idtype=blogid&me
 	- sid: 评论（待定）
 	- pid：评论投票
 	- eventid：评论活动
+* uid:XXX
+* username:XXXX
 * message: 消息
 ### 设置成功返回JSON(样例）
 {"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1667,15 +1669,30 @@ URL格式： <站点URL>/capi/do.php?ac=ajax&op=addcomment&id=1&idtype=blogid&me
 
 
 <h2 id="xh">喜欢</h2>
-社交操作
+URL格式： <站点URL>/capi/do.php?ac=ajax&op=feedlove&type=1&id=11&idtype=blogid&uid=XXX&username=XXXX
 ### 请求参数
-* uid
-* toid (user?goods?coupon?..)
-* type
-
+* ac:ajax
+* op:feedlove
+* id:喜欢对应的id号
+* idtype:id代表的类型，用于区别不同的评论，取值范围
+	- uid 喜欢空间
+	- blogid 喜欢分享
+	- goodsid 喜欢商品
+	- couponsid: 喜欢优惠卷
+	- photoid：喜欢图片
+	- sid: 喜欢（待定）
+	- pid：喜欢投票
+	- eventid：喜欢活动
+* uid:XXX
+* username:XXXX
+### 设置成功返回JSON(样例）
+{"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
-* uid
-* status
+* code: 0，成功；1，失败
+* data: 返回的数据，暂无内容
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
 
 <h2 id="zf">转发</h2>
 社交操作
