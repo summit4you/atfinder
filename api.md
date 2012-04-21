@@ -63,6 +63,10 @@ root url: http://203.88.192.235:83/
 	*   [发布优惠券（提交）](#fbyhq2)
 	*   [发布优惠券（编辑）](#fbyhq3)
 	*   [发布优惠券（删除）](#fbyhq4)
+	*   [发布活动（上传图片）](#fbhd1)
+	*   [发布活动（提交）](#fbhd2)
+	*   [发布活动（编辑）](#fbhd3)
+	*   [发布活动（删除）](#fbhd4)
     *   [评论](#pl)
     *   [喜欢](#xh)
     *   [转发](#zf)
@@ -1502,6 +1506,134 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&couponsid=6&op=delete&deletesubm
 ### 设置失败返回JSON(样例）
 {"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
 
+
+<h2 id="fbhd1">发布活动（上传图片）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=upload
+注意：当前仅支持POST!!!
+
+### POST范例
+```
+<html><head><meta charset="utf-8"><title>上传活动图片</title></head><body>
+<form action="cp.php?ac=upload" method="post" enctype="multipart/form-data">
+<input type="file" name="Filedata"/>
+<input type="hidden" name="op" value="uploadpic" />
+<input type="hidden" name="uid" value="1" />
+<input type="hidden" name="topicid"  value="0" />
+<input type="hidden" name="ac"  value="upload" />
+<input type="submit"  name="submit"  value="提交"/>
+</form></body></html>
+```
+### 请求参数
+* Filedata:上传的图片
+* uid: 用户id
+* username: 用户名
+* op: uploadpic 注意与发布图片（上传图片）区分
+* topicid: XXXX(注释好像默认0,请确认）
+* ac: upload
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"pic":588,"picpath":"attachment\/201204\/20\/1_1334927560RO0m.jpg"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: pic 返回图片所在数据库的id号 picpath:为图片在服务器的URL
+* msg：提示信息，与站点的提示信息一致，“操作完成了”
+* action：代表操作的类型， “操作完成了”
+### 注意
+由于（function_image.php)makethumb中调用imagecreatefromjpeg，这个受内存限制，太大的图会导致页面提交出错，且无法
+捕获错误信息，客户端对无响应做处理
+是的，如果你留意了。。。它居然和发布分享是一样的！
+如果你很有耐心地把所有发布听上传图片接口看完了，为了弥补你阅读上的耗时，我决定告诉你其实你完全可以把这个在前端封装成一个接口以重用
+
+
+<h2 id="fbhd2">发布活动（提交）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=event&title=一起去华润超市shopping&starttime=2012-04-21 12:25&endtime=2012-04-22 10:25&deadline=2012-04-21 12:25&location=广州&classid=1&tagid=1&detail=坑die牛奶大降价呀<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&eventsubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
+### 请求参数
+* ac:event
+* eventsubmit：true
+* uid: 用户id
+* puid: 发送短信，消息的用户id列表
+* phone_send：手机短信
+* pm_send: 站内短信
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed，默认1
+* detail: 活动描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* title: 标题(注意，这里不是subject，是title）
+* location：活动地点
+* classid：活动分类，传分类id，默认分类（1生活聚会，2出行旅游，3电影演出，4比赛运动，5教育讲座，6其它）
+* starttime：开始时间
+* endtime: 结束时间
+* deadline: 报名截止时间
+* tagid：关联的商圈 商圈id
+* tags：标签
+
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="fbhd3">发布活动（编辑）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=event&eventid=13&title=一起去百佳超市shopping&starttime=2012-04-21 12:25&endtime=2012-04-22 10:25&deadline=2012-04-21 12:25&location=广州&classid=1&tagid=1&detail=坑die牛奶大降价呀<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&eventsubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
+### 请求参数
+* ac:event
+* eventsubmit：true
+* uid: 用户id
+* puid: 发送短信，消息的用户id列表
+* phone_send：手机短信
+* pm_send: 站内短信
+* username: 用户名
+* topicid：热闹，好像默认都为0
+* makefeed：是否产生feed，默认1
+* detail: 活动描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* title: 标题(注意，这里不是subject，是title）
+* location：活动地点
+* classid：活动分类，传分类id，默认分类（1生活聚会，2出行旅游，3电影演出，4比赛运动，5教育讲座，6其它）
+* starttime：开始时间
+* endtime: 结束时间
+* deadline: 报名截止时间
+* tagid：关联的商圈 商圈id
+* tags：标签
+* eventid: 活动id
+###注意
+修改其实和提交一样，只是多传了一个eventid
+
+### 设置成功返回JSON(样例）
+{"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="fbhd4">发布活动（删除）</h2>
+URL格式： <站点URL>/capi/cp.php?ac=event&eventid=13&op=delete&deletesubmit=true&uid=XXX
+### 请求参数
+* ac:event
+* eventid：需要删除的活动id
+* deletesubmit：true
+* op: delete
+* uid: 商品所属用户id
+### 设置成功返回JSON(样例）
+{"code":0,"data":{"credit":6,"experience":6},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+### 设置失败返回JSON(样例）
+{"code":1,"data":[],"msg":"\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u64cd\u4f5c","action":"failed_to_delete_operation"}
+### 不存在活动失败返回JSON（样例）
+{"code":1,"data":[],"msg":"\u6d3b\u52a8\u4e0d\u5b58\u5728\u6216\u5df2\u88ab\u5220\u9664","action":"event_does_not_exist"}
 
 <h2 id="pl">评论</h2>
 社交操作
