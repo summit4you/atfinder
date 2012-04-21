@@ -1236,20 +1236,26 @@ URL格式： <站点URL>/capi/cp.php?ac=poll&subject=你觉得明天会下雨吗
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="fbxq">发布心情</h2>
-发布操作
+URL格式： <站点URL>/capi/cp.php?ac=doing&message=晴天真好[em:14:]&spacenote=true&addsubmit=true&topicid=0&uid=XXX&username=XXX
 ### 请求参数
-* uid
-* title
-* content
-* lat
-* lng
-* imgs[]
-* tag_ids [id,id...]
+* ac: doing
+* message: 心情内容
+* spacenote:true
+* addsubmit:true
+* topicid:0
+* uid:用户id
+* username:用户名
 
+### 发布成功返回JSON(样例）
+{"code":0,"data":{"credit":3,"experience":3},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
-* uid
-* feed_id
-* status
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
 
 <h2 id="fbsp1">发布商品（上传图片）</h2>
 URL格式： <站点URL>/capi/cp.php?ac=upload
