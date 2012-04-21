@@ -1052,7 +1052,7 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&subject=测试分享&message=小明
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed
 * picid: 第一阶段产生的图像id
-* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 分享的标题
 * tags：图片的标签
 
@@ -1156,7 +1156,7 @@ URL格式： <站点URL>/capi/cp.php?ac=disclose&subject=我要爆料&message=�
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed
 * picid: 第一阶段产生的图像id
-* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 分享的标题
 * tags：图片的标签
 * lat:经度
@@ -1180,7 +1180,7 @@ URL格式： <站点URL>/capi/cp.php?ac=disclose&discloseid=5&subject=我要爆�
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed
 * picid: 第一阶段产生的图像id
-* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 分享的标题
 * tags：爆料的标签
 * lat:经度
@@ -1315,7 +1315,7 @@ URL格式： <站点URL>/capi/cp.php?ac=goods&subject=好商品&price=15&message
 * username: 用户名
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed，默认1
-* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 标题
 * price：价格
 * tags：图片的标签
@@ -1339,7 +1339,7 @@ URL格式： <站点URL>/capi/cp.php?ac=goods&goodsid=17&price=15&subject=好商
 * username: 用户名
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed，默认1
-* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 标题
 * price：价格
 * tags：图片的标签
@@ -1426,7 +1426,7 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&subject=华润超市打扣&opric
 * username: 用户名
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed，默认1
-* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 标题
 * oprice：原价
 * bprice: 优惠价
@@ -1469,7 +1469,7 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&couponsid=6&subject=华润超市
 * username: 用户名
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed，默认1
-* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* message: 商品描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 标题
 * oprice：原价
 * bprice: 优惠价
@@ -1573,7 +1573,7 @@ URL格式： <站点URL>/capi/cp.php?ac=event&title=一起去华润超市shoppin
 * username: 用户名
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed，默认1
-* detail: 活动描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* detail: 活动描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * title: 标题(注意，这里不是subject，是title）
 * location：活动地点
 * classid：活动分类，传分类id，默认分类（1生活聚会，2出行旅游，3电影演出，4比赛运动，5教育讲座，6其它）
@@ -1606,7 +1606,7 @@ URL格式： <站点URL>/capi/cp.php?ac=event&eventid=13&title=一起去百佳�
 * username: 用户名
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed，默认1
-* detail: 活动描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入<img src="picpath"/>, picpath为第一阶段返回值)
+* detail: 活动描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * title: 标题(注意，这里不是subject，是title）
 * location：活动地点
 * classid：活动分类，传分类id，默认分类（1生活聚会，2出行旅游，3电影演出，4比赛运动，5教育讲座，6其它）
