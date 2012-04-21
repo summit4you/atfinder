@@ -74,6 +74,7 @@ root url: http://203.88.192.235:83/
 	*	[转发（商品）](#zf5)
 	*	[转发（投票）](#zf6)
 	*	[转发（图片）](#zf7)
+	*	[活动参与](#hdcy)
     *   [评论](#pl)
     *   [喜欢](#xh)
     *   [转发](#zf)
@@ -1804,7 +1805,7 @@ URL格式： <站点URL>/capi/ac=repoll&pid=1&pollsubmit=true&uid=XXX&username=X
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="zf7">转发（图片）</h2>
-URL格式： <站点URL>capi/cp.php?ac=rephoto&photoid=1&photosubmit=true&uid=XXXX&username=XXXX
+URL格式： <站点URL>/capi/cp.php?ac=rephoto&photoid=1&photosubmit=true&uid=XXXX&username=XXXX
 ### 请求参数
 * ac:rephoto
 * photoid:要转发投票的id
@@ -1816,6 +1817,30 @@ URL格式： <站点URL>capi/cp.php?ac=rephoto&photoid=1&photosubmit=true&uid=XX
 ### 返回字段
 * code: 0，成功；1，失败
 * data: 返回的数据，转发的活动内容
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="hdcy">活动参与</h2>
+URL格式：<站点URL>/capi/cp.php?ac=event&eventid=1&op=join&uid=xxx&username=xxx&joinsubmit=true
+## 请求参数
+* ac:event
+* eventid:要参与的活动id
+* joinsubmit:true
+* uid:操作的用户id
+* username:操作的用户名
+* op:join
+### 设置成功返回JSON(样例)
+{"code":0,"data":{"eventid":"1","topicid":"0","uid":"1","username":"aifaxian","dateline":"1329231228","title":"\u6d4b\u8bd5\u53d1\u5e03\u5546\u54c1\uff0c\u8d27\u771f\uff0c\u4e0d\u6ee1\u610f\u53ef\u9000\u8d27","classid":"2","province":"\u4e0a\u6d77","city":"\u9ec4\u6d66","location":"\u4e3a\u5bf9\u65b9\u5c31\u770b\u770b\u4f60","poster":"","thumb":"0","remote":"0","deadline":"1330189200","starttime":"1330275600","endtime":"1330376400","public":"1","membernum":"1","follownum":"0","viewnum":"0","grade":"2","recommendtime":"1331828032","tagid":"0","picnum":"0","threadnum":"0","cityid":"0","updatetime":"1329231228","lat":"0.0000000000","lng":"0.0000000000","recommendnum":"29","checked":null,"replynum":null,"detail":"\u8def\u7ebf\u8bf4\u660e:
+\u8d39\u7528\u8bf4\u660e:
+\u88c5\u5907\u8981\u6c42:
+\u4ea4\u901a\u5de5\u5177:
+\u96c6\u5408\u5730\u70b9:
+\u8054\u7cfb\u65b9\u5f0f:
+\u6ce8\u610f\u4e8b\u9879:
+","template":"","limitnum":"0","verify":"0","allowpic":"1","allowpost":"1","allowinvite":"1","allowfellow":"0","hot":"1","hotuser":"4","love":"0","loveuser":"","tag":"\u7ed8\u753b \u6587\u827a","fid":"0","fuid":"0","fusername":"","reeventnum":"1","topindex":"9","tuid":"","gcityid":null,"rule_get":null,"rule_lost":null},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回的数据，活动内容
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
 
