@@ -85,6 +85,7 @@ root url: http://203.88.192.235:83/
 	*   [标签设置] (#bqsz)
 	*	[评分（分享、活动、商品、优惠券、投票、爆料、图片）] (#pf)
 	*	[发短消息](#fdxx)
+	*   [登陆](#dl)
 详情
 --
 <h2 id="dtlb">动态列表</h2>
@@ -2013,6 +2014,11 @@ URL格式：<站点URL>/capi/cp.php?ac=event&op=exchange&eventid=648&uid=XXX&exc
 * data: 返回的数据,experience兑付的经验值
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
+
+<h2 class="dl">登陆</h2>
+URL格式：<站点URL>/capi/do2.php?ac=loginmobile&username=XXXXXX&password=XXXXXX
+### 返回字段
+你懂的。。。。
 
 <h2 id="ss">搜索</h2>
 操作
