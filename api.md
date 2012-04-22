@@ -82,6 +82,7 @@ root url: http://203.88.192.235:83/
     *   [转发](#zf)
     *   [关注](#gz)
     *   [搜索](#ss)
+	*   [标签设置] (#bqsz)
 
 详情
 --
@@ -1923,6 +1924,16 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&op=checkdownload&couponsid=160&u
 * data: 返回的数据,暂无返回数据
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
+
+<h2 id="bqsz">标签设置</h2>
+URL格式： <站点URL>/capi/space.php?do=guid&hobbitssubmit=true&uid=15&tags=摄影 美食 精品 百货 美容 电子
+### 请求参数
+* do:guid
+* hobbitssubmit：true
+* uid: 用户id
+* tags：用户设置的标签，空格隔开，后台Update操作，可以多次提交
+### 说明
+其实和兴趣爱好设置一样
 
 <h2 id="ss">搜索</h2>
 操作
