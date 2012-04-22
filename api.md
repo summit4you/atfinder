@@ -1564,7 +1564,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 
 
 <h2 id="fbhd2">发布活动（提交）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=event&title=一起去华润超市shopping&starttime=2012-04-21 12:25&endtime=2012-04-22 10:25&deadline=2012-04-21 12:25&location=广州&classid=1&tagid=1&detail=坑die牛奶大降价呀<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&eventsubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=event&title=一起去华润超市shopping&starttime=2012-04-21 12:25&endtime=2012-04-22 10:25&deadline=2012-04-21 12:25&location=广州&classid=1&tagid=1&detail=坑die牛奶大降价呀<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&pic=attachment/201204/20/1_1334925429OD0V.jpg&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&eventsubmit=true&makefeed=1&topicid=0&phone_send=1&pm_send=1&puid[]=2&puid[]=3&uid=XX&username=XXX
 ### 请求参数
 * ac:event
 * eventsubmit：true
@@ -1584,6 +1584,7 @@ URL格式： <站点URL>/capi/cp.php?ac=event&title=一起去华润超市shoppin
 * deadline: 报名截止时间
 * tagid：关联的商圈 商圈id
 * tags：标签
+* pic: 图片的路径，例如：attachment/201204/20/1_1334925429OD0V.jpg
 
 
 ### 设置成功返回JSON(样例）
