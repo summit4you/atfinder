@@ -1945,6 +1945,7 @@ URL格式： <站点URL>/capi/space.php?do=guid&hobbitssubmit=true&uid=15&tags=�
 
 <h2 id="pf">评分（分享、活动、商品、优惠券、投票、爆料、图片）</h2>
 URL格式：<站点URL>/capi/do.php?ac=ajax&op=playstar&id=1&idtype=blogid&oldnum=0&num=4&uid=XXXX&username=XXXX
+### 请求参数
 * ac:playstar
 * id:评分对应的id号
 * idtype:指明id号所属，取值范围：
@@ -1970,6 +1971,7 @@ URL格式：<站点URL>/capi/do.php?ac=ajax&op=playstar&id=1&idtype=blogid&oldnu
 
 <h2 class="fdxx">发短消息</h2>
 URL格式：<站点URL>/capi/cp.php?ac=pm&op=send&pmsubmit=true&touid=0&pmid=0&message=你好爱发现&tusername=XXXX(电话）&uid=XXX&username=XXXX
+### 请求参数
 * ac: pm
 * op: send
 * pmsubmit:true
@@ -1986,6 +1988,22 @@ URL格式：<站点URL>/capi/cp.php?ac=pm&op=send&pmsubmit=true&touid=0&pmid=0&m
 * action：代表操作的类型， "操作完成了"
 ### 短时间内发布短消息拒绝(样例）
 "code":1,"data":[],"msg":"\u4e24\u6b21\u53d1\u9001\u77ed\u6d88\u606f\u592a\u5feb\uff0c\u8bf7\u7a0d\u7b49\u4e00\u4e0b\u518d\u53d1\u9001","action":"message_can_not_send2"}
+
+<h2 class="dfhd">确定兑付活动</h2>
+URL格式：<站点URL>/capi/cp.php?ac=event&op=exchange&eventid=648&uid=XXX&exchangesubmit=true
+### 请求参数
+* ac:event
+* op:exchange
+* exchangesubmit:true
+* eventid:活动id
+* uid:兑付给用户，使用该用户id
+### 获取返回JSON(样例）
+{"code":0,"data":{"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回的数据,experience兑付的经验值
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
 
 <h2 id="ss">搜索</h2>
 操作
