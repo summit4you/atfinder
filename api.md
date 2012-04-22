@@ -1708,12 +1708,13 @@ URL格式： <站点URL>/capi/do.php?ac=ajax&op=feedlove&type=1&id=11&idtype=blo
 
 
 <h2 id="zf1">转发（分享）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=reblog&blogid=1&uid=XXX&username=XXXXX
+URL格式： <站点URL>/capi/cp.php?ac=reblog&blogid=1&makefeed=1&uid=XXX&username=XXXXX
 ### 请求参数
 * ac:reblog
 * blogid:要转发分享的id
 * uid:操作的用户id
 * username:操作的用户名
+* makefeed:产生feed 1产生，0不产生
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"\u592e\u884c\u65b0\u89c4\u6548\u679c\u663e\u73b0 \u94f6\u884c\u538b\u529b\u9661\u589e\u501f\u8d37\u96be\u4e0a\u52a0\u96be\uff08\u6d4b\u8bd5\uff09","classid":null,"cityid":"7","replynum":null,"lat":"23.1405830000","lng":"113.3455640000","checked":null,"friend":0,"password":"","noreply":0,"picflag":0,"pic":"attachment\/201201\/16\/1_1326679970Hk2I.jpg","topicid":0,"uid":"1","username":"aifaxian","dateline":"1326679970","blogid":29},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1724,12 +1725,13 @@ URL格式： <站点URL>/capi/cp.php?ac=reblog&blogid=1&uid=XXX&username=XXXXX
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="zf2">转发（优惠券）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=recoupons&couponsid=1&uid=XXX&username=XXXXX
+URL格式： <站点URL>/capi/cp.php?ac=recoupons&couponsid=1&makefeed=1&uid=XXX&username=XXXXX
 ### 请求参数
 * ac:recoupons
 * couponsid:要转发优惠券的id
 * uid:操作的用户id
 * username:操作的用户名
+* makefeed: 产生feed,1产生，0不产生
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"\u592e\u884c\u65b0\u89c4\u6548\u679c\u663e\u73b0 \u94f6\u884c\u538b\u529b\u9661\u589e\u501f\u8d37\u96be\u4e0a\u52a0\u96be","oprice":"1200.00","bprice":"1000.00","obprice":"1.20","starttime":"1329395760","endtime":"1330518960","classid":null,"cityid":null,"replynum":"0","lat":"0.0000000000","lng":"0.0000000000","checked":null,"friend":1,"password":"","noreply":0,"picflag":0,"pic":"attachment\/201202\/15\/1_1329309440MJJ4.jpg","topicid":0,"uid":"4","username":"aifaxian","dateline":"1329309453","couponsid":10},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -1739,13 +1741,14 @@ URL格式： <站点URL>/capi/cp.php?ac=recoupons&couponsid=1&uid=XXX&username=X
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="zf3">转发（爆料）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=redisclose&discloseid=1&disclosesubmit=true&uid=XXX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=redisclose&discloseid=1&makefeed=1&disclosesubmit=true&uid=XXX&username=XXX
 ### 请求参数
 * ac:redisclose
 * discloseid:要转发爆料的id
 * disclosesubmit:true
 * uid:操作的用户id
 * username:操作的用户名
+* makefeed: 产生feed,1产生，0不产生
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"23423423","classid":null,"replynum":"0","friend":0,"cityid":null,"lat":"23.140583000","lng":"113.345564000","checked":"0","password":"","noreply":0,"picflag":0,"pic":"","topicid":0,"uid":"4","username":"aifaxian","dateline":"1334847214","discloseid":6},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -1755,13 +1758,14 @@ URL格式： <站点URL>/capi/cp.php?ac=redisclose&discloseid=1&disclosesubmit=t
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="zf4">转发（活动）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=reevent&eventid=1&eventsubmit=true&uid=XXX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=reevent&eventid=1&makefeed=1&eventsubmit=true&uid=XXX&username=XXX
 ### 请求参数
 * ac:reevent
 * eventid:要转发爆料的id
 * eventsubmit:true
 * uid:操作的用户id
 * username:操作的用户名
+* makefeed: 产生feed,1产生，0不产生
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"eventid":"17","topicid":"0","uid":"4","username":"aifaxian","dateline":"1335027317","title":"\u6d4b\u8bd5\u53d1\u5e03\u5546\u54c1\uff0c\u8d27\u771f\uff0c\u4e0d\u6ee1\u610f\u53ef\u9000\u8d27","classid":"2","province":"\u4e0a\u6d77","city":"\u9ec4\u6d66","location":"\u4e3a\u5bf9\u65b9\u5c31\u770b\u770b\u4f60","poster":"","thumb":"0","remote":"0","deadline":"1330189200","starttime":"1330275600","endtime":"1330376400","public":"0","membernum":"1","follownum":"0","viewnum":"0","grade":"2","recommendtime":"0","tagid":"0","picnum":"0","threadnum":"0","cityid":"0","updatetime":"1335027317","lat":"0.0000000000","lng":"0.0000000000","recommendnum":"0","checked":"","replynum":"","detail":"\u8def\u7ebf\u8bf4\u660e:
 \u8d39\u7528\u8bf4\u660e:
@@ -1778,13 +1782,14 @@ URL格式： <站点URL>/capi/cp.php?ac=reevent&eventid=1&eventsubmit=true&uid=X
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="zf5">转发（商品）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=regoods&goodsid=1&goodssubmit=true&uid=XXX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=regoods&goodsid=1&makefeed=1&goodssubmit=true&uid=XXX&username=XXX
 ### 请求参数
 * ac:regoods
 * goodsid:要转发商品的id
 * goodssubmit:true
 * uid:操作的用户id
 * username:操作的用户名
+* makefeed: 产生feed,1产生，0不产生
 ### 设置成功返回JSON(样例)
 {"code":0,"data":{"subject":"\u592e\u884c\u65b0\u89c4\u6548\u679c\u663e\u73b0 \u94f6\u884c\u538b\u529b\u9661\u589e\u501f\u8d37\u96be\u4e0a\u52a0\u96be","price":"0","classid":null,"replynum":"0","cityid":null,"lat":"0.0000000000","lng":"0.0000000000","checked":null,"friend":1,"password":"","noreply":0,"picflag":0,"pic":"attachment\/201202\/13\/1_1329139114Pv8p.jpg","topicid":0,"uid":"4","username":"aifaxian","dateline":"1329141778","goodsid":19},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -1794,13 +1799,14 @@ URL格式： <站点URL>/capi/cp.php?ac=regoods&goodsid=1&goodssubmit=true&uid=X
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="zf6">转发（投票）</h2>
-URL格式： <站点URL>/capi/ac=repoll&pid=1&pollsubmit=true&uid=XXX&username=XXX
+URL格式： <站点URL>/capi/ac=repoll&pid=1&makefeed=1&pollsubmit=true&uid=XXX&username=XXX
 ### 请求参数
 * ac:repoll
 * pid:要转发投票的id
 * pollsubmit:true
 * uid:操作的用户id
 * username:操作的用户名
+* makefeed: 产生feed,1产生，0不产生
 ### 设置成功返回JSON(样例)
 {"code":0,"data":{"pid":"11","notify":"0","message":"","summary":"","option":"","invite":"","hotuser":"4","fid":"","fuid":"1","fusername":"aifaxian","hot":"0","love":"","loveuser":"","repollnum":"1","topicid":"0","uid":"4","username":"aifaxian","subject":"123","voternum":"0","replynum":"0","multiple":"0","maxchoice":"1","sex":"0","noreply":"0","credit":"0","percredit":"0","expiration":"1335542399","lastvote":"0","dateline":"1335028727","friend":"0","cityid":null,"lat":null,"lng":null,"checked":"0"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -1810,13 +1816,14 @@ URL格式： <站点URL>/capi/ac=repoll&pid=1&pollsubmit=true&uid=XXX&username=X
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="zf7">转发（图片）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=rephoto&photoid=1&photosubmit=true&uid=XXXX&username=XXXX
+URL格式： <站点URL>/capi/cp.php?ac=rephoto&photoid=1&makefeed=1&photosubmit=true&uid=XXXX&username=XXXX
 ### 请求参数
 * ac:rephoto
 * photoid:要转发投票的id
 * photosubmit:true
 * uid:操作的用户id
 * username:操作的用户名
+* makefeed: 产生feed,1产生，0不产生
 ### 设置成功返回JSON(样例)
 {"code":0,"data":{"subject":"","classid":null,"replynum":"0","cityid":null,"lat":"0.0000000000","lng":"0.0000000000","checked":null,"friend":0,"password":"","picflag":"0","pic":"","picid":"","noreply":0,"topicid":0,"uid":"4","username":"aifaxian","dateline":"1329819571","photoid":35},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -1826,7 +1833,7 @@ URL格式： <站点URL>/capi/cp.php?ac=rephoto&photoid=1&photosubmit=true&uid=X
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="hdcy">活动参与</h2>
-URL格式：<站点URL>/capi/cp.php?ac=event&eventid=1&op=join&uid=xxx&username=xxx&joinsubmit=true
+URL格式：<站点URL>/capi/cp.php?ac=event&eventid=1&op=join&makefeed=1&uid=xxx&username=xxx&joinsubmit=true
 ## 请求参数
 * ac:event
 * eventid:要参与的活动id
@@ -1834,6 +1841,7 @@ URL格式：<站点URL>/capi/cp.php?ac=event&eventid=1&op=join&uid=xxx&username=
 * uid:操作的用户id
 * username:操作的用户名
 * op:join
+* makefeed: 产生feed,1产生，0不产生
 ### 设置成功返回JSON(样例)
 {"code":0,"data":{"eventid":"1","topicid":"0","uid":"1","username":"aifaxian","dateline":"1329231228","title":"\u6d4b\u8bd5\u53d1\u5e03\u5546\u54c1\uff0c\u8d27\u771f\uff0c\u4e0d\u6ee1\u610f\u53ef\u9000\u8d27","classid":"2","province":"\u4e0a\u6d77","city":"\u9ec4\u6d66","location":"\u4e3a\u5bf9\u65b9\u5c31\u770b\u770b\u4f60","poster":"","thumb":"0","remote":"0","deadline":"1330189200","starttime":"1330275600","endtime":"1330376400","public":"1","membernum":"1","follownum":"0","viewnum":"0","grade":"2","recommendtime":"1331828032","tagid":"0","picnum":"0","threadnum":"0","cityid":"0","updatetime":"1329231228","lat":"0.0000000000","lng":"0.0000000000","recommendnum":"29","checked":null,"replynum":null,"detail":"\u8def\u7ebf\u8bf4\u660e:
 \u8d39\u7528\u8bf4\u660e:
