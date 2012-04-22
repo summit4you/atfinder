@@ -86,6 +86,7 @@ root url: http://203.88.192.235:83/
 	*	[评分（分享、活动、商品、优惠券、投票、爆料、图片）] (#pf)
 	*	[发短消息](#fdxx)
 	*   [登陆](#dl)
+	*   [修改昵称](#xgnc)
 详情
 --
 <h2 id="dtlb">动态列表</h2>
@@ -1060,10 +1061,10 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&subject=测试分享&message=小明
 * tags：图片的标签
 
 ### 设置成功返回JSON(样例）
-{"code":0,"data":{"subject":"\u6d4b\u8bd5\u5206\u4eab","classid":null,"cityid":null,"lat":"23.1405830000","lng":"113.3455640000","friend":0,"password":null,"noreply":0,"picflag":0,"pic":"attachment\/201204\/20\/1_1334925429OD0V.jpg","topicid":0,"checked":0,"uid":"1","username":"aifaxian","dateline":"1334927846","blogid":26},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+{"code":0,"data":{"subject":"\u6d4b\u8bd5\u5206\u4eab","classid":null,"cityid":"7","lat":"23.1405830000","lng":"113.3455640000","friend":0,"password":null,"noreply":0,"picflag":0,"pic":"attachment\/201204\/20\/1_1334925429OD0V.jpg","topicid":0,"checked":0,"uid":"1","username":"aifaxian","dateline":"1335098648","blogid":52,"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
 * code: 0，成功；1，失败
-* data: 提交成功后分享的相关信息
+* data: 提交成功后分享的相关信息, 其中credit为增加的积分，experience为增加的经验
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
 
@@ -2019,6 +2020,16 @@ URL格式：<站点URL>/capi/cp.php?ac=event&op=exchange&eventid=648&uid=XXX&exc
 URL格式：<站点URL>/capi/do2.php?ac=loginmobile&username=XXXXXX&password=XXXXXX
 ### 返回字段
 你懂的。。。。
+
+<h2 class="xgnc">修改昵称</h2>
+URL格式：<站点URL>/capi/cp.php?ac=profile&uid=XXXXXX&name=XXXXXX
+###
+uid: 用户的id
+name: 要设置的昵称
+### 获取返回JSON(样例）
+{"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 获取返回JSON(失败样例）
+{"code":1,"data":[],"msg":"\u5bf9\u4e0d\u8d77\uff0c\u60a8\u6307\u5b9a\u7684\u7528\u6237\u7a7a\u95f4\u4e0d\u5b58\u5728\u3002","action":"space_does_not_exist"}
 
 <h2 id="ss">搜索</h2>
 操作
