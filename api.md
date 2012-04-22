@@ -84,6 +84,7 @@ root url: http://203.88.192.235:83/
     *   [搜索](#ss)
 	*   [标签设置] (#bqsz)
 	*	[评分（分享、活动、商品、优惠券、投票、爆料、图片）] (#pf)
+	*	[发短消息](#fdxx)
 详情
 --
 <h2 id="dtlb">动态列表</h2>
@@ -1966,6 +1967,25 @@ URL格式：<站点URL>/capi/do.php?ac=ajax&op=playstar&id=1&idtype=blogid&oldnu
 * data: 返回的数据,newnum为最终分值
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
+
+<h2 class="fdxx">发短消息</h2>
+URL格式：<站点URL>/capi/cp.php?ac=pm&op=send&pmsubmit=true&touid=0&pmid=0&message=你好爱发现&tusername=XXXX(电话）&uid=XXX&username=XXXX
+* ac: pm
+* op: send
+* pmsubmit:true
+* tusername: 逗号分隔的用户名列表
+* message: 短消息内容
+* touid: 接收方用户id，如果此值不为0，则tusername无效
+* pmid: 必须为0
+### 获取返回JSON(样例）
+{"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回的数据,newnum为最终分值
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+### 短时间内发布短消息拒绝(样例）
+"code":1,"data":[],"msg":"\u4e24\u6b21\u53d1\u9001\u77ed\u6d88\u606f\u592a\u5feb\uff0c\u8bf7\u7a0d\u7b49\u4e00\u4e0b\u518d\u53d1\u9001","action":"message_can_not_send2"}
 
 <h2 id="ss">搜索</h2>
 操作
