@@ -1045,7 +1045,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 
 
 <h2 id="fbfx2">发布分享（提交）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=blog&subject=测试分享&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&blogsubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=blog&subject=测试分享&message=小明你好\<img src="attachment/201204/20/1_1334925429OD0V.jpg"/\>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&blogsubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
 ### 请求参数
 * ac:blog
 * blogsubmit：true
@@ -1068,7 +1068,7 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&subject=测试分享&message=小明
 
 
 <h2 id="fbfx3">发布分享（编辑）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=blog&blogid=26subject=测试分享&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&blogsubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=blog&blogid=26subject=测试分享&message=小明你好\<img src="attachment/201204/20/1_1334925429OD0V.jpg"/\>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&blogsubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
 ### 请求参数
 * ac:blog
 * blogsubmit：true
@@ -1149,7 +1149,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 是的，如果你留意了。。。它居然和发布分享是一样的！
 
 <h2 id="fbbl2">发布爆料（提交）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=disclose&subject=我要爆料&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&disclosesubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX&lat=23.1405830000&lng=113.3455640000
+URL格式： <站点URL>/capi/cp.php?ac=disclose&subject=我要爆料&message=小明你好\<img src="attachment/201204/20/1_1334925429OD0V.jpg"/\>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&disclosesubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX&lat=23.1405830000&lng=113.3455640000
 ### 请求参数
 * ac:disclose
 * disclosesubmit：true
@@ -1173,7 +1173,7 @@ URL格式： <站点URL>/capi/cp.php?ac=disclose&subject=我要爆料&message=�
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="fbfx3">发布爆料（编辑）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=disclose&discloseid=5&subject=我要爆料2&message=小明你好<img src="attachment/201204/20/1_1334925429OD0V.jpg"/>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&disclosesubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX&lat=23.1405830000&lng=113.3455640000
+URL格式： <站点URL>/capi/cp.php?ac=disclose&discloseid=5&subject=我要爆料2&message=小明你好\<img src="attachment/201204/20/1_1334925429OD0V.jpg"/\>&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&disclosesubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX&lat=23.1405830000&lng=113.3455640000
 ### 请求参数
 * ac:disclose
 * disclosesubmit：true
