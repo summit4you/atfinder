@@ -28,6 +28,7 @@ root url: http://203.88.192.235:83/
     *   [我的关注列表](#wdgzlb)
     *   [我的粉丝列表](#wdfslb)
     *   [城市列表](#cslb)
+    *   [搜索](#ss)
 + wap专用接口
     - [推荐列表](#tjlb)
     - [推荐用户](#tjyh)
@@ -596,6 +597,8 @@ root url: http://203.88.192.235:83/
 * count
 
 ### 返回字段
+字段同[逛街列表](#gg)，多出字段：
+
 * idtype == eventid:
     - code
     - event
@@ -668,6 +671,35 @@ root url: http://203.88.192.235:83/
 
 #### json example
 {"citys": [{"cityid": 5, "note": "\u63ed\u9633\u5546\u5708\u805a\u96c6\u5730", "title": "\u63ed\u9633"}, ]}
+
+<h2 id="ss">搜索</h2>
+搜索接口：
+目前提供用户搜索：关注／粉丝
+### 请求参数
+* /s/u/阿?type=follwing&uid=1&page=1&count=10
+* /s/u/阿?type=follwer&uid=1&page=1&count=10
+
+* 将提供接口
+    + u 用户
+    + f 动态
+* 关键字
+* type 
+    + u
+        - all
+        - following
+        - follower
+        - business
+* uid 客户端uid
+* page
+* count
+
+### 返回字段
+* code
+* result
+    + u
+        _ 同[用户列表](#yhlb)
+
+#### json example
 ***
 
 <h2 id='tjlb'>推荐列表</h2>
