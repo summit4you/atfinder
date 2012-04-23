@@ -698,7 +698,7 @@ root url: http://203.88.192.235:83/
 * code
 * result
     + u
-        _ 同[用户列表](#yhlb)
+        - 同[用户列表](#yhlb)
 
 #### json example
 ***
