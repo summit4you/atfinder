@@ -675,14 +675,20 @@ root url: http://203.88.192.235:83/
 
 <h2 id="ss">搜索</h2>
 搜索接口：
-目前提供用户搜索：关注／粉丝
+目前提供用户搜索：关注／粉丝／商家   
+目前提供逛街搜索：商品／优惠券   
 ### 请求参数
 * /s/u/阿?type=follwing&uid=1&page=1&count=10
 * /s/u/阿?type=follwer&uid=1&page=1&count=10
+* /s/u/阿?type=business&uid=1&page=1&count=10&lng=1&lat=1
+* /s/g/nike?lng=1&lat=1
+* /s/c/nike?lng=1&lat=1
 
 * 将提供接口
     + u 用户
     + f 动态
+    + g 商品
+    + c 优惠券
 * 关键字
 * type 
     + u
@@ -699,6 +705,10 @@ root url: http://203.88.192.235:83/
 * result
     + u
         - 同[用户列表](#yhlb)
+    + g 
+        - 同[商品列表](#tjsplb)
+    + c
+        - 同[优惠券列表](#yhqlb)
 
 #### json example
 ***
