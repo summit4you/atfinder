@@ -681,8 +681,8 @@ root url: http://203.88.192.235:83/
 * /s/u/阿?type=follwing&uid=1&page=1&count=10
 * /s/u/阿?type=follwer&uid=1&page=1&count=10
 * /s/u/阿?type=business&uid=1&page=1&count=10&lng=1&lat=1
-* /s/g/nike?lng=1&lat=1
-* /s/c/nike?lng=1&lat=1
+* /s/g/nike?lng=1&lat=1&uid=1
+* /s/c/nike?lng=1&lat=1&uid=1
 
 * 将提供接口
     + u 用户
