@@ -849,6 +849,7 @@ URL格式： <站点URL>/capi/cp.php?ac=avatar
 	<input type="submit"  name="submit"  value="提交"/>
 	<input type="hidden" name="ac" value="avatar" />
 	<input type="hidden" name="uid" value="XXX" />
+	<input type="hidden" name="avatartype" value="virtual" />
     <input type="hidden" name="avatarsubmit" value="true" />
 </form>
 </body>
@@ -860,10 +861,10 @@ URL格式： <站点URL>/capi/cp.php?ac=avatar
 * ac:avatar
 * avatarsubmit: true
 ### 获取返回JSON(样例）
-{"code":0,"data":{"url":"http:\/\/localhost\/fx\/center\/data\/tmp\/upload1.jpg","msg":"\u8bf7\u4e0a\u4f20\u5934\u50cf","reward":null,"dateline":"1334838700"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+{"code":0,"data":{"url":{"big":"http:\/\/localhost:8080\/fx\/center\/data\/avatar\/000\/00\/00\/01_avatar_big.jpg","middle":"http:\/\/localhost:8080\/fx\/center\/data\/avatar\/000\/00\/00\/01_avatar_middle.jpg","small":"http:\/\/localhost:8080\/fx\/center\/data\/avatar\/000\/00\/00\/01_avatar_small.jpg"},"msg":"\u4e0a\u4f20\u6210\u529f","reward":{"credit":0,"experience":0},"dateline":"1335245380"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 * code: 0，成功；1，失败
 * data: 
-	- url:成功返回真正url，否则为错误码。-1：用户ID为空；-2：图片尺寸过小; -3:图片数据为空; -4:上传失败;
+	- url:成功返回真正url（big：代表大图，middle：代表中图，small:代表小图），否则为错误码。-1：用户ID为空；-2：图片尺寸过小; -3:图片数据为空; -4:上传失败;
 	- msg:对应的提示消息
 * reward：积分，null代表修改图片，否则为第一次上传，数值代表增加的积分值
 * dateline：上传时间
