@@ -388,6 +388,7 @@ root url: http://203.88.192.235:83/
     - love (收藏数量)
     - isloved (true or false 标识是否已喜欢（收藏）)
     - click_1 (评分字段)
+    - isclicked (是否已评分)
     - reblognum (转载次数)
     - replynum (回复条数)
     - id
@@ -405,6 +406,7 @@ root url: http://203.88.192.235:83/
         + id
         + votenum
         + option
+    - isvoted (是否已投票)
 * lovers
     - uid
     - avatar
@@ -422,6 +424,7 @@ root url: http://203.88.192.235:83/
     - username
     - avatar
     - ...
+    - 其中，验证码由uid+dateline拼接而成
 
 ### 返回json范例
 {"idtype": "blogid", "avatar_err_path": "http://atfaxian.com/center/images/noavatar_big.gif", "code": 0, "details": {"classid": 0, "love": 0, "uid": 14, "hotuser": "", "magiccall": 0, "pic": "", "related": "", "viewnum": 2, "tag": "", "fuid": 0, "message": "", "isloved": false, "lng": "0E-10", "subject": "\u534e\u590f\u5927\u9152\u5e97\u6843\u6e90\u5385", "topicid": 0, "dateline": 1330576043, "relatedtime": 0, "cityid": 0, "click_3": 0, "hot": 0, "click_1": 0, "click_4": 0, "click_5": 0, "click_2": 0, "groupid": 6, "friend": 0, "username": "13826025981", "fid": 30, "picflag": 0, "reblognum": 0, "replynum": 0, "lat": "0E-10", "loveuser": "", "password": "", "magiccolor": 0, "magicpaper": 0, "noreply": 0, "name": "", "fusername": "", "postip": "59.42.108.14", "avatar": "http://atfaxian.com/center/data/avatar/000/00/00/14_avatar_big.jpg", "target_ids": "", "blogid": 30},"lovers": [{"uid": 250, "avatar": "http://atfaxian.com/center/data/avatar/000/00/02/50_avatar_big.jpg"}],"shares": [{"uid": 195, "avatar": "http://atfaxian.com/center/data/avatar/000/00/01/95_avatar_big.jpg"},],"comments": [{"name": "13826044425", "dateline": 1332085426, "message": "\u633a\u597d\u770b\u7684\u554a", "avatar": "http://atfaxian.com/center/data/avatar/000/00/03/91_avatar_big.jpg", "uid": 391},]}   
@@ -682,6 +685,7 @@ root url: http://203.88.192.235:83/
 * /s/u/阿?type=follwing&uid=1&page=1&count=10
 * /s/u/阿?type=follwer&uid=1&page=1&count=10
 * /s/u/阿?type=business&uid=1&page=1&count=10&lng=1&lat=1
+* /s/u/阿?type=all&uid=1&page=1&count=10&lng=1&lat=1
 * /s/g/nike?lng=1&lat=1&uid=1
 * /s/c/nike?lng=1&lat=1&uid=1
 
