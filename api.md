@@ -1925,11 +1925,13 @@ URL格式：<站点URL>/capi/do.php?ac=ajax&id=1&op=addevent&uid=XXX
 
 <h2 id="gz">关注</h2>
 社交操作
-URL格式： <站点URL>/capi/do.php?ac=ajax&op=addfriend&uid=15
+URL格式： <站点URL>/capi/do.php?ac=ajax&op=addfriend&uid=15&suid=16
 ### 请求参数
 * ac:ajax
 * op:addfriend
 * uid: 要加的好友id
+* suid: 本人用户id
+
 ### 获取返回JSON(样例）
 {"code":0,"data":[],"msg":"进行的操作完成了","action":"do_success"}
 {"code":1,"data":[],"msg":"do_failed","action":"do_failed"}
