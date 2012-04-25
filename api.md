@@ -1633,7 +1633,16 @@ URL格式： <站点URL>/capi/cp.php?ac=event&title=一起去华润超市shoppin
 * tagid：关联的商圈 商圈id
 * tags：标签
 * pic: 图片的路径，例如：attachment/201204/20/1_1334925429OD0V.jpg
-
+* limitnum：活动人数
+* gcityid：手机归属 0全部，3 广州 4东莞 5 揭阳 6佛山 7深圳
+* rule_get：获得金币数
+* rule_lost: 扣除金币数
+* allowinvite：是否允许邀请，默认为1
+* allowpic： 是否允许参与者共享活动照片，默认为1
+* allowpost: 是否允许所有人发留言，默认为1
+* verify： 参加活动是否需要审批 取值0或1
+* allowfellow： 允许参加者携带朋友，携带朋友数会占用活动参与者名额 取值0或1
+* template：报名信息
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
