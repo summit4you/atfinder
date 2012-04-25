@@ -89,6 +89,7 @@ root url: http://203.88.192.235:83/
 	*   [登陆](#dl)
 	*   [修改昵称](#xgnc)
 	*   [邀请](#yq)
+	*	[投票](#tp)
 
 详情
 --
@@ -2081,6 +2082,23 @@ URL格式：<站点URL>/capi/cp.php?ac=invite&smsinvite=true&uid=X&username=XXXX
 {"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 获取返回JSON(失败样例，邀请的人已注册）
 {"code":1,"data":[],"msg":"\u624b\u673a\u53f7\u7801\u5df2\u7ecf\u5b58\u5728","action":"user_name_already_exists"}
+
+<h2 id="tp">投票</h2>
+URL格式：<站点URL>/capi/cp.php?ac=poll&uid=XXX&username=XXX&pid=26&option[]=97&votesubmit=true&op=vote
+### 请求参数
+* ac:poll
+* votesubmit:true
+* op:vote
+* uid:投票的用户id
+* username:投票的用户名
+* option[]：投票的选项，对应polloption表的option
+### 获取返回JSON(样例）
+{"code":0,"data":{"pid":"26","notify":"0","message":"","summary":"","option":"a:2:{i:0;s:12:\"\u5df4\u585e\u7f57\u90a3\";i:1;s:6:\"\u753b\u5bb6\";}","invite":"","hotuser":"","fuid":"0","fusername":"","fid":"26","hot":"0","love":"0","loveuser":"","tag":"","repollnum":"0","topicid":"0","uid":"2225242","username":"15017547294","subject":"\u5927\u6218","voternum":"0","replynum":"0","multiple":"0","maxchoice":"1","sex":"0","noreply":"0","credit":0,"percredit":0,"expiration":"0","lastvote":"0","dateline":"1335332363","friend":"0","cityid":"3","lat":"23.1289942815","lng":"113.2868957520","checked":"0","click_1":"0"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 返回的投票的数据,credit投票的积分增长
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
 
 <h2 id="ss">搜索</h2>
 操作
