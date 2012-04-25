@@ -90,6 +90,7 @@ root url: http://203.88.192.235:83/
 	*   [修改昵称](#xgnc)
 	*   [邀请](#yq)
 	*	[投票](#tp)
+	*	[找回密码（获取验证码）](#zhmm1)
 
 详情
 --
@@ -2124,6 +2125,42 @@ URL格式：<站点URL>/capi/cp.php?ac=poll&uid=XXX&username=XXX&pid=26&option[]
 * data: 返回的投票的数据,credit投票的积分增长
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
+
+<h2 id="zhmm1">找回密码（获取验证码）</h2>
+URL格式：<站点URL>/capi/do.php?ac=lostpasswd&lostpwsubmit=true&username=XXXX
+### 请求参数
+* ac:lostpasswd
+* lostpwsubmit:true
+* username:XXXXX
+### 获取返回JSON(样例）
+{"code":0,"data":{"uid":"9","username":"13751341409","seccode":"OEz2ak"},"msg":"\u53d6\u56de\u5bc6\u7801\u7684\u65b9\u6cd5\u5df2\u7ecf\u901a\u8fc7 \u77ed\u4fe1 \u53d1\u9001\u5230\u60a8\u7684\u624b\u673a\u4e2d\uff0c
+\u8bf7\u5728 3 \u5929\u4e4b\u5185\u4fee\u6539\u60a8\u7684\u5bc6\u7801\u3002","action":"getpasswd_send_succeed"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- uid: 返回的用户id(uid)
+	- username：用户名（手机号）
+	- seccode 验证码
+* msg：提示信息，与站点的提示信息一致，"取回密码的方法已经通过 短信 发送到您的手机中，<br />请在 3 天之内修改您的密码。"
+* action：代表操作的类型， "getpasswd_send_succeed"
+
+
+<h2 id="zhmm2">找回密码（重置）</h2>
+URL格式：<站点URL>/capi/do.php?ac=lostpasswd&resetsubmit=true&uid=3&newpasswd1=XXXX&newpasswd2=XXXX
+### 请求参数
+* ac:lostpasswd
+* resetsubmit：true
+* uid:需要重置的用户id（在获取验证码时有返回）
+* newpasswd1:第一次输入的密码
+* newpasswd2:第二次输入的密码
+* 说明：是的，你不需要验证两次输入的密码是否正确，这件事神奇地给第三方完成了
+### 获取返回JSON(样例）
+{"code":0,"data":[],"msg":"\u60a8\u7684\u5bc6\u7801\u5df2\u91cd\u65b0\u8bbe\u7f6e\uff0c\u8bf7\u4f7f\u7528\u65b0\u5bc6\u7801\u767b\u5f55\u3002","action":"getpasswd_succeed"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 没有返回值
+* msg：提示信息，与站点的提示信息一致，"您的密码已重新设置，请使用新密码登录。"
+* action：代表操作的类型， "getpasswd_succeed"
 
 <h2 id="ss">搜索</h2>
 操作
