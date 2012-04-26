@@ -757,6 +757,7 @@ root url: http://api.atfaxian.com:83/
 ### 请求参数
 /mall
 * cityid (当前城市id)
+
 ### 返回字段
 * code
 * malls
