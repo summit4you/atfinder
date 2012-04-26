@@ -43,6 +43,7 @@ root url: http://203.88.192.235:83/
     *   [兴趣爱好设置](#xqahsz)
 	*	[上传头像](#sctx)
     *   [发布心情](#fbxq)
+	*   [删除心情](#cqxq)
     *   [发布图片（上传图片）](#fbtp1)
 	*   [发布图片（提交）](#fbtp2)
 	*   [发布图片（编辑）](#fbtp3)
@@ -90,6 +91,7 @@ root url: http://203.88.192.235:83/
 	*   [修改昵称](#xgnc)
 	*   [邀请](#yq)
 	*	[投票](#tp)
+	*   [删除投票](#cqtp)
 	*	[找回密码（获取验证码）](#zhmm1)
 
 详情
@@ -1321,6 +1323,27 @@ URL格式： <站点URL>/capi/cp.php?ac=doing&message=晴天真好[em:14:]&space
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
 
+<h2 id="cqxq">删除心情</h2>
+URL格式： <站点URL>/capi/cp.php?ac=doing&op=delete&deletesubmit=true&doid=XXX&uid=XXX&username=XXXX
+### 请求参数
+* ac: doing
+* op: delete
+* deletesubmit: true
+* doid: 心情id
+* uid: 操作的用户id
+* username: 用户名
+### 发布成功返回JSON(样例）
+{"code":0,"data":{"credit":2,"experience":2},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+
+
 
 <h2 id="fbsp1">发布商品（上传图片）</h2>
 URL格式： <站点URL>/capi/cp.php?ac=upload
@@ -1953,7 +1976,8 @@ URL格式： <站点URL>/capi/do.php?ac=ajax&op=addfriend&uid=15&suid=16
 * data: 包括的返回数据，这里无
 * msg：提示信息，与站点的提示信息一致
 * action：代表操作的类型 do_success代表成功， do_failed代表失败
-
+atfaxian/capi/cp.php?ac=coupons&idcard=440281198407150412&couponsid=151&op=download&phone=13751341409&name=丘文峰&income=1000&member=1&sex=1&residence=广州&downloadsubmit=true&uid=41&username=13751341409
+http://atfaxian.com/capi/cp.php?ac=coupons&op=checkdownload&couponsid=151&uid=41&ischecked=0&istrue=1&isexchange=0&oldisexchange=0&checksubmit=true&suid=211&susername=18620050490
 <h2 id="xzyhq">下载优惠券</h2>
 URL格式： <站点URL>/capi/cp.php?ac=coupons&idcard=xxxxxxxxxxxxxxxxxxx&couponsid=160&op=download&phone=XXXXXXXXX&name=XXX&income=1000&member=1&sex=1&residence=广州&downloadsubmit=true&uid=XXX&username=XXX
 请求参数
@@ -1980,7 +2004,7 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&idcard=xxxxxxxxxxxxxxxxxxx&coupo
 * action：代表操作的类型， "操作完成了"
 
 <h2 id="yzyhq">验证优惠券</h2>
-URL格式： <站点URL>/capi/cp.php?ac=coupons&op=checkdownload&couponsid=160&uid=41&ischecked=1&istrue=1&isexchange=0&oldisexchange=0&checksubmit=true
+URL格式： <站点URL>/capi/cp.php?ac=coupons&op=checkdownload&couponsid=160&uid=41&ischecked=1&istrue=1&isexchange=0&oldisexchange=0&checksubmit=true&suid=XXX
 请求参数
 * ac:coupons
 * op:checkdownload
@@ -1991,11 +2015,12 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&op=checkdownload&couponsid=160&u
 * isexchange: 确认兑付 1兑付0不兑付
 * oldisexchange：是否减少优惠券 好像默认为0（请求确认）
 * checksubmit：true
+* suid:优惠券作者用户id，当仅且当其为优惠券作者时才能执行审核
 ### 获取返回JSON(样例）
-{"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+{"code":0,"data":{"couponsid":"221","uid":"11","username":"13535597218","name":"","phone":"","idcard":"0","sex":"1","residence":"","income":"0.00","member":"0","istrue":"0","ischecked":"1","isexchange":"0","dateline":"1335371983","seccode":"111335371983","avatar":"http:\/\/center.atfaxian.com\/data\/avatar\/000\/00\/00\/11_avatar_small.jpg"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
 * code: 0，成功；1，失败
-* data: 返回的数据,暂无返回数据
+* data: 返回的数据,验证成员信息，avatar代表小头像，seccode代表验证码（当前仅当ischecked时有效）
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
 
@@ -2123,6 +2148,25 @@ URL格式：<站点URL>/capi/cp.php?ac=poll&uid=XXX&username=XXX&pid=26&option[]
 ### 返回字段
 * code: 0，成功；1，失败
 * data: 返回的投票的数据,credit投票的积分增长
+* msg：提示信息，与站点的提示信息一致，"操作完成了"
+* action：代表操作的类型， "操作完成了"
+
+<h2 id="sctp">删除投票</h2>
+URL格式： <站点URL>/capi/cp.php?ac=poll&op=delete&deletesubmit=true&pid=XXX&uid=XXX&username=XXXX
+### 请求参数
+* ac: doing
+* op: poll
+* deletesubmit: true
+* pid: 投票id
+* uid: 操作的用户id
+* username: 用户名
+### 发布成功返回JSON(样例）
+{"code":0,"data":{"credit":2,"experience":2},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	- credit：减少的积分
+	- experience：减少的经验
 * msg：提示信息，与站点的提示信息一致，"操作完成了"
 * action：代表操作的类型， "操作完成了"
 
