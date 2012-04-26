@@ -1,9 +1,9 @@
-爱发现数据接口需求
+爱发现移动数据接口文档
 =========
-root url: http://203.88.192.235:83/ 
+root url: http://api.atfaxian.com:83/ 
 
 版本：0.1  
-作者：[何世友](mailto:ernest.he2009@gmail.com)
+作者：[何世友](mailto:ernest.he2009@gmail.com), [丘文峰](mailto:809104518@qq.com)
 ***
 索引
 --
@@ -758,6 +758,8 @@ root url: http://203.88.192.235:83/
 在请求商圈页面之前请请求此接口以获取商圈列表
 ### 请求参数
 /mall
+* cityid (当前城市id)
+
 ### 返回字段
 * code
 * malls
