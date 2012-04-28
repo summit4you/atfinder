@@ -1,6 +1,6 @@
 爱发现移动数据接口文档
 =========
-root url: http://api.atfaxian.com:83/ 
+root url: http://api.atfaxian.com:84/ 
 
 版本：0.1  
 作者：[何世友](mailto:ernest.he2009@gmail.com), [丘文峰](mailto:809104518@qq.com)
