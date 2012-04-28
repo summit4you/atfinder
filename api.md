@@ -385,9 +385,9 @@ root url: http://api.atfaxian.com:84/
     - groupid (groupid为3的标识vip)
     - username
     - name
-    - fuid
-    - fusername
-    - fname
+    - fuid (转载自uid)
+    - fusername (转载自username)
+    - fname (转载自用户昵称)
     - love (收藏数量)
     - isloved (true or false 标识是否已喜欢（收藏）)
     - click_1 (评分字段)
@@ -395,7 +395,7 @@ root url: http://api.atfaxian.com:84/
     - reblognum (转载次数)
     - replynum (回复条数)
     - id
-    - fid
+    - fid (原始id)
     - classid
     - subject
     - message
