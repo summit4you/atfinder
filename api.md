@@ -1000,7 +1000,7 @@ URL格式： <站点URL>/capi/cp.php?ac=upload
 
 
 <h2 id="fbtp2">发布图片（提交）</h2>
-URL格式： <站点URL>/capi/cp.php?ac=photo&message=小明你好&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&photosubmit=true&makefeed=1&topicid=0&picid=580&uid=XX&username=XXX
+URL格式： <站点URL>/capi/cp.php?ac=photo&message=小明你好&tags=测试%20借贷%20艺术%20蜗居%20情人%20世纪光棍节%20压力&photosubmit=true&makefeed=1&topicid=0&title[580]=&uid=XX&username=XXX
 ### 请求参数
 * ac:photo
 * photosubmit：true
@@ -1008,7 +1008,7 @@ URL格式： <站点URL>/capi/cp.php?ac=photo&message=小明你好&tags=测试%2
 * username: 用户名
 * topicid：热闹，好像默认都为0
 * makefeed：是否产生feed
-* picid: 第一阶段产生的图像id
+* title[]: 第一阶段产生的图像id作为下标
 * message: 图片描述
 * tags：图片的标签
 
