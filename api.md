@@ -1742,10 +1742,9 @@ URL格式： <站点URL>/capi/cp.php?ac=event&eventid=13&op=delete&deletesubmit=
 {"code":1,"data":[],"msg":"\u6d3b\u52a8\u4e0d\u5b58\u5728\u6216\u5df2\u88ab\u5220\u9664","action":"event_does_not_exist"}
 
 <h2 id="pl">评论</h2>
-URL格式： <站点URL>/capi/do.php?ac=ajax&op=addcomment&id=1&idtype=blogid&message=我喜欢这个分享&uid=XXX&username=XXXX
+URL格式： <站点URL>/capi/cp.php?ac=comment&message=你好爱发现&id=71&idtype=discloseid&commentsubmit=true&uid=2225860&username=XXXXX
 ### 请求参数
-* ac:ajax
-* op:addcomment
+* ac:comment
 * id:评论对应的id号
 * idtype:id代表的类型，用于区别不同的评论，取值范围
 	- uid 评论空间
