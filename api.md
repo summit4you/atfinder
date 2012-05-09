@@ -410,6 +410,12 @@ root url: http://api.atfaxian.com:84/
         + votenum
         + option
     - isvoted (是否已投票)
+    - IF eventid: 
+        + isrec(是否已推荐)
+        + ismember (是否已参加)
+    - IF couponsid:
+        + ismember (是否已参加)
+
 * lovers
     - uid
     - avatar
