@@ -83,6 +83,7 @@ root url: http://api.atfaxian.com:84/
     *   [喜欢](#xh)
     *   [转发](#zf)
     *   [关注](#gz)
+	*   [取消关注](#qxgz)
     *   [搜索](#ss)
 	*   [标签设置] (#bqsz)
 	*	[评分（分享、活动、商品、优惠券、投票、爆料、图片）] (#pf)
@@ -1977,8 +1978,25 @@ URL格式： <站点URL>/capi/do.php?ac=ajax&op=addfriend&uid=15&suid=16
 * data: 包括的返回数据，这里无
 * msg：提示信息，与站点的提示信息一致
 * action：代表操作的类型 do_success代表成功， do_failed代表失败
-atfaxian/capi/cp.php?ac=coupons&idcard=440281198407150412&couponsid=151&op=download&phone=13751341409&name=丘文峰&income=1000&member=1&sex=1&residence=广州&downloadsubmit=true&uid=41&username=13751341409
-http://atfaxian.com/capi/cp.php?ac=coupons&op=checkdownload&couponsid=151&uid=41&ischecked=0&istrue=1&isexchange=0&oldisexchange=0&checksubmit=true&suid=211&susername=18620050490
+
+<h2 id="qxgz">取消关注</h2>
+社交操作
+URL格式： <站点URL>/capi/do.php?ac=ajax&op=ignorefriend&uid=15&suid=16
+### 请求参数
+* ac:ajax
+* op:ignorefriend
+* uid: 要取消的好友id
+* suid: 本人用户id
+
+### 获取返回JSON(样例）
+{"code":0,"data":[],"msg":"进行的操作完成了","action":"do_success"}
+{"code":1,"data":[],"msg":"do_failed","action":"do_failed"}
+* code: 0，成功；1，失败
+* data: 包括的返回数据，这里无
+* msg：提示信息，与站点的提示信息一致
+* action：代表操作的类型 do_success代表成功， do_failed代表失败
+
+
 <h2 id="xzyhq">下载优惠券</h2>
 URL格式： <站点URL>/capi/cp.php?ac=coupons&idcard=xxxxxxxxxxxxxxxxxxx&couponsid=160&op=download&phone=XXXXXXXXX&name=XXX&income=1000&member=1&sex=1&residence=广州&downloadsubmit=true&uid=XXX&username=XXX
 请求参数
