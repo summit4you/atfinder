@@ -411,6 +411,12 @@ root url: http://api.atfaxian.com:84/
         + votenum
         + option
     - isvoted (是否已投票)
+    - IF eventid: 
+        + isrec(是否已推荐)
+        + ismember (是否已参加)
+    - IF couponsid:
+        + ismember (是否已参加)
+
 * lovers
     - uid
     - avatar
@@ -478,6 +484,9 @@ root url: http://api.atfaxian.com:84/
         + disclosenum ( 个人爆料数量)
         + eventnum ( 商家活动数量)
         + sharenum ( 请忽略)
+        + **following (只有提供了uid，且uid非用户id时，会出现，表示是否已关注)**
+        + **befollowed (只有提供了uid，且uid非用户id时，会出现，表示是否被关注)**
+
     - newpm (0 for no new private message; 1 for have) 
     - newemail (new email)
     - email
