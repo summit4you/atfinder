@@ -2147,13 +2147,13 @@ URL格式：<站点URL>/capi/cp.php?ac=profile&uid=XXXXXX&name=XXXXXX
 {"code":1,"data":[],"msg":"\u5bf9\u4e0d\u8d77\uff0c\u60a8\u6307\u5b9a\u7684\u7528\u6237\u7a7a\u95f4\u4e0d\u5b58\u5728\u3002","action":"space_does_not_exist"}
 
 <h2 class="yq">邀请</h2>
-URL格式：<站点URL>/capi/cp.php?ac=invite&smsinvite=true&uid=X&username=XXXXX&code=X786XX&name=雷生&phonenum=XXXXXXXXX
+URL格式：<站点URL>/capi/cp.php?ac=invite&smsinvite=true&uid=X&username=XXXXX&password=X786XX&name=雷生&phonenum=XXXXXXXXX
 ### 请求参数
 * ac:invite
 * smsinvite:true
 * uid:发邀请的用户id
 * username:发邀请的用户名(真名，非电话号码）
-* code:随机的6位密码
+* password:随机的6位密码
 * name：被邀请人的姓名
 * phonenum：被邀请人的电话号码，同时也作为平台的注册号
 
