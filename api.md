@@ -90,6 +90,7 @@ root url: http://api.atfaxian.com:84/
 	*	[发短消息](#fdxx)
 	*   [登陆](#dl)
 	*   [修改昵称](#xgnc)
+	*   [修改城市](#xgcs)
 	*   [邀请](#yq)
 	*	[投票](#tp)
 	*   [删除投票](#cqtp)
@@ -2145,6 +2146,18 @@ URL格式：<站点URL>/capi/cp.php?ac=profile&uid=XXXXXX&name=XXXXXX
 {"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 获取返回JSON(失败样例）
 {"code":1,"data":[],"msg":"\u5bf9\u4e0d\u8d77\uff0c\u60a8\u6307\u5b9a\u7684\u7528\u6237\u7a7a\u95f4\u4e0d\u5b58\u5728\u3002","action":"space_does_not_exist"}
+
+
+<h2 class="xgcs">修改城市</h2>
+URL格式：<站点URL>/capi/cp.php?ac=profile&uid=XXXXXX&city=广州
+### 请求参数
+* uid: 用户的id
+* city: 要设置的城市
+### 获取返回JSON(样例）
+{"code":0,"data":[],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
+### 获取返回JSON(失败样例）
+{"code":1,"data":[],"msg":"\u5bf9\u4e0d\u8d77\uff0c\u60a8\u6307\u5b9a\u7684\u7528\u6237\u7a7a\u95f4\u4e0d\u5b58\u5728\u3002","action":"space_does_not_exist"}
+
 
 <h2 class="yq">邀请</h2>
 URL格式：<站点URL>/capi/cp.php?ac=invite&smsinvite=true&uid=X&username=XXXXX&password=X786XX&name=雷生&phonenum=XXXXXXXXX
