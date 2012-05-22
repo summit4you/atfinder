@@ -29,6 +29,7 @@ root url: http://api.atfaxian.com:84/
     *   [我的粉丝列表](#wdfslb)
     *   [城市列表](#cslb)
     *   [搜索](#ss)
+    *   [账户绑定信息](#zhbd)
 + wap专用接口
     - [推荐列表](#tjlb)
     - [推荐用户](#tjyh)
@@ -730,6 +731,21 @@ root url: http://api.atfaxian.com:84/
         - 同[优惠券列表](#yhqlb)
 
 #### json example
+
+
+<h2 id="bdzh">账户绑定信息</h2>
+返回该用户的第三方账户的绑定情况
+
+### 请求参数
+/bindinginfo/1/
+
+### 返回字段
+* code
+* qq
+* sina
+
+#### json example
+`{"qq": false, "code": 0, "sina": false}`
 ***
 
 <h2 id='tjlb'>推荐列表</h2>
