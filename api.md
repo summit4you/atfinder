@@ -568,6 +568,10 @@ root url: http://api.atfaxian.com:84/
     * authorid, author
     * note (description of the notification)
     * dateline
+    * fid (source id)
+    * fuid (source author)
+    * type (source type)
+    * id
 
 #### json 范例
 {"count": 12, "notice": [{"uid": 12, "author": "aifaxian", "dateline": 1331653884, "note": "\u5c06\u4f60\u8bbe\u4e3a\u4e86\u7fa4\u7ec4 \<\a href=\"space.php?do=mtag&tagid=3\" target=\"_blank\">\u5730\u738b\u5e7f\u573a<\/a> \u7684\u7fa4\u4e3b", "authorid": 1, "new": 1, "type": "mtag", "id": 41}]
