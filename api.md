@@ -489,7 +489,7 @@ root url: http://api.atfaxian.com:84/
         + **following (只有提供了uid，且uid非用户id时，会出现，表示是否已关注)**
         + **befollowed (只有提供了uid，且uid非用户id时，会出现，表示是否被关注)**
 
-    - newpm (0 for no new private message; 1 for have) 
+    - newpm (私信数量) 
     - newemail (new email)
     - email
     - mobile ( phone number)
