@@ -30,6 +30,7 @@ root url: http://api.atfaxian.com:81/
     *   [城市列表](#cslb)
     *   [搜索](#ss)
     *   [账户绑定信息](#zhbd)
+    *   [广告接口](#gz)
 + wap专用接口
     - [推荐列表](#tjlb)
     - [推荐用户](#tjyh)
@@ -750,6 +751,50 @@ root url: http://api.atfaxian.com:81/
 
 #### json example
 `{"qq": false, "code": 0, "sina": false}`
+
+<h2 id="gg">广告接口</h2>
+广告页，返回一条广告，通过cityid限定，如果没有cityid，则任意返回一条
+
+### 请求参数
+/ad?cityid=3
+* cityid 如果没有情传0
+
+### 返回字段
+* adid 广告序号
+* available 是否有效（0,1）
+* title 标题
+* system 类型（0自定义，1系统，2手机，3 ipad）
+* imagesrc 图片地址
+* displayorder 排序
+* cityid 分站id
+* adplace 广告位
+* urltype 链接类型
+* id 原文id
+* idtype 原文类型
+* imageurl 完整链接地址
+
+#### json example
+`
+{
+code: 0,
+ad: {
+available: 1,
+idtype: "blog",
+urltype: 0,
+title: "测试广告",
+system: 2,
+cityid: 3,
+imagesrc: "da/loginindex.jpg",
+adid: 1,
+adplace: 0,
+pagetype: "header",
+imageurl: "#",
+id: 12,
+displayorder: 1
+}
+}
+
+`
 ***
 
 <h2 id='tjlb'>推荐列表</h2>
