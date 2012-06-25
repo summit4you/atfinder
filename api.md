@@ -364,6 +364,11 @@ root url: http://api.atfaxian.com:81/
     - isloved （是否已收藏）
     - ismember ( 是否已参加)
     - isrec (是否已推荐)
+    - parent_eventid (父活动id)
+    - parent_event (父活动)
+        + eventid
+        + cover
+        + title
 
 #### 返回json范例
 {"code": 0, "event": [{"eventid": 34, "endtime": 1334671200, "love": 1, "title": "\u97e9\u56fd5D\u52a8\u611f\u4f53\u9a8c\u9986   6\u6298\u4f18\u60e0", "cover": "attachment/201203/16/209_13318884491gt5.jpg", "location": "\u5e7f\u5dde\u5730\u738b\u5e7f\u573a", "starttime": 1331949600, "membernum": 1, "loveuser": "247", "isloved": false}]}
