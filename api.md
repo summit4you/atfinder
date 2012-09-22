@@ -2205,7 +2205,8 @@ URL格式：<站点URL>/capi/cp.php?ac=event&op=exchange&eventid=648&uid=XXX&exc
 <h2 class="dl">登陆</h2>
 URL格式：<站点URL>/capi/do2.php?ac=loginmobile&username=XXXXXX&password=XXXXXX
 ### 返回字段
-你懂的。。。。
+* 用户的空间信息 space
+* 其中，space[firsttime]=1代表第一次登陆（即注册成功）， 否则为0
 
 <h2 class="xgnc">修改昵称</h2>
 URL格式：<站点URL>/capi/cp.php?ac=profile&uid=XXXXXX&name=XXXXXX
