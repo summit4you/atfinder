@@ -31,6 +31,7 @@ root url: http://api.atfaxian.com:81/
     *   [搜索](#ss)
     *   [账户绑定信息](#zhbd)
     *   [广告接口](#gz)
+    *   [最新版本信息](#bbxx)
 + wap专用接口
     - [推荐列表](#tjlb)
     - [推荐用户](#tjyh)
@@ -779,7 +780,7 @@ root url: http://api.atfaxian.com:81/
 * imageurl 完整链接地址
 
 #### json example
-`
+```
 {
 code: 0,
 ad: {
@@ -799,7 +800,39 @@ displayorder: 1
 }
 }
 
-`
+```
+<h2 id="bbxx">最新版本信息</h2>
+获取最新版本信息
+
+### 请求参数
+/latestversion
+
+### 返回字段
+* code 
+* data
+ + iphonever
+ + iphonedownurl 
+ + iphoneeditmessage
+ + androidver
+ + androiddownurl
+ + androideditmessage
+
+
+#### JSON 范例
+```
+{
+    "code": 0,
+    "data": {
+        "androiddownurl": "",
+        "iphonever": "",
+        "androidver": "",
+        "iphonedownurl": "",
+        "androideditmessage": "",
+        "iphoneeditmessage": ""
+    }
+}
+```
+
 ***
 
 <h2 id='tjlb'>推荐列表</h2>
