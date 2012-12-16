@@ -8,7 +8,7 @@ root url: http://api.atfaxian.com:81/
 索引
 --
 * 下行接口
-    *   [动态列表(全部，好友，附近)](#dtlb)
+    *   [动态列表(全部，好友，附近，热度)](#dtlb)
     *   [标签列表](#bqlb)
     *   [商家列表](#sjlb)
     *   [推荐商品列表](#tjsplb)
@@ -102,7 +102,7 @@ root url: http://api.atfaxian.com:81/
 详情
 --
 <h2 id="dtlb">动态列表</h2>
-动态列表，分全部、好友、附近
+动态列表，分全部、好友、附近，热度
  
 ### 全部动态
 
@@ -111,7 +111,7 @@ root url: http://api.atfaxian.com:81/
 +请注意，uid必传+
 
 * uid
-* classid=0
+* classid=0,1,2,3 （对应全部、好友、附近、热度）
 * page 默认为1
 * count 默认为10
 
