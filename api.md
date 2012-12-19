@@ -217,7 +217,7 @@ root url: http://api.atfaxian.com:81/
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
 ### 请求参数
-/businesslist?distance=100&lat=23&lng=113&page=1&count=10&cityid=3
+/businesslist?distance=100&lat=23&lng=113&page=1&count=10&cityid=3&sort=distance
 
 * lat
 * lng
@@ -227,6 +227,7 @@ root url: http://api.atfaxian.com:81/
 * page
 * count
 * cityid
+* sort (distance, hot 默认为distance，排序方式，sort=hot为热度排序)
 
 ### 返回字段
 * avatar_err_path
