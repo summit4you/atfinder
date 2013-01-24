@@ -1092,6 +1092,7 @@ URL格式： <站点URL>/capi/cp.php?ac=photo&message=小明你好&tags=测试%2
 * title[]: 第一阶段产生的图像id作为下标
 * message: 图片描述
 * tags：图片的标签
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":["photoid":100],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1114,6 +1115,7 @@ URL格式： <站点URL>/capi/cp.php?ac=photo&photoid=100&message=小明你好&t
 * picid: 第一阶段产生的图像id
 * message: 图片描述
 * tags：图片的标签
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":["photoid":100],"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1195,6 +1197,7 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&subject=测试分享&message=小明
 * message: 分享描述(message如何包含图片，必须分二阶段，先上传图片，然后在message中插入\<img src="picpath"/\>, picpath为第一阶段返回值)
 * subject: 分享的标题
 * tags：图片的标签
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"\u6d4b\u8bd5\u5206\u4eab","classid":null,"cityid":"7","lat":"23.1405830000","lng":"113.3455640000","friend":0,"password":null,"noreply":0,"picflag":0,"pic":"attachment\/201204\/20\/1_1334925429OD0V.jpg","topicid":0,"checked":0,"uid":"1","username":"aifaxian","dateline":"1335098648","blogid":52,"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1219,6 +1222,7 @@ URL格式： <站点URL>/capi/cp.php?ac=blog&blogid=26subject=测试分享&messa
 * subject: 分享的标题
 * tags：图片的标签
 * blogid: 分享的id号
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"\u6d4b\u8bd5\u5206\u4eab","classid":null,"cityid":null,"lat":"23.1405830000","lng":"113.3455640000","friend":0,"password":null,"noreply":0,"picflag":0,"pic":"attachment\/201204\/20\/1_1334925429OD0V.jpg","topicid":0,"checked":0,"uid":"1","username":"aifaxian","dateline":"1334927846","blogid":26},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1301,6 +1305,7 @@ URL格式： <站点URL>/capi/cp.php?ac=disclose&subject=我要爆料&message=�
 * tags：图片的标签
 * lat:经度
 * lng:位置
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"\u6211\u8981\u7206\u6599\u3001","classid":null,"friend":0,"cityid":null,"lat":"23.1405830000","lng":"113.3455640000","password":null,"noreply":0,"picflag":0,"pic":"attachment\/201204\/20\/1_1334925429OD0V.jpg","topicid":0,"checked":0,"uid":"XX","username":"XXX","dateline":"1334929734","discloseid":5},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1326,6 +1331,7 @@ URL格式： <站点URL>/capi/cp.php?ac=disclose&discloseid=5&subject=我要爆�
 * lat:经度
 * lng:位置
 * discloseid: 爆料id
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"\u6211\u8981\u7206\u65992\u3001","classid":null,"friend":0,"cityid":null,"lat":"23.1405830000","lng":"113.3455640000","password":null,"noreply":0,"picflag":0,"pic":"attachment\/201204\/20\/1_1334925429OD0V.jpg","uid":"0","username":"XXX","discloseid":"5"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1374,6 +1380,7 @@ URL格式： <站点URL>/capi/cp.php?ac=poll&subject=你觉得明天会下雨吗
 * friend: 隐私,0全站公开 1仅好友可见 2仅自己可见（当然不会有给自己的投票）
 * uid: 用户id
 * username: 用户名
+* come: 渠道来源 
 
 ### 发布成功返回JSON(样例）
 {"code":0,"data":{"credit":2,"experience":2},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1480,6 +1487,7 @@ URL格式： <站点URL>/capi/cp.php?ac=goods&subject=好商品&price=15&message
 * subject: 标题
 * price：价格
 * tags：图片的标签
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1505,6 +1513,8 @@ URL格式： <站点URL>/capi/cp.php?ac=goods&goodsid=17&price=15&subject=好商
 * price：价格
 * tags：图片的标签
 * goodsid:17
+* come: 渠道来源 
+
 ###注意
 修改其实和提交一样，只是多传了一个goodsid
 
@@ -1606,7 +1616,7 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&subject=华润超市打扣&opric
 * rule_10：规则 获得金币数
 * rule_11：规则 扣除金币数
 * tags：标签
-
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"credit":5,"experience":5},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1650,6 +1660,8 @@ URL格式： <站点URL>/capi/cp.php?ac=coupons&couponsid=6&subject=华润超市
 * rule_11：规则 扣除金币数
 * tags：标签
 * couponsid：优惠id
+* come: 渠道来源 
+
 ###注意
 修改其实和提交一样，只是多传了一个couponsid
 
@@ -1754,6 +1766,7 @@ URL格式： <站点URL>/capi/cp.php?ac=event&title=一起去华润超市shoppin
 * verify： 参加活动是否需要审批 取值0或1
 * allowfellow： 允许参加者携带朋友，携带朋友数会占用活动参与者名额 取值0或1
 * template：报名信息
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"credit":0,"experience":0},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1787,6 +1800,8 @@ URL格式： <站点URL>/capi/cp.php?ac=event&eventid=13&title=一起去百佳�
 * tagid：关联的商圈 商圈id
 * tags：标签
 * eventid: 活动id
+* come: 渠道来源 
+
 ###注意
 修改其实和提交一样，只是多传了一个eventid
 
@@ -1882,6 +1897,7 @@ URL格式： <站点URL>/capi/cp.php?ac=reblog&blogid=1&makefeed=1&uid=XXX&usern
 * uid:操作的用户id
 * username:操作的用户名
 * makefeed:产生feed 1产生，0不产生
+* come: 渠道来源 
 
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"\u592e\u884c\u65b0\u89c4\u6548\u679c\u663e\u73b0 \u94f6\u884c\u538b\u529b\u9661\u589e\u501f\u8d37\u96be\u4e0a\u52a0\u96be\uff08\u6d4b\u8bd5\uff09","classid":null,"cityid":"7","replynum":null,"lat":"23.1405830000","lng":"113.3455640000","checked":null,"friend":0,"password":"","noreply":0,"picflag":0,"pic":"attachment\/201201\/16\/1_1326679970Hk2I.jpg","topicid":0,"uid":"1","username":"aifaxian","dateline":"1326679970","blogid":29},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
@@ -1899,6 +1915,8 @@ URL格式： <站点URL>/capi/cp.php?ac=recoupons&couponsid=1&makefeed=1&uid=XXX
 * uid:操作的用户id
 * username:操作的用户名
 * makefeed: 产生feed,1产生，0不产生
+* come: 渠道来源 
+
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"\u592e\u884c\u65b0\u89c4\u6548\u679c\u663e\u73b0 \u94f6\u884c\u538b\u529b\u9661\u589e\u501f\u8d37\u96be\u4e0a\u52a0\u96be","oprice":"1200.00","bprice":"1000.00","obprice":"1.20","starttime":"1329395760","endtime":"1330518960","classid":null,"cityid":null,"replynum":"0","lat":"0.0000000000","lng":"0.0000000000","checked":null,"friend":1,"password":"","noreply":0,"picflag":0,"pic":"attachment\/201202\/15\/1_1329309440MJJ4.jpg","topicid":0,"uid":"4","username":"aifaxian","dateline":"1329309453","couponsid":10},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -1916,6 +1934,8 @@ URL格式： <站点URL>/capi/cp.php?ac=redisclose&discloseid=1&makefeed=1&discl
 * uid:操作的用户id
 * username:操作的用户名
 * makefeed: 产生feed,1产生，0不产生
+* come: 渠道来源 
+
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"subject":"23423423","classid":null,"replynum":"0","friend":0,"cityid":null,"lat":"23.140583000","lng":"113.345564000","checked":"0","password":"","noreply":0,"picflag":0,"pic":"","topicid":0,"uid":"4","username":"aifaxian","dateline":"1334847214","discloseid":6},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -1933,6 +1953,8 @@ URL格式： <站点URL>/capi/cp.php?ac=reevent&eventid=1&makefeed=1&eventsubmit
 * uid:操作的用户id
 * username:操作的用户名
 * makefeed: 产生feed,1产生，0不产生
+* come: 渠道来源 
+
 ### 设置成功返回JSON(样例）
 {"code":0,"data":{"eventid":"17","topicid":"0","uid":"4","username":"aifaxian","dateline":"1335027317","title":"\u6d4b\u8bd5\u53d1\u5e03\u5546\u54c1\uff0c\u8d27\u771f\uff0c\u4e0d\u6ee1\u610f\u53ef\u9000\u8d27","classid":"2","province":"\u4e0a\u6d77","city":"\u9ec4\u6d66","location":"\u4e3a\u5bf9\u65b9\u5c31\u770b\u770b\u4f60","poster":"","thumb":"0","remote":"0","deadline":"1330189200","starttime":"1330275600","endtime":"1330376400","public":"0","membernum":"1","follownum":"0","viewnum":"0","grade":"2","recommendtime":"0","tagid":"0","picnum":"0","threadnum":"0","cityid":"0","updatetime":"1335027317","lat":"0.0000000000","lng":"0.0000000000","recommendnum":"0","checked":"","replynum":"","detail":"\u8def\u7ebf\u8bf4\u660e:
 \u8d39\u7528\u8bf4\u660e:
@@ -1957,6 +1979,8 @@ URL格式： <站点URL>/capi/cp.php?ac=regoods&goodsid=1&makefeed=1&goodssubmit
 * uid:操作的用户id
 * username:操作的用户名
 * makefeed: 产生feed,1产生，0不产生
+* come: 渠道来源 
+
 ### 设置成功返回JSON(样例)
 {"code":0,"data":{"subject":"\u592e\u884c\u65b0\u89c4\u6548\u679c\u663e\u73b0 \u94f6\u884c\u538b\u529b\u9661\u589e\u501f\u8d37\u96be\u4e0a\u52a0\u96be","price":"0","classid":null,"replynum":"0","cityid":null,"lat":"0.0000000000","lng":"0.0000000000","checked":null,"friend":1,"password":"","noreply":0,"picflag":0,"pic":"attachment\/201202\/13\/1_1329139114Pv8p.jpg","topicid":0,"uid":"4","username":"aifaxian","dateline":"1329141778","goodsid":19},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
@@ -1974,6 +1998,8 @@ URL格式： <站点URL>/capi/ac=repoll&pid=1&makefeed=1&pollsubmit=true&uid=XXX
 * uid:操作的用户id
 * username:操作的用户名
 * makefeed: 产生feed,1产生，0不产生
+* come: 渠道来源 
+
 ### 设置成功返回JSON(样例)
 {"code":0,"data":{"pid":"11","notify":"0","message":"","summary":"","option":"","invite":"","hotuser":"4","fid":"","fuid":"1","fusername":"aifaxian","hot":"0","love":"","loveuser":"","repollnum":"1","topicid":"0","uid":"4","username":"aifaxian","subject":"123","voternum":"0","replynum":"0","multiple":"0","maxchoice":"1","sex":"0","noreply":"0","credit":"0","percredit":"0","expiration":"1335542399","lastvote":"0","dateline":"1335028727","friend":"0","cityid":null,"lat":null,"lng":null,"checked":"0"},"msg":"\u8fdb\u884c\u7684\u64cd\u4f5c\u5b8c\u6210\u4e86","action":"do_success"}
 ### 返回字段
