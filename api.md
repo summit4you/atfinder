@@ -99,6 +99,7 @@ root url: http://api.atfaxian.com:81/
 	*   [删除投票](#cqtp)
 	*	[找回密码（获取验证码）](#zhmm1)
 	*	[不可取消订阅标签列表](#bkqxdy)
+
 详情
 --
 <h2 id="dtlb">动态列表</h2>
