@@ -8,7 +8,7 @@ root url: http://api.atfaxian.com:81/
 索引
 --
 * 下行接口
-    *   [动态列表(全部，好友，附近)](#dtlb)
+    *   [动态列表(全部，好友，附近，热度)](#dtlb)
     *   [标签列表](#bqlb)
     *   [商家列表](#sjlb)
     *   [推荐商品列表](#tjsplb)
@@ -31,6 +31,7 @@ root url: http://api.atfaxian.com:81/
     *   [搜索](#ss)
     *   [账户绑定信息](#zhbd)
     *   [广告接口](#gz)
+    *   [最新版本信息](#bbxx)
 + wap专用接口
     - [推荐列表](#tjlb)
     - [推荐用户](#tjyh)
@@ -101,7 +102,7 @@ root url: http://api.atfaxian.com:81/
 详情
 --
 <h2 id="dtlb">动态列表</h2>
-动态列表，分全部、好友、附近
+动态列表，分全部、好友、附近，热度
  
 ### 全部动态
 
@@ -110,7 +111,7 @@ root url: http://api.atfaxian.com:81/
 +请注意，uid必传+
 
 * uid
-* classid=0
+* classid=0,1,2,3 （对应全部、好友、附近、热度）
 * page 默认为1
 * count 默认为10
 
@@ -216,7 +217,7 @@ root url: http://api.atfaxian.com:81/
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
 ### 请求参数
-/businesslist?distance=100&lat=23&lng=113&page=1&count=10&cityid=3
+/businesslist?distance=100&lat=23&lng=113&page=1&count=10&cityid=3&sort=distance
 
 * lat
 * lng
@@ -226,6 +227,7 @@ root url: http://api.atfaxian.com:81/
 * page
 * count
 * cityid
+* sort (distance, hot 默认为distance，排序方式，sort=hot为热度排序)
 
 ### 返回字段
 * avatar_err_path
@@ -253,7 +255,7 @@ root url: http://api.atfaxian.com:81/
 按照地理距离进行排序，获取用户GPS信息，用户选择距离范围，大分类、小分类
 
 ### 请求参数
-/goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=13&cityid=3
+/goodslist?distance=1&lat=23&lng=113&tagid=0&page=1&count=10&uid=13&cityid=3&sort=distance
 
 * uid （务必传uid）
 * lat
@@ -264,6 +266,7 @@ root url: http://api.atfaxian.com:81/
 * page
 * count
 * cityid
+* sort (distance, hot 默认为distance，排序方式，sort=hot为热度排序)
 
 ### 返回字段
 * code
@@ -779,7 +782,7 @@ root url: http://api.atfaxian.com:81/
 * imageurl 完整链接地址
 
 #### json example
-`
+```
 {
 code: 0,
 ad: {
@@ -799,7 +802,39 @@ displayorder: 1
 }
 }
 
-`
+```
+<h2 id="bbxx">最新版本信息</h2>
+获取最新版本信息
+
+### 请求参数
+/latestversion
+
+### 返回字段
+* code 
+* data
+ + iphonever
+ + iphonedownurl 
+ + iphoneeditmessage
+ + androidver
+ + androiddownurl
+ + androideditmessage
+
+
+#### JSON 范例
+```
+{
+    "code": 0,
+    "data": {
+        "androiddownurl": "",
+        "iphonever": "",
+        "androidver": "",
+        "iphonedownurl": "",
+        "androideditmessage": "",
+        "iphoneeditmessage": ""
+    }
+}
+```
+
 ***
 
 <h2 id='tjlb'>推荐列表</h2>
