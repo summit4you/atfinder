@@ -137,10 +137,10 @@ root url: http://api.atfaxian.com:81/
     * message ( 内容)
     * title (忽略此字段)
     * dateline ( 发表时间)
-    * hot ( 温度)
     * lng
     * lat
     * hot (热度)
+    * come (来源，)
     * replynum （回复次数）
     * reblognum (转载次数)
     * love (喜欢、收藏次数, 红心数量)
