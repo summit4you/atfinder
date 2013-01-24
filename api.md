@@ -98,7 +98,7 @@ root url: http://api.atfaxian.com:81/
 	*	[投票](#tp)
 	*   [删除投票](#cqtp)
 	*	[找回密码（获取验证码）](#zhmm1)
-
+	*	[不可取消订阅标签列表](#bkqxdy)
 详情
 --
 <h2 id="dtlb">动态列表</h2>
@@ -2387,3 +2387,33 @@ URL格式：<站点URL>/capi/do.php?ac=lostpasswd&resetsubmit=true&uid=3&newpass
     
 ### 返回字段
 (同列表返回字段)
+
+<h2 id="bkqxdy">不可取消订阅标签列表</h2>
+URL格式：<站点URL>/capi/space.php?do=setting&fieldid=3&op=querytags
+### 请求参数
+* do:setting
+* fieldid：3代表广州, 4东莞, 6佛山, 5肇庆, 7潮州， 9茂名, 11揭阳
+* op: querytags
+
+### 获取返回JSON(样例）
+{
+    "code": 0,
+    "data": [
+        {
+            "tagid": "72",
+            "tagname": "湘菜"
+        },
+        {
+            "tagid": "73",
+            "tagname": "川菜"
+        }
+    ],
+    "msg": "进行的操作完成了",
+    "action": "do_success"
+}
+### 返回字段
+* code: 0，成功；1，失败
+* data: 
+	* tagid: 标签id
+	* tagname: 标签名
+
