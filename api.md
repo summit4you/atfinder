@@ -140,7 +140,7 @@ root url: http://api.atfaxian.com:81/
     * lng
     * lat
     * hot (热度)
-    * come (来源，)
+    * come (来源，如“android 2.3”)
     * replynum （回复次数）
     * reblognum (转载次数)
     * love (喜欢、收藏次数, 红心数量)
@@ -285,6 +285,7 @@ root url: http://api.atfaxian.com:81/
     - loveruser
     - isloved （是否已经喜欢、收藏）
     - hot ( 温度)
+    - come (来源，如“android 2.3”)
     - reblognum ( 转发数量)
     - replynum ( 评价数量)
     - fuid
@@ -413,6 +414,7 @@ root url: http://api.atfaxian.com:81/
     - subject
     - message
     - hot
+    - come (来源，如“android 2.3”)
     - hotuser
     - color
     - imgs
